@@ -21,8 +21,8 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 
 public class EnkaNetworkAPI {
-    public static final String BASE_UI_URL = "https://enka.network/ui/";
-    public static final String BASE_URL = "https://enka.network/api";
+    private static final String BASE_UI_URL = "https://enka.network/ui/";
+    private static final String BASE_URL = "https://enka.network/api";
 
     private final OkHttpClient httpClient;
     private final Gson gson;

@@ -1,0 +1,482 @@
+{
+  "210001": {
+    "icon": "UI_NameCardPic_0_P"
+  },
+  "210002": {
+    "icon": "UI_NameCardPic_Bp1_P"
+  },
+  "210003": {
+    "icon": "UI_NameCardPic_Ambor_P"
+  },
+  "210004": {
+    "icon": "UI_NameCardPic_Klee_P"
+  },
+  "210005": {
+    "icon": "UI_NameCardPic_Diluc_P"
+  },
+  "210006": {
+    "icon": "UI_NameCardPic_Razor_P"
+  },
+  "210007": {
+    "icon": "UI_NameCardPic_Venti_P"
+  },
+  "210008": {
+    "icon": "UI_NameCardPic_Qin_P"
+  },
+  "210009": {
+    "icon": "UI_NameCardPic_Barbara_P"
+  },
+  "210010": {
+    "icon": "UI_NameCardPic_Kaeya_P"
+  },
+  "210011": {
+    "icon": "UI_NameCardPic_Lisa_P"
+  },
+  "210012": {
+    "icon": "UI_NameCardPic_Sucrose_P"
+  },
+  "210013": {
+    "icon": "UI_NameCardPic_Fischl_P"
+  },
+  "210014": {
+    "icon": "UI_NameCardPic_Noel_P"
+  },
+  "210015": {
+    "icon": "UI_NameCardPic_Mona_P"
+  },
+  "210016": {
+    "icon": "UI_NameCardPic_Bennett_P"
+  },
+  "210017": {
+    "icon": "UI_NameCardPic_Xiangling_P"
+  },
+  "210018": {
+    "icon": "UI_NameCardPic_Xingqiu_P"
+  },
+  "210019": {
+    "icon": "UI_NameCardPic_Qiqi_P"
+  },
+  "210020": {
+    "icon": "UI_NameCardPic_Keqing_P"
+  },
+  "210021": {
+    "icon": "UI_NameCardPic_Csxy1_P"
+  },
+  "210022": {
+    "icon": "UI_NameCardPic_Mxsy_P"
+  },
+  "210023": {
+    "icon": "UI_NameCardPic_Yxzl_P"
+  },
+  "210024": {
+    "icon": "UI_NameCardPic_Md_P"
+  },
+  "210025": {
+    "icon": "UI_NameCardPic_Ly_P"
+  },
+  "210026": {
+    "icon": "UI_NameCardPic_Yszj_P"
+  },
+  "210027": {
+    "icon": "UI_NameCardPic_Sss_P"
+  },
+  "210028": {
+    "icon": "UI_NameCardPic_Tzz1_P"
+  },
+  "210029": {
+    "icon": "UI_NameCardPic_Sj1_P"
+  },
+  "210030": {
+    "icon": "UI_NameCardPic_Olah1_P"
+  },
+  "210031": {
+    "icon": "UI_NameCardPic_Zdg1_P"
+  },
+  "210032": {
+    "icon": "UI_NameCardPic_Lyws1_P"
+  },
+  "210033": {
+    "icon": "UI_NameCardPic_Ysxf1_P"
+  },
+  "210038": {
+    "icon": "UI_NameCardPic_Ningguang_P"
+  },
+  "210039": {
+    "icon": "UI_NameCardPic_Beidou_P"
+  },
+  "210040": {
+    "icon": "UI_NameCardPic_Chongyun_P"
+  },
+  "210041": {
+    "icon": "UI_NameCardPic_Tzz2_P"
+  },
+  "210042": {
+    "icon": "UI_NameCardPic_Bp2_P"
+  },
+  "210043": {
+    "icon": "UI_NameCardPic_Diona_P"
+  },
+  "210044": {
+    "icon": "UI_NameCardPic_Zhongli_P"
+  },
+  "210045": {
+    "icon": "UI_NameCardPic_Xinyan_P"
+  },
+  "210046": {
+    "icon": "UI_NameCardPic_Tartaglia_P"
+  },
+  "210047": {
+    "icon": "UI_NameCardPic_Md2_P"
+  },
+  "210048": {
+    "icon": "UI_NameCardPic_Md1_P"
+  },
+  "210049": {
+    "icon": "UI_NameCardPic_Ly1_P"
+  },
+  "210050": {
+    "icon": "UI_NameCardPic_Ly2_P"
+  },
+  "210051": {
+    "icon": "UI_NameCardPic_Tzz3_P"
+  },
+  "210052": {
+    "icon": "UI_NameCardPic_Xssdlk_P"
+  },
+  "210053": {
+    "icon": "UI_NameCardPic_Ganyu_P"
+  },
+  "210054": {
+    "icon": "UI_NameCardPic_Albedo_P"
+  },
+  "210055": {
+    "icon": "UI_NameCardPic_Bp3_P"
+  },
+  "210056": {
+    "icon": "UI_NameCardPic_ElderTree_P"
+  },
+  "210057": {
+    "icon": "UI_NameCardPic_EffigyChallenge_P"
+  },
+  "210058": {
+    "icon": "UI_NameCardPic_Xiao_P"
+  },
+  "210059": {
+    "icon": "UI_NameCardPic_Hutao_P"
+  },
+  "210060": {
+    "icon": "UI_NameCardPic_Bp4_P"
+  },
+  "210061": {
+    "icon": "UI_NameCardPic_LanternRite_P"
+  },
+  "210062": {
+    "icon": "UI_NameCardPic_TheatreMechanicus_P"
+  },
+  "210063": {
+    "icon": "UI_NameCardPic_Rosaria_P"
+  },
+  "210064": {
+    "icon": "UI_NameCardPic_Bp5_P"
+  },
+  "210065": {
+    "icon": "UI_NameCardPic_RedandWhite_P"
+  },
+  "210066": {
+    "icon": "UI_NameCardPic_Razer_P"
+  },
+  "210067": {
+    "icon": "UI_NameCardPic_ChannellerSlab_P"
+  },
+  "210068": {
+    "icon": "UI_NameCardPic_HideandSeek_P"
+  },
+  "210069": {
+    "icon": "UI_NameCardPic_Feiyan_P"
+  },
+  "210070": {
+    "icon": "UI_NameCardPic_Eula_P"
+  },
+  "210071": {
+    "icon": "UI_NameCardPic_Bp6_P"
+  },
+  "210072": {
+    "icon": "UI_NameCardPic_Homeworld_P"
+  },
+  "210073": {
+    "icon": "UI_NameCardPic_Kazuha_P"
+  },
+  "210074": {
+    "icon": "UI_NameCardPic_Bp7_P"
+  },
+  "210075": {
+    "icon": "UI_NameCardPic_Homeworld1_P"
+  },
+  "210076": {
+    "icon": "UI_NameCardPic_Google_P"
+  },
+  "210077": {
+    "icon": "UI_NameCardPic_BounceConjuringChallenge_P"
+  },
+  "210078": {
+    "icon": "UI_NameCardPic_EffigyChallenge02_P"
+  },
+  "210079": {
+    "icon": "UI_NameCardPic_Oraionokami_P"
+  },
+  "210080": {
+    "icon": "UI_NameCardPic_Bp8_P"
+  },
+  "210081": {
+    "icon": "UI_NameCardPic_Ayaka_P"
+  },
+  "210082": {
+    "icon": "UI_NameCardPic_Yoimiya_P"
+  },
+  "210083": {
+    "icon": "UI_NameCardPic_Sayu_P"
+  },
+  "210084": {
+    "icon": "UI_NameCardPic_Dq1_P"
+  },
+  "210085": {
+    "icon": "UI_NameCardPic_Dq2_P"
+  },
+  "210086": {
+    "icon": "UI_NameCardPic_Ysxf2_P"
+  },
+  "210087": {
+    "icon": "UI_NameCardPic_Csxy2_P"
+  },
+  "210088": {
+    "icon": "UI_NameCardPic_Tzz4_P"
+  },
+  "210089": {
+    "icon": "UI_NameCardPic_Homeworld2_P"
+  },
+  "210090": {
+    "icon": "UI_NameCardPic_Daoqi1_P"
+  },
+  "210091": {
+    "icon": "UI_NameCardPic_TheatreMechanicus2_P"
+  },
+  "210092": {
+    "icon": "UI_NameCardPic_Shougun_P"
+  },
+  "210093": {
+    "icon": "UI_NameCardPic_Kokomi_P"
+  },
+  "210094": {
+    "icon": "UI_NameCardPic_Sara_P"
+  },
+  "210095": {
+    "icon": "UI_NameCardPic_Aloy_P"
+  },
+  "210096": {
+    "icon": "UI_NameCardPic_Bp9_P"
+  },
+  "210097": {
+    "icon": "UI_NameCardPic_Daoqi2_P"
+  },
+  "210098": {
+    "icon": "UI_NameCardPic_Fishing_P"
+  },
+  "210099": {
+    "icon": "UI_NameCardPic_Concert_P"
+  },
+  "210100": {
+    "icon": "UI_NameCardPic_Sumo_P"
+  },
+  "210101": {
+    "icon": "UI_NameCardPic_Tohma_P"
+  },
+  "210102": {
+    "icon": "UI_NameCardPic_Bp10_P"
+  },
+  "210103": {
+    "icon": "UI_NameCardPic_Daoqi3_P"
+  },
+  "210104": {
+    "icon": "UI_NameCardPic_Gorou_P"
+  },
+  "210105": {
+    "icon": "UI_NameCardPic_Itto_P"
+  },
+  "210106": {
+    "icon": "UI_NameCardPic_Bp11_P"
+  },
+  "210107": {
+    "icon": "UI_NameCardPic_Shenhe_P"
+  },
+  "210108": {
+    "icon": "UI_NameCardPic_Yunjin_P"
+  },
+  "210109": {
+    "icon": "UI_NameCardPic_Daoqi4_P"
+  },
+  "210110": {
+    "icon": "UI_NameCardPic_Bp12_P"
+  },
+  "210111": {
+    "icon": "UI_NameCardPic_Bartender_P"
+  },
+  "210112": {
+    "icon": "UI_NameCardPic_Yae1_P"
+  },
+  "210113": {
+    "icon": "UI_NameCardPic_Bp13_P"
+  },
+  "210114": {
+    "icon": "UI_NameCardPic_Ayato_P"
+  },
+  "210115": {
+    "icon": "UI_NameCardPic_LuminanceStone_P"
+  },
+  "210116": {
+    "icon": "UI_NameCardPic_Tzz5_P"
+  },
+  "210117": {
+    "icon": "UI_NameCardPic_Cenyan1_P"
+  },
+  "210118": {
+    "icon": "UI_NameCardPic_Bp14_P"
+  },
+  "210119": {
+    "icon": "UI_NameCardPic_Yelan_P"
+  },
+  "210120": {
+    "icon": "UI_NameCardPic_Shinobu_P"
+  },
+  "210121": {
+    "icon": "UI_NameCardPic_Bp15_P"
+  },
+  "210122": {
+    "icon": "UI_NameCardPic_Heizo_P"
+  },
+  "210123": {
+    "icon": "UI_NameCardPic_Bp16_P"
+  },
+  "210124": {
+    "icon": "UI_NameCardPic_Tighnari_P"
+  },
+  "210125": {
+    "icon": "UI_NameCardPic_Collei_P"
+  },
+  "210126": {
+    "icon": "UI_NameCardPic_Dori_P"
+  },
+  "210127": {
+    "icon": "UI_NameCardPic_Bp17_P"
+  },
+  "210128": {
+    "icon": "UI_NameCardPic_Csxy3_P"
+  },
+  "210129": {
+    "icon": "UI_NameCardPic_Ysxf3_P"
+  },
+  "210130": {
+    "icon": "UI_NameCardPic_Xm1_P"
+  },
+  "210131": {
+    "icon": "UI_NameCardPic_Xumi1_P"
+  },
+  "210132": {
+    "icon": "UI_NameCardPic_Xumi2_P"
+  },
+  "210133": {
+    "icon": "UI_NameCardPic_Bp18_P"
+  },
+  "210134": {
+    "icon": "UI_NameCardPic_Cyno_P"
+  },
+  "210135": {
+    "icon": "UI_NameCardPic_Candace_P"
+  },
+  "210136": {
+    "icon": "UI_NameCardPic_Nilou_P"
+  },
+  "210137": {
+    "icon": "UI_NameCardPic_Yszj2_P"
+  },
+  "210138": {
+    "icon": "UI_NameCardPic_Xm2_P"
+  },
+  "210139": {
+    "icon": "UI_NameCardPic_Tzz6_P"
+  },
+  "210140": {
+    "icon": "UI_NameCardPic_Nahida_P"
+  },
+  "210141": {
+    "icon": "UI_NameCardPic_Layla_P"
+  },
+  "210142": {
+    "icon": "UI_NameCardPic_Bp19_P"
+  },
+  "210143": {
+    "icon": "UI_NameCardPic_Wanderer_P"
+  },
+  "210144": {
+    "icon": "UI_NameCardPic_Faruzan_P"
+  },
+  "210145": {
+    "icon": "UI_NameCardPic_Gcg1_P"
+  },
+  "210146": {
+    "icon": "UI_NameCardPic_Bp20_P"
+  },
+  "210147": {
+    "icon": "UI_NameCardPic_Alhatham_P"
+  },
+  "210148": {
+    "icon": "UI_NameCardPic_Yaoyao_P"
+  },
+  "210149": {
+    "icon": "UI_NameCardPic_Cadillac_P"
+  },
+  "210150": {
+    "icon": "UI_NameCardPic_Bp21_P"
+  },
+  "210151": {
+    "icon": "UI_NameCardPic_Xm3_P"
+  },
+  "210152": {
+    "icon": "UI_NameCardPic_Dehya_P"
+  },
+  "210153": {
+    "icon": "UI_NameCardPic_Mika_P"
+  },
+  "210154": {
+    "icon": "UI_NameCardPic_Bp22_P"
+  },
+  "210155": {
+    "icon": "UI_NameCardPic_Baizhuer_P"
+  },
+  "210156": {
+    "icon": "UI_NameCardPic_Kaveh_P"
+  },
+  "210157": {
+    "icon": "UI_NameCardPic_Xm4_P"
+  },
+  "210158": {
+    "icon": "UI_NameCardPic_Tzz7_P"
+  },
+  "210159": {
+    "icon": "UI_NameCardPic_Vasara_P"
+  },
+  "210160": {
+    "icon": "UI_NameCardPic_OfferingPari_P"
+  },
+  "210161": {
+    "icon": "UI_NameCardPic_Bp23_P"
+  },
+  "210162": {
+    "icon": "UI_NameCardPic_Kirara_P"
+  },
+  "210163": {
+    "icon": "UI_NameCardPic_Bp24_P"
+  },
+  "210164": {
+    "icon": "UI_NameCardPic_Bp25_P"
+  }
+}

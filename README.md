@@ -6,8 +6,8 @@ This is an API wrapper for https://enka.network in Java.
 ## Table of Contents
 - [Requirements](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#requirements)
 - [Installation](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#installation)
-- [Base Usage](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#installation)
-- [EnkaNetworkAPI class methods](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#installation)
+- [Base Usage](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#base-usage)
+- [EnkaNetworkAPI class methods](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#class-methods-for-enkanetworkapi)
 - [Retrieving user data](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#retrieving-user-data)
 - [Some last words](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#last-words)
 

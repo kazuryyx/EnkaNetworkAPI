@@ -4,12 +4,12 @@ This is an API wrapper for https://enka.network in Java.
 <br> Currently, we only have the option to use this API for JS, TS, PY hence why I made this :)
 
 ## Table of Contents
-- Requirements
-- Installation
-- Base Usage
-- EnkaNetworkAPI class methods
-- Retrieving user data
-- Some last words
+- [Requirements](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#requirements)
+- [Installation](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#installation)
+- [Base Usage](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#base-usage)
+- [EnkaNetworkAPI class methods](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#class-methods-for-enkanetworkapi)
+- [Retrieving user data](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#retrieving-user-data)
+- [Some last words](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#last-words)
 
 ## Requirements
 The API was written in Java 17, therefore you need [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).

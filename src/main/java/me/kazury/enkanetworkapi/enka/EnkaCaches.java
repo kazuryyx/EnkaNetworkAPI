@@ -18,7 +18,9 @@ public class EnkaCaches {
     private static final Map<String, Map<String, String>> localeCache = new HashMap<>();
 
     static {
-        try (InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("namecards.json")){
+        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+
+        try (InputStream in = classLoader.getResourceAsStream("namecards.json")){
             final ObjectMapper mapper = new ObjectMapper();
             final JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
 
@@ -33,7 +35,7 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        try (InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("characters.json")) {
+        try (InputStream in = classLoader.getResourceAsStream("characters.json")) {
             final ObjectMapper mapper = new ObjectMapper();
             final JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
 
@@ -48,7 +50,7 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        try (InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("localization.json")) {
+        try (InputStream in = classLoader.getResourceAsStream("localization.json")) {
             final ObjectMapper mapper = new ObjectMapper();
             final JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
 

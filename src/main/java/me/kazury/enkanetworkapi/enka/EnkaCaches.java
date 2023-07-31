@@ -19,6 +19,14 @@ public class EnkaCaches {
     private final Map<String, Map<String, String>> localeCache = new HashMap<>();
 
     public EnkaCaches() {
+        this.loadCaches();
+        
+        System.out.println("Loaded " + namecardCache.size() + " namecards.");
+        System.out.println("Loaded " + characterCache.size() + " characters.");
+        System.out.println("Loaded " + localeCache.size() + " locales. (with " + localeCache.values().stream().mapToInt(Map::size).sum() + " entries)");
+    }
+
+    private void loadCaches() {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         try (InputStream in = classLoader.getResourceAsStream("namecards.json")){
@@ -72,10 +80,6 @@ public class EnkaCaches {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
-        System.out.println("Loaded " + namecardCache.size() + " namecards.");
-        System.out.println("Loaded " + characterCache.size() + " characters.");
-        System.out.println("Loaded " + localeCache.size() + " locales. (with " + localeCache.values().stream().mapToInt(Map::size).sum() + " entries)");
     }
 
     public boolean hasNamecard(final int id) {

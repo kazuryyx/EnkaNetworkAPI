@@ -3,18 +3,15 @@ package me.kazury.enkanetworkapi.genshin.data;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import me.kazury.enkanetworkapi.enka.EnkaCaches;
-import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFoundException;
-import org.jetbrains.annotations.Nullable;
+import me.kazury.enkanetworkapi.genshin.util.INameableObject;
 
 import java.util.List;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class GenshinWeapon {
+public class GenshinWeapon implements INameableObject {
     /**
      * Represents a localization key for the weapon name.
      */
@@ -45,26 +42,9 @@ public class GenshinWeapon {
      */
     private final List<WeaponStat> stats;
 
-    /**
-     * Returns the name of this weapon given by the specified locale.
-     * @param locale The locale to get the name from. If {@code null}, then the default locale will be used.
-     * @return The name of the weapon.
-     * @throws NoLocalizationFoundException If the specified locale is {@code null} and the default locale is {@code null}.
-     */
-    @Nullable
-    public String getWeaponName(@Nullable GenshinLocalization locale) {
-        locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getLocale(locale, this.nameTextMapHash);
-    }
-
-    /**
-     * Returns the name of this weapon given by the default locale.
-     *
-     * @return The name of the weapon with the default locale.
-     * @throws NoLocalizationFoundException If the default locale is {@code null}.
-     */
-    public String getWeaponName() {
-        return this.getWeaponName(null);
+    @Override
+    public String getNameTextMapHash() {
+        return this.nameTextMapHash;
     }
 
     @Getter

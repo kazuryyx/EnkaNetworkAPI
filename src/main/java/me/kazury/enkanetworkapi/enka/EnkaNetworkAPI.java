@@ -21,19 +21,17 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 
 public class EnkaNetworkAPI {
-    private static final String BASE_UI_URL = "https://enka.network/ui/";
     private static final String BASE_URL = "https://enka.network/api";
+    public static final String BASE_UI_URL = "https://enka.network/ui/";
 
     private final OkHttpClient httpClient;
     private final Gson gson;
-    private final EnkaCaches cache;
     private final Map<Long, CachedData<EnkaUserInformation>> userCache;
 
     private String userAgent = "Java-EnkaAPI/1.0.0";
 
     public EnkaNetworkAPI() {
         this.httpClient = new OkHttpClient();
-        this.cache = new EnkaCaches();
         this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.userCache = new ConcurrentHashMap<>();
     }
@@ -73,8 +71,8 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinNamecard getNamecard(final int id) {
-        if (!this.cache.hasNamecard(id)) return null;
-        return new GenshinNamecard(id, this.getIcon(this.cache.getNamecardName(id)));
+        if (!EnkaCaches.hasNamecard(id)) return null;
+        return new GenshinNamecard(id, this.getIcon(EnkaCaches.getNamecardName(id)));
     }
 
     /**
@@ -84,8 +82,8 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinCharacter getCharacterData(@NotNull String id) {
-        if (!this.cache.hasCharacter(id)) return null;
-        return this.cache.getCharacterData(id);
+        if (!EnkaCaches.hasCharacter(id)) return null;
+        return EnkaCaches.getCharacterData(id);
     }
 
     /**
@@ -97,13 +95,12 @@ public class EnkaNetworkAPI {
      *
      * @param character The character to get the total amount of set artifacts from.
      * @return A map of artifacts this character has.
-     * @throws NoLocalizationFoundException If the localization was not set using {@link #setDefaultLocalization(GenshinLocalization)}
      */
     @NotNull
     public Map<String, Integer> getArtifactTotal(@NotNull GenshinUserCharacter character) {
         final Map<String, Integer> artifacts = new HashMap<>();
         for (GenshinArtifact artifact : character.getArtifacts()) {
-            artifacts.put(artifact.getArtifactName(), artifacts.getOrDefault(artifact.getArtifactName(), 0) + 1);
+            artifacts.put(artifact.getName(), artifacts.getOrDefault(artifact.getName(), 0) + 1);
         }
         return artifacts;
     }

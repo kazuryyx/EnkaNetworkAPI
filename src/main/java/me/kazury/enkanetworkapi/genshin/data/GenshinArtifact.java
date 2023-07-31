@@ -3,17 +3,14 @@ package me.kazury.enkanetworkapi.genshin.data;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import me.kazury.enkanetworkapi.enka.EnkaCaches;
-import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFoundException;
-import org.jetbrains.annotations.Nullable;
+import me.kazury.enkanetworkapi.genshin.util.INameableObject;
 
 import java.util.List;
 
 @Builder
 @Getter
-public class GenshinArtifact {
+public class GenshinArtifact implements INameableObject {
     /**
      * Represents the type of this artifact, this is either a flower, feather, sands, goblet, or a circlet.
      *
@@ -46,26 +43,9 @@ public class GenshinArtifact {
      */
     private String icon;
 
-    /**
-     * Returns the name of this artifact given by the specified locale.
-     * @param locale The locale to get the name from. If {@code null}, then the default locale will be used.
-     * @return The name of the artifact.
-     * @throws NoLocalizationFoundException If the specified locale is {@code null} and the default locale is {@code null}.
-     */
-    @Nullable
-    public String getArtifactName(@Nullable GenshinLocalization locale) {
-        locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getLocale(locale, this.setNameTextMapHash);
-    }
-
-    /**
-     * Returns the name of this artifact given by the default locale.
-     *
-     * @return The name of the artifact with the default locale.
-     * @throws NoLocalizationFoundException If the default locale is {@code null}.
-     */
-    public String getArtifactName() {
-        return this.getArtifactName(null);
+    @Override
+    public String getNameTextMapHash() {
+        return this.setNameTextMapHash;
     }
 
     @Getter

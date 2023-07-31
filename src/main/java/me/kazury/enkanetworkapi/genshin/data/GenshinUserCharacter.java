@@ -54,8 +54,8 @@ public class GenshinUserCharacter {
      * @return The game data of this character, you can use this to get costume info, character name, and much more that this class does not provide.
      */
     @NotNull
-    public GenshinCharacter getGameData() {
-        final GenshinCharacter data = EnkaCaches.getCharacterData(String.valueOf(this.id));
+    public GenshinCharacter getGameData(final long id) {
+        final GenshinCharacter data = EnkaCaches.getCharacterData(String.valueOf(id));
         if (data == null) {
             throw new NullPointerException("Character data is null - This usually does not happen, unless the library is on an old version.");
         }

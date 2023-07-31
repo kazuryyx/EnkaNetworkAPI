@@ -3,11 +3,8 @@ package me.kazury.enkanetworkapi.genshin.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import me.kazury.enkanetworkapi.enka.EnkaCaches;
-import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFoundException;
-import org.jetbrains.annotations.Nullable;
+import me.kazury.enkanetworkapi.genshin.util.INameableObject;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +16,7 @@ import java.util.Map;
  */
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenshinCharacter {
+public class GenshinCharacter implements INameableObject {
     /**
      * The <a href="https://genshin-impact.fandom.com/wiki/Element">Element</a> of the character.
      */
@@ -64,25 +61,9 @@ public class GenshinCharacter {
 
     public GenshinCharacter() {}
 
-    /**
-     * Gets the name of the character given by a locale.
-     * @param locale The locale.
-     * @return The name of the character.
-     * @throws NoLocalizationFoundException If the locale is {@code null} and the default localization is {@code null}.
-     */
-    public String getName(@Nullable GenshinLocalization locale) {
-        locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getLocale(locale, this.nameTextMapHash);
-    }
-
-    /**
-     * Gets the name of the character given by the default locale.
-     * <br>This method will fail if {@link EnkaNetworkAPI#setDefaultLocalization(GenshinLocalization)} was not called.
-     * @return The name of the character.
-     * @throws NoLocalizationFoundException If the default locale is {@code null}.
-     */
-    public String getName() {
-        return this.getName(null);
+    @Override
+    public String getNameTextMapHash() {
+        return String.valueOf(this.nameTextMapHash);
     }
 
     @Getter

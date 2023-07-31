@@ -5,19 +5,19 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class EnkaGlobals {
-    private static GenshinLocalization DEFAULT_LOCALIZATION;
+    private static GenshinLocalization DEFAULT_LOCALIZATION = GenshinLocalization.ENGLISH;
 
     public static void setDefaultLocalization(@NotNull GenshinLocalization localization) {
         DEFAULT_LOCALIZATION = localization;
     }
 
-    @Nullable
+    @NotNull
     public static GenshinLocalization getDefaultLocalization() {
         return DEFAULT_LOCALIZATION;
     }
 
-    @Nullable
+    @NotNull
     public static GenshinLocalization parseLocalization(@Nullable GenshinLocalization localization) {
-        return localization == null ? getDefaultLocalization() : localization;
+        return getDefaultLocalization();
     }
 }

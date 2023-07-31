@@ -26,12 +26,14 @@ public class EnkaNetworkAPI {
 
     private final OkHttpClient httpClient;
     private final Gson gson;
+    private final EnkaCaches cache;
     private final Map<Long, CachedData<EnkaUserInformation>> userCache;
 
     private String userAgent = "Java-EnkaAPI/1.0.0";
 
     public EnkaNetworkAPI() {
         this.httpClient = new OkHttpClient();
+        this.cache = new EnkaCaches();
         this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.userCache = new ConcurrentHashMap<>();
     }
@@ -71,8 +73,8 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinNamecard getNamecard(final int id) {
-        if (!EnkaCaches.hasNamecard(id)) return null;
-        return new GenshinNamecard(id, this.getIcon(EnkaCaches.getNamecardName(id)));
+        if (!this.cache.hasNamecard(id)) return null;
+        return new GenshinNamecard(id, this.getIcon(this.cache.getNamecardName(id)));
     }
 
     /**
@@ -82,8 +84,8 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinCharacter getCharacterData(@NotNull String id) {
-        if (!EnkaCaches.hasCharacter(id)) return null;
-        return EnkaCaches.getCharacterData(id);
+        if (!this.cache.hasCharacter(id)) return null;
+        return this.cache.getCharacterData(id);
     }
 
     /**

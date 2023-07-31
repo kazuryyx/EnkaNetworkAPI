@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EnkaCaches {
-    private static final Map<Integer, String> namecardCache = new HashMap<>();
-    private static final Map<String, GenshinCharacter> characterCache = new HashMap<>();
-    private static final Map<String, Map<String, String>> localeCache = new HashMap<>();
+    private final Map<Integer, String> namecardCache = new HashMap<>();
+    private final Map<String, GenshinCharacter> characterCache = new HashMap<>();
+    private final Map<String, Map<String, String>> localeCache = new HashMap<>();
 
-    static {
+    public EnkaCaches() {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         try (InputStream in = classLoader.getResourceAsStream("namecards.json")){
@@ -30,7 +30,7 @@ public class EnkaCaches {
                 final JsonNode value = entry.getValue();
 
                 if (!value.has("icon")) return;
-                namecardCache.put(id, value.get("icon").asText());
+                this.namecardCache.put(id, value.get("icon").asText());
             });
         } catch (IOException exception){
             exception.printStackTrace();
@@ -45,7 +45,7 @@ public class EnkaCaches {
                 final JsonNode value = entry.getValue();
 
                 final GenshinCharacter character = mapper.convertValue(value, GenshinCharacter.class);
-                characterCache.put(key, character);
+                this.characterCache.put(key, character);
             });
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -67,7 +67,7 @@ public class EnkaCaches {
                     locale.put(localeKey, localeValue);
                 });
 
-                localeCache.put(key, locale);
+                this.localeCache.put(key, locale);
             });
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -78,32 +78,32 @@ public class EnkaCaches {
         System.out.println("Loaded " + localeCache.size() + " locales. (with " + localeCache.values().stream().mapToInt(Map::size).sum() + " entries)");
     }
 
-    public static boolean hasNamecard(final int id) {
+    public boolean hasNamecard(final int id) {
         return namecardCache.containsKey(id);
     }
 
-    public static boolean hasCharacter(@NotNull String id) {
+    public boolean hasCharacter(@NotNull String id) {
         return characterCache.containsKey(id);
     }
 
     @NotNull
-    public static String getLocale(@Nullable GenshinLocalization locale, @NotNull String id) {
+    public String getLocale(@Nullable GenshinLocalization locale, @NotNull String id) {
         if (locale == null) throw new NoLocalizationFoundException();
-        return localeCache.getOrDefault(locale.getCode(), new HashMap<>()).getOrDefault(id, "Translation not found for " + id + " in " + locale);
+        return this.localeCache.getOrDefault(locale.getCode(), new HashMap<>()).getOrDefault(id, "Translation not found for " + id + " in " + locale);
     }
 
     @NotNull
-    public static String getLocale(@Nullable GenshinLocalization locale, final long id) {
-        return getLocale(locale, String.valueOf(id));
+    public String getLocale(@Nullable GenshinLocalization locale, final long id) {
+        return this.getLocale(locale, String.valueOf(id));
     }
 
     @Nullable
-    public static GenshinCharacter getCharacterData(@NotNull String id) {
-        return characterCache.get(id);
+    public GenshinCharacter getCharacterData(@NotNull String id) {
+        return this.characterCache.get(id);
     }
 
     @NotNull
-    public static String getNamecardName(final int id) {
-        return namecardCache.getOrDefault(id, "UI_NameCardPic_0_P");
+    public String getNamecardName(final int id) {
+        return this.namecardCache.getOrDefault(id, "UI_NameCardPic_0_P");
     }
 }

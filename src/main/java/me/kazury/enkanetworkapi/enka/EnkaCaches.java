@@ -8,6 +8,7 @@ import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFoundException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class EnkaCaches {
                 if (!value.has("icon")) return;
                 namecardCache.put(id, value.get("icon").asText());
             });
-        } catch (Exception exception){
+        } catch (IOException exception){
             exception.printStackTrace();
         }
 
@@ -46,7 +47,7 @@ public class EnkaCaches {
                 final GenshinCharacter character = mapper.convertValue(value, GenshinCharacter.class);
                 characterCache.put(key, character);
             });
-        } catch (Exception exception) {
+        } catch (IOException exception) {
             exception.printStackTrace();
         }
 
@@ -68,7 +69,7 @@ public class EnkaCaches {
 
                 localeCache.put(key, locale);
             });
-        } catch (Exception exception) {
+        } catch (IOException exception) {
             exception.printStackTrace();
         }
 

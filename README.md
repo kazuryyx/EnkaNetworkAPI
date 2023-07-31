@@ -59,7 +59,6 @@ public class CreatedClass {
 }
 ```
 ### Adding a localization for default actions.
-Some actions will require you to have a default language selected, this can simply be done by calling ``setDefaultLocalization(GenshinLocalization)`` on the created API class.
 ```java
 public CreatedClass() {
     this.api = new EnkaNetworkAPI();

@@ -138,5 +138,5 @@ public CreatedClass() {
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.
-2. If you have any questions about the library you can find me on discord ``kazury`` or [here](https://discord.gg/kVGmErcE)
+2. If you have any questions about the library you can find me on discord ``kazuryy`` or [here](https://discord.gg/kVGmErcE)
 3. If there is anything you want me to add here, then please write me a message.

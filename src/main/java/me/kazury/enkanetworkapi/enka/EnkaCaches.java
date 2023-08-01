@@ -86,12 +86,12 @@ public class EnkaCaches {
 
     @Nullable
     public static GenshinCharacterData getCharacterData(@NotNull String id) {
-        return characterCache.get(id);
+        return characterCache.getOrDefault(id, null);
     }
 
     @NotNull
     public static String getLocale(@NotNull GenshinLocalization locale, @NotNull String id) {
-        return localeCache.getOrDefault(locale.getCode(), new HashMap<>()).getOrDefault(id, "Translation not found for " + id + " in " + locale);
+        return localeCache.getOrDefault(locale.getCode(), new HashMap<>()).getOrDefault(id, "No translation (" + id + ", " + locale + ")");
     }
 
     @NotNull

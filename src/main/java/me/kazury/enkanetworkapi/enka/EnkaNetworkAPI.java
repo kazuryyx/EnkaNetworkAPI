@@ -81,7 +81,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinCharacterData getCharacterData(@NotNull String id) {
-        return EnkaCaches.hasCharacter(id) ? EnkaCaches.getCharacterData(id) : null;
+        return EnkaCaches.getCharacterData(id);
     }
 
     /**
@@ -150,7 +150,7 @@ public class EnkaNetworkAPI {
                 .addHeader("User-Agent", this.userAgent)
                 .build();
 
-        httpClient.newCall(request).enqueue(FunctionalCallback.builder()
+        this.httpClient.newCall(request).enqueue(FunctionalCallback.builder()
                 .failure(($, exception) -> future.completeExceptionally(exception))
                 .success(($, response) -> {
             if (!response.isSuccessful()) {

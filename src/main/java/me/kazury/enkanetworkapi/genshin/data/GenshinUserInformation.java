@@ -185,10 +185,15 @@ public class GenshinUserInformation {
                             if (subProp == null) continue;
                             subStats.add(new GenshinArtifact.ArtifactStat(subProp.getId(), substat.getStatValue()));
                         }
+                        final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
+                        if (type == null) {
+                            System.out.println("Unhandled artifact type: " + flatData.getEquipType());
+                            continue;
+                        }
 
                         artifacts.add(GenshinArtifact.builder()
                                 .level(artifactData.getLevel() - 1)
-                                .type(EnkaParser.parseArtifact(flatData.getEquipType()))
+                                .type(type)
                                 .mainStats(new GenshinArtifact.ArtifactStat(appendProp.getId(), mainStat.getStatValue()))
                                 .subStats(subStats)
                                 .icon(flatData.getIcon())

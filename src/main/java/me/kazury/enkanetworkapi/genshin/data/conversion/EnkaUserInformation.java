@@ -1,7 +1,8 @@
-package me.kazury.enkanetworkapi.genshin.util;
+package me.kazury.enkanetworkapi.genshin.data.conversion;
 
 import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
+import me.kazury.enkanetworkapi.genshin.util.IExpiryTime;
 
 import java.util.List;
 import java.util.Map;

@@ -7,7 +7,7 @@ import lombok.Setter;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
-import me.kazury.enkanetworkapi.genshin.util.EnkaUserInformation;
+import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
 
 import org.jetbrains.annotations.NotNull;
 

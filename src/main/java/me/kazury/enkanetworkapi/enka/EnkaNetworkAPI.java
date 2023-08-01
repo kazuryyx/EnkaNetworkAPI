@@ -7,7 +7,7 @@ import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.exceptions.*;
 import me.kazury.enkanetworkapi.genshin.util.FunctionalCallback;
 import me.kazury.enkanetworkapi.genshin.util.CachedData;
-import me.kazury.enkanetworkapi.genshin.util.EnkaUserInformation;
+import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 
 import okhttp3.*;

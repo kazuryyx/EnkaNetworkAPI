@@ -18,6 +18,6 @@ public class EnkaGlobals {
 
     @NotNull
     public static GenshinLocalization parseLocalization(@Nullable GenshinLocalization localization) {
-        return getDefaultLocalization();
+        return localization == null ? getDefaultLocalization(): localization;
     }
 }

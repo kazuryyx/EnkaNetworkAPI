@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.util.INameableObject;
+import me.kazury.enkanetworkapi.genshin.util.INameable;
 
 import java.util.List;
 
 @Builder
 @Getter
-public class GenshinArtifact implements INameableObject {
+public class GenshinArtifact implements INameable {
     /**
      * Represents the type of this artifact, this is either a flower, feather, sands, goblet, or a circlet.
      *

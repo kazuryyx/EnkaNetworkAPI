@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.util.INameableObject;
+import me.kazury.enkanetworkapi.genshin.util.INameable;
 
 import java.util.List;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class GenshinWeapon implements INameableObject {
+public class GenshinWeapon implements INameable {
     /**
      * Represents a localization key for the weapon name.
      */

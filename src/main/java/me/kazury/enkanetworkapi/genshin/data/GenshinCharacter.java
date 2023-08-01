@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.util.INameableObject;
+import me.kazury.enkanetworkapi.genshin.util.INameable;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenshinCharacter implements INameableObject {
+public class GenshinCharacter implements INameable {
     /**
      * The <a href="https://genshin-impact.fandom.com/wiki/Element">Element</a> of the character.
      */

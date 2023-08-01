@@ -81,7 +81,7 @@ public class EnkaNetworkAPI {
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
      */
     @Nullable
-    public GenshinCharacter getCharacterData(@NotNull String id) {
+    public GenshinCharacterData getCharacterData(@NotNull String id) {
         if (!EnkaCaches.hasCharacter(id)) return null;
         return EnkaCaches.getCharacterData(id);
     }
@@ -130,7 +130,7 @@ public class EnkaNetworkAPI {
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
      */
     @Nullable
-    public GenshinCharacter getCharacterData(final long id) {
+    public GenshinCharacterData getCharacterData(final long id) {
         return this.getCharacterData(String.valueOf(id));
     }
 

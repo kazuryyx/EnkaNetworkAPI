@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class is different from {@link GenshinCharacter}
+ * This class is different from {@link GenshinCharacterData}
  * <br>This class is used to get the character data from the user.
- * <br>While {@link GenshinCharacter} is used to get the character data from the game.
+ * <br>While {@link GenshinCharacterData} is used to get the character data from the game.
  */
 @Builder
 @Getter
@@ -49,13 +49,13 @@ public class GenshinUserCharacter {
     private GenshinWeapon equippedWeapon;
 
     /**
-     * @see GenshinCharacter
+     * @see GenshinCharacterData
      * @throws NullPointerException if the library version is not the version of genshin.
      * @return The game data of this character, you can use this to get costume info, character name, and much more that this class does not provide.
      */
     @NotNull
-    public GenshinCharacter getGameData() {
-        final GenshinCharacter data = EnkaCaches.getCharacterData(String.valueOf(this.id));
+    public GenshinCharacterData getGameData() {
+        final GenshinCharacterData data = EnkaCaches.getCharacterData(String.valueOf(this.id));
         if (data == null) {
             throw new NullPointerException("Character data is null - This usually does not happen, unless the library is on an old version.");
         }

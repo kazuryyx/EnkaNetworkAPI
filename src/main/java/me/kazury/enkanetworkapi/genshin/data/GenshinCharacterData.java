@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenshinCharacter implements INameable {
+public class GenshinCharacterData implements INameable {
     /**
      * The <a href="https://genshin-impact.fandom.com/wiki/Element">Element</a> of the character.
      */
@@ -59,7 +59,7 @@ public class GenshinCharacter implements INameable {
     @JsonProperty("Costumes")
     private Map<Integer, Costume> costumes;
 
-    public GenshinCharacter() {}
+    public GenshinCharacterData() {}
 
     @Override
     public String getNameTextMapHash() {

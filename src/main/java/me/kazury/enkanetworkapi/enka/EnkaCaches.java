@@ -2,7 +2,7 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.kazury.enkanetworkapi.genshin.data.GenshinCharacter;
+import me.kazury.enkanetworkapi.genshin.data.GenshinCharacterData;
 import me.kazury.enkanetworkapi.genshin.data.GenshinLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
-    private static final Map<String, GenshinCharacter> characterCache = new HashMap<>();
+    private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
     private static final Map<String, Map<String, String>> localeCache = new HashMap<>();
 
     static {
@@ -44,7 +44,7 @@ public class EnkaCaches {
                 final String key = entry.getKey();
                 final JsonNode value = entry.getValue();
 
-                final GenshinCharacter character = mapper.convertValue(value, GenshinCharacter.class);
+                final GenshinCharacterData character = mapper.convertValue(value, GenshinCharacterData.class);
                 characterCache.put(key, character);
             });
         } catch (IOException exception) {
@@ -85,7 +85,7 @@ public class EnkaCaches {
     }
 
     @Nullable
-    public static GenshinCharacter getCharacterData(@NotNull String id) {
+    public static GenshinCharacterData getCharacterData(@NotNull String id) {
         return characterCache.get(id);
     }
 

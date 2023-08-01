@@ -71,8 +71,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinNamecard getNamecard(final int id) {
-        if (!EnkaCaches.hasNamecard(id)) return null;
-        return new GenshinNamecard(id, this.getIcon(EnkaCaches.getNamecardName(id)));
+        return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getIcon(EnkaCaches.getNamecardName(id))) : null;
     }
 
     /**
@@ -82,8 +81,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinCharacterData getCharacterData(@NotNull String id) {
-        if (!EnkaCaches.hasCharacter(id)) return null;
-        return EnkaCaches.getCharacterData(id);
+        return EnkaCaches.hasCharacter(id) ? EnkaCaches.getCharacterData(id) : null;
     }
 
     /**

@@ -10,6 +10,7 @@ import me.kazury.enkanetworkapi.genshin.util.CachedData;
 import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 
+import me.kazury.enkanetworkapi.genshin.util.INameable;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -87,10 +88,6 @@ public class EnkaNetworkAPI {
     /**
      * Returns the total amount of set artifacts this character has.
      *
-     * <br><b>Requirements:</b>
-     * <br>
-     * This method requires you to set the default localization.
-     *
      * @param character The character to get the total amount of set artifacts from.
      * @return A map of artifacts this character has.
      */
@@ -106,8 +103,9 @@ public class EnkaNetworkAPI {
     /**
      * Sets the default localization.
      * <br>You might notice, some methods with translation require you to pass in a translation, but you can also decide to not put any parameters,
-     * and so the default translation will be used.
+     * and so the default translation will be used (which will be english).
      * @param localization The default localization.
+     * @see INameable
      */
     public void setDefaultLocalization(@NotNull GenshinLocalization localization) {
         EnkaGlobals.setDefaultLocalization(localization);

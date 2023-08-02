@@ -87,7 +87,7 @@ public CreatedClass() {
 | ``getNamecard(long id)``  | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*) |
 | ``getCharacterData(String id)`` | Fetches Character Data by a string, this is also provided where the id is needed. |
 | ``getCharacterData(long id)`` | Same as the above method, just converts long to string so you don't have to. |
-| ``getArtifactTotal(GenshinUserCharacter character)`` | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>``, **this method also requires to have the default localization set.** |
+| ``getArtifactTotal(GenshinUserCharacter character)`` | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>`` |
 | ``getIcon(String key)`` | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. |
 
 ## Retrieving user data

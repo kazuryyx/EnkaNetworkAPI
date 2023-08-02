@@ -59,6 +59,8 @@ public class CreatedClass {
 }
 ```
 ### Adding a localization for default actions.
+Note that English is the default localization, and that you do not need this if you're planning on using the API for English. 
+<br>Otherwise, you can juse use the enum if you want a different language.
 ```java
 public CreatedClass() {
     this.api = new EnkaNetworkAPI();

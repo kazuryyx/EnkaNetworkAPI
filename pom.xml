@@ -19,28 +19,39 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.5.0</version>
+                <configuration>
+                    <!-- <links> ... </links> - Optional, for external dependencies -->
+                    <linksource>true</linksource>
+                    <nodeprecated>true</nodeprecated>
+                    <quiet>true</quiet>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                        <configuration>
+                            <failOnError>true</failOnError>
+                            <failOnWarnings>false</failOnWarnings>
+                            <!-- <links> ... </links> - Optional, for external dependencies -->
+                        </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Configure JAR file creation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
-                    <failOnError>false</failOnError>
-                    <failOnWarnings>false</failOnWarnings>
+                    <finalName>${project.name}</finalName>
+                    <includes>
+                        <include>**/*.java</include> <!-- Include Java source files -->
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>

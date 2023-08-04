@@ -31,7 +31,7 @@ public class EnkaNetworkAPI {
     private final Gson gson;
     private final Map<Long, CachedData<EnkaUserInformation>> userCache;
 
-    private String userAgent = "Java-EnkaAPI/1.0.0";
+    private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
 
     public EnkaNetworkAPI() {
         this.httpClient = new OkHttpClient();

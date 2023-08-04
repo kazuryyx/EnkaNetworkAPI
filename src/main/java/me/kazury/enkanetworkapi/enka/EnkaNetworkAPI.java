@@ -2,23 +2,25 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import me.kazury.enkanetworkapi.genshin.data.*;
-import me.kazury.enkanetworkapi.genshin.exceptions.*;
-import me.kazury.enkanetworkapi.genshin.util.FunctionalCallback;
-import me.kazury.enkanetworkapi.genshin.util.CachedData;
 import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
-
+import me.kazury.enkanetworkapi.genshin.exceptions.NiceJobException;
+import me.kazury.enkanetworkapi.genshin.exceptions.PlayerDoesNotExistException;
+import me.kazury.enkanetworkapi.genshin.exceptions.RateLimitedException;
+import me.kazury.enkanetworkapi.genshin.exceptions.WrongUIDFormatException;
+import me.kazury.enkanetworkapi.genshin.util.CachedData;
+import me.kazury.enkanetworkapi.genshin.util.FunctionalCallback;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 public class EnkaNetworkAPI {
@@ -62,11 +64,7 @@ public class EnkaNetworkAPI {
 
     /**
      * Fetches the namecard with an id.
-     * <br> Namecard IDs are provided where you need them:
-     * <ul>
-     *     <li>{@link GenshinUserInformation#getNamecardId()}</li>
-     *     <li>{@link GenshinUserInformation#getNameCards()}</li>
-     * </ul>
+     * <br>Namecard IDs are always provided where you need them.
      * @param id The ID of the namecard.
      * @return The namecard, or null if the namecard does not exist (or I forgot to update my library)
      */

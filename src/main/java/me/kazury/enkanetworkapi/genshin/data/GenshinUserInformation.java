@@ -56,7 +56,7 @@ public class GenshinUserInformation {
      * This is similar to what showcaseCharacters is, players can put namecards up for show
      * <br>Though nobody really cares about this feature.
      */
-    private List<GenshinNamecard> nameCards = new ArrayList<>();
+    private List<GenshinNamecard> namecards = new ArrayList<>();
     /**
      * The ID of the character's profile picture (This will always exist).
      * @see EnkaNetworkAPI#getCharacterData(String)
@@ -123,13 +123,13 @@ public class GenshinUserInformation {
             }
 
             if (playerInfo.getShowNameCardIdList() != null) {
-                data.setNameCards(playerInfo.getShowNameCardIdList().stream().map(id -> {
+                data.setNamecards(playerInfo.getShowNameCardIdList().stream().map(id -> {
                     final String name = EnkaCaches.getNamecardName(id);
                     final String namecardURL = EnkaNetworkAPI.BASE_UI_URL + name + ".png";
                     return new GenshinNamecard(id, namecardURL);
                 }).toList());
             } else {
-                data.setNameCards(Collections.emptyList());
+                data.setNamecards(Collections.emptyList());
             }
 
             if (enkaUser.getAvatarInfoList() != null) {

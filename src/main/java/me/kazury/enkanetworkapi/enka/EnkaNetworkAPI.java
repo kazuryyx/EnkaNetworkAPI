@@ -26,7 +26,8 @@ import java.util.function.Consumer;
 
 public class EnkaNetworkAPI {
     private static final String BASE_URL = "https://enka.network/api";
-    public static final String BASE_UI_URL = "https://enka.network/ui/";
+
+    public static String BASE_UI_URL = "https://enka.network/ui/";
 
     private final OkHttpClient httpClient;
     private final Gson gson;
@@ -128,6 +129,16 @@ public class EnkaNetworkAPI {
      */
     public void setUserAgent(@NotNull String userAgent) {
         this.userAgent = userAgent;
+    }
+
+    /**
+     * Sets the default UI path.
+     * <br>By default, this is set to <a href="https://enka.network/ui/">The default Enka URL</a>
+     * <br>However, if you want to use something like ambr to get the icons, you can set this to your own path.
+     * @param path The default UI path.
+     */
+    public void setDefaultUIPath(@NotNull String path) {
+        BASE_UI_URL = path;
     }
 
     /**

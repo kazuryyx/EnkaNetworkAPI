@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class EnkaNetworkBuilder {
     private GenshinLocalization defaultLocalization = EnkaGlobals.getDefaultLocalization();
+    private String baseUrl = EnkaNetworkAPI.BASE_UI_URL;
     private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
 
     /**
@@ -26,6 +27,17 @@ public class EnkaNetworkBuilder {
     @NotNull
     public EnkaNetworkBuilder setDefaultLocalization(@NotNull GenshinLocalization localization) {
         this.defaultLocalization = localization;
+        return this;
+    }
+
+    /**
+     * Sets the base URl for the API.
+     * <br>This must have the full path, with https.
+     * @param baseUrl The new base URL (which is used to grab images).
+     */
+    @NotNull
+    public EnkaNetworkBuilder setBaseUrl(@NotNull String baseUrl) {
+        this.baseUrl = baseUrl;
         return this;
     }
 
@@ -48,6 +60,7 @@ public class EnkaNetworkBuilder {
         final EnkaNetworkAPI api = new EnkaNetworkAPI();
         api.setDefaultLocalization(this.defaultLocalization);
         api.setUserAgent(this.userAgent);
+        api.setDefaultUIPath(this.baseUrl);
         return api;
     }
 }

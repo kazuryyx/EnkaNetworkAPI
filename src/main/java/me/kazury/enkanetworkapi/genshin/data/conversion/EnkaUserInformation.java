@@ -46,6 +46,7 @@ public class EnkaUserInformation implements IExpiryTime {
         private List<Integer> inherentProudSkillList;
 
         private List<EquipData> equipList;
+        private FetterInfo fetterInfo;
     }
 
     @Getter
@@ -53,6 +54,11 @@ public class EnkaUserInformation implements IExpiryTime {
         private int avatarId;
         private int level;
         private int costumeId;
+    }
+
+    @Getter
+    public static class FetterInfo {
+        private int expLevel;
     }
 
     @Getter

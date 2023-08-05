@@ -28,6 +28,29 @@ public class GenshinUserCharacter {
     private final int constellation;
 
     /**
+     * Represents the current experience this character has for the next level.
+     * <br>If the character cannot collect experience (due to not ascending it), then this will be -1.
+     */
+    private final int currentExperience;
+    /**
+     * Represents the current ascension of the character.
+     * <br>For example, if the character is ascended to level 90, this will be 6.
+     */
+    private final int currentAscension;
+    /**
+     * Represents the current level of the character.
+     * <br>This is a range from 0 to 90.
+     */
+    private final int currentLevel;
+    /**
+     * Returns the friendship level of this character
+     * <br>Friendship can be raised by completing daily quests, random events, and more.
+     * <br>Friendship can be used to unlock voice lines, and a (cute) namecard.
+     * <br>This is a range from 0 to 10.
+     */
+    private final int friendshipLevel;
+
+    /**
      * Represents a map of the character's properties.
      * <br>For example, the character's level, health, attack, etc.
      * @see GenshinFightProp

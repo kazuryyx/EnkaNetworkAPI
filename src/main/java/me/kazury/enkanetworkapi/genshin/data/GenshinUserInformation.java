@@ -59,7 +59,7 @@ public class GenshinUserInformation {
     private List<GenshinNamecard> namecards = new ArrayList<>();
     /**
      * The ID of the character's profile picture (This will always exist).
-     * @see EnkaNetworkAPI#getCharacterData(String)
+     * @see EnkaNetworkAPI#getCharacterData(long) 
      */
     private final long profilePictureId;
 
@@ -95,6 +95,7 @@ public class GenshinUserInformation {
      * @return The converted {@link GenshinUserInformation} object.
      */
     @NotNull
+    @SuppressWarnings("unchecked")
     public static GenshinUserInformation fromEnkaUser(@NotNull EnkaUserInformation enkaUser) {
         // You're always free to do a PR and clean this mess up. :)
 
@@ -200,12 +201,19 @@ public class GenshinUserInformation {
                                 .setNameTextMapHash(flatData.getSetNameTextMapHash())
                                 .build());
                     }
+                    final Map<String, Object> levelMap = ((Map<String, Object>) avatarInfo.getPropMap().get("4001"));
+                    final Map<String, Object> ascensionMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1002"));
+                    final Map<String, Object> experienceMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1001"));
 
                     return GenshinUserCharacter.builder()
                             .id(id)
                             .constellation(constellation)
                             .fightProperties(fightProperties)
                             .artifacts(artifacts)
+                            .currentLevel(Integer.parseInt((String) levelMap.get("val")))
+                            .currentAscension(Integer.parseInt((String) ascensionMap.get("val")))
+                            .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
+                            .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                             .equippedWeapon(weapon)
                             .build();
                 }).toList());

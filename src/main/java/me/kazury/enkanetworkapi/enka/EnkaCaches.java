@@ -44,14 +44,12 @@ public class EnkaCaches {
                 final String key = entry.getKey();
                 final JsonNode value = entry.getValue();
 
-                final GenshinCharacterData character = mapper.convertValue(value, GenshinCharacterData.class);
-
                 if (value.isEmpty()) {
                     // some characters (non-implemented travelers) have empty data
                     return;
                 }
-
-                characterCache.put(key, character);
+                
+                characterCache.put(key, mapper.convertValue(value, GenshinCharacterData.class));
             });
         } catch (IOException exception) {
             exception.printStackTrace();

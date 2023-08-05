@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
@@ -81,6 +82,17 @@ public class EnkaNetworkAPI {
     @Nullable
     public GenshinCharacterData getCharacterData(@NotNull String id) {
         return EnkaCaches.getCharacterData(id);
+    }
+
+    /**
+     * Gets all the characters that are currently in the game.
+     * <br>This list will not contain characters that are not in the library yet.
+     * <br>In that case, you must update
+     * @return All Genshin characters
+     */
+    @NotNull
+    public List<GenshinCharacterData> getAllCharacters() {
+        return EnkaCaches.getCharacterMap().values().stream().toList();
     }
 
     /**

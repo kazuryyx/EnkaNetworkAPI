@@ -90,6 +90,11 @@ public class EnkaCaches {
     }
 
     @NotNull
+    public static Map<String, GenshinCharacterData> getCharacterMap() {
+        return Map.copyOf(characterCache);
+    }
+
+    @NotNull
     public static String getLocale(@NotNull GenshinLocalization locale, @NotNull String id) {
         return localeCache.getOrDefault(locale.getCode(), new HashMap<>()).getOrDefault(id, "No translation (" + id + ", " + locale + ")");
     }

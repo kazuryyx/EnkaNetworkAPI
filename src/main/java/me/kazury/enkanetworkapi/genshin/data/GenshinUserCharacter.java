@@ -44,9 +44,9 @@ public class GenshinUserCharacter {
 
     /**
      * The weapon that this character currently has equipped.
-     * @see GenshinWeapon
+     * @see GenshinUserWeapon
      */
-    private GenshinWeapon equippedWeapon;
+    private GenshinUserWeapon equippedWeapon;
 
     /**
      * @see GenshinCharacterData

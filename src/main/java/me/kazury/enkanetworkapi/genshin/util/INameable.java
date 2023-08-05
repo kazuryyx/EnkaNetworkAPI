@@ -12,7 +12,7 @@ public interface INameable {
      * @param locale The locale.
      * @return The name of this object.
      * @see GenshinCharacterData
-     * @see GenshinWeapon
+     * @see GenshinUserWeapon
      * @see GenshinArtifact
      */
     default String getName(@Nullable GenshinLocalization locale) {
@@ -24,7 +24,7 @@ public interface INameable {
      * Gets the name of this object given by the default locale.
      * @return The name of this object.
      * @see GenshinCharacterData
-     * @see GenshinWeapon
+     * @see GenshinUserWeapon
      * @see GenshinArtifact
      */
     default String getName() {

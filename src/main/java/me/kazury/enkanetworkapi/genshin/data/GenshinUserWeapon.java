@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor
-public class GenshinWeapon implements INameable {
+public class GenshinUserWeapon implements INameable {
     /**
      * Represents a localization key for the weapon name.
      */

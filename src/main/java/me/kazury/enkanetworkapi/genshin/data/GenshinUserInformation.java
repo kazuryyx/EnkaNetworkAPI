@@ -139,7 +139,7 @@ public class GenshinUserInformation {
 
                     final Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
                     final List<GenshinArtifact> artifacts = new ArrayList<>();
-                    GenshinWeapon weapon = null;
+                    GenshinUserWeapon weapon = null;
 
                     // Properties of this character
                     for (Map.Entry<String, Double> entry : avatarInfo.getFightPropMap().entrySet()) {
@@ -157,15 +157,15 @@ public class GenshinUserInformation {
                         final EnkaUserInformation.FlatData flatData = equipData.getFlat();
                         if (artifactData == null) {
                             final EnkaUserInformation.WeaponData weaponData = equipData.getWeapon();
-                            final List<GenshinWeapon.WeaponStat> weaponStats = new ArrayList<>();
+                            final List<GenshinUserWeapon.WeaponStat> weaponStats = new ArrayList<>();
 
                             for (EnkaUserInformation.SubData subData : flatData.getWeaponStats()) {
                                 final GenshinAppendProp parsedProp = GenshinAppendProp.fromKey(subData.getAppendPropId());
                                 if (parsedProp == null) continue;
-                                weaponStats.add(new GenshinWeapon.WeaponStat(parsedProp.getId(), subData.getStatValue()));
+                                weaponStats.add(new GenshinUserWeapon.WeaponStat(parsedProp.getId(), subData.getStatValue()));
                             }
 
-                            weapon = GenshinWeapon.builder()
+                            weapon = GenshinUserWeapon.builder()
                                     .weaponLevel(weaponData.getLevel())
                                     .weaponAscension(weaponData.getPromoteLevel())
                                     .weaponRefinement(resolveFirst(weaponData.getAffixMap()))

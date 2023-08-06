@@ -80,6 +80,17 @@ public CreatedClass() {
 }
 ```
 
+### Base URL for assets
+You can also specify the path for assets, or use the default (enka.network/ui/IDENTIFIER.png).
+```java
+public CreatedClass() {
+    this.api = new EnkaNetworkAPI();
+    this.api.setDefaultLocalization(GenshinLocalization.ENGLISH);
+    this.api.setUserAgent("---"); // This could for example be your name, or anything else to get tracked well.
+    this.api.setDefaultUIPath("---"); // The path, this must link to a website which has the same object such as: "domain/IDENTIFIER.png"
+}
+```
+
 ## Class Methods for EnkaNetworkAPI 
 | Method name  | Description |
 | ------------- | ------------- |
@@ -89,6 +100,7 @@ public CreatedClass() {
 | ``getCharacterData(long id)`` | Same as the above method, just converts long to string so you don't have to. |
 | ``getArtifactTotal(GenshinUserCharacter character)`` | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>`` |
 | ``getIcon(String key)`` | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. |
+| ``getAllCharacters()`` | Gets a list of all active genshin characters, which you can get their name from, data, etc |
 
 ## Retrieving user data
 So, with all this out of the way, I will now explain how to fetch data.
@@ -131,11 +143,15 @@ public CreatedClass() {
 #### Methods:
 | Method name  | Description |
 | ------------- | ------------- |
-| ``GenshinWeapon getEquippedWeapon()``  | Gets an object of this character's weapon, this includes info as level, ascension, refinement, stats, and the name of the weapon. |
-| ``List<GenshinArtifact> getArtifacts()`` | Gets a list of this character's artifacts, with the type (such as sands, goblet etc), level, main and sub stats, and the icon which you will need to parse. |
-| ``int getConstellation()`` | Constellation from 0-6 |
-| ``Map getFightProperties()`` | Fight properties, such as base atk, base hp, crit rate etc. Everything that is visible in genshin when viewing a character. |
-| ``GenshinCharacter getGameData()`` | The game data, such as the element of the character, skill order, constumes, side icon, name |
+| ``getEquippedWeapon()``  | Gets an object of this character's weapon, this includes info as level, ascension, refinement, stats, and the name of the weapon. |
+| ``getArtifacts()`` | Gets a list of this character's artifacts, with the type (such as sands, goblet etc), level, main and sub stats, and the icon which you will need to parse. |
+| ``getConstellation()`` | Constellation from 0-6 |
+| ``getFightProperties()`` | Fight properties, such as base atk, base hp, crit rate etc. Everything that is visible in genshin when viewing a character. |
+| ``getGameData()`` | The game data, such as the element of the character, skill order, constumes, side icon, name |
+| ``getCurrentExperience()`` | Gets the experience this character has for the next level, if none can be collected, then this will be -1. |
+| ``getCurrentAscension()`` | Gets the current ascension of this character, each ascension is basically one "star" in the client menu. | 
+| ``getCurrentLevel()`` | Gets the current level of this character, from 0 to 90 |
+| ``getFriendshipLevel()`` | Gets the current friendship level from 0 to 10 |
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.

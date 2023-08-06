@@ -6,7 +6,7 @@
 
     <groupId>me.kazury</groupId>
     <artifactId>EnkaNetworkAPI</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.8-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -107,4 +107,12 @@
             <version>2.16.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <!-- Ignore !-->
+    <distributionManagement>
+        <repository>
+            <id>kazury-snapshots</id>
+            <url>https://repo.kazury.me/snapshots</url>
+        </repository>
+    </distributionManagement>
 </project>

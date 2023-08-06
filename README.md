@@ -22,15 +22,15 @@ To install the API, you must use something like Maven or Gradle.
 So, in your project path you should find a ``pom.xml`` file, simply add this to the ``<repositories>`` Tab.
 ```xml
 <repository>
-    <id>TODO</id>
-    <url>TODO</url>
+  <id>kazury-snapshots</id>
+  <url>https://repo.kazury.me/snapshots</url>
 </repository>
 ```
 Once the repository is added, you also want to add the dependency.
 ```xml
 <dependency>
   <groupId>me.kazury</groupId>
-  <artifactId>enkanetworkapi</artifactId> 
+  <artifactId>EnkaNetworkAPI</artifactId>
   <version>3.8-SNAPSHOT</version>
 </dependency>
 ```

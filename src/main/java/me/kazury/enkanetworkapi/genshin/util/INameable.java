@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.genshin.util;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.genshin.data.*;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public interface INameable {
@@ -31,5 +32,6 @@ public interface INameable {
         return this.getName(null);
     }
 
+    @NotNull
     String getNameTextMapHash();
 }

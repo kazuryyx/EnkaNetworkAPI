@@ -6,6 +6,7 @@ import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class GenshinArtifact implements INameable {
     private String icon;
 
     @Override
+    @NotNull
     public String getNameTextMapHash() {
         return this.setNameTextMapHash;
     }

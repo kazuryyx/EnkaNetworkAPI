@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
@@ -62,6 +63,7 @@ public class GenshinCharacterData implements INameable {
     public GenshinCharacterData() {}
 
     @Override
+    @NotNull
     public String getNameTextMapHash() {
         return String.valueOf(this.nameTextMapHash);
     }

@@ -5,6 +5,7 @@ import lombok.Data;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class GenshinUserWeapon implements INameable {
     private final List<WeaponStat> stats;
 
     @Override
+    @NotNull
     public String getNameTextMapHash() {
         return this.nameTextMapHash;
     }

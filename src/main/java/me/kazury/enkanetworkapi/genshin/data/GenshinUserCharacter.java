@@ -80,7 +80,7 @@ public class GenshinUserCharacter {
     public GenshinCharacterData getGameData() {
         final GenshinCharacterData data = EnkaCaches.getCharacterData(String.valueOf(this.id));
         if (data == null) {
-            throw new NullPointerException("Character data is null - This usually does not happen, unless the library is on an old version.");
+            throw new IllegalStateException("Character data is null - This usually does not happen, unless the library is on an old version.");
         }
         return data;
     }

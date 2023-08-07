@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
+import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
 
 import java.util.List;
@@ -50,8 +51,9 @@ public class GenshinArtifact implements INameable {
 
     @Getter
     @AllArgsConstructor
-    public static class ArtifactStat {
+    public static class ArtifactStat implements IFormattable {
         private final String stat;
-        private final double value;
+        private final String formattedValue;
+        private final double rawValue;
     }
 }

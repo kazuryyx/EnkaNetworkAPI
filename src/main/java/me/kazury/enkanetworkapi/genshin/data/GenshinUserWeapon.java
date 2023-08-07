@@ -1,16 +1,15 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
+import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
 
 import java.util.List;
 
-@Getter
+@Data
 @Builder
-@AllArgsConstructor
 public class GenshinUserWeapon implements INameable {
     /**
      * Represents a localization key for the weapon name.
@@ -47,29 +46,10 @@ public class GenshinUserWeapon implements INameable {
         return this.nameTextMapHash;
     }
 
-    @Getter
-    @Builder
-    @AllArgsConstructor
-    public static class WeaponStat {
-        /**
-         * The stat that is displayed to the client
-         * <br>Possible options currently:
-         * <ul>
-         *     <li>ATK (Base)</li>
-         *     <li>CRIT Rate%</li>
-         *     <li>CRIT DMG%</li>
-         *     <li>HP%</li>
-         *     <li>Energy Recharge%</li>
-         *     <li>Elemental Mastery</li>
-         *     <li>DEF%</li>
-         *     <li>ATK%</li>
-         *     <li>Physical DMG Bonus%</li>
-         * </ul>
-         */
-        private final String clientName;
-        /**
-         * The value of the weapon stat
-         */
-        private final double value;
+    @Data
+    public static class WeaponStat implements IFormattable {
+        private final String stat;
+        private final String formattedValue;
+        private final double rawValue;
     }
 }

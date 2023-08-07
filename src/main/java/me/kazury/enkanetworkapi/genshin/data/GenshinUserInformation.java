@@ -163,7 +163,13 @@ public class GenshinUserInformation {
                             for (EnkaUserInformation.SubData subData : flatData.getWeaponStats()) {
                                 final GenshinAppendProp parsedProp = GenshinAppendProp.fromKey(subData.getAppendPropId());
                                 if (parsedProp == null) continue;
-                                weaponStats.add(new GenshinUserWeapon.WeaponStat(parsedProp.getId(), subData.getStatValue()));
+                                final double rawValue = subData.getStatValue();
+
+                                weaponStats.add(new GenshinUserWeapon.WeaponStat(
+                                        parsedProp.getId(),
+                                        parsedProp.getAcceptor().accept(rawValue),
+                                        rawValue
+                                ));
                             }
 
                             weapon = GenshinUserWeapon.builder()
@@ -184,18 +190,25 @@ public class GenshinUserInformation {
                         for (EnkaUserInformation.SubData substat : flatData.getReliquarySubstats()) {
                             final GenshinAppendProp subProp = GenshinAppendProp.fromKey(substat.getAppendPropId());
                             if (subProp == null) continue;
-                            subStats.add(new GenshinArtifact.ArtifactStat(subProp.getId(), substat.getStatValue()));
+                            final double rawValue = substat.getStatValue();
+
+                            subStats.add(new GenshinArtifact.ArtifactStat(
+                                    subProp.getId(), subProp.getAcceptor().accept(rawValue), rawValue
+                            ));
                         }
                         final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
                         if (type == null) {
                             System.out.println("Unhandled artifact type: " + flatData.getEquipType());
                             continue;
                         }
+                        final double rawValue = mainStat.getStatValue();
 
                         artifacts.add(GenshinArtifact.builder()
                                 .level(artifactData.getLevel() - 1)
                                 .type(type)
-                                .mainStats(new GenshinArtifact.ArtifactStat(appendProp.getId(), mainStat.getStatValue()))
+                                .mainStats(new GenshinArtifact.ArtifactStat(
+                                        appendProp.getId(), appendProp.getAcceptor().accept(rawValue), rawValue
+                                ))
                                 .subStats(subStats)
                                 .icon(flatData.getIcon())
                                 .setNameTextMapHash(flatData.getSetNameTextMapHash())

@@ -29,14 +29,12 @@ public class EnkaNetworkAPI {
 
     public static String BASE_UI_URL = "https://enka.network/ui/";
 
-    private final OkHttpClient httpClient;
     private final Gson gson;
     private final Map<Long, CachedData<EnkaUserInformation>> userCache;
 
     private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
 
     public EnkaNetworkAPI() {
-        this.httpClient = new OkHttpClient();
         this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.userCache = new ConcurrentHashMap<>();
     }
@@ -152,6 +150,26 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Gets a material from the game by an id.
+     * @param id The id of the material
+     * @return The material or null if the material does not exist
+     */
+    @Nullable
+    public GenshinMaterial getMaterial(@NotNull String id) {
+        return EnkaCaches.getMaterial(Integer.parseInt(id));
+    }
+
+    /**
+     * Gets a material from the game by an id.
+     * @param id The id of the material
+     * @return The material or null if the material does not exist
+     */
+    @Nullable
+    public GenshinMaterial getMaterial(final int id) {
+        return EnkaCaches.getMaterial(id);
+    }
+
+    /**
      * Gets an icon by the icon id
      * @param key The icon id, it is usually an uppercase char sequence
      * @return The icon url or null if the icon does not exist
@@ -169,7 +187,7 @@ public class EnkaNetworkAPI {
                 .addHeader("User-Agent", this.userAgent)
                 .build();
 
-        this.httpClient.newCall(request).enqueue(FunctionalCallback.builder()
+        EnkaCaches.getClient().newCall(request).enqueue(FunctionalCallback.builder()
                 .failure(($, exception) -> future.completeExceptionally(exception))
                 .success(($, response) -> {
             if (!response.isSuccessful()) {

@@ -3,21 +3,21 @@ package me.kazury.enkanetworkapi.genshin.data;
 import org.jetbrains.annotations.NotNull;
 
 public enum GenshinLocalization {
-    ENGLISH("en"),
-    RUSSIAN("ru"),
-    VIETNAMESE("vi"),
-    THAI("th"),
-    PORTUGUESE("pt"),
-    KOREAN("ko"),
-    JAPANESE("ja"),
-    INDONESIAN("id"),
-    FRANCAIS("fr"),
-    ESPANOL("es"),
-    GERMAN("de"),
-    TRADITIONAL_CHINESE("zh-TW"),
-    SIMPLIFIED_CHINESE("zh-CN"),
-    ITALIAN("it"),
-    TURKISH("tr");
+    TRADITIONAL_CHINESE("CHT"),
+    SIMPLIFIED_CHINESE("CHS"),
+    GERMAN("DE"),
+    ENGLISH("EN"),
+    ESPANOL("ES"),
+    FRANCAIS("FR"),
+    INDONESIAN("ID"),
+    ITALIAN("IT"),
+    JAPANESE("JP"),
+    KOREAN("KR"),
+    PORTUGUESE("PT"),
+    RUSSIAN("RU"),
+    THAI("TH"),
+    TURKISH("TR"),
+    VIETNAMESE("VI");
 
     private final String code;
 

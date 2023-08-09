@@ -89,16 +89,30 @@ public CreatedClass() {
 }
 ```
 
+### EnkaNetworkBuilder
+You can also use a builder to build an instance of the api, if you don't want the steps above.
+```java
+public CreatedClass() {
+    this.api = new EnkaNetworkBuilder()
+        .setUserAgent("---")
+        .setDefaultLocalization(GenshinLocalization.ENGLISH)
+        .setDefaultUIPath("---")
+        .build();
+ }
+```
+
 ## Class Methods for EnkaNetworkAPI 
-| Method name  | Description | Version |
-| ------------- | ------------- | ------------- |
-| ``fetchUser(long uid, Consumer<EnkaUserInformation>)``  | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires. | 3.8 |
-| ``getNamecard(long id)``  | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*) | 3.8 |
-| ``getCharacterData(String id)`` | Fetches Character Data by a string, this is also provided where the id is needed. | 3.8 |
-| ``getCharacterData(long id)`` | Same as the above method, just converts long to string so you don't have to. | 3.8 |
-| ``getArtifactTotal(GenshinUserCharacter character)`` | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>`` | 3.8 |
-| ``getIcon(String key)`` | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8 | 
-| ``getAllCharacters()`` | Gets a list of all active genshin characters, which you can get their name from, data, etc | 3.8 |
+| Method name                                            | Description | Version |
+|--------------------------------------------------------| ------------- | ------------- |
+| ``fetchUser(long uid, Consumer<EnkaUserInformation>)`` | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires. | 3.8 |
+| ``getNamecard(long id)``                               | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*) | 3.8 |
+| ``getCharacterData(String id)``                        | Fetches Character Data by a string, this is also provided where the id is needed. | 3.8 |
+| ``getCharacterData(long id)``                          | Same as the above method, just converts long to string so you don't have to. | 3.8 |
+| ``getArtifactTotal(GenshinUserCharacter character)``   | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>`` | 3.8 |
+| ``getIcon(String key)``                                | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8 | 
+| ``getAllCharacters()``                                 | Gets a list of all active genshin characters, which you can get their name from, data, etc | 3.8 |
+| ``getMaterial(String id)``                             | Get a material by the id, the id is provided where you need it. | 3.8 |
+| ``getMaterial(long id)``                               | Same as the above method, just converts long to string so you don't have to. | 3.8 |
 
 ## Retrieving user data
 So, with all this out of the way, I will now explain how to fetch data.
@@ -119,6 +133,7 @@ So, you may be wondering why we are calling ``fromEnkaUser``, the explanation on
 <br>``GenshinUserInformation`` is a class that is being parsed to include nullability, and handle it (so you don't have to).
 
 ### Retrieving character data
+For this example, I will be using the normal API initializer, but you also use the Builder here.
 ```java
 public CreatedClass() {
    this.api = new EnkaNetworkAPI();
@@ -153,5 +168,5 @@ public CreatedClass() {
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.
-2. If you have any questions about the library you can find me on discord ``kazuryy`` or [here](https://discord.gg/kVGmErcE)
+2. If you have any questions about the library you can find me on discord ``kazuryy``
 3. If there is anything you want me to add here, then please write me a message.

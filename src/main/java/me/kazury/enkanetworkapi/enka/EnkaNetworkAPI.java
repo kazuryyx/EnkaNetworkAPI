@@ -63,6 +63,16 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Loads a user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The <a href="https://genshin-impact.fandom.com/wiki/UID">UID</a> of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     */
+    public void fetchUser(@NotNull String uid, @NotNull Consumer<EnkaUserInformation> consumer) {
+        this.fetchUser(Long.parseLong(uid), consumer);
+    }
+
+    /**
      * Fetches the namecard with an id.
      * <br>Namecard IDs are always provided where you need them.
      * @param id The ID of the namecard.

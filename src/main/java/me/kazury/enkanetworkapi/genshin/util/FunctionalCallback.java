@@ -10,6 +10,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+/**
+ * A functional callback which is used for HTTP requests to the API
+ */
 @Builder
 public class FunctionalCallback implements Callback {
     @Nullable

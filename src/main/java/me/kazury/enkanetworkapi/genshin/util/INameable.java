@@ -6,6 +6,12 @@ import me.kazury.enkanetworkapi.genshin.data.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * A functional interface which is used for getting names of objects
+ * @see GenshinArtifact
+ * @see GenshinCharacterData
+ * @see GenshinUserWeapon
+ */
 public interface INameable {
     /**
      * Gets the name of this object given by a locale.

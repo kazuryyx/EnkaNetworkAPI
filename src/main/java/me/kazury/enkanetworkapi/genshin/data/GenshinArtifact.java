@@ -10,6 +10,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * An artifact that is currently equipped on a {@link GenshinUserCharacter}.
+ */
 @Builder
 @Getter
 public class GenshinArtifact implements INameable {
@@ -51,6 +54,9 @@ public class GenshinArtifact implements INameable {
         return this.setNameTextMapHash;
     }
 
+    /**
+     * A stat on an artifact, this is either a main stat or a substat.
+     */
     @Getter
     @AllArgsConstructor
     public static class ArtifactStat implements IFormattable {

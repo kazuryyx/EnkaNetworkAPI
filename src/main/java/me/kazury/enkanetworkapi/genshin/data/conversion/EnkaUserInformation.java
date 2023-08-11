@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.genshin.data.conversion;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.genshin.util.IExpiryTime;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
@@ -111,5 +112,15 @@ public class EnkaUserInformation implements IExpiryTime {
     @Getter
     public static class ProfilePicture {
         private long avatarId;
+    }
+
+    /**
+     * Converts this object to {@link GenshinUserInformation}
+     * <br>Please read the documentation of this class to understand why you <i>might</i> want this.
+     * @return A {@link GenshinUserInformation} object.
+     */
+    @NotNull
+    public GenshinUserInformation toGenshinUser() {
+        return GenshinUserInformation.fromEnkaUser(this);
     }
 }

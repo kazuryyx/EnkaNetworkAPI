@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * A class which contains all caches that are needed for the API
+ */
 public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
@@ -65,8 +68,14 @@ public class EnkaCaches {
         materialJsonNode = fetchJsonData("ExcelBinOutput", "MaterialExcelConfigData.json");
     }
 
+    /**
+     * Fetches json data from gitlab.
+     * @param subPath the sub path
+     * @param fileName the file name
+     * @return the json node
+     */
     @Nullable
-    private static JsonNode fetchJsonData(@NotNull String subPath, @NotNull String fileName) {
+    protected static JsonNode fetchJsonData(@NotNull String subPath, @NotNull String fileName) {
         fileName = parseString(fileName);
 
         final ObjectMapper mapper = new ObjectMapper();
@@ -84,16 +93,30 @@ public class EnkaCaches {
         return null;
     }
 
+    /**
+     * Gets a namecard icon from the cache.
+     * @param fileName the namecard file name
+     * @return the namecard icon
+     */
     @NotNull
-    public static String parseString(@NotNull String fileName) {
+    protected static String parseString(@NotNull String fileName) {
         return fileName.endsWith(".json") ? fileName : fileName + ".json";
     }
 
+    /**
+     * Gets the HTTP client which will be used for requests.
+     * @return the HTTP client
+     */
     @NotNull
-    public static OkHttpClient getClient() {
+    protected static OkHttpClient getClient() {
         return client;
     }
 
+    /**
+     * Gets a material from the cache.
+     * @param id the material id
+     * @return the material
+     */
     @Nullable
     protected static GenshinMaterial getMaterial(final int id) {
         if (materialCache.containsKey(String.valueOf(id))) {
@@ -118,17 +141,30 @@ public class EnkaCaches {
         return null;
     }
 
+    /**
+     * Checks if the namecard cache contains a namecard.
+     * @param id the namecard id
+     * @return true if the namecard cache contains the namecard
+     */
     public static boolean hasNamecard(final int id) {
         return namecardCache.containsKey(id);
     }
 
+    /**
+     * Gets character data from the cache.
+     * @param id the character id
+     * @return the character data
+     */
     @Nullable
     public static GenshinCharacterData getCharacterData(@NotNull String id) {
         return characterCache.getOrDefault(id, null);
     }
 
+    /**
+     * @return A copy of the character cache.
+     */
     @NotNull
-    public static Map<String, GenshinCharacterData> getCharacterMap() {
+    protected static Map<String, GenshinCharacterData> getCharacterMap() {
         return Map.copyOf(characterCache);
     }
 

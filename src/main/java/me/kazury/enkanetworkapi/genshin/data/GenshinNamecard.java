@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * A namecard that is currently for show on a {@link GenshinUserInformation}.
+ */
 @AllArgsConstructor
 @Getter
 public class GenshinNamecard {

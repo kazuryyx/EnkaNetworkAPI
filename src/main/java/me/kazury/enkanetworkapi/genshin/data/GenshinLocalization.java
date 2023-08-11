@@ -2,6 +2,10 @@ package me.kazury.enkanetworkapi.genshin.data;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * A localization that you can choose from
+ * <br>These are also the same localizations that you can choose from in-game.
+ */
 public enum GenshinLocalization {
     TRADITIONAL_CHINESE("CHT"),
     SIMPLIFIED_CHINESE("CHS"),

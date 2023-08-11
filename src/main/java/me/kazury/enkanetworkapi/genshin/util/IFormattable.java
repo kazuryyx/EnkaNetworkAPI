@@ -2,6 +2,9 @@ package me.kazury.enkanetworkapi.genshin.util;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * A functional interface which is used for formatting artifact stats
+ */
 public interface IFormattable {
     /**
      * Gets the stat of this artifact, such as HP, ATK, DEF%, Element%, Crit

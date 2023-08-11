@@ -14,6 +14,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 import java.util.function.Consumer;
 
+/**
+ * The basic data class for a Genshin Impact user.
+ * <br>This class contains all the information that is available on a user's profile.
+ */
 @Builder
 @Getter
 @Setter

@@ -2,6 +2,10 @@ package me.kazury.enkanetworkapi.genshin.util;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * A class that holds data and its expiration time
+ * @param <T> the data type which holds an instance of ttl time
+ */
 public class CachedData<T extends IExpiryTime> {
     @NotNull
     private final T data;

@@ -8,6 +8,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * A material
+ * <br>Possible options:
+ * <ul>
+ *     <li>Food</li>
+ *     <li>Common Ascension Material</li>
+ *     <li>Character Ascension Material</li>
+ *     <li>Weapon Ascension Material</li>
+ *     <li>Talent Level-Up Material</li>
+ *     <li>Weapon Level-Up Material</li>
+ *     <li>etc</li>
+ * </ul>
+ */
 @Getter
 public class GenshinMaterial {
     /**

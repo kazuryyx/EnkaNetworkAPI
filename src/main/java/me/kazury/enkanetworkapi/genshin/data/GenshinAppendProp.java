@@ -7,6 +7,10 @@ import me.kazury.enkanetworkapi.genshin.util.NumberHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * An append prop.
+ * <br>This is everything that is shown when pressing "View Details" in a character menu.
+ */
 @AllArgsConstructor
 @Getter
 public enum GenshinAppendProp {

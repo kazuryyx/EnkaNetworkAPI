@@ -4,7 +4,15 @@ import me.kazury.enkanetworkapi.genshin.data.GenshinArtifactType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * A parser which is used for parsing json data to enums
+ */
 public class EnkaParser {
+    /**
+     * Parses a json identifier to an artifact type enum
+     * @param identifier the json identifier
+     * @return the artifact type enum
+     */
     @Nullable
     public static GenshinArtifactType parseArtifact(@NotNull String identifier) {
         return switch (identifier) {

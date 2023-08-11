@@ -102,17 +102,18 @@ public CreatedClass() {
 ```
 
 ## Class Methods for EnkaNetworkAPI 
-| Method name                                            | Description | Version |
-|--------------------------------------------------------| ------------- | ------------- |
-| ``fetchUser(long uid, Consumer<EnkaUserInformation>)`` | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires. | 3.8 |
-| ``getNamecard(long id)``                               | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*) | 3.8 |
-| ``getCharacterData(String id)``                        | Fetches Character Data by a string, this is also provided where the id is needed. | 3.8 |
-| ``getCharacterData(long id)``                          | Same as the above method, just converts long to string so you don't have to. | 3.8 |
-| ``getArtifactTotal(GenshinUserCharacter character)``   | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>`` | 3.8 |
-| ``getIcon(String key)``                                | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8 | 
-| ``getAllCharacters()``                                 | Gets a list of all active genshin characters, which you can get their name from, data, etc | 3.8 |
-| ``getMaterial(String id)``                             | Get a material by the id, the id is provided where you need it. | 3.8 |
-| ``getMaterial(long id)``                               | Same as the above method, just converts long to string so you don't have to. | 3.8 |
+| Method name                                              | Description                                                                                                                                                      | Version |
+|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| ``fetchUser(long uid, Consumer<EnkaUserInformation>)``   | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires.                          | 3.8     |
+| ``fetchUser(String uid, Consumer<EnkaUserInformation>)`` | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
+| ``getNamecard(long id)``                                 | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*)                                 | 3.8     |
+| ``getCharacterData(String id)``                          | Fetches Character Data by a string, this is also provided where the id is needed.                                                                                | 3.8     |
+| ``getCharacterData(long id)``                            | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
+| ``getArtifactTotal(GenshinUserCharacter character)``     | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>``                                                                             | 3.8     |
+| ``getIcon(String key)``                                  | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8     | 
+| ``getAllCharacters()``                                   | Gets a list of all active genshin characters, which you can get their name from, data, etc                                                                       | 3.8     |
+| ``getMaterial(String id)``                               | Get a material by the id, the id is provided where you need it.                                                                                                  | 3.8     |
+| ``getMaterial(long id)``                                 | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
 
 ## Retrieving user data
 So, with all this out of the way, I will now explain how to fetch data.
@@ -154,17 +155,17 @@ public CreatedClass() {
 ```
 
 #### Methods:
-| Method name  | Description | Version |
-| ------------- | ------------- | ------------- |
-| ``getEquippedWeapon()``  | Gets an object of this character's weapon, this includes info as level, ascension, refinement, stats, and the name of the weapon. | 3.8 |
-| ``getArtifacts()`` | Gets a list of this character's artifacts, with the type (such as sands, goblet etc), level, main and sub stats, and the icon which you will need to parse. | 3.8 |
-| ``getConstellation()`` | Constellation from 0-6 | 3.8 |
-| ``getFightProperties()`` | Fight properties, such as base atk, base hp, crit rate etc. Everything that is visible in genshin when viewing a character. | 3.8 |
-| ``getGameData()`` | The game data, such as the element of the character, skill order, constumes, side icon, name | 3.8 |
-| ``getCurrentExperience()`` | Gets the experience this character has for the next level, if none can be collected, then this will be -1. | 3.8 |
-| ``getCurrentAscension()`` | Gets the current ascension of this character, each ascension is basically one "star" in the client menu. | 3.8 |
-| ``getCurrentLevel()`` | Gets the current level of this character, from 0 to 90 | 3.8 |
-| ``getFriendshipLevel()`` | Gets the current friendship level from 0 to 10 | 3.8 |
+| Method name                | Description                                                                                                                                                  | Version |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| ``getEquippedWeapon()``    | Gets an object of this character's weapon, this includes info as level, ascension, refinement, stats, and the name of the weapon.                            | 3.8     |
+| ``getArtifacts()``         | Gets a list of this character's artifacts, with the type (such as sands, goblet etc), level, main and sub stats, and the icon which you will need to parse.  | 3.8     |
+| ``getConstellation()``     | Constellation from 0-6                                                                                                                                       | 3.8     |
+| ``getFightProperties()``   | Fight properties, such as base atk, base hp, crit rate etc. Everything that is visible in genshin when viewing a character.                                  | 3.8     |
+| ``getGameData()``          | The game data, such as the element of the character, skill order, constumes, side icon, name                                                                 | 3.8     |
+| ``getCurrentExperience()`` | Gets the experience this character has for the next level, if none can be collected, then this will be -1.                                                   | 3.8     |
+| ``getCurrentAscension()``  | Gets the current ascension of this character, each ascension is basically one "star" in the client menu.                                                     | 3.8     |
+| ``getCurrentLevel()``      | Gets the current level of this character, from 0 to 90                                                                                                       | 3.8     |
+| ``getFriendshipLevel()``   | Gets the current friendship level from 0 to 10                                                                                                               | 3.8     |
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.

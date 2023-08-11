@@ -9,6 +9,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * A weapon that is currently equipped on a {@link GenshinUserCharacter}
+ */
 @Data
 @Builder
 public class GenshinUserWeapon implements INameable {
@@ -48,6 +51,9 @@ public class GenshinUserWeapon implements INameable {
         return this.nameTextMapHash;
     }
 
+    /**
+     * A weapon stat, this is either the main stat, or the second stat.
+     */
     @Data
     public static class WeaponStat implements IFormattable {
         private final String stat;

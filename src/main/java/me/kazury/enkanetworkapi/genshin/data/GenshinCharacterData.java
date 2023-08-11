@@ -68,6 +68,10 @@ public class GenshinCharacterData implements INameable {
         return String.valueOf(this.nameTextMapHash);
     }
 
+    /**
+     * A custome from this character
+     * <br>Costumes can be obtained from an event, and with genesis crystals (after event).
+     */
     @Getter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Costume {

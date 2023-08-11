@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 public class EnkaNetworkAPI {
-    private static final String BASE_URL = "https://enka.network/api";
+    private static final String BASE_URL = "https://enka.network/api/";
 
     public static String BASE_UI_URL = "https://enka.network/ui/";
 
@@ -52,7 +52,7 @@ public class EnkaNetworkAPI {
             return;
         }
 
-        this.getBase("/uid/" + uid, EnkaUserInformation.class).thenAccept((userData) -> {
+        this.getBase("uid/" + uid + "/", EnkaUserInformation.class).thenAccept((userData) -> {
             if (userData == null) return;
             this.userCache.put(uid, new CachedData<>(userData));
             consumer.accept(userData);

@@ -31,7 +31,7 @@ Once the repository is added, you also want to add the dependency.
 <dependency>
   <groupId>me.kazury</groupId>
   <artifactId>EnkaNetworkAPI</artifactId>
-  <version>3.8-SNAPSHOT</version>
+  <version>4.0-SNAPSHOT</version>
 </dependency>
 ```
 For the version, you will always want to use ``currentGenshinVersion-SNAPSHOT``, when you use an old library version and try to fetch new data, it will not work and most likely throw you an exception.

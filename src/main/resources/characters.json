@@ -2110,6 +2110,93 @@
     "SideIconName": "UI_AvatarIcon_Side_Baizhuer",
     "QualityType": "QUALITY_ORANGE"
   },
+  "10000083": {
+    "Element": "Wind",
+    "Consts": [
+      "UI_Talent_S_Linette_01",
+      "UI_Talent_S_Linette_02",
+      "UI_Talent_U_Linette_01",
+      "UI_Talent_S_Linette_03",
+      "UI_Talent_U_Linette_02",
+      "UI_Talent_S_Linette_04"
+    ],
+    "SkillOrder": [
+      10831,
+      10832,
+      10835
+    ],
+    "Skills": {
+      "10831": "Skill_A_01",
+      "10832": "Skill_S_Linette_01",
+      "10835": "Skill_E_Linette_01"
+    },
+    "ProudMap": {
+      "10831": 8331,
+      "10832": 8332,
+      "10835": 8339
+    },
+    "NameTextMapHash": 1225226258,
+    "SideIconName": "UI_AvatarIcon_Side_Linette",
+    "QualityType": "QUALITY_PURPLE"
+  },
+  "10000084": {
+    "Element": "Fire",
+    "Consts": [
+      "UI_Talent_S_Liney_01",
+      "UI_Talent_S_Liney_03",
+      "UI_Talent_U_Liney_01",
+      "UI_Talent_S_Liney_02",
+      "UI_Talent_U_Liney_02",
+      "UI_Talent_S_Liney_04"
+    ],
+    "SkillOrder": [
+      10841,
+      10842,
+      10845
+    ],
+    "Skills": {
+      "10841": "Skill_A_02",
+      "10842": "Skill_S_Liney_01",
+      "10845": "Skill_E_Liney_01"
+    },
+    "ProudMap": {
+      "10841": 8431,
+      "10842": 8432,
+      "10845": 8439
+    },
+    "NameTextMapHash": 2472444970,
+    "SideIconName": "UI_AvatarIcon_Side_Liney",
+    "QualityType": "QUALITY_ORANGE"
+  },
+  "10000085": {
+    "Element": "Ice",
+    "Consts": [
+      "UI_Talent_S_Freminet_01",
+      "UI_Talent_S_Freminet_02",
+      "UI_Talent_U_Freminet_01",
+      "UI_Talent_S_Freminet_03",
+      "UI_Talent_U_Freminet_02",
+      "UI_Talent_S_Freminet_04"
+    ],
+    "SkillOrder": [
+      10851,
+      10852,
+      10855
+    ],
+    "Skills": {
+      "10851": "Skill_A_04",
+      "10852": "Skill_S_Freminet_01",
+      "10855": "Skill_E_Freminet_01"
+    },
+    "ProudMap": {
+      "10851": 8531,
+      "10852": 8532,
+      "10855": 8539
+    },
+    "NameTextMapHash": 4201964354,
+    "SideIconName": "UI_AvatarIcon_Side_Freminet",
+    "QualityType": "QUALITY_PURPLE"
+  },
   "10000005-501": {
     "Element": "None",
     "Consts": [
@@ -2140,7 +2227,35 @@
     "QualityType": "QUALITY_ORANGE"
   },
   "10000005-502": {},
-  "10000005-503": {},
+  "10000005-503": {
+    "Element": "Water",
+    "Consts": [
+      "UI_Talent_S_PlayerWater_01",
+      "UI_Talent_S_PlayerWater_02",
+      "UI_Talent_U_PlayerWater_01",
+      "UI_Talent_S_PlayerWater_03",
+      "UI_Talent_U_PlayerWater_02",
+      "UI_Talent_S_PlayerWater_04"
+    ],
+    "SkillOrder": [
+      100542,
+      10087,
+      10088
+    ],
+    "Skills": {
+      "10087": "Skill_S_PlayerWater_01",
+      "10088": "Skill_E_PlayerWater_01",
+      "100542": "Skill_A_01"
+    },
+    "NameTextMapHash": 1533656818,
+    "ProudMap": {
+      "10087": 632,
+      "10088": 639,
+      "100542": 630
+    },
+    "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
+    "QualityType": "QUALITY_ORANGE"
+  },
   "10000005-504": {
     "Element": "Wind",
     "Consts": [
@@ -2288,7 +2403,35 @@
     "QualityType": "QUALITY_ORANGE"
   },
   "10000007-702": {},
-  "10000007-703": {},
+  "10000007-703": {
+    "Element": "Water",
+    "Consts": [
+      "UI_Talent_S_PlayerWater_01",
+      "UI_Talent_S_PlayerWater_02",
+      "UI_Talent_U_PlayerWater_01",
+      "UI_Talent_S_PlayerWater_03",
+      "UI_Talent_U_PlayerWater_02",
+      "UI_Talent_S_PlayerWater_04"
+    ],
+    "SkillOrder": [
+      100552,
+      10087,
+      10088
+    ],
+    "Skills": {
+      "10087": "Skill_S_PlayerWater_01",
+      "10088": "Skill_E_PlayerWater_01",
+      "100552": "Skill_A_01"
+    },
+    "NameTextMapHash": 3816664530,
+    "ProudMap": {
+      "10087": 632,
+      "10088": 639,
+      "100552": 631
+    },
+    "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
+    "QualityType": "QUALITY_ORANGE"
+  },
   "10000007-704": {
     "Element": "Wind",
     "Consts": [

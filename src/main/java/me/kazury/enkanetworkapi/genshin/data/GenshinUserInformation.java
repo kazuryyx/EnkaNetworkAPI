@@ -10,6 +10,7 @@ import me.kazury.enkanetworkapi.enka.EnkaParser;
 import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -227,8 +228,8 @@ public class GenshinUserInformation {
                             .constellation(constellation)
                             .fightProperties(fightProperties)
                             .artifacts(artifacts)
-                            .currentLevel(Integer.parseInt((String) levelMap.get("val")))
-                            .currentAscension(Integer.parseInt((String) ascensionMap.get("val")))
+                            .currentLevel(Integer.parseInt((String) levelMap.getOrDefault("val", "1")))
+                            .currentAscension(Integer.parseInt((String) ascensionMap.getOrDefault("val", "1")))
                             .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
                             .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                             .equippedWeapon(weapon)
@@ -242,7 +243,10 @@ public class GenshinUserInformation {
         return user;
     }
 
-    private static int resolveFirst(@NotNull Map<?, Integer> map) {
+    private static int resolveFirst(@Nullable Map<?, Integer> map) {
+        if (map == null) {
+            return 1;
+        }
         for (int value : map.values()) {
             return value + 1;
         }

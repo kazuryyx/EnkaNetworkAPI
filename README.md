@@ -34,7 +34,18 @@ Once the repository is added, you also want to add the dependency.
   <version>4.0-SNAPSHOT</version>
 </dependency>
 ```
-For the version, you will always want to use ``currentGenshinVersion-SNAPSHOT``, when you use an old library version and try to fetch new data, it will not work and most likely throw you an exception.
+### Gradle
+repositories {
+  maven("https://repo.kazury.me/snapshots")
+}
+
+// You can choose which one you prefer
+dependencies {
+  compileOnly("me.kazury", "EnkaNetworkAPI", "4.0-SNAPSHOT")
+  compileOnly("me.kazury:EnkaNetworkAPI:4.0-SNAPSHOT")
+}
+
+- For the version, you will always want to use ``currentGenshinVersion-SNAPSHOT``, when you use an old library version and try to fetch new data, it will not work and most likely throw you an exception.
 
 ## Base Usage
 So, go ahead and create a new class in your project (if you have not already)

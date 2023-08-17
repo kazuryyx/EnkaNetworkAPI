@@ -41,7 +41,7 @@ repositories {
 }
 ```
 
-// You can choose which one you prefer
+- You can choose which one you prefer:
 ```gradle
 dependencies {
   compileOnly("me.kazury", "EnkaNetworkAPI", "4.0-SNAPSHOT")

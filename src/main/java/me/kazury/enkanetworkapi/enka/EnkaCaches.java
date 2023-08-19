@@ -2,6 +2,7 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFound;
 import okhttp3.*;
@@ -20,6 +21,7 @@ import java.util.Map;
 public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
+
     private static final Map<GenshinLocalization, JsonNode> localizationCache = new HashMap<>();
     private static final OkHttpClient client = new OkHttpClient();
     private static final Map<String, JsonNode> materialCache = new HashMap<>();
@@ -28,6 +30,9 @@ public class EnkaCaches {
 
     static {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+
+        System.out.println("Loading caches... Some tasks may be delayed during this.");
+        System.out.println("Expect this to take around 10 seconds. (this will be once and same for localization assets.)");
 
         try (InputStream in = classLoader.getResourceAsStream("namecards.json")) {
             final ObjectMapper mapper = new ObjectMapper();
@@ -43,7 +48,6 @@ public class EnkaCaches {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        System.out.println("Loaded " + namecardCache.size() + " namecards.");
 
         try (InputStream in = classLoader.getResourceAsStream("characters.json")) {
             final ObjectMapper mapper = new ObjectMapper();
@@ -63,14 +67,14 @@ public class EnkaCaches {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        System.out.println("Loaded " + characterCache.size() + " characters.");
 
         materialJsonNode = fetchJsonData("ExcelBinOutput", "MaterialExcelConfigData.json");
     }
 
     /**
      * Fetches json data from gitlab.
-     * @param subPath the sub path
+     *
+     * @param subPath  the sub path
      * @param fileName the file name
      * @return the json node
      */
@@ -94,9 +98,10 @@ public class EnkaCaches {
     }
 
     /**
-     * Gets a namecard icon from the cache.
-     * @param fileName the namecard file name
-     * @return the namecard icon
+     * Parses a string and adds the .json extension if it does not exist.
+     *
+     * @param fileName the file name
+     * @return the parsed string, "character" -> "character.json"
      */
     @NotNull
     protected static String parseString(@NotNull String fileName) {
@@ -105,6 +110,7 @@ public class EnkaCaches {
 
     /**
      * Gets the HTTP client which will be used for requests.
+     *
      * @return the HTTP client
      */
     @NotNull
@@ -114,13 +120,17 @@ public class EnkaCaches {
 
     /**
      * Gets a material from the cache.
+     *
      * @param id the material id
      * @return the material
      */
     @Nullable
     protected static GenshinMaterial getMaterial(final int id) {
-        if (materialCache.containsKey(String.valueOf(id))) {
-            return new GenshinMaterial(materialCache.get(String.valueOf(id)));
+        final String realId = String.valueOf(id);
+        final JsonNode existingMaterial = materialCache.get(realId);
+
+        if (existingMaterial != null) {
+            return new GenshinMaterial(existingMaterial);
         }
 
         if (materialJsonNode == null) return null;
@@ -135,7 +145,7 @@ public class EnkaCaches {
         }
 
         if (materialData != null) {
-            materialCache.put(String.valueOf(id), materialData);
+            materialCache.put(realId, materialData);
             return new GenshinMaterial(materialData);
         }
         return null;
@@ -143,6 +153,7 @@ public class EnkaCaches {
 
     /**
      * Checks if the namecard cache contains a namecard.
+     *
      * @param id the namecard id
      * @return true if the namecard cache contains the namecard
      */
@@ -152,6 +163,7 @@ public class EnkaCaches {
 
     /**
      * Gets character data from the cache.
+     *
      * @param id the character id
      * @return the character data
      */
@@ -170,18 +182,14 @@ public class EnkaCaches {
 
     @NotNull
     public static String getLocale(@NotNull GenshinLocalization locale, @NotNull String id) {
-        JsonNode node;
+        JsonNode node = localizationCache.get(locale);
 
-        if (localizationCache.containsKey(locale)) {
-            node = localizationCache.get(locale);
-        } else {
+        if (node == null) {
             node = fetchJsonData("TextMap", "TextMap" + locale.getCode());
             localizationCache.put(locale, node);
         }
 
-        if (node == null) {
-            throw new NoLocalizationFound();
-        }
+        if (node == null) throw new NoLocalizationFound();
 
         final Iterator<Map.Entry<String, JsonNode>> fields = node.fields();
 

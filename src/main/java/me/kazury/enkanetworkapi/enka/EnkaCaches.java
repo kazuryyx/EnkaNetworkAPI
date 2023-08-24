@@ -133,22 +133,28 @@ public class EnkaCaches {
             return new GenshinMaterial(existingMaterial);
         }
 
-        if (materialJsonNode == null) return null;
-        if (!materialJsonNode.isArray()) return null;
-        JsonNode materialData = null;
+        final JsonNode node = materialJsonNode.get(id);
 
-        for (JsonNode entry : materialJsonNode) {
-            if (!entry.has("id")) continue;
-            if (entry.get("id").asInt() != id) continue;
-            materialData = entry;
-            break;
-        }
-
-        if (materialData != null) {
-            materialCache.put(realId, materialData);
-            return new GenshinMaterial(materialData);
+        if (node != null) {
+            materialCache.put(realId, node);
+            return new GenshinMaterial(node);
         }
         return null;
+    }
+
+    /**
+     * Loads the localization from the json files
+     * @param localization the localization to load
+     */
+    protected static void loadLocalization(@NotNull GenshinLocalization localization) {
+        final JsonNode node = localizationCache.get(localization);
+        if (node != null) return;
+
+        System.out.println("New localization (" + localization.name() + ") has been detected, loading...");
+        System.out.println("If this method somehow invokes twice, then please use EnkaNetworkBuilder and don't set the localization after the initialization of EnkaNetworkAPI");
+        final JsonNode langNode = fetchJsonData("TextMap", "TextMap" + localization.getCode());
+        localizationCache.put(localization, langNode);
+        System.out.println("Localization has been loaded!");
     }
 
     /**
@@ -185,20 +191,13 @@ public class EnkaCaches {
         JsonNode node = localizationCache.get(locale);
 
         if (node == null) {
-            node = fetchJsonData("TextMap", "TextMap" + locale.getCode());
-            localizationCache.put(locale, node);
+            // IntelliJ complains that the #get call below this might throw
+            throw new NoLocalizationFound();
         }
 
-        if (node == null) throw new NoLocalizationFound();
-
-        final Iterator<Map.Entry<String, JsonNode>> fields = node.fields();
-
-        while (fields.hasNext()) {
-            final Map.Entry<String, JsonNode> entry = fields.next();
-            if (!entry.getKey().equals(id)) continue;
-            return entry.getValue().asText();
-        }
-        throw new NoLocalizationFound();
+        final JsonNode langNode = node.get(id);
+        if (langNode == null) throw new NoLocalizationFound();
+        return langNode.asText();
     }
 
     @NotNull

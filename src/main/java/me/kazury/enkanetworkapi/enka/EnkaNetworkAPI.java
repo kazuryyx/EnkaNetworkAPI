@@ -11,9 +11,7 @@ import me.kazury.enkanetworkapi.genshin.exceptions.WrongUIDFormatException;
 import me.kazury.enkanetworkapi.genshin.util.CachedData;
 import me.kazury.enkanetworkapi.genshin.util.FunctionalCallback;
 import me.kazury.enkanetworkapi.genshin.util.INameable;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import org.checkerframework.checker.units.qual.K;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,8 +36,6 @@ public class EnkaNetworkAPI {
     public EnkaNetworkAPI() {
         this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.userCache = new ConcurrentHashMap<>();
-
-        EnkaCaches.loadLocalization(EnkaGlobals.getDefaultLocalization());
     }
 
     /**

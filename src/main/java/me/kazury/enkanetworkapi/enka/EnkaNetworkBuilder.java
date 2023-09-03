@@ -16,9 +16,9 @@ import org.jetbrains.annotations.NotNull;
  * }</pre>
  */
 public class EnkaNetworkBuilder {
-    private GenshinLocalization defaultLocalization = EnkaGlobals.getDefaultLocalization();
-    private String baseUrl = EnkaNetworkAPI.BASE_UI_URL;
-    private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
+    private GenshinLocalization defaultLocalization;
+    private String baseUrl;
+    private String userAgent;
 
     /**
      * Sets the default localization which will be used for {@link INameable} objects.
@@ -47,7 +47,7 @@ public class EnkaNetworkBuilder {
      */
     @NotNull
     public EnkaNetworkBuilder setUserAgent(@NotNull String agent) {
-        this.userAgent = userAgent;
+        this.userAgent = agent;
         return this;
     }
 
@@ -58,9 +58,18 @@ public class EnkaNetworkBuilder {
     @NotNull
     public EnkaNetworkAPI build() {
         final EnkaNetworkAPI api = new EnkaNetworkAPI();
-        api.setDefaultLocalization(this.defaultLocalization);
-        api.setUserAgent(this.userAgent);
-        api.setDefaultUIPath(this.baseUrl);
+        if (this.defaultLocalization != null) {
+            api.setDefaultLocalization(this.defaultLocalization);
+        }
+
+        if (this.baseUrl != null) {
+            api.setDefaultUIPath(this.baseUrl);
+        }
+
+        if (this.userAgent != null) {
+            api.setUserAgent(this.userAgent);
+        }
+
         return api;
     }
 }

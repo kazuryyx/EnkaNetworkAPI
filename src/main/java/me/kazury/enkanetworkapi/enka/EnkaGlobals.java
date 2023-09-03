@@ -20,6 +20,7 @@ public class EnkaGlobals {
      */
     @NotNull
     public static GenshinLocalization getDefaultLocalization() {
+        EnkaCaches.loadLocalization(DEFAULT_LOCALIZATION);
         return DEFAULT_LOCALIZATION;
     }
 

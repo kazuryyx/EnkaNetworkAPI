@@ -32,6 +32,11 @@ public class GenshinUserInformation {
      */
     private final String signature;
     /**
+     * The adventure rank of this player
+     * <br>Ranges from 1 to 60.
+     */
+    private final int level;
+    /**
      * The world level of the player.
      * This is a range from 0 to 8.
      */
@@ -106,6 +111,7 @@ public class GenshinUserInformation {
 
         final GenshinUserInformation user = GenshinUserInformation.builder()
                 .nickName(enkaUser.getPlayerInfo().getNickname())
+                .level(enkaUser.getPlayerInfo().getLevel())
                 .signature(enkaUser.getPlayerInfo().getSignature())
                 .worldLevel(enkaUser.getPlayerInfo().getWorldLevel())
                 .namecardId(enkaUser.getPlayerInfo().getNameCardId())

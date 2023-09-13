@@ -50,6 +50,8 @@ public class GenshinCharacterData implements INameable {
     private long nameTextMapHash;
     /**
      * Represents the UI Element of the side icon.
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>This is the icon that is used on genshin's right side to switch characters.
      */
     @JsonProperty("SideIconName")
     private String sideIconName;
@@ -69,6 +71,16 @@ public class GenshinCharacterData implements INameable {
     }
 
     /**
+     * Returns the icon of the character when the character is looking at the camera.
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * @return At camera looking icon
+     */
+    @NotNull
+    public String getIconName() {
+        return this.sideIconName.replace("_Side", "");
+    }
+
+    /**
      * A custome from this character
      * <br>Costumes can be obtained from an event, and with genesis crystals (after event).
      */
@@ -77,6 +89,7 @@ public class GenshinCharacterData implements INameable {
     public static class Costume {
         /**
          * Represents the UI Element of the side icon.
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
          */
         @JsonProperty("sideIconName")
         private String sideIconName;

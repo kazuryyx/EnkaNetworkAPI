@@ -26,8 +26,7 @@ public class GenshinCharacterData implements INameable {
     /**
      * The image ids of the characters talents.
      * <br>This includes Normal Attack, Elemental Skill, Elemental Burst and Passive Talents.
-     *
-     * @see EnkaNetworkAPI#getIcon(String)
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
      */
     @JsonProperty("Consts")
     private List<String> consts;
@@ -40,6 +39,7 @@ public class GenshinCharacterData implements INameable {
     private List<Integer> skillOrder;
     /**
      * Represents a map of Integer (Talent Id from skillOrder), String (Talent UI Image)
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
      */
     @JsonProperty("Skills")
     private Map<Integer, String> skills;
@@ -82,7 +82,7 @@ public class GenshinCharacterData implements INameable {
 
     /**
      * A custome from this character
-     * <br>Costumes can be obtained from an event, and with genesis crystals (after event).
+     * <br>Costumes can be obtained from an event, and with genesis crystals (paid currency)
      */
     @Getter
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -95,12 +95,14 @@ public class GenshinCharacterData implements INameable {
         private String sideIconName;
         /**
          * Represents the Icon when the character is looking at the camera.
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
          */
         @JsonProperty("icon")
         private String icon;
         /**
          * Represents the art of the character when the outfit was obtained
          * <br> You may have heard the term "splash art" before, this is the same thing.
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
          */
         @JsonProperty("art")
         private String art;

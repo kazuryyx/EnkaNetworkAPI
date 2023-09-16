@@ -151,7 +151,6 @@ public class EnkaCaches {
         if (node != null) return;
 
         System.out.println("New localization (" + localization.name() + ") has been detected, loading...");
-        System.out.println("If this method somehow invokes twice, then please use EnkaNetworkBuilder and don't set the localization after the initialization of EnkaNetworkAPI");
         final JsonNode langNode = fetchJsonData("TextMap", "TextMap" + localization.getCode());
         localizationCache.put(localization, langNode);
         System.out.println("Localization has been loaded!");

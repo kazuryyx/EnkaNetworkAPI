@@ -136,7 +136,7 @@ public class EnkaNetworkAPI {
      * @return The namecard, or null if the namecard does not exist (or I forgot to update my library)
      */
     @Nullable
-    public GenshinNamecard getNamecard(final int id) {
+    public GenshinNamecard getGenshinNamecard(final int id) {
         return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getGenshinIcon(EnkaCaches.getNamecardName(id))) : null;
     }
 

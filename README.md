@@ -116,18 +116,27 @@ public CreatedClass() {
 ```
 
 ## Class Methods for EnkaNetworkAPI 
-| Method name                                              | Description                                                                                                                                                      | Version |
-|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| ``fetchUser(long uid, Consumer<EnkaUserInformation>)``   | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires.                          | 3.8     |
-| ``fetchUser(String uid, Consumer<EnkaUserInformation>)`` | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
-| ``getNamecard(long id)``                                 | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*)                                 | 3.8     |
-| ``getCharacterData(String id)``                          | Fetches Character Data by a string, this is also provided where the id is needed.                                                                                | 3.8     |
-| ``getCharacterData(long id)``                            | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
-| ``getArtifactTotal(GenshinUserCharacter character)``     | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>``                                                                             | 3.8     |
-| ``getIcon(String key)``                                  | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8     | 
-| ``getAllCharacters()``                                   | Gets a list of all active genshin characters, which you can get their name from, data, etc                                                                       | 3.8     |
-| ``getMaterial(String id)``                               | Get a material by the id, the id is provided where you need it.                                                                                                  | 3.8     |
-| ``getMaterial(long id)``                                 | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
+| Method name                                                                                   | Description                                                                                                                                                      | Version |
+|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| ``fetchGenshinUser(long uid, Consumer<EnkaUserInformation>)``                                 | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires.                          | 3.8     |
+| ``fetchGenshinUser(long uid, Consumer<EnkaUserInformation>, Consumer<Throwable> failure)``    | Same as above, but runs the failure consumer when an exception is thrown.                                                                                        | 4.0     |
+| ``fetchGenshinUser(String uid, Consumer<EnkaUserInformation>)``                               | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
+| ``fetchGenshinUser(String uid, Consumer<EnkaUserInformation>)``                               | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
+| ``fetchGenshinUser(String uid, Consumer<EnkaUserInformation>, Consumer<Throwable> failure)``  | Same as above, but runs the failure consumer when an exception is thrown.                                                                                        | 4.0     |
+| ``fetchHonkaiUser(long uid, Consumer<EnkaUserInformation>)``                                  | Fetches a user from the API and does the consumer action in some time later, caching is handled here and will cached until ttl expires.                          | 3.8     |
+| ``fetchHonkaiUser(long uid, Consumer<EnkaUserInformation>, Consumer<Throwable> failure)``     | Same as above, but runs the failure consumer when an exception is thrown.                                                                                        | 4.0     |
+| ``fetchHonkaiUser(String uid, Consumer<EnkaUserInformation>)``                                | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
+| ``fetchHonkaiUser(String uid, Consumer<EnkaUserInformation>)``                                | Same as above, but converts the string to a long so you don't have to.                                                                                           | 3.8     |
+| ``fetchHonkaiUser(String uid, Consumer<EnkaUserInformation>, Consumer<Throwable> failure)``   | Same as above, but runs the failure consumer when an exception is thrown.                                                                                        | 4.0     |
+| ``getGenshinNamecard(long id)``                                                               | Fetches a namecard information by the **namecard id**, the namecard id is provided where you need it (*As provided in the docs*)                                 | 3.8     |
+| ``getGenshinCharacterData(String id)``                                                        | Fetches Character Data by a string, this is also provided where the id is needed.                                                                                | 3.8     |
+| ``getGenshinCharacterData(long id)``                                                          | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
+| ``getGenshinArtifactTotal(GenshinUserCharacter character)``                                   | Fetches the artifact sets a character has, this is map of ``<ArtifactName, Amount>``                                                                             | 3.8     |
+| ``getGenshinIcon(String key)``                                                                | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8     | 
+| ``getSRIcon(String key)``                                                                     | Fetches an icon image for the key, the key also provided where you need it and some docs explain if you have to parse it yourself, or if the icon is just there. | 3.8     | 
+| ``getAllGenshinCharacters()``                                                                 | Gets a list of all active genshin characters, which you can get their name from, data, etc                                                                       | 3.8     |
+| ``getGenshinMaterial(String id)``                                                             | Get a material by the id, the id is provided where you need it.                                                                                                  | 3.8     |
+| ``getGenshinMaterial(long id)``                                                               | Same as the above method, just converts long to string so you don't have to.                                                                                     | 3.8     |
 
 ## Retrieving user data
 So, with all this out of the way, I will now explain how to fetch data.
@@ -138,8 +147,8 @@ public CreatedClass() {
    this.api.setDefaultLocalization(GenshinLocalization.ENGLISH);
    this.api.setUserAgent("---");
 
-   this.api.fetchUser(722777337, (user) -> {
-       final GenshinUserInformation info = GenshinUserInformation.fromEnkaUser(user);
+   this.api.fetchGenshinUser(722777337, (user) -> {
+       final GenshinUserInformation info = user.toGenshinUser();
    });
 }
 ```
@@ -156,7 +165,7 @@ public CreatedClass() {
    this.api.setUserAgent("---");
 
    this.api.fetchUser(722777337, (user) -> {
-       final GenshinUserInformation info = GenshinUserInformation.fromEnkaUser(user);
+       final GenshinUserInformation info = user.toGenshinUser();
 
        for (GenshinUserCharacter character : info.getCharacters()) {
           // This is a list of characters the user currently has in their showcase.
@@ -180,6 +189,10 @@ public CreatedClass() {
 | ``getCurrentAscension()``  | Gets the current ascension of this character, each ascension is basically one "star" in the client menu.                                                     | 3.8     |
 | ``getCurrentLevel()``      | Gets the current level of this character, from 0 to 90                                                                                                       | 3.8     |
 | ``getFriendshipLevel()``   | Gets the current friendship level from 0 to 10                                                                                                               | 3.8     |
+
+### Honkai Star Rail support
+Yes, in 4.0 I have added support for Honkai: Star Rail.
+The concept of working with this is the same as Genshin.
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.

@@ -1,17 +1,17 @@
 package me.kazury.enkanetworkapi.enka;
 
-import me.kazury.enkanetworkapi.genshin.data.GenshinLocalization;
+import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class EnkaGlobals {
-    private static GenshinLocalization DEFAULT_LOCALIZATION = GenshinLocalization.ENGLISH;
+    private static GlobalLocalization DEFAULT_LOCALIZATION = GlobalLocalization.ENGLISH;
 
     /**
      * Sets the default localization
      * @param localization the "new" localization
      */
-    public static void setDefaultLocalization(@NotNull GenshinLocalization localization) {
+    public static void setDefaultLocalization(@NotNull GlobalLocalization localization) {
         DEFAULT_LOCALIZATION = localization;
     }
 
@@ -19,8 +19,8 @@ public class EnkaGlobals {
      * @return the default localization
      */
     @NotNull
-    public static GenshinLocalization getDefaultLocalization() {
-        EnkaCaches.loadLocalization(DEFAULT_LOCALIZATION);
+    public static GlobalLocalization getDefaultLocalization() {
+        EnkaCaches.loadLocalizations(DEFAULT_LOCALIZATION);
         return DEFAULT_LOCALIZATION;
     }
 
@@ -30,7 +30,7 @@ public class EnkaGlobals {
      * @return the parsed localization or the default localization
      */
     @NotNull
-    public static GenshinLocalization parseLocalization(@Nullable GenshinLocalization localization) {
+    public static GlobalLocalization parseLocalization(@Nullable GlobalLocalization localization) {
         return localization == null ? getDefaultLocalization(): localization;
     }
 }

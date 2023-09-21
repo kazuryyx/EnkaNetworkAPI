@@ -1,4 +1,4 @@
-package me.kazury.enkanetworkapi.genshin.util;
+package me.kazury.enkanetworkapi.util;
 
 /**
  * A functional interface which is used for caching data

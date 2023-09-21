@@ -3,108 +3,105 @@ package me.kazury.enkanetworkapi.enka;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.kazury.enkanetworkapi.genshin.data.*;
-import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
-import me.kazury.enkanetworkapi.genshin.exceptions.NiceJobException;
-import me.kazury.enkanetworkapi.genshin.exceptions.PlayerDoesNotExistException;
-import me.kazury.enkanetworkapi.genshin.exceptions.RateLimitedException;
-import me.kazury.enkanetworkapi.genshin.exceptions.WrongUIDFormatException;
-import me.kazury.enkanetworkapi.genshin.util.CachedData;
-import me.kazury.enkanetworkapi.genshin.util.FunctionalCallback;
-import me.kazury.enkanetworkapi.genshin.util.INameable;
-import okhttp3.Request;
+import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
+import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
+import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
+import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
+/**
+ * TODO - Add documentation
+ */
 public class EnkaNetworkAPI {
-    private static final String BASE_URL = "https://enka.network/api/";
-
-    public static String BASE_UI_URL = "https://enka.network/ui/";
+    public static String BASE_GENSHIN_UI_URL = "https://enka.network/ui/";
+    public static String BASE_SR_UI_URL = "https://enka.network/ui/hsr/";
 
     private final Gson gson;
-    private final Map<Long, CachedData<EnkaUserInformation>> userCache;
-
-    private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
+    private final EnkaHTTPClient httpClient;
 
     public EnkaNetworkAPI() {
         this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
-        this.userCache = new ConcurrentHashMap<>();
-    }
-
-    private void fetchUserFailure(final long uid, @NotNull Consumer<EnkaUserInformation> success,
-                           @Nullable Consumer<Throwable> failure) {
-        this.getBase("uid/" + uid + "/", EnkaUserInformation.class).thenAccept((userData) -> {
-            if (userData == null) return;
-            this.userCache.put(uid, new CachedData<>(userData));
-            success.accept(userData);
-        }).exceptionally((exception) -> {
-            exception.printStackTrace();
-            if (failure != null) failure.accept(exception);
-            return null;
-        });
+        this.httpClient = new EnkaHTTPClient(this, this.gson);
     }
 
     /**
-     * Loads a user from the Enka Network API and passes on the action that you want to do on the user.
+     * Loads a genshin user from the Enka Network API and passes on the action that you want to do on the user.
      * @param uid The <a href="https://genshin-impact.fandom.com/wiki/UID">UID</a> of the user.
      * @param consumer The action that you want to do on the user once the data has been acquired.
      *                 This method is async and the request will be queued to avoid spamming the API.
      */
-    public void fetchUser(final long uid, @NotNull Consumer<EnkaUserInformation> consumer) {
-        final CachedData<EnkaUserInformation> cachedData = this.userCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
-            consumer.accept(cachedData.getData());
-            return;
-        }
-
-        this.fetchUserFailure(uid, consumer, null);
+    public void fetchGenshinUser(final long uid, @NotNull Consumer<GenshinUnconvertedUser> consumer) {
+        this.httpClient.fetchGenshinUser(uid, consumer);
     }
 
     /**
-     * Loads a user from the Enka Network API and passes on the action that you want to do on the user.
+     * Loads a genshin user from the Enka Network API and passes on the action that you want to do on the user.
      * @param uid The <a href="https://genshin-impact.fandom.com/wiki/UID">UID</a> of the user.
      * @param success The action that you want to do on the user once the data has been acquired.
      *                 This method is async and the request will be queued to avoid spamming the API.
      * @param failure The action that you want to do when the request fails (exception status).
      */
-    public void fetchUser(final long uid, @NotNull Consumer<EnkaUserInformation> success,
+    public void fetchGenshinUser(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success,
                           @NotNull Consumer<Throwable> failure) {
-        final CachedData<EnkaUserInformation> cachedData = this.userCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
-            success.accept(cachedData.getData());
-            return;
-        }
-
-        this.fetchUserFailure(uid, success, failure);
+        this.httpClient.fetchGenshinUser(uid, success, failure);
     }
 
     /**
-     * Loads a user from the Enka Network API and passes on the action that you want to do on the user.
+     * Loads a genshin user from the Enka Network API and passes on the action that you want to do on the user.
      * @param uid The <a href="https://genshin-impact.fandom.com/wiki/UID">UID</a> of the user.
      * @param consumer The action that you want to do on the user once the data has been acquired.
      *                 This method is async and the request will be queued to avoid spamming the API.
      */
-    public void fetchUser(@NotNull String uid, @NotNull Consumer<EnkaUserInformation> consumer) {
-        this.fetchUser(Long.parseLong(uid), consumer);
+    public void fetchGenshinUser(@NotNull String uid, @NotNull Consumer<GenshinUnconvertedUser> consumer) {
+        this.fetchGenshinUser(Long.parseLong(uid), consumer);
     }
 
     /**
-     * Loads a user from the Enka Network API and passes on the action that you want to do on the user.
+     * Loads a genshin user from the Enka Network API and passes on the action that you want to do on the user.
      * @param uid The <a href="https://genshin-impact.fandom.com/wiki/UID">UID</a> of the user.
      * @param consumer The action that you want to do on the user once the data has been acquired.
      *                 This method is async and the request will be queued to avoid spamming the API.
      * @param failure The action that you want to do when the request fails (exception status).
      */
-    public void fetchUser(@NotNull String uid, @NotNull Consumer<EnkaUserInformation> consumer,
+    public void fetchGenshinUser(@NotNull String uid, @NotNull Consumer<GenshinUnconvertedUser> consumer,
                           @NotNull Consumer<Throwable> failure) {
-        this.fetchUser(Long.parseLong(uid), consumer, failure);
+        this.fetchGenshinUser(Long.parseLong(uid), consumer, failure);
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> consumer) {
+        this.httpClient.fetchHonkaiUser(uid, consumer);
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
+                          @NotNull Consumer<Throwable> failure) {
+        this.httpClient.fetchHonkaiUser(uid, success, failure);
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer) {
+        this.fetchHonkaiUser(Long.parseLong(uid), consumer);
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer,
+                          @NotNull Consumer<Throwable> failure) {
+        this.fetchHonkaiUser(Long.parseLong(uid), consumer, failure);
     }
 
     /**
@@ -115,7 +112,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinNamecard getNamecard(final int id) {
-        return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getIcon(EnkaCaches.getNamecardName(id))) : null;
+        return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getGenshinIcon(EnkaCaches.getNamecardName(id))) : null;
     }
 
     /**
@@ -135,7 +132,7 @@ public class EnkaNetworkAPI {
      * @return All Genshin characters
      */
     @NotNull
-    public List<GenshinCharacterData> getAllCharacters() {
+    public List<GenshinCharacterData> getAllGenshinCharacters() {
         return EnkaCaches.getCharacterMap().values().stream().toList();
     }
 
@@ -146,7 +143,7 @@ public class EnkaNetworkAPI {
      * @return A map of artifacts this character has.
      */
     @NotNull
-    public Map<String, Integer> getArtifactTotal(@NotNull GenshinUserCharacter character) {
+    public Map<String, Integer> getGenshinArtifactTotal(@NotNull GenshinUserCharacter character) {
         final Map<String, Integer> artifacts = new HashMap<>();
         for (GenshinArtifact artifact : character.getArtifacts()) {
             artifacts.put(artifact.getName(), artifacts.getOrDefault(artifact.getName(), 0) + 1);
@@ -159,20 +156,20 @@ public class EnkaNetworkAPI {
      * <br>You might notice, some methods with translation require you to pass in a translation, but you can also decide to not put any parameters,
      * and so the default translation will be used (which will be english).
      * @param localization The default localization.
-     * @see INameable
+     * @see GenshinNameable
      */
-    public void setDefaultLocalization(@NotNull GenshinLocalization localization) {
+    public void setDefaultLocalization(@NotNull GlobalLocalization localization) {
         EnkaGlobals.setDefaultLocalization(localization);
-        EnkaCaches.loadLocalization(localization);
+        EnkaCaches.loadLocalizations(localization);
     }
 
     /**
-     * Sets the user agent for the HTTP requests when fetching {@link EnkaUserInformation}.
+     * Sets the user agent for the HTTP requests when fetching {@link GenshinUnconvertedUser}.
      * <br><b>Quote: </b><i>Please set a custom User-Agent header with your requests so I can track them better and help you if needed.</i>
      * @param userAgent The user agent.
      */
     public void setUserAgent(@NotNull String userAgent) {
-        this.userAgent = userAgent;
+        this.httpClient.setUserAgent(userAgent);
     }
 
     /**
@@ -182,7 +179,7 @@ public class EnkaNetworkAPI {
      * @param path The default UI path.
      */
     public void setDefaultUIPath(@NotNull String path) {
-        BASE_UI_URL = path;
+        BASE_GENSHIN_UI_URL = path;
     }
 
     /**
@@ -191,7 +188,7 @@ public class EnkaNetworkAPI {
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
      */
     @Nullable
-    public GenshinCharacterData getCharacterData(final long id) {
+    public GenshinCharacterData getGenshinCharacterData(final long id) {
         return this.getCharacterData(String.valueOf(id));
     }
 
@@ -201,7 +198,7 @@ public class EnkaNetworkAPI {
      * @return The material or null if the material does not exist
      */
     @Nullable
-    public GenshinMaterial getMaterial(@NotNull String id) {
+    public GenshinMaterial getGenshinMaterial(@NotNull String id) {
         return EnkaCaches.getMaterial(Integer.parseInt(id));
     }
 
@@ -211,57 +208,30 @@ public class EnkaNetworkAPI {
      * @return The material or null if the material does not exist
      */
     @Nullable
-    public GenshinMaterial getMaterial(final int id) {
+    public GenshinMaterial getGenshinMaterial(final int id) {
         return EnkaCaches.getMaterial(id);
     }
 
     /**
-     * Gets an icon by the icon id
+     * Gets an icon by the icon id (genshin impact)
      * @param key The icon id, it is usually an uppercase char sequence
      * @return The icon url or null if the icon does not exist
      */
     @Nullable
-    public String getIcon(@NotNull String key) {
-        return BASE_UI_URL + key + ".png";
+    public String getGenshinIcon(@NotNull String key) {
+        return BASE_GENSHIN_UI_URL + key + ".png";
     }
 
-    @NotNull
-    private <K> CompletableFuture<K> getBase(@NotNull String endpoint, @NotNull Class<K> clazz) {
-        final CompletableFuture<K> future = new CompletableFuture<>();
-        final Request request = new Request.Builder()
-                .url(BASE_URL + endpoint)
-                .addHeader("User-Agent", this.userAgent)
-                .build();
-
-        EnkaCaches.getClient().newCall(request).enqueue(FunctionalCallback.builder()
-                .failure(($, exception) -> future.completeExceptionally(exception))
-                .success(($, response) -> {
-            if (!response.isSuccessful()) {
-                if (clazz != EnkaUserInformation.class) {
-                    future.completeExceptionally(new IOException("Could not fetch user data, code " + response.code()));
-                    return;
-                }
-
-                switch (response.code()) {
-                    case 400 -> future.completeExceptionally(new WrongUIDFormatException());
-                    case 404 -> future.completeExceptionally(new PlayerDoesNotExistException());
-                    case 429 -> future.completeExceptionally(new RateLimitedException());
-                    case 503 -> future.completeExceptionally(new NiceJobException());
-                }
-                return;
-            }
-
-            if (response.body() == null) {
-                future.complete(null);
-                return;
-            }
-            final K result = this.gson.fromJson(response.body().string(), clazz);
-            if (result == null) {
-                future.completeExceptionally(new IOException("Could not cast response to " + clazz.getSimpleName()));
-                return;
-            }
-            future.complete(clazz.cast(result));
-        }).build());
-        return future;
+    /**
+     * Gets an icon by the icon id (Honkai: Star Rail)
+     * @param key The icon id, it is usually an uppercase char sequence
+     * @return The icon url or null (see note)
+     * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
+     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
+     *         <br>With a custom CDN.
+     */
+    @Nullable
+    public String getSRIcon(@NotNull String key) {
+        return BASE_SR_UI_URL + key + ".png";
     }
 }

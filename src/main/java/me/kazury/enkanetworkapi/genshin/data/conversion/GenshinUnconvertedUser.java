@@ -2,7 +2,7 @@ package me.kazury.enkanetworkapi.genshin.data.conversion;
 
 import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
-import me.kazury.enkanetworkapi.genshin.util.IExpiryTime;
+import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -12,11 +12,11 @@ import java.util.Map;
  * This class is used for converting json to this class.
  * <br>You should never prefer using this class and instead use {@link GenshinUserInformation}
  * <br>This class contains a lot of nullability, and will cause issues if you try to use it.
- * <br>If you are wondering what to use in alternative, take a look at {@link GenshinUserInformation#fromEnkaUser(EnkaUserInformation)}.
+ * <br>If you are wondering what to use in alternative, take a look at {@link GenshinUserInformation#fromEnkaUser(GenshinUnconvertedUser)}.
  * @see GenshinUserInformation
  */
 @Getter
-public class EnkaUserInformation implements IExpiryTime {
+public class GenshinUnconvertedUser implements IExpiryTime {
     private PlayerInfo playerInfo;
     private List<AvatarInfo> avatarInfoList;
     private int ttl;
@@ -80,14 +80,14 @@ public class EnkaUserInformation implements IExpiryTime {
 
     @Getter
     public static class FlatData {
-        private String nameTextMapHash; // weapons, artifacts
-        private String setNameTextMapHash; // only exists on artifacts
-        private int rankLevel; // weapons, artifacts
-        private List<SubData> weaponStats; // weapons, null if artifacts
-        private ArtifactMainData reliquaryMainstat; // artifacts, null if weapon
-        private List<SubData> reliquarySubstats; // artifacts, null if weapon
-        private String icon; // weapons, artifacts
-        private String equipType; // artifacts, null if weapon
+        private String nameTextMapHash;
+        private String setNameTextMapHash;
+        private int rankLevel;
+        private List<SubData> weaponStats;
+        private ArtifactMainData reliquaryMainstat;
+        private List<SubData> reliquarySubstats;
+        private String icon;
+        private String equipType;
     }
 
     @Getter

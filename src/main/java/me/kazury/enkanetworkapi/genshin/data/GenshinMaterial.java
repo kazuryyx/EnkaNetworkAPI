@@ -61,8 +61,8 @@ public class GenshinMaterial {
 
     public GenshinMaterial(@NotNull JsonNode jsonNode) {
         this.id = jsonNode.get("id").asInt();
-        this.name = EnkaCaches.getLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("nameTextMapHash").asText());
-        this.description = EnkaCaches.getLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("descTextMapHash").asText());
+        this.name = EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("nameTextMapHash").asText());
+        this.description = EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("descTextMapHash").asText());
         this.icon = jsonNode.get("icon").asText();
         this.pictures = jsonNode.findValuesAsText("picPath");
         this.itemType = GenshinItemType.valueOf(jsonNode.get("itemType").asText());

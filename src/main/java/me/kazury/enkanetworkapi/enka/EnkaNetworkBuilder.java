@@ -1,7 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
-import me.kazury.enkanetworkapi.genshin.data.GenshinLocalization;
-import me.kazury.enkanetworkapi.genshin.util.INameable;
+import me.kazury.enkanetworkapi.util.GlobalLocalization;
+import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -16,16 +16,16 @@ import org.jetbrains.annotations.NotNull;
  * }</pre>
  */
 public class EnkaNetworkBuilder {
-    private GenshinLocalization defaultLocalization;
+    private GlobalLocalization defaultLocalization;
     private String baseUrl;
     private String userAgent;
 
     /**
-     * Sets the default localization which will be used for {@link INameable} objects.
+     * Sets the default localization which will be used for {@link GenshinNameable} objects.
      * @param localization The "new" default localization. Leaving this empty will be english.
      */
     @NotNull
-    public EnkaNetworkBuilder setDefaultLocalization(@NotNull GenshinLocalization localization) {
+    public EnkaNetworkBuilder setDefaultLocalization(@NotNull GlobalLocalization localization) {
         this.defaultLocalization = localization;
         return this;
     }

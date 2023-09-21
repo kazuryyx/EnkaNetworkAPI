@@ -2,9 +2,10 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFound;
+import me.kazury.enkanetworkapi.util.GameType;
+import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -12,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -22,7 +22,9 @@ public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
 
-    private static final Map<GenshinLocalization, JsonNode> localizationCache = new HashMap<>();
+    private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
+    private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
+
     private static final OkHttpClient client = new OkHttpClient();
     private static final Map<String, JsonNode> materialCache = new HashMap<>();
 
@@ -68,7 +70,7 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        materialJsonNode = fetchJsonData("ExcelBinOutput", "MaterialExcelConfigData.json");
+        materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
     }
 
     /**
@@ -79,13 +81,15 @@ public class EnkaCaches {
      * @return the json node
      */
     @Nullable
-    protected static JsonNode fetchJsonData(@NotNull String subPath, @NotNull String fileName) {
+    protected static JsonNode fetchJsonData(@NotNull GameType game, @NotNull String subPath, @NotNull String fileName) {
         fileName = parseString(fileName);
 
         final ObjectMapper mapper = new ObjectMapper();
+        final String url = game.getUrl().formatted(subPath, fileName);
         final Request request = new Request.Builder()
-                .url("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/%s/%s".formatted(subPath, fileName))
+                .url(url)
                 .build();
+        System.out.println(url);
 
         try (Response response = client.newCall(request).execute();
              ResponseBody body = response.body()) {
@@ -146,14 +150,35 @@ public class EnkaCaches {
      * Loads the localization from the json files
      * @param localization the localization to load
      */
-    protected static void loadLocalization(@NotNull GenshinLocalization localization) {
-        final JsonNode node = localizationCache.get(localization);
+    protected static void loadLocalizations(@NotNull GlobalLocalization localization) {
+        loadGenshinLocalizations(localization);
+        loadHonkaiLocalization(localization);
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    protected static void loadGenshinLocalizations(@NotNull GlobalLocalization localization) {
+        final JsonNode node = genshinLocalizationCache.get(localization);
         if (node != null) return;
 
-        System.out.println("New localization (" + localization.name() + ") has been detected, loading...");
-        final JsonNode langNode = fetchJsonData("TextMap", "TextMap" + localization.getCode());
-        localizationCache.put(localization, langNode);
-        System.out.println("Localization has been loaded!");
+        System.out.println("(Genshin) New localization (" + localization.name() + ") has been detected, loading...");
+        final JsonNode langNode = fetchJsonData(GameType.GENSHIN, "TextMap", "TextMap" + localization.getCode());
+        genshinLocalizationCache.put(localization, langNode);
+        System.out.println("(Genshin) Localization has been loaded!");
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    protected static void loadHonkaiLocalization(@NotNull GlobalLocalization localization) {
+        final JsonNode node = honkaiLocalizationCache.get(localization);
+        if (node != null) return;
+
+        System.out.println("(Honkai) New localization (" + localization.name() + ") has been detected, loading...");
+        final JsonNode langNode = fetchJsonData(GameType.HONKAI, "TextMap", "TextMap" + localization.getCode());
+        honkaiLocalizationCache.put(localization, langNode);
+        System.out.println("(Honkai) Localization has been loaded!");
     }
 
     /**
@@ -186,8 +211,22 @@ public class EnkaCaches {
     }
 
     @NotNull
-    public static String getLocale(@NotNull GenshinLocalization locale, @NotNull String id) {
-        JsonNode node = localizationCache.get(locale);
+    public static String getGenshinLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
+        final JsonNode node = genshinLocalizationCache.get(locale);
+
+        if (node == null) {
+            // IntelliJ complains that the #get call below this might throw
+            throw new NoLocalizationFound();
+        }
+
+        final JsonNode langNode = node.get(id);
+        if (langNode == null) throw new NoLocalizationFound();
+        return langNode.asText();
+    }
+
+    @NotNull
+    public static String getHonkaiLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
+        final JsonNode node = honkaiLocalizationCache.get(locale);
 
         if (node == null) {
             // IntelliJ complains that the #get call below this might throw

@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.genshin.data.GenshinArtifactType;
+import me.kazury.enkanetworkapi.starrail.data.SRPlatform;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,5 +24,13 @@ public class EnkaParser {
             case "EQUIP_DRESS" -> GenshinArtifactType.CIRCLET;
             default -> null;
         };
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    @NotNull
+    public static SRPlatform parsePlatform(@NotNull String identifier) {
+        return null;
     }
 }

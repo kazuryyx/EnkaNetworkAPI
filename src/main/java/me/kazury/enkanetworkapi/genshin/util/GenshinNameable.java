@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.genshin.util;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.genshin.data.*;
+import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
  * @see GenshinCharacterData
  * @see GenshinUserWeapon
  */
-public interface INameable {
+public interface GenshinNameable {
     /**
      * Gets the name of this object given by a locale.
      * <br>If the locale is {@code null}, then the default locale will be used.
@@ -22,9 +23,9 @@ public interface INameable {
      * @see GenshinUserWeapon
      * @see GenshinArtifact
      */
-    default String getName(@Nullable GenshinLocalization locale) {
+    default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getLocale(locale, getNameTextMapHash());
+        return EnkaCaches.getGenshinLocale(locale, this.getNameTextMapHash());
     }
 
     /**

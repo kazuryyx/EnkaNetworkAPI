@@ -1,12 +1,11 @@
-package me.kazury.enkanetworkapi.genshin.data;
+package me.kazury.enkanetworkapi.util;
 
 import org.jetbrains.annotations.NotNull;
 
 /**
  * A localization that you can choose from
- * <br>These are also the same localizations that you can choose from in-game.
  */
-public enum GenshinLocalization {
+public enum GlobalLocalization {
     TRADITIONAL_CHINESE("CHT"),
     SIMPLIFIED_CHINESE("CHS"),
     GERMAN("DE"),
@@ -14,18 +13,24 @@ public enum GenshinLocalization {
     ESPANOL("ES"),
     FRANCAIS("FR"),
     INDONESIAN("ID"),
+    /**
+     * Do not use for Honkai: Star Rail
+     */
     ITALIAN("IT"),
     JAPANESE("JP"),
     KOREAN("KR"),
     PORTUGUESE("PT"),
     RUSSIAN("RU"),
     THAI("TH"),
+    /**
+     * Do not use for Honkai: Star Rail
+     */
     TURKISH("TR"),
     VIETNAMESE("VI");
 
     private final String code;
 
-    GenshinLocalization(@NotNull String code) {
+    GlobalLocalization(@NotNull String code) {
         this.code = code;
     }
 

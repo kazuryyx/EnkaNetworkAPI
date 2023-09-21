@@ -1,4 +1,4 @@
-package me.kazury.enkanetworkapi.genshin.util;
+package me.kazury.enkanetworkapi.util;
 
 import org.jetbrains.annotations.NotNull;
 

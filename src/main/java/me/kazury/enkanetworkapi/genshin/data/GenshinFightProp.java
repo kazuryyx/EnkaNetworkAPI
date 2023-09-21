@@ -2,7 +2,7 @@ package me.kazury.enkanetworkapi.genshin.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import me.kazury.enkanetworkapi.genshin.util.IValueAcceptor;
+import me.kazury.enkanetworkapi.util.IValueAcceptor;
 import me.kazury.enkanetworkapi.genshin.util.NumberHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

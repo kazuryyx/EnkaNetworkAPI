@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.util.INameable;
+import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenshinCharacterData implements INameable {
+public class GenshinCharacterData implements GenshinNameable {
     /**
      * The <a href="https://genshin-impact.fandom.com/wiki/Element">Element</a> of the character.
      */
@@ -26,7 +26,7 @@ public class GenshinCharacterData implements INameable {
     /**
      * The image ids of the characters talents.
      * <br>This includes Normal Attack, Elemental Skill, Elemental Burst and Passive Talents.
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
     @JsonProperty("Consts")
     private List<String> consts;
@@ -39,7 +39,7 @@ public class GenshinCharacterData implements INameable {
     private List<Integer> skillOrder;
     /**
      * Represents a map of Integer (Talent Id from skillOrder), String (Talent UI Image)
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
     @JsonProperty("Skills")
     private Map<Integer, String> skills;
@@ -50,7 +50,7 @@ public class GenshinCharacterData implements INameable {
     private long nameTextMapHash;
     /**
      * Represents the UI Element of the side icon.
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      * <br>This is the icon that is used on genshin's right side to switch characters.
      */
     @JsonProperty("SideIconName")
@@ -72,7 +72,7 @@ public class GenshinCharacterData implements INameable {
 
     /**
      * Returns the icon of the character when the character is looking at the camera.
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      * @return At camera looking icon
      */
     @NotNull
@@ -89,20 +89,20 @@ public class GenshinCharacterData implements INameable {
     public static class Costume {
         /**
          * Represents the UI Element of the side icon.
-         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
          */
         @JsonProperty("sideIconName")
         private String sideIconName;
         /**
          * Represents the Icon when the character is looking at the camera.
-         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
          */
         @JsonProperty("icon")
         private String icon;
         /**
          * Represents the art of the character when the outfit was obtained
          * <br> You may have heard the term "splash art" before, this is the same thing.
-         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+         * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
          */
         @JsonProperty("art")
         private String art;

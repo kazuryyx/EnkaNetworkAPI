@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
-import me.kazury.enkanetworkapi.genshin.util.INameable;
+import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Builder
 @Getter
-public class GenshinArtifact implements INameable {
+public class GenshinArtifact implements GenshinNameable {
     /**
      * Represents the type of this artifact, this is either a flower, feather, sands, goblet, or a circlet.
      *
@@ -44,7 +44,7 @@ public class GenshinArtifact implements INameable {
 
     /**
      * The icon identifier of this artifact (flower icon, sands icon, etc.)
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
     private String icon;
 

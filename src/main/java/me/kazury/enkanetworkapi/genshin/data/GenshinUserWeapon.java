@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
-import me.kazury.enkanetworkapi.genshin.util.INameable;
+import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class GenshinUserWeapon implements INameable {
+public class GenshinUserWeapon implements GenshinNameable {
     /**
      * Represents a localization key for the weapon name.
      */
@@ -35,7 +35,7 @@ public class GenshinUserWeapon implements INameable {
 
     /**
      * The icon ID of the weapon
-     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getIcon(String)}
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
     private final String weaponIcon;
 

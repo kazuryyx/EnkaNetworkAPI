@@ -1,13 +1,14 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
-import me.kazury.enkanetworkapi.genshin.data.conversion.EnkaUserInformation;
+import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -69,7 +70,7 @@ public class GenshinUserInformation {
     private List<GenshinNamecard> namecards = new ArrayList<>();
     /**
      * The ID of the character's profile picture (This will always exist).
-     * @see EnkaNetworkAPI#getCharacterData(long) 
+     * @see EnkaNetworkAPI#getGenshinCharacterData(long)
      */
     private final long profilePictureId;
 
@@ -87,7 +88,7 @@ public class GenshinUserInformation {
     /**
      * Converts this object to a {@link GenshinUserInformation} object.
      * <br>
-     * <br>You should always prefer using this class over {@link EnkaUserInformation} (detailed in this class)
+     * <br>You should always prefer using this class over {@link GenshinUnconvertedUser} (detailed in this class)
      * <br>You may also want to cache this object, but you shouldn't care unless you really need the data now and not some point later
      * (as this might be a heavy operation, depending on how often you call this method)
      *
@@ -101,28 +102,29 @@ public class GenshinUserInformation {
      * });
      * }</pre>
      *
-     * @param enkaUser The old {@link EnkaUserInformation} object which was received using {@link EnkaNetworkAPI#fetchUser(long, Consumer)}.
+     * @param enkaUser The old {@link GenshinUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchGenshinUser(long, Consumer)}.
      * @return The converted {@link GenshinUserInformation} object.
      */
     @NotNull
     @SuppressWarnings("unchecked")
-    public static GenshinUserInformation fromEnkaUser(@NotNull EnkaUserInformation enkaUser) {
+    public static GenshinUserInformation fromEnkaUser(@NotNull GenshinUnconvertedUser enkaUser) {
         // You're always free to do a PR and clean this mess up. :)
 
+        final GenshinUnconvertedUser.PlayerInfo playerInfoData = enkaUser.getPlayerInfo();
         final GenshinUserInformation user = GenshinUserInformation.builder()
-                .nickName(enkaUser.getPlayerInfo().getNickname())
-                .level(enkaUser.getPlayerInfo().getLevel())
-                .signature(enkaUser.getPlayerInfo().getSignature())
-                .worldLevel(enkaUser.getPlayerInfo().getWorldLevel())
-                .namecardId(enkaUser.getPlayerInfo().getNameCardId())
-                .achievementCompleted(enkaUser.getPlayerInfo().getFinishAchievementNum())
-                .towerFloorIndex(enkaUser.getPlayerInfo().getTowerFloorIndex())
-                .towerLevelIndex(enkaUser.getPlayerInfo().getTowerLevelIndex())
-                .profilePictureId(enkaUser.getPlayerInfo().getProfilePicture().getAvatarId())
+                .nickName(playerInfoData.getNickname())
+                .level(playerInfoData.getLevel())
+                .signature(playerInfoData.getSignature())
+                .worldLevel(playerInfoData.getWorldLevel())
+                .namecardId(playerInfoData.getNameCardId())
+                .achievementCompleted(playerInfoData.getFinishAchievementNum())
+                .towerFloorIndex(playerInfoData.getTowerFloorIndex())
+                .towerLevelIndex(playerInfoData.getTowerLevelIndex())
+                .profilePictureId(playerInfoData.getProfilePicture().getAvatarId())
                 .build();
 
         user.doActionAfter(data -> {
-            final EnkaUserInformation.PlayerInfo playerInfo = enkaUser.getPlayerInfo();
+            final GenshinUnconvertedUser.PlayerInfo playerInfo = enkaUser.getPlayerInfo();
             if (playerInfo.getShowAvatarInfoList() != null) {
                 data.setShowcaseCharacters(playerInfo.getShowAvatarInfoList().stream().map(showAvatarInfo -> {
                     final int avatarId = showAvatarInfo.getAvatarId();
@@ -137,7 +139,7 @@ public class GenshinUserInformation {
             if (playerInfo.getShowNameCardIdList() != null) {
                 data.setNamecards(playerInfo.getShowNameCardIdList().stream().map(id -> {
                     final String name = EnkaCaches.getNamecardName(id);
-                    final String namecardURL = EnkaNetworkAPI.BASE_UI_URL + name + ".png";
+                    final String namecardURL = EnkaNetworkAPI.BASE_GENSHIN_UI_URL + name + ".png";
                     return new GenshinNamecard(id, namecardURL);
                 }).toList());
             } else {
@@ -164,14 +166,15 @@ public class GenshinUserInformation {
                     }
 
                     // Applying weapon variable and adding artifacts to list
-                    for (EnkaUserInformation.EquipData equipData : avatarInfo.getEquipList()) {
-                        final EnkaUserInformation.ArtifactData artifactData = equipData.getReliquary();
-                        final EnkaUserInformation.FlatData flatData = equipData.getFlat();
+                    for (GenshinUnconvertedUser.EquipData equipData : avatarInfo.getEquipList()) {
+                        final GenshinUnconvertedUser.ArtifactData artifactData = equipData.getReliquary();
+                        final GenshinUnconvertedUser.FlatData flatData = equipData.getFlat();
                         if (artifactData == null) {
-                            final EnkaUserInformation.WeaponData weaponData = equipData.getWeapon();
+                            // Since artifact data is null, we know that this is a weapon
+                            final GenshinUnconvertedUser.WeaponData weaponData = equipData.getWeapon();
                             final List<GenshinUserWeapon.WeaponStat> weaponStats = new ArrayList<>();
 
-                            for (EnkaUserInformation.SubData subData : flatData.getWeaponStats()) {
+                            for (GenshinUnconvertedUser.SubData subData : flatData.getWeaponStats()) {
                                 final GenshinAppendProp parsedProp = GenshinAppendProp.fromKey(subData.getAppendPropId());
                                 if (parsedProp == null) continue;
                                 final double rawValue = subData.getStatValue();
@@ -193,18 +196,21 @@ public class GenshinUserInformation {
                                     .build();
                             continue;
                         }
-                        final EnkaUserInformation.ArtifactMainData mainStat = flatData.getReliquaryMainstat();
+                        final GenshinUnconvertedUser.ArtifactMainData mainStat = flatData.getReliquaryMainstat();
                         final GenshinAppendProp appendProp = GenshinAppendProp.fromKey(mainStat.getMainPropId());
                         final List<GenshinArtifact.ArtifactStat> subStats = new ArrayList<>();
                         if (appendProp == null) continue;
 
-                        for (EnkaUserInformation.SubData substat : flatData.getReliquarySubstats()) {
+                        // Retrieve substats of artifact
+                        for (GenshinUnconvertedUser.SubData substat : flatData.getReliquarySubstats()) {
                             final GenshinAppendProp subProp = GenshinAppendProp.fromKey(substat.getAppendPropId());
                             if (subProp == null) continue;
                             final double rawValue = substat.getStatValue();
 
                             subStats.add(new GenshinArtifact.ArtifactStat(
-                                    subProp.getId(), subProp.getAcceptor().accept(rawValue), rawValue
+                                    subProp.getId(),
+                                    subProp.getAcceptor().accept(rawValue),
+                                    rawValue
                             ));
                         }
                         final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());

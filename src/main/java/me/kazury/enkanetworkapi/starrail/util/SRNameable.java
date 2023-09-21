@@ -2,16 +2,25 @@ package me.kazury.enkanetworkapi.starrail.util;
 
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
+import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.starrail.data.SRRelic;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * TODO - Add documentation
+ * A functional interface which is used for getting names of objects
+ * @see SRRelic
+ * @see SRCharacterData
  */
 public interface SRNameable {
     /**
-     * TODO - Add documentation
+     * Gets the name of this object given by a locale.
+     * <br>If the locale is {@code null}, then the default locale will be used.
+     * @param locale The locale.
+     * @return The name of this object.
+     * @see SRRelic
+     * @see SRCharacterData
      */
     default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
@@ -19,15 +28,15 @@ public interface SRNameable {
     }
 
     /**
-     * TODO - Add documentation
+     * Gets the name of this object given by the default locale.
+     * @return The name of this object.
+     * @see SRRelic
+     * @see SRCharacterData
      */
     default String getName() {
         return this.getName(null);
     }
 
-    /**
-     * TODO - Add documentation
-     */
     @NotNull
     String getNameHash();
 }

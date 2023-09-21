@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.starrail.data.conversion;
 
 import lombok.Getter;
+import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;
@@ -8,7 +9,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * TODO - Add documentation
+ * This class is used for converting json to this class.
+ * <br>You should never prefer using this class and instead use {@link SRUserInformation}
+ * <br>This class contains a lot of nullability, and will cause issues if you try to use it.
+ * <br>If you are wondering what to use in alternative, take a look at {@link SRUserInformation#fromEnkaUser(SRUnconvertedUser)}.
+ * @see SRUserInformation
  */
 @Getter
 public class SRUnconvertedUser implements IExpiryTime {
@@ -108,7 +113,9 @@ public class SRUnconvertedUser implements IExpiryTime {
     }
 
     /**
-     * TODO - Add documentation
+     * Converts this object to {@link SRUserInformation}
+     * <br>Please read the documentation of this class to understand why you <i>might</i> want this.
+     * @return A {@link SRUserInformation} object.
      */
     @NotNull
     public SRUserInformation toStarRailUser() {

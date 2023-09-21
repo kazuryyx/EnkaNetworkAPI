@@ -10,29 +10,35 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * TODO - Add documentation
+ * A relic that is currently equipped on a {@link SRUserCharacter}.
+ * <br>In genshin terms: Artifact.
  */
 @Builder
 @Getter
 public class SRRelic implements SRNameable {
     /**
-     * TODO - Add documentation
+     * The level of this relic.
+     * <br>From 0 to 15.
      */
     private int level;
     /**
-     * TODO - Add documentation
+     * The relic type of this relic.
+     * <br>There is 6 different types.
+     * @see SRRelicType
      */
     private SRRelicType type;
     /**
-     * TODO - Add documentation
+     * The main stat of this relic.
      */
     private RelicStat mainStat;
     /**
-     * TODO - Add documentation
+     * A list of this relic's sub stats.
+     * <br>Every 3 levels of this relic, a substat is either unlocked or leveled up randomly.
      */
     private List<RelicStat> subStats;
     /**
-     * TODO - Add documentation
+     * The hash of this artifact used for localization.
+     * @see #getName()
      */
     private long hash;
 
@@ -43,7 +49,7 @@ public class SRRelic implements SRNameable {
     }
 
     /**
-     * TODO - Add documentation
+     * A stat of this relic, this can either be the main stat, or a sub stat.
      */
     @Getter
     @AllArgsConstructor

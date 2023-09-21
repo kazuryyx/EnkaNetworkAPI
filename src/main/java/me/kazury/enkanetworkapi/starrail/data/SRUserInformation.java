@@ -4,9 +4,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.enka.EnkaNetworkBuilder;
+import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
+import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
-import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -14,42 +14,47 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * TODO - Add documentation
+ * The basic data class for a Honkai: Star Rail user.
+ * <br>This class contains all the information that is available on a user's profile.
  */
 @Builder
 @Getter
 @Setter
 public class SRUserInformation {
     /**
-     * TODO - Add documentation
+     * The nickname of this user that is publicly displayed.
      */
     private String nickname;
     /**
-     * TODO - Add documentation
+     * The level of this user.
+     * <br>Ranges from 1 to 70.
      */
     private int level;
     /**
-     * TODO - Add documentation
+     * The signature of this user which is publicly displayed.
      */
     private String signature;
     /**
-     * TODO - Add documentation
+     * The uid of this user. This is so your friends can add you.
      */
     private long uid;
     /**
-     * TODO - Add documentation
+     * The amount of fwiends that this user has.
+     * <br>Yes, it's fwiends, not friends.
      */
     private int fwiends;
     /**
-     * TODO - Add documentation
+     * The equilibrium level of this user.
+     * <br>In Genshin terms: World Level.
      */
     private int equilibriumLevel;
     /**
-     * TODO - Add documentation
+     * The platform that this player is playing on.
+     * <br><i>or created their account?</i>
      */
     private SRPlatform platform;
     /**
-     * TODO - Add documentation
+     * The characters that this user has in their showcase.
      */
     private List<SRUserCharacter> detailCharacters;
 
@@ -58,10 +63,26 @@ public class SRUserInformation {
     }
 
     /**
-     * TODO - Add documentation
+     * Converts this object to a {@link SRUserInformation} object.
+     * <br>
+     * <br>You should always prefer using this class over {@link SRUnconvertedUser} (detailed in this class)
+     * <br>You may also want to cache this object, but you shouldn't care unless you really need the data now and not some point later
+     * (as this might be a heavy operation, depending on how often you call this method)
+     *
+     * <br><br><b>Example</b>:
+     * <pre>{@code
+     * final EnkaNetworkAPI api = new EnkaNetworkAPI();
+     *
+     * api.fetchHonkaiUser(802511205, (user) -> {
+     *      final SRUserInformation genshinUser = fromEnkaUser(user);
+     *      // do action here
+     * });
+     * }</pre>
+     *
+     * @param enkaUser The old {@link SRUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchHonkaiUser(long, Consumer)}.
+     * @return The converted {@link SRUserInformation} object.
      */
     @NotNull
-    //@SuppressWarnings("unchecked")
     public static SRUserInformation fromEnkaUser(@NotNull SRUnconvertedUser enkaUser) {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();

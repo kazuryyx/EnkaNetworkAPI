@@ -10,29 +10,31 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * TODO - Add documentation
+ * A lightcone that is currently equipped on a {@link SRUserCharacter}
  */
 @Getter
 @Builder
 public class SRLightcone implements SRNameable {
     /**
-     * TODO - Add documentation
+     * The superImposion of this lightcone.
+     * <br>Genshin terms: Refinement
      */
     private int superImposion;
     /**
-     * TODO - Add documentation
+     * The level of this lightcone.
+     * <br>From 1 to 80.
      */
     private int level;
     /**
-     * TODO - Add documentation
+     * The promotion of this lightcone, this is also called the ascension.
      */
     private int promotion;
     /**
-     * TODO - Add documentation
+     * The stats that this lightcone has.
      */
     private List<LightconeStat> stats;
     /**
-     * TODO - Add documentation
+     * Represents a localization key for the weapon name.
      */
     private long hash;
 
@@ -43,7 +45,7 @@ public class SRLightcone implements SRNameable {
     }
 
     /**
-     * TODO - Add documentation
+     * A lightcone stat, this is either the main stat, or the second stat.
      */
     @Data
     public static class LightconeStat implements IFormattable {

@@ -156,7 +156,7 @@ public class EnkaCaches {
     }
 
     /**
-     * TODO - Add documentation
+     * Loads genshin localizations from the Excel.
      */
     protected static void loadGenshinLocalizations(@NotNull GlobalLocalization localization) {
         final JsonNode node = genshinLocalizationCache.get(localization);
@@ -169,7 +169,7 @@ public class EnkaCaches {
     }
 
     /**
-     * TODO - Add documentation
+     * Loads honkai localizations from the Excel.
      */
     protected static void loadHonkaiLocalization(@NotNull GlobalLocalization localization) {
         final JsonNode node = honkaiLocalizationCache.get(localization);

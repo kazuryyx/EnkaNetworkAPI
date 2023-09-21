@@ -8,7 +8,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * TODO - Add documentation
+ * An append prop for Honkai: Star Rail.
+ * <br>This represents a stat that can be from a weapon or from a relic / trace.
  */
 @AllArgsConstructor
 @Getter

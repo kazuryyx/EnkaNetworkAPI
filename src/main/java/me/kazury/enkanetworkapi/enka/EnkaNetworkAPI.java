@@ -16,7 +16,18 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 /**
- * TODO - Add documentation
+ * The main API instance for retreving data from enka.network.
+ * <br>You will need to this class to get data from the API.
+ *
+ * <br>
+ * <br>Example
+ * <pre>{@code
+ * final EnkaNetworkAPI api = new EnkaNetworkAPI();
+ *
+ * api.fetchGenshinUser(722777337, (user) -> {
+ *      final GenshinUserInformation genshinUser = user.toGenshinUser();
+ *      // do action here
+ * });
  */
 public class EnkaNetworkAPI {
     public static String BASE_GENSHIN_UI_URL = "https://enka.network/ui/";
@@ -75,14 +86,21 @@ public class EnkaNetworkAPI {
     }
 
     /**
-     * TODO - Add documentation
+     * Loads a honkai user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
      */
     public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> consumer) {
         this.httpClient.fetchHonkaiUser(uid, consumer);
     }
 
     /**
-     * TODO - Add documentation
+     * Loads a honkai user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param success The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     * @param failure The action that you want to do when the request fails (exception status).
      */
     public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
                           @NotNull Consumer<Throwable> failure) {
@@ -90,14 +108,21 @@ public class EnkaNetworkAPI {
     }
 
     /**
-     * TODO - Add documentation
+     * Loads a honkai user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
      */
     public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer) {
         this.fetchHonkaiUser(Long.parseLong(uid), consumer);
     }
 
     /**
-     * TODO - Add documentation
+     * Loads a honkai user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     * @param failure The action that you want to do when the request fails (exception status).
      */
     public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer,
                           @NotNull Consumer<Throwable> failure) {

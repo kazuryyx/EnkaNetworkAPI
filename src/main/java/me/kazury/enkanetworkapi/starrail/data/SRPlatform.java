@@ -1,7 +1,8 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
 /**
- * TODO - Add documentation
+ * Represents a platform that a user is playing on.
+ * <br>I don't really know how this is tracked, so I assume it was the device when they created the account.
  */
 public enum SRPlatform {
     WINDOWS,

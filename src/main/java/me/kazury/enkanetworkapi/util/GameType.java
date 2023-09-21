@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * TODO - Add documentation
+ * A game type, which is used to retrieve json data by url.
  */
 @AllArgsConstructor
 @Getter

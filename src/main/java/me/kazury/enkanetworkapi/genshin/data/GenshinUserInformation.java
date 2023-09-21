@@ -96,7 +96,7 @@ public class GenshinUserInformation {
      * <pre>{@code
      * final EnkaNetworkAPI api = new EnkaNetworkAPI();
      *
-     * api.fetchUser(722777337, (user) -> {
+     * api.fetchGenshinUser(722777337, (user) -> {
      *      final GenshinUserInformation genshinUser = fromEnkaUser(user);
      *      // do action here
      * });

@@ -5,7 +5,8 @@ import lombok.Getter;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * TODO - Add documentation
+ * A relic type that is used for identifying the relic type
+ * @see SRRelic
  */
 @Getter
 @AllArgsConstructor

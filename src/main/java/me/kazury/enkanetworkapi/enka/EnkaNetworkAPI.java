@@ -28,6 +28,7 @@ import java.util.function.Consumer;
  *      final GenshinUserInformation genshinUser = user.toGenshinUser();
  *      // do action here
  * });
+ * }</pre>
  */
 public class EnkaNetworkAPI {
     public static String BASE_GENSHIN_UI_URL = "https://enka.network/ui/";

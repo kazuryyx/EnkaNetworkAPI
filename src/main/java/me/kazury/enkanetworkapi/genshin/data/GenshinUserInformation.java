@@ -44,7 +44,8 @@ public class GenshinUserInformation {
     private final int worldLevel;
     /**
      * The namecard ID that the player currently has on their profile for everyone to see.
-     * @see EnkaNetworkAPI#getNamecard(int) 
+     *
+     * @see EnkaNetworkAPI#getNamecard(int)
      */
     private final int namecardId;
     /**
@@ -70,6 +71,7 @@ public class GenshinUserInformation {
     private List<GenshinNamecard> namecards = new ArrayList<>();
     /**
      * The ID of the character's profile picture (This will always exist).
+     *
      * @see EnkaNetworkAPI#getGenshinCharacterData(long)
      */
     private final long profilePictureId;
@@ -132,7 +134,7 @@ public class GenshinUserInformation {
                     final int costumeId = showAvatarInfo.getCostumeId();
                     return new GenshinShowcaseCharacter(avatarId, level, costumeId);
                 }).toList());
-            }  else {
+            } else {
                 data.setShowcaseCharacters(Collections.emptyList());
             }
 
@@ -146,110 +148,111 @@ public class GenshinUserInformation {
                 data.setNamecards(Collections.emptyList());
             }
 
-            if (enkaUser.getAvatarInfoList() != null) {
-                data.setCharacters(enkaUser.getAvatarInfoList().stream().map(avatarInfo -> {
-                    final int id = avatarInfo.getAvatarId();
-                    final int constellation = avatarInfo.getTalentIdList() == null ? 0 : avatarInfo.getTalentIdList().size();
+            if (enkaUser.getAvatarInfoList() == null) {
+                data.setCharacters(Collections.emptyList());
+                return;
+            }
 
-                    final Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
-                    final List<GenshinArtifact> artifacts = new ArrayList<>();
-                    GenshinUserWeapon weapon = null;
+            data.setCharacters(enkaUser.getAvatarInfoList().stream().map(avatarInfo -> {
+                final int id = avatarInfo.getAvatarId();
+                final int constellation = avatarInfo.getTalentIdList() == null ? 0 : avatarInfo.getTalentIdList().size();
 
-                    // Properties of this character
-                    for (Map.Entry<String, Double> entry : avatarInfo.getFightPropMap().entrySet()) {
-                        final String key = entry.getKey();
-                        final double value = entry.getValue();
+                final Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
+                final List<GenshinArtifact> artifacts = new ArrayList<>();
+                GenshinUserWeapon weapon = null;
 
-                        final GenshinFightProp fightProp = GenshinFightProp.fromKey(key);
-                        if (fightProp == null) continue;
-                        fightProperties.put(fightProp, value);
-                    }
+                // Properties of this character
+                for (Map.Entry<String, Double> entry : avatarInfo.getFightPropMap().entrySet()) {
+                    final String key = entry.getKey();
+                    final double value = entry.getValue();
 
-                    // Applying weapon variable and adding artifacts to list
-                    for (GenshinUnconvertedUser.EquipData equipData : avatarInfo.getEquipList()) {
-                        final GenshinUnconvertedUser.ArtifactData artifactData = equipData.getReliquary();
-                        final GenshinUnconvertedUser.FlatData flatData = equipData.getFlat();
-                        if (artifactData == null) {
-                            // Since artifact data is null, we know that this is a weapon
-                            final GenshinUnconvertedUser.WeaponData weaponData = equipData.getWeapon();
-                            final List<GenshinUserWeapon.WeaponStat> weaponStats = new ArrayList<>();
+                    final GenshinFightProp fightProp = GenshinFightProp.fromKey(key);
+                    if (fightProp == null) continue;
+                    fightProperties.put(fightProp, value);
+                }
 
-                            for (GenshinUnconvertedUser.SubData subData : flatData.getWeaponStats()) {
-                                final GenshinAppendProp parsedProp = GenshinAppendProp.fromKey(subData.getAppendPropId());
-                                if (parsedProp == null) continue;
-                                final double rawValue = subData.getStatValue();
+                // Applying weapon variable and adding artifacts to list
+                for (GenshinUnconvertedUser.EquipData equipData : avatarInfo.getEquipList()) {
+                    final GenshinUnconvertedUser.ArtifactData artifactData = equipData.getReliquary();
+                    final GenshinUnconvertedUser.FlatData flatData = equipData.getFlat();
+                    if (artifactData == null) {
+                        // Since artifact data is null, we know that this is a weapon
+                        final GenshinUnconvertedUser.WeaponData weaponData = equipData.getWeapon();
+                        final List<GenshinUserWeapon.WeaponStat> weaponStats = new ArrayList<>();
 
-                                weaponStats.add(new GenshinUserWeapon.WeaponStat(
-                                        parsedProp.getId(),
-                                        parsedProp.getAcceptor().accept(rawValue),
-                                        rawValue
-                                ));
-                            }
+                        for (GenshinUnconvertedUser.SubData subData : flatData.getWeaponStats()) {
+                            final GenshinAppendProp parsedProp = GenshinAppendProp.fromKey(subData.getAppendPropId());
+                            if (parsedProp == null) continue;
+                            final double rawValue = subData.getStatValue();
 
-                            weapon = GenshinUserWeapon.builder()
-                                    .weaponLevel(weaponData.getLevel())
-                                    .weaponAscension(weaponData.getPromoteLevel())
-                                    .weaponRefinement(resolveFirst(weaponData.getAffixMap()))
-                                    .nameTextMapHash(flatData.getNameTextMapHash())
-                                    .weaponIcon(flatData.getIcon())
-                                    .stats(weaponStats)
-                                    .build();
-                            continue;
-                        }
-                        final GenshinUnconvertedUser.ArtifactMainData mainStat = flatData.getReliquaryMainstat();
-                        final GenshinAppendProp appendProp = GenshinAppendProp.fromKey(mainStat.getMainPropId());
-                        final List<GenshinArtifact.ArtifactStat> subStats = new ArrayList<>();
-                        if (appendProp == null) continue;
-
-                        // Retrieve substats of artifact
-                        for (GenshinUnconvertedUser.SubData substat : flatData.getReliquarySubstats()) {
-                            final GenshinAppendProp subProp = GenshinAppendProp.fromKey(substat.getAppendPropId());
-                            if (subProp == null) continue;
-                            final double rawValue = substat.getStatValue();
-
-                            subStats.add(new GenshinArtifact.ArtifactStat(
-                                    subProp.getId(),
-                                    subProp.getAcceptor().accept(rawValue),
+                            weaponStats.add(new GenshinUserWeapon.WeaponStat(
+                                    parsedProp.getId(),
+                                    parsedProp.getAcceptor().accept(rawValue),
                                     rawValue
                             ));
                         }
-                        final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
-                        if (type == null) {
-                            System.out.println("Unhandled artifact type: " + flatData.getEquipType());
-                            continue;
-                        }
-                        final double rawValue = mainStat.getStatValue();
 
-                        artifacts.add(GenshinArtifact.builder()
-                                .level(artifactData.getLevel() - 1)
-                                .type(type)
-                                .mainStats(new GenshinArtifact.ArtifactStat(
-                                        appendProp.getId(), appendProp.getAcceptor().accept(rawValue), rawValue
-                                ))
-                                .subStats(subStats)
-                                .icon(flatData.getIcon())
-                                .setNameTextMapHash(flatData.getSetNameTextMapHash())
-                                .build());
+                        weapon = GenshinUserWeapon.builder()
+                                .weaponLevel(weaponData.getLevel())
+                                .weaponAscension(weaponData.getPromoteLevel())
+                                .weaponRefinement(resolveFirst(weaponData.getAffixMap()))
+                                .nameTextMapHash(flatData.getNameTextMapHash())
+                                .weaponIcon(flatData.getIcon())
+                                .stats(weaponStats)
+                                .build();
+                        continue;
                     }
-                    final Map<String, Object> levelMap = ((Map<String, Object>) avatarInfo.getPropMap().get("4001"));
-                    final Map<String, Object> ascensionMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1002"));
-                    final Map<String, Object> experienceMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1001"));
+                    final GenshinUnconvertedUser.ArtifactMainData mainStat = flatData.getReliquaryMainstat();
+                    final GenshinAppendProp appendProp = GenshinAppendProp.fromKey(mainStat.getMainPropId());
+                    final List<GenshinArtifact.ArtifactStat> subStats = new ArrayList<>();
+                    if (appendProp == null) continue;
 
-                    return GenshinUserCharacter.builder()
-                            .id(id)
-                            .constellation(constellation)
-                            .fightProperties(fightProperties)
-                            .artifacts(artifacts)
-                            .currentLevel(Integer.parseInt((String) levelMap.getOrDefault("val", "1")))
-                            .currentAscension(Integer.parseInt((String) ascensionMap.getOrDefault("val", "1")))
-                            .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
-                            .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
-                            .equippedWeapon(weapon)
-                            .build();
-                }).toList());
-            } else {
-                data.setCharacters(Collections.emptyList());
-            }
+                    // Retrieve substats of artifact
+                    for (GenshinUnconvertedUser.SubData substat : flatData.getReliquarySubstats()) {
+                        final GenshinAppendProp subProp = GenshinAppendProp.fromKey(substat.getAppendPropId());
+                        if (subProp == null) continue;
+                        final double rawValue = substat.getStatValue();
+
+                        subStats.add(new GenshinArtifact.ArtifactStat(
+                                subProp.getId(),
+                                subProp.getAcceptor().accept(rawValue),
+                                rawValue
+                        ));
+                    }
+                    final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
+                    if (type == null) {
+                        System.out.println("Unhandled artifact type: " + flatData.getEquipType());
+                        continue;
+                    }
+                    final double rawValue = mainStat.getStatValue();
+
+                    artifacts.add(GenshinArtifact.builder()
+                            .level(artifactData.getLevel() - 1)
+                            .type(type)
+                            .mainStats(new GenshinArtifact.ArtifactStat(
+                                    appendProp.getId(), appendProp.getAcceptor().accept(rawValue), rawValue
+                            ))
+                            .subStats(subStats)
+                            .icon(flatData.getIcon())
+                            .setNameTextMapHash(flatData.getSetNameTextMapHash())
+                            .build());
+                }
+                final Map<String, Object> levelMap = ((Map<String, Object>) avatarInfo.getPropMap().get("4001"));
+                final Map<String, Object> ascensionMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1002"));
+                final Map<String, Object> experienceMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1001"));
+
+                return GenshinUserCharacter.builder()
+                        .id(id)
+                        .constellation(constellation)
+                        .fightProperties(fightProperties)
+                        .artifacts(artifacts)
+                        .currentLevel(Integer.parseInt((String) levelMap.getOrDefault("val", "1")))
+                        .currentAscension(Integer.parseInt((String) ascensionMap.getOrDefault("val", "1")))
+                        .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
+                        .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
+                        .equippedWeapon(weapon)
+                        .build();
+            }).toList());
         });
 
         return user;

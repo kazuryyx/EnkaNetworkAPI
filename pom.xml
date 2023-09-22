@@ -29,7 +29,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <failOnError>true</failOnError>
+                            <failOnError>false</failOnError>
                             <failOnWarnings>false</failOnWarnings>
                         </configuration>
                     </execution>

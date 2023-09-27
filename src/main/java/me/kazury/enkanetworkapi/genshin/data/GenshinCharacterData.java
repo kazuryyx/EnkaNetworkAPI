@@ -56,6 +56,19 @@ public class GenshinCharacterData implements GenshinNameable {
     @JsonProperty("SideIconName")
     private String sideIconName;
     /**
+     * Represents the weapon type of this character.
+     * <ul>
+     *     <li>WEAPON_SWORD_ONE_HAND = Sword</li>
+     *     <li>WEAPON_CATALYST = Catalyst</li>
+     *     <li>WEAPON_CLAYMORE = Claymore (2 hands)</li>
+     *     <li>WEAPON_BOW = Bow</li>
+     *     <li>WEAPON_POLE = Polearm</li>
+     * </ul>
+     */
+    @JsonProperty("WeaponType")
+    private String weaponType;
+
+    /**
      * Represents a map of Integer (Costume Id), Costume (Costume Data)
      * <br> Note that not every character has a costume and that the costume id is not the same as the character id.
      */

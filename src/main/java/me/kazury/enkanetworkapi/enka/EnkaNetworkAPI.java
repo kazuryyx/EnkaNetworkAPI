@@ -34,12 +34,11 @@ public class EnkaNetworkAPI {
     public static String BASE_GENSHIN_UI_URL = "https://enka.network/ui/";
     public static String BASE_SR_UI_URL = "https://enka.network/ui/hsr/";
 
-    private final Gson gson;
     private final EnkaHTTPClient httpClient;
 
     public EnkaNetworkAPI() {
-        this.gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
-        this.httpClient = new EnkaHTTPClient(this, this.gson);
+        final Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
+        this.httpClient = new EnkaHTTPClient(this, gson);
     }
 
     /**
@@ -147,7 +146,7 @@ public class EnkaNetworkAPI {
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
      */
     @Nullable
-    public GenshinCharacterData getCharacterData(@NotNull String id) {
+    public GenshinCharacterData getGenshinCharacterData(@NotNull String id) {
         return EnkaCaches.getCharacterData(id);
     }
 
@@ -215,7 +214,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinCharacterData getGenshinCharacterData(final long id) {
-        return this.getCharacterData(String.valueOf(id));
+        return this.getGenshinCharacterData(String.valueOf(id));
     }
 
     /**

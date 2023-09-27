@@ -89,7 +89,6 @@ public class EnkaCaches {
         final Request request = new Request.Builder()
                 .url(url)
                 .build();
-        System.out.println(url);
 
         try (Response response = client.newCall(request).execute();
              ResponseBody body = response.body()) {

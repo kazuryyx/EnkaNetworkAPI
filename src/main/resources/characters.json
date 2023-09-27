@@ -27,6 +27,7 @@
     "NameTextMapHash": 1006042610,
     "SideIconName": "UI_AvatarIcon_Side_Ayaka",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND",
     "Costumes": {
       "200201": {
         "sideIconName": "UI_AvatarIcon_Side_AyakaCostumeFruhling",
@@ -64,6 +65,7 @@
     "NameTextMapHash": 3221566250,
     "SideIconName": "UI_AvatarIcon_Side_Qin",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND",
     "Costumes": {
       "200301": {
         "sideIconName": "UI_AvatarIcon_Side_QinCostumeSea",
@@ -106,7 +108,8 @@
       "100543": 730
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000006": {
     "Element": "Electric",
@@ -136,6 +139,7 @@
     "NameTextMapHash": 3344622722,
     "SideIconName": "UI_AvatarIcon_Side_Lisa",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST",
     "Costumes": {
       "200601": {
         "sideIconName": "UI_AvatarIcon_Side_LisaCostumeStudentin",
@@ -172,7 +176,8 @@
       "100553": 731
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000014": {
     "Element": "Water",
@@ -202,6 +207,7 @@
     "NameTextMapHash": 3775299170,
     "SideIconName": "UI_AvatarIcon_Side_Barbara",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST",
     "Costumes": {
       "201401": {
         "sideIconName": "UI_AvatarIcon_Side_BarbaraCostumeSummertime",
@@ -239,6 +245,7 @@
     "NameTextMapHash": 4119663210,
     "SideIconName": "UI_AvatarIcon_Side_Kaeya",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND",
     "Costumes": {
       "201501": {
         "sideIconName": "UI_AvatarIcon_Side_KaeyaCostumeDancer",
@@ -276,6 +283,7 @@
     "NameTextMapHash": 3608180322,
     "SideIconName": "UI_AvatarIcon_Side_Diluc",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CLAYMORE",
     "Costumes": {
       "201601": {
         "sideIconName": "UI_AvatarIcon_Side_DilucCostumeFlamme",
@@ -312,7 +320,8 @@
     },
     "NameTextMapHash": 4160147242,
     "SideIconName": "UI_AvatarIcon_Side_Razor",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000021": {
     "Element": "Fire",
@@ -342,6 +351,7 @@
     "NameTextMapHash": 1966438658,
     "SideIconName": "UI_AvatarIcon_Side_Ambor",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW",
     "Costumes": {
       "202101": {
         "sideIconName": "UI_AvatarIcon_Side_AmborCostumeWic",
@@ -378,7 +388,8 @@
     },
     "NameTextMapHash": 2466140362,
     "SideIconName": "UI_AvatarIcon_Side_Venti",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000023": {
     "Element": "Fire",
@@ -407,7 +418,8 @@
     },
     "NameTextMapHash": 1130996346,
     "SideIconName": "UI_AvatarIcon_Side_Xiangling",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000024": {
     "Element": "Electric",
@@ -436,7 +448,8 @@
     },
     "NameTextMapHash": 2646367730,
     "SideIconName": "UI_AvatarIcon_Side_Beidou",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000025": {
     "Element": "Water",
@@ -465,7 +478,8 @@
     },
     "NameTextMapHash": 4197635682,
     "SideIconName": "UI_AvatarIcon_Side_Xingqiu",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000026": {
     "Element": "Wind",
@@ -494,7 +508,8 @@
     },
     "NameTextMapHash": 1021947690,
     "SideIconName": "UI_AvatarIcon_Side_Xiao",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000027": {
     "Element": "Rock",
@@ -524,6 +539,7 @@
     "NameTextMapHash": 4127888970,
     "SideIconName": "UI_AvatarIcon_Side_Ningguang",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST",
     "Costumes": {
       "202701": {
         "sideIconName": "UI_AvatarIcon_Side_NingguangCostumeFloral",
@@ -561,6 +577,7 @@
     "NameTextMapHash": 3339083250,
     "SideIconName": "UI_AvatarIcon_Side_Klee",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST",
     "Costumes": {
       "202901": {
         "sideIconName": "UI_AvatarIcon_Side_KleeCostumeWitch",
@@ -597,7 +614,8 @@
     },
     "NameTextMapHash": 3862787418,
     "SideIconName": "UI_AvatarIcon_Side_Zhongli",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000031": {
     "Element": "Electric",
@@ -627,6 +645,7 @@
     "NameTextMapHash": 3277782506,
     "SideIconName": "UI_AvatarIcon_Side_Fischl",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW",
     "Costumes": {
       "203101": {
         "sideIconName": "UI_AvatarIcon_Side_FischlCostumeHighness",
@@ -663,7 +682,8 @@
     },
     "NameTextMapHash": 968893378,
     "SideIconName": "UI_AvatarIcon_Side_Bennett",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000033": {
     "Element": "Water",
@@ -692,7 +712,8 @@
     },
     "NameTextMapHash": 3847143266,
     "SideIconName": "UI_AvatarIcon_Side_Tartaglia",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000034": {
     "Element": "Rock",
@@ -721,7 +742,8 @@
     },
     "NameTextMapHash": 1921418842,
     "SideIconName": "UI_AvatarIcon_Side_Noel",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000035": {
     "Element": "Ice",
@@ -750,7 +772,8 @@
     },
     "NameTextMapHash": 168956722,
     "SideIconName": "UI_AvatarIcon_Side_Qiqi",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000036": {
     "Element": "Ice",
@@ -779,7 +802,8 @@
     },
     "NameTextMapHash": 2876340530,
     "SideIconName": "UI_AvatarIcon_Side_Chongyun",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000037": {
     "Element": "Ice",
@@ -808,7 +832,8 @@
     },
     "NameTextMapHash": 2679781122,
     "SideIconName": "UI_AvatarIcon_Side_Ganyu",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000038": {
     "Element": "Rock",
@@ -837,7 +862,8 @@
     },
     "NameTextMapHash": 4108620722,
     "SideIconName": "UI_AvatarIcon_Side_Albedo",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000039": {
     "Element": "Ice",
@@ -866,7 +892,8 @@
     },
     "NameTextMapHash": 1468367538,
     "SideIconName": "UI_AvatarIcon_Side_Diona",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000041": {
     "Element": "Water",
@@ -896,6 +923,7 @@
     "NameTextMapHash": 1113306282,
     "SideIconName": "UI_AvatarIcon_Side_Mona",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST",
     "Costumes": {
       "204101": {
         "sideIconName": "UI_AvatarIcon_Side_MonaCostumeWic",
@@ -933,6 +961,7 @@
     "NameTextMapHash": 1864015138,
     "SideIconName": "UI_AvatarIcon_Side_Keqing",
     "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND",
     "Costumes": {
       "204201": {
         "sideIconName": "UI_AvatarIcon_Side_KeqingCostumeFeather",
@@ -969,7 +998,8 @@
     },
     "NameTextMapHash": 1053433018,
     "SideIconName": "UI_AvatarIcon_Side_Sucrose",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000044": {
     "Element": "Fire",
@@ -998,7 +1028,8 @@
     },
     "NameTextMapHash": 4273845410,
     "SideIconName": "UI_AvatarIcon_Side_Xinyan",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000045": {
     "Element": "Ice",
@@ -1028,6 +1059,7 @@
     "NameTextMapHash": 4260733330,
     "SideIconName": "UI_AvatarIcon_Side_Rosaria",
     "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE",
     "Costumes": {
       "204501": {
         "sideIconName": "UI_AvatarIcon_Side_RosariaCostumeWic",
@@ -1064,7 +1096,8 @@
     },
     "NameTextMapHash": 1940919994,
     "SideIconName": "UI_AvatarIcon_Side_Hutao",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000047": {
     "Element": "Wind",
@@ -1093,7 +1126,8 @@
     },
     "NameTextMapHash": 88505754,
     "SideIconName": "UI_AvatarIcon_Side_Kazuha",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000048": {
     "Element": "Fire",
@@ -1122,7 +1156,8 @@
     },
     "NameTextMapHash": 697277554,
     "SideIconName": "UI_AvatarIcon_Side_Feiyan",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000049": {
     "Element": "Fire",
@@ -1151,7 +1186,8 @@
     },
     "NameTextMapHash": 2504399314,
     "SideIconName": "UI_AvatarIcon_Side_Yoimiya",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000050": {
     "Element": "Fire",
@@ -1180,7 +1216,8 @@
     },
     "NameTextMapHash": 3555115602,
     "SideIconName": "UI_AvatarIcon_Side_Tohma",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000051": {
     "Element": "Ice",
@@ -1209,7 +1246,8 @@
     },
     "NameTextMapHash": 3717667418,
     "SideIconName": "UI_AvatarIcon_Side_Eula",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000052": {
     "Element": "Electric",
@@ -1238,7 +1276,8 @@
     },
     "NameTextMapHash": 3024507506,
     "SideIconName": "UI_AvatarIcon_Side_Shougun",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000053": {
     "Element": "Wind",
@@ -1267,7 +1306,8 @@
     },
     "NameTextMapHash": 2388785242,
     "SideIconName": "UI_AvatarIcon_Side_Sayu",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000054": {
     "Element": "Water",
@@ -1296,7 +1336,8 @@
     },
     "NameTextMapHash": 3914045794,
     "SideIconName": "UI_AvatarIcon_Side_Kokomi",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000055": {
     "Element": "Rock",
@@ -1325,7 +1366,8 @@
     },
     "NameTextMapHash": 3400133546,
     "SideIconName": "UI_AvatarIcon_Side_Gorou",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000056": {
     "Element": "Electric",
@@ -1354,7 +1396,8 @@
     },
     "NameTextMapHash": 1483922610,
     "SideIconName": "UI_AvatarIcon_Side_Sara",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000057": {
     "Element": "Rock",
@@ -1383,7 +1426,8 @@
     },
     "NameTextMapHash": 3068316954,
     "SideIconName": "UI_AvatarIcon_Side_Itto",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000058": {
     "Element": "Electric",
@@ -1412,7 +1456,8 @@
     },
     "NameTextMapHash": 2713453234,
     "SideIconName": "UI_AvatarIcon_Side_Yae",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000059": {
     "Element": "Wind",
@@ -1441,7 +1486,8 @@
     },
     "NameTextMapHash": 646032090,
     "SideIconName": "UI_AvatarIcon_Side_Heizo",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000060": {
     "Element": "Water",
@@ -1470,7 +1516,8 @@
     },
     "NameTextMapHash": 2848374378,
     "SideIconName": "UI_AvatarIcon_Side_Yelan",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000061": {
     "Element": "Grass",
@@ -1499,7 +1546,8 @@
     },
     "NameTextMapHash": 1456643042,
     "SideIconName": "UI_AvatarIcon_Side_Momoka",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000062": {
     "Element": "Ice",
@@ -1528,7 +1576,8 @@
     },
     "NameTextMapHash": 3689108098,
     "SideIconName": "UI_AvatarIcon_Side_Aloy",
-    "QualityType": "QUALITY_ORANGE_SP"
+    "QualityType": "QUALITY_ORANGE_SP",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000063": {
     "Element": "Ice",
@@ -1557,7 +1606,8 @@
     },
     "NameTextMapHash": 334242634,
     "SideIconName": "UI_AvatarIcon_Side_Shenhe",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000064": {
     "Element": "Rock",
@@ -1586,7 +1636,8 @@
     },
     "NameTextMapHash": 655825874,
     "SideIconName": "UI_AvatarIcon_Side_Yunjin",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000065": {
     "Element": "Electric",
@@ -1615,7 +1666,8 @@
     },
     "NameTextMapHash": 1940821986,
     "SideIconName": "UI_AvatarIcon_Side_Shinobu",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000066": {
     "Element": "Water",
@@ -1644,7 +1696,8 @@
     },
     "NameTextMapHash": 1588620330,
     "SideIconName": "UI_AvatarIcon_Side_Ayato",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000067": {
     "Element": "Grass",
@@ -1673,7 +1726,8 @@
     },
     "NameTextMapHash": 2948362178,
     "SideIconName": "UI_AvatarIcon_Side_Collei",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000068": {
     "Element": "Electric",
@@ -1702,7 +1756,8 @@
     },
     "NameTextMapHash": 388272194,
     "SideIconName": "UI_AvatarIcon_Side_Dori",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000069": {
     "Element": "Grass",
@@ -1731,7 +1786,8 @@
     },
     "NameTextMapHash": 2506955778,
     "SideIconName": "UI_AvatarIcon_Side_Tighnari",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000070": {
     "Element": "Water",
@@ -1760,7 +1816,8 @@
     },
     "NameTextMapHash": 3850149970,
     "SideIconName": "UI_AvatarIcon_Side_Nilou",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000071": {
     "Element": "Electric",
@@ -1789,7 +1846,8 @@
     },
     "NameTextMapHash": 1049891906,
     "SideIconName": "UI_AvatarIcon_Side_Cyno",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000072": {
     "Element": "Water",
@@ -1818,7 +1876,8 @@
     },
     "NameTextMapHash": 3092975658,
     "SideIconName": "UI_AvatarIcon_Side_Candace",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000073": {
     "Element": "Grass",
@@ -1847,7 +1906,8 @@
     },
     "NameTextMapHash": 712501082,
     "SideIconName": "UI_AvatarIcon_Side_Nahida",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000074": {
     "Element": "Ice",
@@ -1876,7 +1936,8 @@
     },
     "NameTextMapHash": 2889777514,
     "SideIconName": "UI_AvatarIcon_Side_Layla",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000075": {
     "Element": "Wind",
@@ -1905,7 +1966,8 @@
     },
     "NameTextMapHash": 3230559562,
     "SideIconName": "UI_AvatarIcon_Side_Wanderer",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000076": {
     "Element": "Wind",
@@ -1934,7 +1996,8 @@
     },
     "NameTextMapHash": 2387711994,
     "SideIconName": "UI_AvatarIcon_Side_Faruzan",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000077": {
     "Element": "Grass",
@@ -1963,7 +2026,8 @@
     },
     "NameTextMapHash": 1732418482,
     "SideIconName": "UI_AvatarIcon_Side_Yaoyao",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000078": {
     "Element": "Grass",
@@ -1992,7 +2056,8 @@
     },
     "NameTextMapHash": 4002157418,
     "SideIconName": "UI_AvatarIcon_Side_Alhatham",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000079": {
     "Element": "Fire",
@@ -2021,7 +2086,8 @@
     },
     "NameTextMapHash": 2360533154,
     "SideIconName": "UI_AvatarIcon_Side_Dehya",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000080": {
     "Element": "Ice",
@@ -2050,7 +2116,8 @@
     },
     "NameTextMapHash": 231911858,
     "SideIconName": "UI_AvatarIcon_Side_Mika",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
   },
   "10000081": {
     "Element": "Grass",
@@ -2079,7 +2146,8 @@
     },
     "NameTextMapHash": 466355514,
     "SideIconName": "UI_AvatarIcon_Side_Kaveh",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
   },
   "10000082": {
     "Element": "Grass",
@@ -2108,7 +2176,8 @@
     },
     "NameTextMapHash": 2984815066,
     "SideIconName": "UI_AvatarIcon_Side_Baizhuer",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000083": {
     "Element": "Wind",
@@ -2137,7 +2206,8 @@
     },
     "NameTextMapHash": 1225226258,
     "SideIconName": "UI_AvatarIcon_Side_Linette",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000084": {
     "Element": "Fire",
@@ -2166,7 +2236,8 @@
     },
     "NameTextMapHash": 2472444970,
     "SideIconName": "UI_AvatarIcon_Side_Liney",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
   },
   "10000085": {
     "Element": "Ice",
@@ -2195,7 +2266,68 @@
     },
     "NameTextMapHash": 4201964354,
     "SideIconName": "UI_AvatarIcon_Side_Freminet",
-    "QualityType": "QUALITY_PURPLE"
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
+  },
+  "10000086": {
+    "Element": "Ice",
+    "Consts": [
+      "UI_Talent_S_Wriothesley_01",
+      "UI_Talent_S_Wriothesley_02",
+      "UI_Talent_U_Wriothesley_01",
+      "UI_Talent_S_Wriothesley_03",
+      "UI_Talent_U_Wriothesley_02",
+      "UI_Talent_S_Wriothesley_04"
+    ],
+    "SkillOrder": [
+      10861,
+      10862,
+      10865
+    ],
+    "Skills": {
+      "10861": "Skill_A_Catalyst_MD",
+      "10862": "Skill_S_Wriothesley_01",
+      "10865": "Skill_E_Wriothesley_01"
+    },
+    "ProudMap": {
+      "10861": 8631,
+      "10862": 8632,
+      "10865": 8639
+    },
+    "NameTextMapHash": 370151050,
+    "SideIconName": "UI_AvatarIcon_Side_Wriothesley",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
+  },
+  "10000087": {
+    "Element": "Water",
+    "Consts": [
+      "UI_Talent_S_Neuvillette_01",
+      "UI_Talent_S_Neuvillette_02",
+      "UI_Talent_U_Neuvillette_01",
+      "UI_Talent_S_Neuvillette_03",
+      "UI_Talent_U_Neuvillette_02",
+      "UI_Talent_S_Neuvillette_04"
+    ],
+    "SkillOrder": [
+      10871,
+      10872,
+      10875
+    ],
+    "Skills": {
+      "10871": "Skill_A_Catalyst_MD",
+      "10872": "Skill_S_Neuvillette_01",
+      "10875": "Skill_E_Neuvillette_01"
+    },
+    "ProudMap": {
+      "10871": 8731,
+      "10872": 8732,
+      "10875": 8739
+    },
+    "NameTextMapHash": 1504902330,
+    "SideIconName": "UI_AvatarIcon_Side_Neuvillette",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000005-501": {
     "Element": "None",
@@ -2254,7 +2386,8 @@
       "100542": 630
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000005-504": {
     "Element": "Wind",
@@ -2283,7 +2416,8 @@
       "100543": 730
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000005-505": {},
   "10000005-506": {
@@ -2313,7 +2447,8 @@
       "100545": 730
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000005-507": {
     "Element": "Electric",
@@ -2342,7 +2477,8 @@
       "100546": 1030
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000005-508": {
     "Element": "Grass",
@@ -2371,7 +2507,8 @@
       "100547": 1130
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000007-701": {
     "Element": "None",
@@ -2430,7 +2567,8 @@
       "100552": 631
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000007-704": {
     "Element": "Wind",
@@ -2459,7 +2597,8 @@
       "100553": 731
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000007-705": {},
   "10000007-706": {
@@ -2489,7 +2628,8 @@
       "100555": 731
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000007-707": {
     "Element": "Electric",
@@ -2518,7 +2658,8 @@
       "100556": 1031
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
   "10000007-708": {
     "Element": "Grass",
@@ -2547,6 +2688,7 @@
       "100557": 1131
     },
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
-    "QualityType": "QUALITY_ORANGE"
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
   }
 }

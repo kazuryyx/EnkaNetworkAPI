@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
+@Builder
 public class GenshinShowcaseCharacter {
     /**
      * The ID of the character.

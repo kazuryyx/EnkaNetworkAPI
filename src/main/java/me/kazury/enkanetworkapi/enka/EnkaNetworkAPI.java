@@ -141,6 +141,17 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Fetches an icon identifier from a profile id
+     * <br>You will need to parse this yourself with {@link #getGenshinIcon(String)}
+     * @param profileId The profile id
+     * @return The icon identifier, this will always fall back to old 4.0 data, if not changed > 4.1
+     */
+    @NotNull
+    public String getGenshinProfileIdentifier(final long profileId) {
+        return EnkaCaches.getProfileIcon(profileId);
+    }
+
+    /**
      * Fetches the character data of a user.
      * @param id The ID of the character. This is not the character's name.
      * @return The character data, or null if the character does not exist (or I forgot to update my library)

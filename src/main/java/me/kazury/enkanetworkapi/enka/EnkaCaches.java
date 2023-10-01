@@ -2,8 +2,10 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFound;
+import me.kazury.enkanetworkapi.genshin.exceptions.UpdateLibraryException;
 import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import okhttp3.*;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * A class which contains all caches that are needed for the API
@@ -21,6 +24,7 @@ import java.util.Map;
 public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
+    private static final Map<Long, String> profilePictureNames = new HashMap<>();
 
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
     private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
@@ -36,11 +40,10 @@ public class EnkaCaches {
         System.out.println("Loading caches... Some tasks may be delayed during this.");
         System.out.println("Expect this to take around 10 seconds. (this will be once and same for localization assets.)");
 
-        try (InputStream in = classLoader.getResourceAsStream("namecards.json")) {
-            final ObjectMapper mapper = new ObjectMapper();
-            final JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
+        try (InputStream stream = classLoader.getResourceAsStream("genshinnamecards.json")) {
+            if (stream == null) throw new NullPointerException("genshinnamecards.json is null");
 
-            jsonNode.fields().forEachRemaining((entry) -> {
+            loadCache(stream, (entry, mapper) -> {
                 final int id = Integer.parseInt(entry.getKey());
                 final JsonNode value = entry.getValue();
 
@@ -51,11 +54,10 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        try (InputStream in = classLoader.getResourceAsStream("characters.json")) {
-            final ObjectMapper mapper = new ObjectMapper();
-            final JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
+        try (InputStream stream = classLoader.getResourceAsStream("genshincharacters.json")) {
+            if (stream == null) throw new NullPointerException("genshincharacters.json is null");
 
-            jsonNode.fields().forEachRemaining((entry) -> {
+            loadCache(stream, (entry, mapper) -> {
                 final String key = entry.getKey();
                 final JsonNode value = entry.getValue();
 
@@ -70,7 +72,35 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
+        try (InputStream stream = classLoader.getResourceAsStream("genshinprofiles.json")) {
+            if (stream == null) throw new NullPointerException("genshinprofiles.json is null");
+
+            final ObjectMapper mapper = new ObjectMapper();
+            final ArrayNode node = mapper.readValue(stream, ArrayNode.class);
+
+            for (JsonNode profile : node) {
+                if (!profile.has("id") || !profile.has("iconPath")) continue;
+                final long key = profile.get("id").asLong();
+                final String value = profile.get("iconPath").asText();
+                profilePictureNames.put(key, value);
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+        System.out.println("All caches have loaded, now loading localization");
         materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+    }
+
+    /**
+     * Loads a cache and then applies the given action.
+     */
+    protected static void loadCache(@NotNull InputStream stream,
+                                    @NotNull BiConsumer<Map.Entry<String, JsonNode>, ObjectMapper> then) throws IOException {
+        final ObjectMapper mapper = new ObjectMapper();
+        final JsonNode jsonNode = mapper.readValue(stream, JsonNode.class);
+
+        jsonNode.fields().forEachRemaining((entry) -> then.accept(entry, mapper));
     }
 
     /**
@@ -146,6 +176,38 @@ public class EnkaCaches {
     }
 
     /**
+     * Fetches a profile icon from the cache
+     * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
+     * @param profilePictureId the profile picture id
+     * @return the profile icon name
+     * @since 4.1
+     */
+    @NotNull
+    public static String getProfileIcon(final long profilePictureId) {
+        final long l = fetchLast();
+        if (profilePictureId > l) {
+            // user did not migrate yet (did not change profile after 4.1)
+            final GenshinCharacterData data = getCharacterData(String.valueOf(profilePictureId));
+            if (data == null) throw new UpdateLibraryException();
+            return data.getIconName();
+        }
+        return profilePictureNames.getOrDefault(profilePictureId, "UI_AvatarIcon_PlayerGirl_Circle");
+    }
+
+    /**
+     * Fetches the highest profile picture id in the json.
+     * @return the highest profile picture id
+     */
+    protected static long fetchLast() {
+        long max = 0L;
+        for (long pictureId : profilePictureNames.keySet()) {
+            if (pictureId < max) continue;
+            max = pictureId;
+        }
+        return max;
+    }
+
+    /**
      * Loads the localization from the json files
      * @param localization the localization to load
      */
@@ -186,7 +248,7 @@ public class EnkaCaches {
      * @param id the namecard id
      * @return true if the namecard cache contains the namecard
      */
-    public static boolean hasNamecard(final int id) {
+    protected static boolean hasNamecard(final int id) {
         return namecardCache.containsKey(id);
     }
 

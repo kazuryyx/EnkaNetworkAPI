@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import org.jetbrains.annotations.Nullable;
 
@@ -9,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
  */
 @AllArgsConstructor
 @Getter
+@Builder
 public class GenshinNamecard {
     private final int rawId;
 

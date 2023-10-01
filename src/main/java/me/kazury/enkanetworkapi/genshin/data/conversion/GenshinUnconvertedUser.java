@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.data.conversion;
 
 import lombok.Getter;
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;
@@ -111,7 +112,15 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
     @Getter
     public static class ProfilePicture {
+        /**
+         * As of version 4.1, HoYo is not storing an avatar ID anymore, but rather a profile picture ID.
+         */
         private long avatarId;
+        /**
+        As of version 4.1, HoYo decided to use a different id for the profile picture.
+        <br>Both fields will continue to eixst, as some people MAY not have migrated yet (changed their avatar after 4.1).
+         */
+        private long id;
     }
 
     /**

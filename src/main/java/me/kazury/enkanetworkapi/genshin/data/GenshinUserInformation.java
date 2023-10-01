@@ -10,6 +10,7 @@ import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 
+import me.kazury.enkanetworkapi.genshin.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,7 +46,7 @@ public class GenshinUserInformation {
     /**
      * The namecard ID that the player currently has on their profile for everyone to see.
      *
-     * @see EnkaNetworkAPI#getNamecard(int)
+     * @see EnkaNetworkAPI#getGenshinNamecard(int)
      */
     private final int namecardId;
     /**
@@ -71,8 +72,8 @@ public class GenshinUserInformation {
     private List<GenshinNamecard> namecards = new ArrayList<>();
     /**
      * The ID of the character's profile picture (This will always exist).
-     *
-     * @see EnkaNetworkAPI#getGenshinCharacterData(long)
+     * <br>As of version 4.1, it is not safe anymore to use this ID to get the profile picture by character data.
+     * @see EnkaNetworkAPI#getGenshinProfileIdentifier(long)
      */
     private final long profilePictureId;
 
@@ -113,16 +114,19 @@ public class GenshinUserInformation {
         // You're always free to do a PR and clean this mess up. :)
 
         final GenshinUnconvertedUser.PlayerInfo playerInfoData = enkaUser.getPlayerInfo();
+        final GenshinUnconvertedUser.ProfilePicture profileData = playerInfoData.getProfilePicture();
+        final String signature = playerInfoData.getSignature();
+        final long profileId = profileData.getAvatarId() == 0L ? profileData.getId(): profileData.getAvatarId();
         final GenshinUserInformation user = GenshinUserInformation.builder()
                 .nickName(playerInfoData.getNickname())
                 .level(playerInfoData.getLevel())
-                .signature(playerInfoData.getSignature())
+                .signature(signature == null ? "" : signature)
                 .worldLevel(playerInfoData.getWorldLevel())
                 .namecardId(playerInfoData.getNameCardId())
                 .achievementCompleted(playerInfoData.getFinishAchievementNum())
                 .towerFloorIndex(playerInfoData.getTowerFloorIndex())
                 .towerLevelIndex(playerInfoData.getTowerLevelIndex())
-                .profilePictureId(playerInfoData.getProfilePicture().getAvatarId())
+                .profilePictureId(profileId)
                 .build();
 
         user.doActionAfter(data -> {
@@ -132,7 +136,11 @@ public class GenshinUserInformation {
                     final int avatarId = showAvatarInfo.getAvatarId();
                     final int level = showAvatarInfo.getLevel();
                     final int costumeId = showAvatarInfo.getCostumeId();
-                    return new GenshinShowcaseCharacter(avatarId, level, costumeId);
+                    return GenshinShowcaseCharacter.builder()
+                            .avatarId(avatarId)
+                            .level(level)
+                            .costumeId(costumeId)
+                            .build();
                 }).toList());
             } else {
                 data.setShowcaseCharacters(Collections.emptyList());
@@ -142,7 +150,10 @@ public class GenshinUserInformation {
                 data.setNamecards(playerInfo.getShowNameCardIdList().stream().map(id -> {
                     final String name = EnkaCaches.getNamecardName(id);
                     final String namecardURL = EnkaNetworkAPI.BASE_GENSHIN_UI_URL + name + ".png";
-                    return new GenshinNamecard(id, namecardURL);
+                    return GenshinNamecard.builder()
+                            .rawId(id)
+                            .namecardUrl(namecardURL)
+                            .build();
                 }).toList());
             } else {
                 data.setNamecards(Collections.emptyList());
@@ -220,10 +231,7 @@ public class GenshinUserInformation {
                         ));
                     }
                     final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
-                    if (type == null) {
-                        System.out.println("Unhandled artifact type: " + flatData.getEquipType());
-                        continue;
-                    }
+                    if (type == null) throw new UpdateLibraryException();
                     final double rawValue = mainStat.getStatValue();
 
                     artifacts.add(GenshinArtifact.builder()
@@ -258,10 +266,13 @@ public class GenshinUserInformation {
         return user;
     }
 
+    /**
+     * HoYo decided to go on a format which represents a map, but ALWAYS only has one entry
+     * @param map The map to resolve
+     * @return The first value of the map, or -1 if the map is null or empty
+     */
     private static int resolveFirst(@Nullable Map<?, Integer> map) {
-        if (map == null) {
-            return 1;
-        }
+        if (map == null) return 1;
         for (int value : map.values()) {
             return value + 1;
         }

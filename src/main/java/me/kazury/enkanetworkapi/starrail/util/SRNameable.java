@@ -16,12 +16,14 @@ import org.jetbrains.annotations.Nullable;
 public interface SRNameable {
     /**
      * Gets the name of this object given by a locale.
+     * <br>There are some keys, which do not exist so this will return {@code null} if the key does not exist.
      * <br>If the locale is {@code null}, then the default locale will be used.
      * @param locale The locale.
      * @return The name of this object.
      * @see SRRelic
      * @see SRCharacterData
      */
+    @Nullable
     default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
         return EnkaCaches.getHonkaiLocale(locale, this.getNameHash());
@@ -29,10 +31,12 @@ public interface SRNameable {
 
     /**
      * Gets the name of this object given by the default locale.
+     * <br>There are some keys, which do not exist so this will return {@code null} if the key does not exist.
      * @return The name of this object.
      * @see SRRelic
      * @see SRCharacterData
      */
+    @Nullable
     default String getName() {
         return this.getName(null);
     }

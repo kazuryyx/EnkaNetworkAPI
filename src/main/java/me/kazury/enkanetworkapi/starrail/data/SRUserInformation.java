@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
-import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,6 +47,10 @@ public class SRUserInformation {
      */
     private int equilibriumLevel;
     /**
+     * The maximum "planet"? that this user has unlocked in the simulated universe
+     */
+    private int simulatedUniverse;
+    /**
      * The platform that this player is playing on.
      * <br><i>or created their account?</i>
      */
@@ -86,6 +88,7 @@ public class SRUserInformation {
     public static SRUserInformation fromEnkaUser(@NotNull SRUnconvertedUser enkaUser) {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();
+        final SRUnconvertedUser.RecordInfo recordInfo = detailInfoData.getRecordInfo();
         final SRUserInformation user = SRUserInformation.builder()
                 .nickname(detailInfoData.getNickname())
                 .level(detailInfoData.getLevel())
@@ -93,6 +96,7 @@ public class SRUserInformation {
                 .uid(detailInfoData.getUid())
                 .fwiends(detailInfoData.getFriendCount())
                 .equilibriumLevel(detailInfoData.getWorldLevel())
+                .simulatedUniverse(recordInfo.getMaxRogueChallengeScore())
                 .platform(SRPlatform.valueOf(detailInfoData.getPlatform().toUpperCase()))
                 .build();
 
@@ -170,7 +174,6 @@ public class SRUserInformation {
                             prop.getAcceptor().accept(mainStat.getValue()),
                             mainStat.getValue()
                     );
-
 
                     relics.add(SRRelic.builder()
                             .level(relicLevel)

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
+import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
@@ -152,17 +153,38 @@ public class EnkaNetworkAPI {
     }
 
     /**
-     * Fetches the character data of a user.
+     * Fetches the character data of a game character.
      * @param id The ID of the character. This is not the character's name.
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
      */
     @Nullable
     public GenshinCharacterData getGenshinCharacterData(@NotNull String id) {
-        return EnkaCaches.getCharacterData(id);
+        return EnkaCaches.getGenshinCharacterData(id);
     }
 
     /**
-     * Gets all the characters that are currently in the game.
+     * Fetches the character data of a user.
+     * @param id The ID of the character. This is not the character's name.
+     * @return The character data, or null if the character does not exist (or I forgot to update my library)
+     */
+    @Nullable
+    public SRCharacterData getSRCharacterData(@NotNull String id) {
+        return EnkaCaches.getSRCharacterData(id);
+    }
+
+    /**
+     * Gets all the characters that are currently in honkai star rail.
+     * <br>This list will not contain characters that are not in the library yet.
+     * <br>In that case, you must update
+     * @return All Genshin characters
+     */
+    @NotNull
+    public List<SRCharacterData> getAllSRCharacters() {
+        return EnkaCaches.getSRCharacterMap().values().stream().toList();
+    }
+
+    /**
+     * Gets all the characters that are currently in genshin impact.
      * <br>This list will not contain characters that are not in the library yet.
      * <br>In that case, you must update
      * @return All Genshin characters

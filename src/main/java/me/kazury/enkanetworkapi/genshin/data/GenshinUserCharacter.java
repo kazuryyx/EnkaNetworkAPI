@@ -3,7 +3,7 @@ package me.kazury.enkanetworkapi.genshin.data;
 import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
-import me.kazury.enkanetworkapi.genshin.exceptions.UpdateLibraryException;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class GenshinUserCharacter {
      */
     @NotNull
     public GenshinCharacterData getGameData() {
-        final GenshinCharacterData data = EnkaCaches.getCharacterData(String.valueOf(this.id));
+        final GenshinCharacterData data = EnkaCaches.getGenshinCharacterData(String.valueOf(this.id));
         if (data == null) throw new UpdateLibraryException();
         return data;
     }

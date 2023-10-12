@@ -4,8 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
-import me.kazury.enkanetworkapi.genshin.exceptions.NoLocalizationFound;
-import me.kazury.enkanetworkapi.genshin.exceptions.UpdateLibraryException;
+import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import okhttp3.*;
@@ -25,6 +26,8 @@ public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
     private static final Map<Long, String> profilePictureNames = new HashMap<>();
+
+    private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
 
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
     private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
@@ -67,6 +70,24 @@ public class EnkaCaches {
                 }
 
                 characterCache.put(key, mapper.convertValue(value, GenshinCharacterData.class));
+            });
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+        try (InputStream stream = classLoader.getResourceAsStream("honkercharacters.json")) {
+            if (stream == null) throw new NullPointerException("honkercharacters.json is null");
+
+            loadCache(stream, (entry, mapper) -> {
+                final String key = entry.getKey();
+                final JsonNode value = entry.getValue();
+
+                if (value.isEmpty()) {
+                    // looking at the json, this never seems to happen but just to be sure.
+                    return;
+                }
+
+                srCharacterDataCache.put(key, mapper.convertValue(value, SRCharacterData.class));
             });
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -183,11 +204,11 @@ public class EnkaCaches {
      * @since 4.1
      */
     @NotNull
-    public static String getProfileIcon(final long profilePictureId) {
+    protected static String getProfileIcon(final long profilePictureId) {
         final long l = fetchLast();
         if (profilePictureId > l) {
             // user did not migrate yet (did not change profile after 4.1)
-            final GenshinCharacterData data = getCharacterData(String.valueOf(profilePictureId));
+            final GenshinCharacterData data = getGenshinCharacterData(String.valueOf(profilePictureId));
             if (data == null) throw new UpdateLibraryException();
             return data.getIconName();
         }
@@ -253,25 +274,42 @@ public class EnkaCaches {
     }
 
     /**
-     * Gets character data from the cache.
+     * Gets genshin character data from the cache.
      *
      * @param id the character id
      * @return the character data
      */
     @Nullable
-    public static GenshinCharacterData getCharacterData(@NotNull String id) {
+    public static GenshinCharacterData getGenshinCharacterData(@NotNull String id) {
         return characterCache.getOrDefault(id, null);
     }
 
     /**
-     * @return A copy of the character cache.
+     * Gets HSR character data from the cache.
+     * @param id the character id
+     * @return the character data
+     */
+    @Nullable
+    public static SRCharacterData getSRCharacterData(@NotNull String id) {
+        return srCharacterDataCache.getOrDefault(id, null);
+    }
+
+    /**
+     * @return A copy of the genshin character cache.
      */
     @NotNull
     protected static Map<String, GenshinCharacterData> getCharacterMap() {
         return Map.copyOf(characterCache);
     }
 
-    @NotNull
+    /**
+     * A copy of the SR character cache.
+     */
+    public static Map<String, SRCharacterData> getSRCharacterMap() {
+        return srCharacterDataCache;
+    }
+
+    @Nullable
     public static String getGenshinLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
         final JsonNode node = genshinLocalizationCache.get(locale);
 
@@ -281,11 +319,11 @@ public class EnkaCaches {
         }
 
         final JsonNode langNode = node.get(id);
-        if (langNode == null) throw new NoLocalizationFound();
+        if (langNode == null) return null;
         return langNode.asText();
     }
 
-    @NotNull
+    @Nullable
     public static String getHonkaiLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
         final JsonNode node = honkaiLocalizationCache.get(locale);
 
@@ -295,7 +333,7 @@ public class EnkaCaches {
         }
 
         final JsonNode langNode = node.get(id);
-        if (langNode == null) throw new NoLocalizationFound();
+        if (langNode == null) return null;
         return langNode.asText();
     }
 

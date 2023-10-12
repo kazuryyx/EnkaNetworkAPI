@@ -1,7 +1,6 @@
 package me.kazury.enkanetworkapi.starrail.data.conversion;
 
 import lombok.Getter;
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;

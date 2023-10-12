@@ -2,6 +2,9 @@ package me.kazury.enkanetworkapi.starrail.data;
 
 import lombok.Builder;
 import lombok.Getter;
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -44,4 +47,16 @@ public class SRUserCharacter {
      * @see SRRelicType
      */
     private List<SRRelic> relics;
+
+    /**
+     * @see SRCharacterData
+     * @throws NullPointerException if the library version is not the version of genshin.
+     * @return The game data of this character, you can use this to get everything that this class does not provide.
+     */
+    @NotNull
+    public SRCharacterData getGameData() {
+        final SRCharacterData data = EnkaCaches.getSRCharacterData(String.valueOf(this.avatarId));
+        if (data == null) throw new UpdateLibraryException();
+        return data;
+    }
 }

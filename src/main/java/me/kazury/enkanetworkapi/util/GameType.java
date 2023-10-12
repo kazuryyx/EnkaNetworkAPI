@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 public enum GameType {
     GENSHIN("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/%s/%s"),
-    HONKAI("https://raw.githubusercontent.com/Dimbreath/StarRailData/aa811519a5de772bf4055e8ea8b9254f90b7746c/%s/%s");
+    HONKAI("https://raw.githubusercontent.com/Dimbreath/StarRailData/6acdba35cbf80adc100dbde528b1c271f50dcb9d/%s/%s");
 
     @NotNull
     private final String url;

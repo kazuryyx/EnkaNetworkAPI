@@ -1,4 +1,4 @@
-package me.kazury.enkanetworkapi.genshin.exceptions;
+package me.kazury.enkanetworkapi.util.exceptions;
 
 public class PlayerDoesNotExistException extends RuntimeException {
     public PlayerDoesNotExistException() {

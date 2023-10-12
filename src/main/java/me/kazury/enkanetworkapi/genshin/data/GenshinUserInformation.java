@@ -1,7 +1,6 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,7 @@ import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 
-import me.kazury.enkanetworkapi.genshin.exceptions.UpdateLibraryException;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

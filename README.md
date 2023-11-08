@@ -31,7 +31,7 @@ Once the repository is added, you also want to add the dependency.
 <dependency>
   <groupId>me.kazury</groupId>
   <artifactId>EnkaNetworkAPI</artifactId>
-  <version>4.1-SNAPSHOT</version>
+  <version>4.2-SNAPSHOT</version>
 </dependency>
 ```
 ### Gradle
@@ -44,8 +44,8 @@ repositories {
 - You can choose which one you prefer:
 ```gradle
 dependencies {
-  compileOnly("me.kazury", "EnkaNetworkAPI", "4.1-SNAPSHOT")
-  compileOnly("me.kazury:EnkaNetworkAPI:4.1-SNAPSHOT")
+  compileOnly("me.kazury", "EnkaNetworkAPI", "4.2-SNAPSHOT")
+  compileOnly("me.kazury:EnkaNetworkAPI:4.2-SNAPSHOT")
 }
 ```
 - For the version, you will always want to use ``currentGenshinVersion-SNAPSHOT``, when you use an old library version and try to fetch new data, it will not work and most likely throw you an exception.

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
 import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import me.kazury.enkanetworkapi.util.GameType;
@@ -25,7 +26,7 @@ import java.util.function.BiConsumer;
 public class EnkaCaches {
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
-    private static final Map<Long, String> profilePictureNames = new HashMap<>();
+    private static final Map<Long, GenshinProfilePicture> genshinProfiles = new HashMap<>();
 
     private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
 
@@ -100,10 +101,7 @@ public class EnkaCaches {
             final ArrayNode node = mapper.readValue(stream, ArrayNode.class);
 
             for (JsonNode profile : node) {
-                if (!profile.has("id") || !profile.has("iconPath")) continue;
-                final long key = profile.get("id").asLong();
-                final String value = profile.get("iconPath").asText();
-                profilePictureNames.put(key, value);
+                genshinProfiles.put(profile.get("id").asLong(), new GenshinProfilePicture(profile));
             }
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -196,6 +194,14 @@ public class EnkaCaches {
         return null;
     }
 
+    public static void main(String[] args) {
+        final EnkaNetworkAPI api = new EnkaNetworkAPI();
+
+        api.fetchGenshinUser(816578836, user -> {
+            System.out.println(getProfileIcon(user.toGenshinUser().getProfilePictureId()));
+        });
+    }
+
     /**
      * Fetches a profile icon from the cache
      * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
@@ -204,15 +210,30 @@ public class EnkaCaches {
      * @since 4.1
      */
     @NotNull
-    protected static String getProfileIcon(final long profilePictureId) {
+    protected static String getProfileIcon(@NotNull Pair<Long, Long> pair) {
         final long l = fetchLast();
-        if (profilePictureId > l) {
+
+        final long first = pair.getFirst();
+        final long second = pair.getSecond();
+        if (first > l && second == 0) {
             // user did not migrate yet (did not change profile after 4.1)
-            final GenshinCharacterData data = getGenshinCharacterData(String.valueOf(profilePictureId));
+            final GenshinCharacterData data = getGenshinCharacterData(String.valueOf(first));
             if (data == null) throw new UpdateLibraryException();
             return data.getIconName();
         }
-        return profilePictureNames.getOrDefault(profilePictureId, "UI_AvatarIcon_PlayerGirl_Circle");
+
+        if (second == 0) {
+            // user has migrated, does not have costume
+            return genshinProfiles.get(first).getIconPath();
+        }
+
+        // since we are here, we know that the user has migrated and has a costume equipped
+        // first = avatar id (character id), second = costume id
+        // therefore we need to filter by internal id to find where internal id == second
+        return genshinProfiles.values().stream().filter((picture) -> picture.getInternalId() == second)
+                .findFirst()
+                .orElseThrow(UpdateLibraryException::new) // should never happen unless json is outdated
+                .getIconPath();
     }
 
     /**
@@ -221,7 +242,7 @@ public class EnkaCaches {
      */
     protected static long fetchLast() {
         long max = 0L;
-        for (long pictureId : profilePictureNames.keySet()) {
+        for (long pictureId : genshinProfiles.keySet()) {
             if (pictureId < max) continue;
             max = pictureId;
         }

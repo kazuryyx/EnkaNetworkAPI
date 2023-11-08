@@ -1,5 +1,6 @@
 package me.kazury.enkanetworkapi.genshin.data.conversion;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
@@ -120,6 +121,12 @@ public class GenshinUnconvertedUser implements IExpiryTime {
         <br>Both fields will continue to eixst, as some people MAY not have migrated yet (changed their avatar after 4.1).
          */
         private long id;
+
+        /**
+         * Fallback if the above 2 fields are null.
+         */
+        @SerializedName("costume_id")
+        private long costumeId;
     }
 
     /**

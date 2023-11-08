@@ -9,6 +9,7 @@ import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 
+import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -72,9 +73,9 @@ public class GenshinUserInformation {
     /**
      * The ID of the character's profile picture (This will always exist).
      * <br>As of version 4.1, it is not safe anymore to use this ID to get the profile picture by character data.
-     * @see EnkaNetworkAPI#getGenshinProfileIdentifier(long)
+     * @see EnkaNetworkAPI#getGenshinProfileIdentifier(Pair)
      */
-    private final long profilePictureId;
+    private final Pair<Long, Long> profilePictureId;
 
     /**
      * This is similar to what {@link #showcaseCharacters} is.
@@ -115,7 +116,8 @@ public class GenshinUserInformation {
         final GenshinUnconvertedUser.PlayerInfo playerInfoData = enkaUser.getPlayerInfo();
         final GenshinUnconvertedUser.ProfilePicture profileData = playerInfoData.getProfilePicture();
         final String signature = playerInfoData.getSignature();
-        final long profileId = profileData.getAvatarId() == 0L ? profileData.getId(): profileData.getAvatarId();
+        final Pair<Long, Long> profileId = filterId(profileData);
+
         final GenshinUserInformation user = GenshinUserInformation.builder()
                 .nickName(playerInfoData.getNickname())
                 .level(playerInfoData.getLevel())
@@ -276,5 +278,15 @@ public class GenshinUserInformation {
             return value + 1;
         }
         return -1;
+    }
+
+    @NotNull
+    private static Pair<Long, Long> filterId(@NotNull GenshinUnconvertedUser.ProfilePicture profile) {
+        // either id OR avatar id AND costume id
+        final long id = profile.getId();
+        if (id != 0) return new Pair<>(id, 0L);
+        final long avatarId = profile.getAvatarId();
+        final long costumeId = profile.getCostumeId();
+        return new Pair<>(avatarId, costumeId);
     }
 }

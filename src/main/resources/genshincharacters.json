@@ -2329,6 +2329,66 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_CATALYST"
   },
+  "10000088": {
+    "Element": "Ice",
+    "Consts": [
+      "UI_Talent_S_Charlotte_01",
+      "UI_Talent_S_Charlotte_02",
+      "UI_Talent_U_Charlotte_01",
+      "UI_Talent_S_Charlotte_03",
+      "UI_Talent_U_Charlotte_02",
+      "UI_Talent_S_Charlotte_04"
+    ],
+    "SkillOrder": [
+      10881,
+      10882,
+      10885
+    ],
+    "Skills": {
+      "10881": "Skill_A_Catalyst_MD",
+      "10882": "Skill_S_Charlotte_01",
+      "10885": "Skill_E_Charlotte_01"
+    },
+    "ProudMap": {
+      "10881": 8831,
+      "10882": 8832,
+      "10885": 8839
+    },
+    "NameTextMapHash": 3831162130,
+    "SideIconName": "UI_AvatarIcon_Side_Charlotte",
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST"
+  },
+  "10000089": {
+    "Element": "Water",
+    "Consts": [
+      "UI_Talent_S_Furina_01",
+      "UI_Talent_S_Furina_04",
+      "UI_Talent_U_Furina_02",
+      "UI_Talent_S_Furina_03",
+      "UI_Talent_U_Furina_01",
+      "UI_Talent_S_Furina_02"
+    ],
+    "SkillOrder": [
+      10891,
+      10892,
+      10895
+    ],
+    "Skills": {
+      "10891": "Skill_A_01",
+      "10892": "Skill_S_Furina_01",
+      "10895": "Skill_E_Furina_01"
+    },
+    "ProudMap": {
+      "10891": 8931,
+      "10892": 8932,
+      "10895": 8939
+    },
+    "NameTextMapHash": 2180900234,
+    "SideIconName": "UI_AvatarIcon_Side_Furina",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
   "10000005-501": {
     "Element": "None",
     "Consts": [

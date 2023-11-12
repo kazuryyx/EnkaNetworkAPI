@@ -194,18 +194,10 @@ public class EnkaCaches {
         return null;
     }
 
-    public static void main(String[] args) {
-        final EnkaNetworkAPI api = new EnkaNetworkAPI();
-
-        api.fetchGenshinUser(816578836, user -> {
-            System.out.println(getProfileIcon(user.toGenshinUser().getProfilePictureId()));
-        });
-    }
-
     /**
      * Fetches a profile icon from the cache
      * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
-     * @param profilePictureId the profile picture id
+     * @param pair Pair of id and 0 or Pair of avatarId and costumeId
      * @return the profile icon name
      * @since 4.1
      */

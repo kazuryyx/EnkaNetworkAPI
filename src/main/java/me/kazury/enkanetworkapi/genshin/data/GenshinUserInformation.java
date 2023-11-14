@@ -228,7 +228,8 @@ public class GenshinUserInformation {
                         subStats.add(new GenshinArtifact.ArtifactStat(
                                 subProp.getId(),
                                 subProp.getAcceptor().accept(rawValue),
-                                rawValue
+                                rawValue,
+                                subProp.getValueType()
                         ));
                     }
                     final GenshinArtifactType type = EnkaParser.parseArtifact(flatData.getEquipType());
@@ -239,7 +240,10 @@ public class GenshinUserInformation {
                             .level(artifactData.getLevel() - 1)
                             .type(type)
                             .mainStats(new GenshinArtifact.ArtifactStat(
-                                    appendProp.getId(), appendProp.getAcceptor().accept(rawValue), rawValue
+                                    appendProp.getId(),
+                                    appendProp.getAcceptor().accept(rawValue),
+                                    rawValue,
+                                    appendProp.getValueType()
                             ))
                             .subStats(subStats)
                             .icon(flatData.getIcon())
@@ -280,6 +284,12 @@ public class GenshinUserInformation {
         return -1;
     }
 
+    /**
+     * Filters the id of a profile picture,
+     * <br>As of version 4.1, HoYo decided to change how profiles work.
+     * @param profile The profile to filter
+     * @return Pair of id and 0 or pair of avatar id and costume id
+     */
     @NotNull
     private static Pair<Long, Long> filterId(@NotNull GenshinUnconvertedUser.ProfilePicture profile) {
         // either id OR avatar id AND costume id

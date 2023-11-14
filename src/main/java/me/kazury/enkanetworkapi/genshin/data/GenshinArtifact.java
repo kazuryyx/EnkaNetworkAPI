@@ -63,5 +63,9 @@ public class GenshinArtifact implements GenshinNameable {
         private final String stat;
         private final String formattedValue;
         private final double rawValue;
+        /**
+         * The value type of this artifact, this is either a flat value or a percentage value.
+         */
+        private GenshinFightProp.ValueType valueType;
     }
 }

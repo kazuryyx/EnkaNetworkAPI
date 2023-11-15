@@ -17,7 +17,10 @@ import java.util.List;
 @Getter
 public class SRUnconvertedUser implements IExpiryTime {
     private DetailInfo detailInfo;
-    private int ttl;
+    /**
+     * stfu intellij this cannot be final because of gson
+     */
+    private int ttl = 60;
     private String uid;
 
     @Getter

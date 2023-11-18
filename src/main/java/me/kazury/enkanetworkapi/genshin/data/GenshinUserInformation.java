@@ -210,6 +210,7 @@ public class GenshinUserInformation {
                                 .weaponRefinement(resolveFirst(weaponData.getAffixMap()))
                                 .nameTextMapHash(flatData.getNameTextMapHash())
                                 .weaponIcon(flatData.getIcon())
+                                .star(flatData.getRankLevel())
                                 .stats(weaponStats)
                                 .build();
                         continue;

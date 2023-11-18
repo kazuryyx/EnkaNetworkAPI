@@ -44,6 +44,11 @@ public class GenshinUserWeapon implements GenshinNameable {
      * <br>One always being the Base ATK, and another one being a different stat (either % stats or flat stats).
      */
     private final List<WeaponStat> stats;
+    /**
+     * Gets the rarity of this weapon.
+     * <br>For example, Furinas signature weapon is a 5-star weapon, while a Favonius is a 4-star Weapon.
+     */
+    private final int star;
 
     @Override
     @NotNull

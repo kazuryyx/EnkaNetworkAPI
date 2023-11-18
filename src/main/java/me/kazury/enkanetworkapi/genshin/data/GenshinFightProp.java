@@ -84,11 +84,11 @@ public enum GenshinFightProp {
     CURRENT_CRYO_ENERGY("1005", "Current Cryo Energy", NumberHelper::format, ValueType.FLAT),
     CURRENT_GEO_ENERGY("1006", "Current Geo Energy", NumberHelper::format, ValueType.FLAT),
 
+    CURRENT_ATK("2001", "ATK", NumberHelper::format, ValueType.FLAT),
+    CURRENT_DEF("2002", "DEF", NumberHelper::format, ValueType.FLAT),
     /**
      * please I don't know what this is
      */
-    IDK_ATK("2001", "ATK", NumberHelper::none, ValueType.UNKNOWN),
-    IDK_DEF("2002", "DEF", NumberHelper::none, ValueType.UNKNOWN),
     IDK_SPD("2003", "SPD", NumberHelper::none, ValueType.UNKNOWN),
 
     // Elemental Reactions

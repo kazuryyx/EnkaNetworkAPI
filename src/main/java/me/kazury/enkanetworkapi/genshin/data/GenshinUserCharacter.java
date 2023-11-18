@@ -56,7 +56,13 @@ public class GenshinUserCharacter {
      * <br>For example, the character's level, health, attack, etc.
      * @see GenshinFightProp
      */
-    private Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
+    private Map<GenshinFightProp, Double> fightProperties;
+
+    /**
+     * Represents a map of the character's skill levels (in-game called talents).
+     * <br>For example, the character's normal attack, elemental skill, and elemental burst.
+     */
+    private Map<String, Integer> talentLevels;
 
     /**
      * Represents an artifact that the character currently has equipped
@@ -64,7 +70,7 @@ public class GenshinUserCharacter {
      * @see GenshinArtifact
      * @see GenshinArtifactType
      */
-    private List<GenshinArtifact> artifacts = new ArrayList<>();
+    private List<GenshinArtifact> artifacts;
 
     /**
      * The weapon that this character currently has equipped.

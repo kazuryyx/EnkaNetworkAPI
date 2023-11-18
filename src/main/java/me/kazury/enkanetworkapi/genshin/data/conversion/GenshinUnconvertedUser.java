@@ -40,12 +40,13 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
     @Getter
     public static class AvatarInfo {
-        private int avatarId; // character id
+        private int avatarId;
         private Map<String, Object> propMap;
         private List<Integer> talentIdList;
         private Map<String, Double> fightPropMap;
         private int skillDepotId;
         private List<Integer> inherentProudSkillList;
+        private Map<String, Integer> skillLevelMap;
 
         private List<EquipData> equipList;
         private FetterInfo fetterInfo;

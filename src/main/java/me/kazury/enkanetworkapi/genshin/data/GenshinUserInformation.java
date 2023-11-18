@@ -167,9 +167,12 @@ public class GenshinUserInformation {
 
             data.setCharacters(enkaUser.getAvatarInfoList().stream().map(avatarInfo -> {
                 final int id = avatarInfo.getAvatarId();
-                final int constellation = avatarInfo.getTalentIdList() == null ? 0 : avatarInfo.getTalentIdList().size();
+                final List<Integer> talentIdList = avatarInfo.getTalentIdList();
+                final int constellation = talentIdList == null ? 0 : talentIdList.size();
 
                 final Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
+                final Map<String, Integer> talentLevels = new HashMap<>();
+
                 final List<GenshinArtifact> artifacts = new ArrayList<>();
                 GenshinUserWeapon weapon = null;
 
@@ -181,6 +184,14 @@ public class GenshinUserInformation {
                     final GenshinFightProp fightProp = GenshinFightProp.fromKey(key);
                     if (fightProp == null) continue;
                     fightProperties.put(fightProp, value);
+                }
+
+                // Talent levels of this character
+                for (Map.Entry<String, Integer> entry : avatarInfo.getSkillLevelMap().entrySet()) {
+                    final String key = entry.getKey();
+                    final int value = entry.getValue();
+
+                    talentLevels.put(key, value);
                 }
 
                 // Applying weapon variable and adding artifacts to list
@@ -265,6 +276,7 @@ public class GenshinUserInformation {
                         .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
                         .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                         .equippedWeapon(weapon)
+                        .talentLevels(talentLevels)
                         .build();
             }).toList());
         });

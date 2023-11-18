@@ -3,6 +3,8 @@
 This is an API wrapper for https://enka.network in Java.
 <br> Currently, we only have the option to use this API for JS, TS, PY hence why I made this :)
 
+# This page is outdated. Please refer to http://enka-docs.kazury.me.
+
 ## Table of Contents
 - [Requirements](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#requirements)
 - [Installation](https://github.com/kazuryyx/EnkaNetworkAPI/tree/main#installation)

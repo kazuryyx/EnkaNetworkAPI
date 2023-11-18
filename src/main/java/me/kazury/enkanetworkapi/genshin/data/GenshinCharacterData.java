@@ -67,6 +67,12 @@ public class GenshinCharacterData implements GenshinNameable {
      */
     @JsonProperty("WeaponType")
     private String weaponType;
+    /**
+     * Gets the character's rarity.
+     * <br> For example, Furina is a 5-star, while Fischl is a 4-star.
+     */
+    @JsonProperty("Rarity")
+    private int star;
 
     /**
      * Represents a map of Integer (Costume Id), Costume (Costume Data)

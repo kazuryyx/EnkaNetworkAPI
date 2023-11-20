@@ -281,7 +281,7 @@ public class EnkaNetworkAPI {
     /**
      * Gets an icon by the icon id (genshin impact)
      * @param key The icon id, it is usually an uppercase char sequence
-     * @return The icon url or null if the icon does not exist
+     * @return The icon url
      */
     @NotNull
     public String getGenshinIcon(@NotNull String key) {
@@ -291,7 +291,7 @@ public class EnkaNetworkAPI {
     /**
      * Gets an icon by the icon id (Honkai: Star Rail)
      * @param key The icon id, it is usually an uppercase char sequence
-     * @return The icon url or null (see note)
+     * @return The icon url
      * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
      *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
      *         <br>With a custom CDN.

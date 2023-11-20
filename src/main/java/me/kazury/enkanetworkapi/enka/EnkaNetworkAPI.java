@@ -283,7 +283,7 @@ public class EnkaNetworkAPI {
      * @param key The icon id, it is usually an uppercase char sequence
      * @return The icon url or null if the icon does not exist
      */
-    @Nullable
+    @NotNull
     public String getGenshinIcon(@NotNull String key) {
         return BASE_GENSHIN_UI_URL + key + ".png";
     }

@@ -229,6 +229,9 @@ public class EnkaNetworkAPI {
      * @param userAgent The user agent.
      */
     public void setUserAgent(@NotNull String userAgent) {
+        if (userAgent.isBlank()) {
+            throw new IllegalArgumentException("User agent cannot be empty.");
+        }
         this.httpClient.setUserAgent(userAgent);
     }
 
@@ -239,6 +242,9 @@ public class EnkaNetworkAPI {
      * @param path The default UI path.
      */
     public void setDefaultUIPath(@NotNull String path) {
+        if (path.isBlank() || !path.endsWith("/")) {
+           throw new IllegalArgumentException("Path cannot be empty and must end with a slash. f.e. https://custom.domain/cdnpath/");
+        }
         BASE_GENSHIN_UI_URL = path;
     }
 

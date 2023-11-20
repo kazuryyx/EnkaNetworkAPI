@@ -296,7 +296,7 @@ public class EnkaNetworkAPI {
      *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
      *         <br>With a custom CDN.
      */
-    @Nullable
+    @NotNull
     public String getSRIcon(@NotNull String key) {
         return BASE_SR_UI_URL + key + ".png";
     }

@@ -73,6 +73,7 @@ public class GenshinUserInformation {
     /**
      * The ID of the character's profile picture (This will always exist).
      * <br>As of version 4.1, it is not safe anymore to use this ID to get the profile picture by character data.
+     *
      * @see EnkaNetworkAPI#getGenshinProfileIdentifier(Pair)
      */
     private final Pair<Long, Long> profilePictureId;
@@ -171,7 +172,7 @@ public class GenshinUserInformation {
                 final int constellation = talentIdList == null ? 0 : talentIdList.size();
 
                 final Map<GenshinFightProp, Double> fightProperties = new HashMap<>();
-                final Map<String, Integer> talentLevels = new HashMap<>();
+                final List<Integer> talentLevels = new ArrayList<>();
 
                 final List<GenshinArtifact> artifacts = new ArrayList<>();
                 GenshinUserWeapon weapon = null;
@@ -188,10 +189,7 @@ public class GenshinUserInformation {
 
                 // Talent levels of this character
                 for (Map.Entry<String, Integer> entry : avatarInfo.getSkillLevelMap().entrySet()) {
-                    final String key = entry.getKey();
-                    final int value = entry.getValue();
-
-                    talentLevels.put(key, value);
+                    talentLevels.add(entry.getValue());
                 }
 
                 // Applying weapon variable and adding artifacts to list
@@ -276,7 +274,11 @@ public class GenshinUserInformation {
                         .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
                         .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                         .equippedWeapon(weapon)
-                        .talentLevels(talentLevels)
+                        .talentLevels(GenshinCharacterTalents.builder()
+                                .normalAttackLevel(talentLevels.get(0))
+                                .elementalSkillLevel(talentLevels.get(1))
+                                .elementalBurstLevel(talentLevels.get(2))
+                                .build())
                         .build();
             }).toList());
         });
@@ -286,6 +288,7 @@ public class GenshinUserInformation {
 
     /**
      * HoYo decided to go on a format which represents a map, but ALWAYS only has one entry
+     *
      * @param map The map to resolve
      * @return The first value of the map, or -1 if the map is null or empty
      */
@@ -300,6 +303,7 @@ public class GenshinUserInformation {
     /**
      * Filters the id of a profile picture,
      * <br>As of version 4.1, HoYo decided to change how profiles work.
+     *
      * @param profile The profile to filter
      * @return Pair of id and 0 or pair of avatar id and costume id
      */

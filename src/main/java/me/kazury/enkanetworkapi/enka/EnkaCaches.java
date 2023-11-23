@@ -107,8 +107,8 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        System.out.println("All caches have loaded, now loading localization");
         materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+        System.out.println("All caches have loaded.");
     }
 
     /**

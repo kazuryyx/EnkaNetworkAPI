@@ -29,6 +29,8 @@ public class EnkaCaches {
     private static final Map<Long, GenshinProfilePicture> genshinProfiles = new HashMap<>();
 
     private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
+    private static final Map<String, GenshinAffix> affixCache = new HashMap<>();
+
 
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
     private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
@@ -103,6 +105,19 @@ public class EnkaCaches {
             for (JsonNode profile : node) {
                 genshinProfiles.put(profile.get("id").asLong(), new GenshinProfilePicture(profile));
             }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+        try (InputStream stream = classLoader.getResourceAsStream("genshinaffixes.json")) {
+            if (stream == null) throw new NullPointerException("genshinaffixes.json is null");
+
+            loadCache(stream, (entry, mapper) -> {
+                final String key = entry.getKey();
+                final JsonNode value = entry.getValue();
+
+                affixCache.put(key, mapper.convertValue(value, GenshinAffix.class));
+            });
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -319,7 +334,7 @@ public class EnkaCaches {
      * A copy of the SR character cache.
      */
     public static Map<String, SRCharacterData> getSRCharacterMap() {
-        return srCharacterDataCache;
+        return Map.copyOf(srCharacterDataCache);
     }
 
     @Nullable
@@ -348,6 +363,26 @@ public class EnkaCaches {
         final JsonNode langNode = node.get(id);
         if (langNode == null) return null;
         return langNode.asText();
+    }
+
+    /**
+     * Gets a genshin affix from the cache.
+     * @param id the affix id
+     * @return the affix
+     */
+    @Nullable
+    public static GenshinAffix getGenshinAffix(@NotNull String id) {
+        return affixCache.getOrDefault(id, null);
+    }
+
+    /**
+     * Gets a genshin affix from the cache.
+     * @param id the affix id
+     * @return the affix
+     */
+    @Nullable
+    public static GenshinAffix getGenshinAffix(final int id) {
+        return getGenshinAffix(String.valueOf(id));
     }
 
     @NotNull

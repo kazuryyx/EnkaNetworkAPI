@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
-import me.kazury.enkanetworkapi.genshin.GenshinRollData;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
@@ -37,7 +36,8 @@ public class GenshinArtifact implements GenshinNameable {
     private ArtifactStat mainStats;
 
     /**
-     * TODO - Add documentation
+     * A list of append prop ids.
+     * <br>These are affix ids of an artifact.
      */
     private List<Integer> appendPropIds;
 
@@ -58,8 +58,8 @@ public class GenshinArtifact implements GenshinNameable {
     private String icon;
 
     /**
-     * TODO - Add documentation
-     * @return TODO
+     * Scans the sub stat rolls of this artifact and calculates the efficiency between all the rolls.
+     * @return Roll data of this artifact (scanning sub stats)
      */
     @NotNull
     public GenshinRollData getRollData() {

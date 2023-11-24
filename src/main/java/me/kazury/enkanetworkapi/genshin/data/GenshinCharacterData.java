@@ -92,8 +92,6 @@ public class GenshinCharacterData implements GenshinNameable {
     /**
      * Returns the icon of the character when the character is looking at the camera.
      * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
-     * @apiNote In 4.1, the icon parsing was changed and HoYo. There is no need to use this method.
-     *          <br>Some characters might not have this method after 4.1, and so it will be an empty image.
      * @return At camera looking icon
      */
     @NotNull

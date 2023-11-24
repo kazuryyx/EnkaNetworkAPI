@@ -249,6 +249,7 @@ public class GenshinUserInformation {
                     artifacts.add(GenshinArtifact.builder()
                             .level(artifactData.getLevel() - 1)
                             .type(type)
+                            .appendPropIds(artifactData.getAppendPropIdList())
                             .mainStats(new GenshinArtifact.ArtifactStat(
                                     appendProp.getId(),
                                     appendProp.getAcceptor().accept(rawValue),

@@ -3,12 +3,16 @@ package me.kazury.enkanetworkapi.genshin.data;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
+import me.kazury.enkanetworkapi.genshin.GenshinRollData;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * An artifact that is currently equipped on a {@link GenshinUserCharacter}.
@@ -33,6 +37,11 @@ public class GenshinArtifact implements GenshinNameable {
     private ArtifactStat mainStats;
 
     /**
+     * TODO - Add documentation
+     */
+    private List<Integer> appendPropIds;
+
+    /**
      * All the substats of this artifact, there are 4 substats on one artifact
      */
     private List<ArtifactStat> subStats;
@@ -47,6 +56,26 @@ public class GenshinArtifact implements GenshinNameable {
      * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
     private String icon;
+
+    /**
+     * TODO - Add documentation
+     * @return TODO
+     */
+    @NotNull
+    public GenshinRollData getRollData() {
+        final Map<Integer, Double> efficiencyMap = new HashMap<>();
+
+        for (int id : this.getAppendPropIds()) {
+            final GenshinAffix affix = EnkaCaches.getGenshinAffix(id);
+            if (affix == null) {
+                System.out.println("Unsupported affix: " + id + ". please redirect to library owner.");
+                continue;
+            }
+            final double efficiency = Math.round(affix.getEfficiency() * 100.0) / 100.0;
+            efficiencyMap.put(id, efficiencyMap.getOrDefault(id, 0.0) + efficiency);
+        }
+        return new GenshinRollData(efficiencyMap, this.getAppendPropIds());
+    }
 
     @Override
     @NotNull

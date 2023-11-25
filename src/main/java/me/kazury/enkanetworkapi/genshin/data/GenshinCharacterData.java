@@ -96,7 +96,27 @@ public class GenshinCharacterData implements GenshinNameable {
      */
     @NotNull
     public String getIconName() {
-        return this.sideIconName.replace("_Side", "");
+        return this.getSideIconName().replace("_Side", "");
+    }
+
+    /**
+     * The splash art of the character when pulled in the gacha.
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
+     * @return The splash art of the character
+     */
+    @NotNull
+    public String getSplashArt() {
+        return this.getIconName().replace("UI_AvatarIcon", "UI_Gacha_AvatarImg");
+    }
+
+    /**
+     * The image at the end of a 10-pull
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
+     * @return The image at the end of a 10-pull
+     */
+    @NotNull
+    public String getGachaImage() {
+        return this.getIconName().replace("UI_AvatarIcon", "UI_Gacha_AvatarIcon");
     }
 
     /**

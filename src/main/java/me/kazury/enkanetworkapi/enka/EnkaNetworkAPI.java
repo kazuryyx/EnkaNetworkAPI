@@ -174,10 +174,10 @@ public class EnkaNetworkAPI {
     }
 
     /**
-     * Gets all the characters that are currently in honkai star rail.
+     * Gets all the characters that are currently in Honkai: Star Rail.
      * <br>This list will not contain characters that are not in the library yet.
      * <br>In that case, you must update
-     * @return All Genshin characters
+     * @return All Star Rail characters
      */
     @NotNull
     public List<SRCharacterData> getAllSRCharacters() {
@@ -185,7 +185,7 @@ public class EnkaNetworkAPI {
     }
 
     /**
-     * Gets all the characters that are currently in genshin impact.
+     * Gets all the characters that are currently in Genshin Impact.
      * <br>This list will not contain characters that are not in the library yet.
      * <br>In that case, you must update
      * @return All Genshin characters

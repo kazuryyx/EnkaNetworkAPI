@@ -337,9 +337,17 @@ public class EnkaCaches {
         return Map.copyOf(srCharacterDataCache);
     }
 
-    @Nullable
-    public static String getGenshinLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
-        final JsonNode node = genshinLocalizationCache.get(locale);
+    /**
+     * Gets a localization from the cache.
+     * @param map the map
+     * @param locale the locale
+     * @param id the id
+     * @return The key from the locale or null if not found.
+     */
+    private static String getLocale(@NotNull Map<GlobalLocalization, JsonNode> map,
+                                    @NotNull GlobalLocalization locale,
+                                    @NotNull String id) {
+        final JsonNode node = map.get(locale);
 
         if (node == null) {
             // IntelliJ complains that the #get call below this might throw
@@ -351,18 +359,26 @@ public class EnkaCaches {
         return langNode.asText();
     }
 
+    /**
+     * Gets a genshin localization from the cache.
+     * @param locale the locale
+     * @param id the id
+     * @return The key from the locale or null if not found.
+     */
+    @Nullable
+    public static String getGenshinLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
+        return getLocale(genshinLocalizationCache, locale, id);
+    }
+
+    /**
+     * Gets a honkai localization from the cache.
+     * @param locale the locale
+     * @param id the id
+     * @return The key from the locale or null if not found.
+     */
     @Nullable
     public static String getHonkaiLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
-        final JsonNode node = honkaiLocalizationCache.get(locale);
-
-        if (node == null) {
-            // IntelliJ complains that the #get call below this might throw
-            throw new NoLocalizationFound();
-        }
-
-        final JsonNode langNode = node.get(id);
-        if (langNode == null) return null;
-        return langNode.asText();
+        return getLocale(honkaiLocalizationCache, locale, id);
     }
 
     /**

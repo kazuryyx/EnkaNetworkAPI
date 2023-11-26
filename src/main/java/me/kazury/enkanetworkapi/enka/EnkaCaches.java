@@ -344,6 +344,7 @@ public class EnkaCaches {
      * @param id the id
      * @return The key from the locale or null if not found.
      */
+    @Nullable
     private static String getLocale(@NotNull Map<GlobalLocalization, JsonNode> map,
                                     @NotNull GlobalLocalization locale,
                                     @NotNull String id) {

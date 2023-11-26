@@ -388,7 +388,7 @@ public class EnkaCaches {
      * @return the affix
      */
     @Nullable
-    public static GenshinAffix getGenshinAffix(@NotNull String id) {
+    protected static GenshinAffix getGenshinAffix(@NotNull String id) {
         return affixCache.getOrDefault(id, null);
     }
 
@@ -398,7 +398,7 @@ public class EnkaCaches {
      * @return the affix
      */
     @Nullable
-    public static GenshinAffix getGenshinAffix(final int id) {
+    protected static GenshinAffix getGenshinAffix(final int id) {
         return getGenshinAffix(String.valueOf(id));
     }
 

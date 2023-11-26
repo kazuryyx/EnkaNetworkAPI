@@ -143,6 +143,26 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Gets a genshin affix from the cache.
+     * @param id the affix id
+     * @return the affix
+     */
+    @Nullable
+    public GenshinAffix getGenshinAffix(@NotNull String id) {
+        return EnkaCaches.getGenshinAffix(id);
+    }
+
+    /**
+     * Gets a genshin affix from the cache.
+     * @param id the affix id
+     * @return the affix
+     */
+    @Nullable
+    public GenshinAffix getGenshinAffix(final int id) {
+        return getGenshinAffix(String.valueOf(id));
+    }
+
+    /**
      * Fetches an icon identifier from a profile id
      * <br>You will need to parse this yourself with {@link #getGenshinIcon(String)}
      * @param profileId The profile id

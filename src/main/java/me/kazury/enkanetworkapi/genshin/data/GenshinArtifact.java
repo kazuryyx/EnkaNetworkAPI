@@ -62,11 +62,11 @@ public class GenshinArtifact implements GenshinNameable {
      * @return Roll data of this artifact (scanning sub stats)
      */
     @NotNull
-    public GenshinRollData getRollData() {
+    public GenshinRollData getRollData(@NotNull EnkaNetworkAPI api) {
         final Map<Integer, Double> efficiencyMap = new HashMap<>();
 
         for (int id : this.getAppendPropIds()) {
-            final GenshinAffix affix = EnkaCaches.getGenshinAffix(id);
+            final GenshinAffix affix = api.getGenshinAffix(id);
             if (affix == null) {
                 System.out.println("Unsupported affix: " + id + ". please redirect to library owner.");
                 continue;

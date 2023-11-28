@@ -9,7 +9,6 @@ import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.util.Pair;
-import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

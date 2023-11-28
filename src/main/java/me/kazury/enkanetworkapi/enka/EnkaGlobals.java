@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class EnkaGlobals {
     private static GlobalLocalization DEFAULT_LOCALIZATION = GlobalLocalization.ENGLISH;
+    private static boolean HONKAI_ENABLED = false;
 
     /**
      * Sets the default localization
@@ -16,12 +17,26 @@ public class EnkaGlobals {
     }
 
     /**
+     * TODO - Add documentation
+     */
+    public static void setHonkaiEnabled(final boolean status) {
+        HONKAI_ENABLED = status;
+    }
+
+    /**
      * @return the default localization
      */
     @NotNull
     public static GlobalLocalization getDefaultLocalization() {
         EnkaCaches.loadLocalizations(DEFAULT_LOCALIZATION);
         return DEFAULT_LOCALIZATION;
+    }
+
+    /**
+     * TODO - Add documentation
+     */
+    public static boolean isHonkaiEnabled() {
+        return HONKAI_ENABLED;
     }
 
     /**

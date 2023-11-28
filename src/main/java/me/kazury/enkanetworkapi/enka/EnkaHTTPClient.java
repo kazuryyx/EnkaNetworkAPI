@@ -71,6 +71,8 @@ public class EnkaHTTPClient {
 
     private void fetchHonkaiUserFailure(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
                                  @Nullable Consumer<Throwable> failure) {
+        EnkaVerifier.verifyHonkai();
+
         this.getBase("hsr/uid/" + uid + "/", SRUnconvertedUser.class).thenAccept((userData) -> {
             if (userData == null) return;
             this.honkaiCache.put(uid, new CachedData<>(userData));

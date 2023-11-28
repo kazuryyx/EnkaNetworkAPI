@@ -40,11 +40,14 @@ public class EnkaCaches {
 
     private static final JsonNode materialJsonNode;
 
+    private static boolean genshinLoadedOrLoading = false;
+    private static boolean honkaiLoadedOrLoading = false;
+
     static {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-        System.out.println("Loading caches... Some tasks may be delayed during this.");
-        System.out.println("Expect this to take around 10 seconds. (this will be once and same for localization assets.)");
+        System.out.println("[Cache] Loading... Some tasks may be delayed during this.");
+        System.out.println("[Cache] Expect this to take some seconds. (this will be once and same for localization assets.)");
 
         try (InputStream stream = classLoader.getResourceAsStream("genshinnamecards.json")) {
             if (stream == null) throw new NullPointerException("genshinnamecards.json is null");
@@ -123,7 +126,7 @@ public class EnkaCaches {
         }
 
         materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
-        System.out.println("All caches have loaded.");
+        System.out.println("[Cache] All caches have loaded.");
     }
 
     /**
@@ -269,26 +272,36 @@ public class EnkaCaches {
      * Loads genshin localizations from the Excel.
      */
     protected static void loadGenshinLocalizations(@NotNull GlobalLocalization localization) {
+        if (genshinLoadedOrLoading) return;
         final JsonNode node = genshinLocalizationCache.get(localization);
         if (node != null) return;
 
-        System.out.println("(Genshin) New localization (" + localization.name() + ") has been detected, loading...");
+        genshinLoadedOrLoading = true;
+        System.out.println("[Localization::Genshin] New localization (" + localization.name() + ") has been detected, loading...");
         final JsonNode langNode = fetchJsonData(GameType.GENSHIN, "TextMap", "TextMap" + localization.getCode());
         genshinLocalizationCache.put(localization, langNode);
-        System.out.println("(Genshin) Localization has been loaded!");
+        System.out.println("[Localization::Genshin] Localization has been loaded!");
     }
 
     /**
      * Loads honkai localizations from the Excel.
      */
     protected static void loadHonkaiLocalization(@NotNull GlobalLocalization localization) {
+        if (!EnkaGlobals.isHonkaiEnabled() && !honkaiLoadedOrLoading) {
+            System.out.println("[Localization::Honkai] Currently disabled, skipping loading.");
+            honkaiLoadedOrLoading = true;
+            return;
+        }
+        if (honkaiLoadedOrLoading) return;
+
         final JsonNode node = honkaiLocalizationCache.get(localization);
         if (node != null) return;
 
-        System.out.println("(Honkai) New localization (" + localization.name() + ") has been detected, loading...");
+        honkaiLoadedOrLoading = true;
+        System.out.println("[Localization::Honkai] New localization (" + localization.name() + ") has been detected, loading...");
         final JsonNode langNode = fetchJsonData(GameType.HONKAI, "TextMap", "TextMap" + localization.getCode());
         honkaiLocalizationCache.put(localization, langNode);
-        System.out.println("(Honkai) Localization has been loaded!");
+        System.out.println("[Localization::Honkai] Localization has been loaded!");
     }
 
     /**
@@ -390,16 +403,6 @@ public class EnkaCaches {
     @Nullable
     protected static GenshinAffix getGenshinAffix(@NotNull String id) {
         return affixCache.getOrDefault(id, null);
-    }
-
-    /**
-     * Gets a genshin affix from the cache.
-     * @param id the affix id
-     * @return the affix
-     */
-    @Nullable
-    protected static GenshinAffix getGenshinAffix(final int id) {
-        return getGenshinAffix(String.valueOf(id));
     }
 
     @NotNull

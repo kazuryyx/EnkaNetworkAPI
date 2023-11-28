@@ -19,6 +19,7 @@ public class EnkaNetworkBuilder {
     private GlobalLocalization defaultLocalization;
     private String baseUrl;
     private String userAgent;
+    private boolean honkaiEnabled = false;
 
     /**
      * Sets the default localization which will be used for {@link GenshinNameable} objects.
@@ -52,6 +53,15 @@ public class EnkaNetworkBuilder {
     }
 
     /**
+     * TODO - Add documentation
+     */
+    @NotNull
+    public EnkaNetworkBuilder setHonkaiEnabled(final boolean status) {
+        this.honkaiEnabled = status;
+        return this;
+    }
+
+    /**
      * Builds the {@link EnkaNetworkAPI} instance.
      * @return The {@link EnkaNetworkAPI} instance.
      */
@@ -70,6 +80,7 @@ public class EnkaNetworkBuilder {
             api.setUserAgent(this.userAgent);
         }
 
+        api.enableHonkai(this.honkaiEnabled);
         return api;
     }
 }

@@ -9,6 +9,7 @@ import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.util.Pair;
+import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -190,6 +191,7 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public SRCharacterData getSRCharacterData(@NotNull String id) {
+        EnkaVerifier.verifyHonkai();
         return EnkaCaches.getSRCharacterData(id);
     }
 
@@ -201,6 +203,7 @@ public class EnkaNetworkAPI {
      */
     @NotNull
     public List<SRCharacterData> getAllSRCharacters() {
+        EnkaVerifier.verifyHonkai();
         return EnkaCaches.getSRCharacterMap().values().stream().toList();
     }
 
@@ -269,6 +272,13 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * TODO - Add documentation
+     */
+    public void enableHonkai(final boolean status) {
+        EnkaGlobals.setHonkaiEnabled(status);
+    }
+
+    /**
      * Fetches the character data of a user.
      * @param id The ID of the character. This is not the character's name.
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
@@ -318,6 +328,7 @@ public class EnkaNetworkAPI {
      */
     @NotNull
     public String getSRIcon(@NotNull String key) {
+        EnkaVerifier.verifyHonkai();
         return BASE_SR_UI_URL + key + ".png";
     }
 }

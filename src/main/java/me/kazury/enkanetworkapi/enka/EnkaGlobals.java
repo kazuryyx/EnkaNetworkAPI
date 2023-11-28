@@ -17,7 +17,8 @@ public class EnkaGlobals {
     }
 
     /**
-     * TODO - Add documentation
+     * Sets the status of Honkai: Star Rail.
+     * @param status the new status
      */
     public static void setHonkaiEnabled(final boolean status) {
         HONKAI_ENABLED = status;
@@ -33,7 +34,7 @@ public class EnkaGlobals {
     }
 
     /**
-     * TODO - Add documentation
+     * @return if Honkai: Star Rail is enabled
      */
     public static boolean isHonkaiEnabled() {
         return HONKAI_ENABLED;

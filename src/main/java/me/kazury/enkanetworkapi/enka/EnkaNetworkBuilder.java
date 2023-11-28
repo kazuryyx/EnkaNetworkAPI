@@ -53,7 +53,9 @@ public class EnkaNetworkBuilder {
     }
 
     /**
-     * TODO - Add documentation
+     * Sets the status of Honkai: Star Rail.
+     * <br>This is default false, but if you try to do anything related to Honkai: Star Rail you will receive an error.
+     * <br>So if you want to use Honkai: Star Rail, you must enable it.
      */
     @NotNull
     public EnkaNetworkBuilder setHonkaiEnabled(final boolean status) {

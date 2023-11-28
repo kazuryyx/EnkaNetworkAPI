@@ -5,11 +5,13 @@ import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * TODO - Add documentation
+ * A verifier class which is used to verify conditions before executing code.
  */
 public class EnkaVerifier {
     /**
-     * TODO - Add documentation
+     * Verifies a condition, if the condition is false, it will throw an exception.
+     * @param condition the condition
+     * @param exception the exception
      */
     @SneakyThrows
     public static <T extends Exception> void verifyOrThrow(final boolean condition, @NotNull Class<T> exception) {
@@ -23,7 +25,7 @@ public class EnkaVerifier {
     }
 
     /**
-     * TODO - Add documentation
+     * Verifies if honkai is enabled, this is run before all Honkai: Star Rail operations.
      */
     public static void verifyHonkai() {
         verifyOrThrow(EnkaGlobals.isHonkaiEnabled(), HonkaiNotEnabledException.class);

@@ -1,5 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
@@ -21,47 +23,34 @@ import java.util.List;
  *     <li>etc</li>
  * </ul>
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GenshinMaterial {
-
-    private final int id;
-
-    @Nullable
-    private final String name;
+    private int id;
 
     @Nullable
-    private final String description;
+    @JsonProperty("nameTextMapHash")
+    private String name;
+
+    @Nullable
+    @JsonProperty("descTextMapHash")
+    private String description;
 
     @NotNull
-    private final String icon;
+    @JsonProperty("icon")
+    private String icon;
 
     @NotNull
-    private final List<String> pictures;
+    @JsonProperty("picPath")
+    private List<String> pictures;
 
     @NotNull
-    private final GenshinItemType itemType;
+    @JsonProperty("itemType")
+    private String itemType;
 
-    @Nullable
-    private String materialType;
+    @JsonProperty("rankLevel")
+    private int stars;
 
-    @Nullable
-    private String stars;
-
-    public GenshinMaterial(@NotNull JsonNode jsonNode) {
-        this.id = jsonNode.get("id").asInt();
-        this.name = EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("nameTextMapHash").asText());
-        this.description = EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), jsonNode.get("descTextMapHash").asText());
-        this.icon = jsonNode.get("icon").asText();
-        this.pictures = jsonNode.findValuesAsText("picPath");
-        this.itemType = GenshinItemType.valueOf(jsonNode.get("itemType").asText());
-
-        if (jsonNode.has("materialType")) {
-            this.materialType = jsonNode.get("materialType").asText();
-        }
-
-        if (jsonNode.has("rankLevel")) {
-            this.stars = jsonNode.get("rankLevel").asText();
-        }
-    }
+    public GenshinMaterial() {}
 
     /**
      * The id of this material, this is what you used to get this object.
@@ -75,7 +64,8 @@ public class GenshinMaterial {
      */
     @Nullable
     public String getName() {
-        return this.name;
+        if (this.name == null) return null;
+        return EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), this.name);
     }
 
     /**
@@ -83,7 +73,8 @@ public class GenshinMaterial {
      */
     @Nullable
     public String getDescription() {
-        return this.description;
+        if (this.description == null) return null;
+        return EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), this.description);
     }
 
     /**
@@ -104,27 +95,22 @@ public class GenshinMaterial {
 
     /**
      * The item type of this object
+     * <ul>
+     *     <li>ITEM_VIRTUAL</li>
+     *     <li>ITEM_MATERIAL</li>
+     *     <li>UNIMPLEMENTED</li>
+     * </ul>
      */
     @NotNull
-    public GenshinItemType getItemType() {
+    public String getItemType() {
         return this.itemType;
-    }
-
-    /**
-     * The material type of this object
-     * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
-     */
-    @Nullable
-    public String getMaterialType() {
-        return this.materialType;
     }
 
     /**
      * The stars of this object
      * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
      */
-    @Nullable
-    public String getStars() {
+    public int getStars() {
         return this.stars;
     }
 }

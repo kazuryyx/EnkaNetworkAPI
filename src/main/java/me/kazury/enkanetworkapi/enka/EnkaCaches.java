@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
@@ -24,24 +25,25 @@ import java.util.function.BiConsumer;
  * A class which contains all caches that are needed for the API
  */
 public class EnkaCaches {
+    // genshin
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
     private static final Map<Long, GenshinProfilePicture> genshinProfiles = new HashMap<>();
 
-    private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
     private static final Map<String, GenshinAffix> affixCache = new HashMap<>();
-
+    private static final Map<String, GenshinMaterial> materialCache = new HashMap<>();
 
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
-    private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
-
-    private static final OkHttpClient client = new OkHttpClient();
-    private static final Map<String, JsonNode> materialCache = new HashMap<>();
-
-    private static final JsonNode materialJsonNode;
 
     private static boolean genshinLoadedOrLoading = false;
+
+    // star rail
+    private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
+    private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
     private static boolean honkaiLoadedOrLoading = false;
+
+    // util
+    private static final OkHttpClient client = new OkHttpClient();
 
     static {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -125,19 +127,25 @@ public class EnkaCaches {
             exception.printStackTrace();
         }
 
-        materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
-        System.out.println(materialJsonNode.size());
+        final String json = fetchRawJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+
+        if (json == null) {
+            System.out.println("[Cache] Failed to load material cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(json, ArrayNode.class);
+
+                for (JsonNode mat : node) {
+                    final String key = mat.get("id").asText();
+                    materialCache.put(key, mapper.convertValue(mat, GenshinMaterial.class));
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+
         System.out.println("[Cache] All caches have loaded.");
-    }
-
-    public static void main(String[] args) {
-        final EnkaNetworkAPI api = new EnkaNetworkAPI();
-
-        api.fetchGenshinUser(722777337, (user) -> {
-            GenshinUserInformation user1 = user.toGenshinUser();
-
-            System.out.println(api.getGenshinMaterial(113023).getDescription());
-        });
     }
 
     /**
@@ -156,9 +164,35 @@ public class EnkaCaches {
      *
      * @param subPath  the sub path
      * @param fileName the file name
-     * @return the json node
+     * @return the json
      */
     @Nullable
+    protected static String fetchRawJsonData(@NotNull GameType game, @NotNull String subPath, @NotNull String fileName) {
+        fileName = parseString(fileName);
+
+        final String url = game.getUrl().formatted(subPath, fileName);
+        final Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute();
+             ResponseBody body = response.body()) {
+            if (body == null) return null;
+            return body.string();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Fetches json data from gitlab.
+     * @param game the game
+     * @param subPath the sub path
+     * @param fileName the file name
+     * @return the json
+     */
+    @NotNull
     protected static JsonNode fetchJsonData(@NotNull GameType game, @NotNull String subPath, @NotNull String fileName) {
         fileName = parseString(fileName);
 
@@ -170,12 +204,12 @@ public class EnkaCaches {
 
         try (Response response = client.newCall(request).execute();
              ResponseBody body = response.body()) {
-            if (body == null) return null;
+            if (body == null) throw new IOException("Response body is null");
             return mapper.readValue(body.string(), JsonNode.class);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        return null;
+        throw new NullPointerException("Response body is null");
     }
 
     /**
@@ -207,21 +241,7 @@ public class EnkaCaches {
      */
     @Nullable
     protected static GenshinMaterial getMaterial(final int id) {
-        final String realId = String.valueOf(id);
-        final JsonNode existingMaterial = materialCache.get(realId);
-
-        if (existingMaterial != null) {
-            return new GenshinMaterial(existingMaterial);
-        }
-
-        final JsonNode node = materialJsonNode.get(id);
-        System.out.println(node);
-
-        if (node != null) {
-            materialCache.put(realId, node);
-            return new GenshinMaterial(node);
-        }
-        return null;
+        return materialCache.getOrDefault(String.valueOf(id), null);
     }
 
     /**
@@ -345,6 +365,15 @@ public class EnkaCaches {
     @Nullable
     public static SRCharacterData getSRCharacterData(@NotNull String id) {
         return srCharacterDataCache.getOrDefault(id, null);
+    }
+
+    /**
+     * @return A list of all genshin materials.
+     * <br>This list also contains experimental materials, and not all of them have a description / name.
+     */
+    @NotNull
+    public static List<GenshinMaterial> getMaterials() {
+        return List.copyOf(materialCache.values());
     }
 
     /**

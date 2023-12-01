@@ -1,10 +1,10 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -21,42 +21,29 @@ import java.util.List;
  *     <li>etc</li>
  * </ul>
  */
-@Getter
 public class GenshinMaterial {
-    /**
-     * The id of this material, this is what you used to get this object.
-     */
+
     private final int id;
-    /**
-     * The name of this object.
-     */
+
+    @Nullable
     private final String name;
-    /**
-     * The description of this object
-     */
+
+    @Nullable
     private final String description;
-    /**
-     * The icon of this object, you will have to parse it yourself.
-     */
+
+    @NotNull
     private final String icon;
-    /**
-     * The list of pictures this object has, or mostly empty
-     */
+
+    @NotNull
     private final List<String> pictures;
-    /**
-     * The item type of this object
-     */
+
+    @NotNull
     private final GenshinItemType itemType;
 
-    /**
-     * The material type of this object
-     * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
-     */
+    @Nullable
     private String materialType;
-    /**
-     * The stars of this object
-     * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
-     */
+
+    @Nullable
     private String stars;
 
     public GenshinMaterial(@NotNull JsonNode jsonNode) {
@@ -71,8 +58,73 @@ public class GenshinMaterial {
             this.materialType = jsonNode.get("materialType").asText();
         }
 
-        if (jsonNode.has("rarity")) {
+        if (jsonNode.has("rankLevel")) {
             this.stars = jsonNode.get("rankLevel").asText();
         }
+    }
+
+    /**
+     * The id of this material, this is what you used to get this object.
+     */
+    public int getId() {
+        return this.id;
+    }
+
+    /**
+     * The name of this object.
+     */
+    @Nullable
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * The description of this object
+     */
+    @Nullable
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * The icon of this object, you will have to parse it yourself.
+     */
+    @NotNull
+    public String getIcon() {
+        return this.icon;
+    }
+
+    /**
+     * The list of pictures this object has, or mostly empty
+     */
+    @NotNull
+    public List<String> getPictures() {
+        return this.pictures;
+    }
+
+    /**
+     * The item type of this object
+     */
+    @NotNull
+    public GenshinItemType getItemType() {
+        return this.itemType;
+    }
+
+    /**
+     * The material type of this object
+     * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
+     */
+    @Nullable
+    public String getMaterialType() {
+        return this.materialType;
+    }
+
+    /**
+     * The stars of this object
+     * <br>Only available for {@link GenshinItemType#ITEM_MATERIAL}
+     */
+    @Nullable
+    public String getStars() {
+        return this.stars;
     }
 }

@@ -126,7 +126,18 @@ public class EnkaCaches {
         }
 
         materialJsonNode = fetchJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+        System.out.println(materialJsonNode.size());
         System.out.println("[Cache] All caches have loaded.");
+    }
+
+    public static void main(String[] args) {
+        final EnkaNetworkAPI api = new EnkaNetworkAPI();
+
+        api.fetchGenshinUser(722777337, (user) -> {
+            GenshinUserInformation user1 = user.toGenshinUser();
+
+            System.out.println(api.getGenshinMaterial(113023).getDescription());
+        });
     }
 
     /**
@@ -204,6 +215,7 @@ public class EnkaCaches {
         }
 
         final JsonNode node = materialJsonNode.get(id);
+        System.out.println(node);
 
         if (node != null) {
             materialCache.put(realId, node);

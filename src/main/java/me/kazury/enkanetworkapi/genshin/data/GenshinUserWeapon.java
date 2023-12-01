@@ -1,7 +1,5 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.Builder;
-import lombok.Data;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
@@ -12,44 +10,85 @@ import java.util.List;
 /**
  * A weapon that is currently equipped on a {@link GenshinUserCharacter}
  */
-@Data
-@Builder
 public class GenshinUserWeapon implements GenshinNameable {
-    /**
-     * Represents a localization key for the weapon name.
-     */
+    @NotNull
     private final String nameTextMapHash;
+    private final int weaponLevel;
+    private final int weaponAscension;
+    private final int weaponRefinement;
+    private final String weaponIcon;
+
+    @NotNull
+    private final List<WeaponStat> stats;
+    private final int star;
+
+    public GenshinUserWeapon(@NotNull String nameTextMapHash,
+                             final int weaponLevel,
+                             final int weaponAscension,
+                             final int weaponRefinement,
+                             @NotNull String weaponIcon,
+                             @NotNull List<WeaponStat> stats,
+                             final int star) {
+        this.nameTextMapHash = nameTextMapHash;
+        this.weaponLevel = weaponLevel;
+        this.weaponAscension = weaponAscension;
+        this.weaponRefinement = weaponRefinement;
+        this.weaponIcon = weaponIcon;
+        this.stats = stats;
+        this.star = star;
+    }
+
     /**
      * The level of this weapon, this is a number between 1 and 90
      */
-    private final int weaponLevel;
+    public int getWeaponLevel() {
+        return this.weaponLevel;
+    }
+
     /**
      * The current ascension of this weapon, this is a number between 0 and 6
      */
-    private final int weaponAscension;
+    public int getWeaponAscension() {
+        return this.weaponAscension;
+    }
+
     /**
      * The current refinement of this weapon, this is a number between 1 and 5
      * <br>To get refinements on weapons, you need to get a copy of the weapon.
      */
-    private final int weaponRefinement;
+    public int getWeaponRefinement() {
+        return this.weaponRefinement;
+    }
 
     /**
      * The icon ID of the weapon
      * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      */
-    private final String weaponIcon;
+    @NotNull
+    public String getWeaponIcon() {
+        return this.weaponIcon;
+    }
 
     /**
      * A weapon can have up to 2 stats
      * <br>One always being the Base ATK, and another one being a different stat (either % stats or flat stats).
      */
-    private final List<WeaponStat> stats;
+    @NotNull
+    public List<WeaponStat> getStats() {
+        return this.stats;
+    }
+
     /**
      * Gets the rarity of this weapon.
      * <br>For example, Furinas signature weapon is a 5-star weapon, while a Favonius is a 4-star Weapon.
      */
-    private final int star;
+    public int getStar() {
+        return this.star;
+    }
 
+    /**
+     * Represents a localization key for the weapon name.
+     */
     @Override
     @NotNull
     public String getNameTextMapHash() {
@@ -57,12 +96,106 @@ public class GenshinUserWeapon implements GenshinNameable {
     }
 
     /**
+     * @return Builder for weapon
+     */
+    @NotNull
+    public static GenshinUserWeaponBuilder builder() {
+        return new GenshinUserWeaponBuilder();
+    }
+
+    /**
      * A weapon stat, this is either the main stat, or the second stat.
      */
-    @Data
     public static class WeaponStat implements IFormattable {
         private final String stat;
         private final String formattedValue;
         private final double rawValue;
+
+        public WeaponStat(@NotNull String stat, @NotNull String formattedValue, final double rawValue) {
+            this.stat = stat;
+            this.formattedValue = formattedValue;
+            this.rawValue = rawValue;
+        }
+
+        @NotNull
+        @Override
+        public String getStat() {
+            return this.stat;
+        }
+
+        @NotNull
+        @Override
+        public String getFormattedValue() {
+            return this.formattedValue;
+        }
+
+        @Override
+        public double getRawValue() {
+            return this.rawValue;
+        }
+    }
+
+    public static class GenshinUserWeaponBuilder {
+        private String nameTextMapHash;
+        private int weaponLevel;
+        private int weaponAscension;
+        private int weaponRefinement;
+        private String weaponIcon;
+        private List<WeaponStat> stats;
+        private int star;
+
+        @NotNull
+        public GenshinUserWeaponBuilder nameTextMapHash(@NotNull String nameTextMapHash) {
+            this.nameTextMapHash = nameTextMapHash;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder weaponLevel(final int weaponLevel) {
+            this.weaponLevel = weaponLevel;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder weaponAscension(final int weaponAscension) {
+            this.weaponAscension = weaponAscension;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder weaponRefinement(final int weaponRefinement) {
+            this.weaponRefinement = weaponRefinement;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder weaponIcon(@NotNull String weaponIcon) {
+            this.weaponIcon = weaponIcon;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder stats(@NotNull List<WeaponStat> stats) {
+            this.stats = stats;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeaponBuilder star(final int star) {
+            this.star = star;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserWeapon build() {
+            return new GenshinUserWeapon(
+                    this.nameTextMapHash,
+                    this.weaponLevel,
+                    this.weaponAscension,
+                    this.weaponRefinement,
+                    this.weaponIcon,
+                    this.stats,
+                    this.star);
+        }
     }
 }

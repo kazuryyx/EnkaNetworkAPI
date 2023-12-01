@@ -1,7 +1,5 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.util.NumberHelper;
 import me.kazury.enkanetworkapi.util.IValueAcceptor;
 import org.jetbrains.annotations.NotNull;
@@ -11,8 +9,6 @@ import org.jetbrains.annotations.Nullable;
  * An append prop for Honkai: Star Rail.
  * <br>This represents a stat that can be from a weapon or from a relic / trace.
  */
-@AllArgsConstructor
-@Getter
 public enum SRAppendProp {
     MAX_HP("MaxHP", NumberHelper::format),
     ATTACK("Attack", NumberHelper::format),
@@ -74,6 +70,22 @@ public enum SRAppendProp {
 
     @NotNull
     private final IValueAcceptor acceptor;
+
+    SRAppendProp(@NotNull String key,
+                 @NotNull IValueAcceptor acceptor) {
+        this.key = key;
+        this.acceptor = acceptor;
+    }
+
+    @NotNull
+    public String getKey() {
+        return this.key;
+    }
+
+    @NotNull
+    public IValueAcceptor getAcceptor() {
+        return this.acceptor;
+    }
 
     @Nullable
     public static SRAppendProp fromKey(@NotNull String key) {

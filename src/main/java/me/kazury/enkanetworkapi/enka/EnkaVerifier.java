@@ -1,6 +1,5 @@
 package me.kazury.enkanetworkapi.enka;
 
-import lombok.SneakyThrows;
 import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,8 +12,7 @@ public class EnkaVerifier {
      * @param condition the condition
      * @param exception the exception
      */
-    @SneakyThrows
-    public static <T extends Exception> void verifyOrThrow(final boolean condition, @NotNull Class<T> exception) {
+    public static <T extends Exception> void verifyOrThrow(final boolean condition, @NotNull Class<T> exception) throws T {
         if (condition) return;
 
         try {

@@ -1,6 +1,5 @@
 package me.kazury.enkanetworkapi.util;
 
-import lombok.Builder;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -13,7 +12,6 @@ import java.util.function.BiConsumer;
 /**
  * A functional callback which is used for HTTP requests to the API
  */
-@Builder
 public class FunctionalCallback implements Callback {
     @Nullable
     private final BiConsumer<Call, IOException> failure;
@@ -36,5 +34,40 @@ public class FunctionalCallback implements Callback {
     public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
         if (this.success == null) return;
         this.success.accept(call, response);
+    }
+
+    /**
+     * @return A new builder for {@link FunctionalCallback}
+     */
+    @NotNull
+    public static FunctionalCallbackBuilder builder() {
+        return new FunctionalCallbackBuilder();
+    }
+
+    public static class FunctionalCallbackBuilder {
+        @Nullable
+        private BiConsumer<Call, IOException> failure;
+
+        @Nullable
+        private IOBiConsumer<Call, Response> success;
+
+        @NotNull
+        public FunctionalCallbackBuilder failure(@Nullable BiConsumer<Call, IOException> failure) {
+            this.failure = failure;
+            return this;
+        }
+
+        @NotNull
+        public FunctionalCallbackBuilder success(@Nullable IOBiConsumer<Call, Response> success) {
+            this.success = success;
+            return this;
+        }
+
+        @NotNull
+        public FunctionalCallback build() {
+            return new FunctionalCallback(
+                    this.failure,
+                    this.success);
+        }
     }
 }

@@ -1,7 +1,5 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.util.IValueAcceptor;
 import me.kazury.enkanetworkapi.genshin.util.NumberHelper;
 import org.jetbrains.annotations.NotNull;
@@ -11,8 +9,6 @@ import org.jetbrains.annotations.Nullable;
  * An append prop.
  * <br>This is everything that is shown when pressing "View Details" in a character menu.
  */
-@AllArgsConstructor
-@Getter
 public enum GenshinAppendProp {
     // WEAPON BASE ATK
     FIGHT_PROP_BASE_ATTACK("ATK", NumberHelper::format, GenshinFightProp.ValueType.FLAT),
@@ -45,6 +41,28 @@ public enum GenshinAppendProp {
 
     @NotNull
     private final GenshinFightProp.ValueType valueType;
+
+    GenshinAppendProp(@NotNull String id, @NotNull IValueAcceptor acceptor,
+                      @NotNull GenshinFightProp.ValueType valueType) {
+        this.id = id;
+        this.acceptor = acceptor;
+        this.valueType = valueType;
+    }
+
+    @NotNull
+    public String getId() {
+        return this.id;
+    }
+
+    @NotNull
+    public IValueAcceptor getAcceptor() {
+        return this.acceptor;
+    }
+
+    @NotNull
+    public GenshinFightProp.ValueType getValueType() {
+        return this.valueType;
+    }
 
     @Nullable
     public static GenshinAppendProp fromKey(@NotNull String key) {

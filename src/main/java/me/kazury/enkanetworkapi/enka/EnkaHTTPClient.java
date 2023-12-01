@@ -1,7 +1,6 @@
 package me.kazury.enkanetworkapi.enka;
 
 import com.google.gson.Gson;
-import lombok.RequiredArgsConstructor;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.util.exceptions.NiceJobException;
 import me.kazury.enkanetworkapi.util.exceptions.PlayerDoesNotExistException;
@@ -23,12 +22,16 @@ import java.util.function.Consumer;
 /**
  * The HTTP client for making requests to enka.network
  */
-@RequiredArgsConstructor
 public class EnkaHTTPClient {
     private final String BASE_URL = "https://enka.network/api/";
 
     private final EnkaNetworkAPI api;
     private final Gson gson;
+
+    public EnkaHTTPClient(@NotNull EnkaNetworkAPI api, @NotNull Gson gson) {
+        this.api = api;
+        this.gson = gson;
+    }
 
     private String userAgent = "[EnkaNetworkAPI] Java - Unset User Agent";
 
@@ -50,7 +53,7 @@ public class EnkaHTTPClient {
 
     public void fetchGenshinUser(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success) {
         final CachedData<GenshinUnconvertedUser> cachedData = this.genshinCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
+        if (cachedData != null && cachedData.isValid()) {
             success.accept(cachedData.getData());
             return;
         }
@@ -61,7 +64,7 @@ public class EnkaHTTPClient {
     public void fetchGenshinUser(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success,
                                  @NotNull Consumer<Throwable> failure) {
         final CachedData<GenshinUnconvertedUser> cachedData = this.genshinCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
+        if (cachedData != null && cachedData.isValid()) {
             success.accept(cachedData.getData());
             return;
         }
@@ -86,7 +89,7 @@ public class EnkaHTTPClient {
 
     public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> success) {
         final CachedData<SRUnconvertedUser> cachedData = this.honkaiCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
+        if (cachedData != null && cachedData.isValid()) {
             success.accept(cachedData.getData());
             return;
         }
@@ -97,7 +100,7 @@ public class EnkaHTTPClient {
     public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
                                 @NotNull Consumer<Throwable> failure) {
         final CachedData<SRUnconvertedUser> cachedData = this.honkaiCache.get(uid);
-        if (cachedData != null && !cachedData.isExpired()) {
+        if (cachedData != null && cachedData.isValid()) {
             success.accept(cachedData.getData());
             return;
         }

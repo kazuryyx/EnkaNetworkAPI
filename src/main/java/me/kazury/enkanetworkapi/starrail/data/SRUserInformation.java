@@ -1,13 +1,11 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -15,53 +13,122 @@ import java.util.function.Consumer;
  * The basic data class for a Honkai: Star Rail user.
  * <br>This class contains all the information that is available on a user's profile.
  */
-@Builder
-@Getter
-@Setter
 public class SRUserInformation {
+    private final String nickname;
+    private final int level;
+    private final String signature;
+    private final long uid;
+    private final int fwiends;
+    private final int equilibriumLevel;
+    private final int simulatedUniverse;
+    private final SRPlatform platform;
+    private List<SRUserCharacter> detailCharacters;
+
+    public SRUserInformation(@NotNull String nickname,
+                             final int level,
+                             @NotNull String signature,
+                             final long uid,
+                             final int fwiends,
+                             final int equilibriumLevel,
+                             final int simulatedUniverse,
+                             @NotNull SRPlatform platform,
+                             @NotNull List<SRUserCharacter> detailCharacters) {
+        this.nickname = nickname;
+        this.level = level;
+        this.signature = signature;
+        this.uid = uid;
+        this.fwiends = fwiends;
+        this.equilibriumLevel = equilibriumLevel;
+        this.simulatedUniverse = simulatedUniverse;
+        this.platform = platform;
+        this.detailCharacters = detailCharacters;
+    }
+
     /**
      * The nickname of this user that is publicly displayed.
      */
-    private String nickname;
+    @NotNull
+    public String getNickname() {
+        return this.nickname;
+    }
+
     /**
      * The level of this user.
      * <br>Ranges from 1 to 70.
      */
-    private int level;
+    public int getLevel() {
+        return this.level;
+    }
+
     /**
      * The signature of this user which is publicly displayed.
      */
-    private String signature;
+    @NotNull
+    public String getSignature() {
+        return this.signature;
+    }
+
     /**
      * The uid of this user. This is so your friends can add you.
      */
-    private long uid;
+    public long getUid() {
+        return this.uid;
+    }
+
     /**
      * The amount of fwiends that this user has.
      * <br>Yes, it's fwiends, not friends.
      */
-    private int fwiends;
+    public int getFwiends() {
+        return this.fwiends;
+    }
+
     /**
      * The equilibrium level of this user.
      * <br>In Genshin terms: World Level.
      */
-    private int equilibriumLevel;
+    public int getEquilibriumLevel() {
+        return this.equilibriumLevel;
+    }
+
     /**
      * The maximum "planet"? that this user has unlocked in the simulated universe
      */
-    private int simulatedUniverse;
+    public int getSimulatedUniverse() {
+        return this.simulatedUniverse;
+    }
+
     /**
      * The platform that this player is playing on.
      * <br><i>or created their account?</i>
      */
-    private SRPlatform platform;
+    @NotNull
+    public SRPlatform getPlatform() {
+        return this.platform;
+    }
+
     /**
      * The characters that this user has in their showcase.
      */
-    private List<SRUserCharacter> detailCharacters;
+    @NotNull
+    public List<SRUserCharacter> getDetailCharacters() {
+        return this.detailCharacters;
+    }
 
+    /**
+     * Performs an action after this object has been initialized.
+     * @param info The action to perform.
+     */
     protected void doActionAfter(@NotNull Consumer<SRUserInformation> info) {
         info.accept(this);
+    }
+
+    /**
+     * Sets the detail characters of this user.
+     * @param detailCharacters The detail characters to set.
+     */
+    public void setDetailCharacters(List<SRUserCharacter> detailCharacters) {
+        this.detailCharacters = detailCharacters;
     }
 
     /**
@@ -71,16 +138,6 @@ public class SRUserInformation {
      * <br>You may also want to cache this object, but you shouldn't care unless you really need the data now and not some point later
      * (as this might be a heavy operation, depending on how often you call this method)
      *
-     * <br><br><b>Example</b>:
-     * <pre>{@code
-     * final EnkaNetworkAPI api = new EnkaNetworkAPI();
-     *
-     * api.fetchHonkaiUser(802511205, (user) -> {
-     *      final SRUserInformation genshinUser = fromEnkaUser(user);
-     *      // do action here
-     * });
-     * }</pre>
-     *
      * @param enkaUser The old {@link SRUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchHonkaiUser(long, Consumer)}.
      * @return The converted {@link SRUserInformation} object.
      */
@@ -89,16 +146,17 @@ public class SRUserInformation {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();
         final SRUnconvertedUser.RecordInfo recordInfo = detailInfoData.getRecordInfo();
-        final SRUserInformation user = SRUserInformation.builder()
-                .nickname(detailInfoData.getNickname())
-                .level(detailInfoData.getLevel())
-                .signature(detailInfoData.getSignature())
-                .uid(detailInfoData.getUid())
-                .fwiends(detailInfoData.getFriendCount())
-                .equilibriumLevel(detailInfoData.getWorldLevel())
-                .simulatedUniverse(recordInfo.getMaxRogueChallengeScore())
-                .platform(SRPlatform.valueOf(detailInfoData.getPlatform().toUpperCase()))
-                .build();
+        final SRUserInformation user = new SRUserInformation(
+                detailInfoData.getNickname(),
+                detailInfoData.getLevel(),
+                detailInfoData.getSignature(),
+                detailInfoData.getUid(),
+                detailInfoData.getFriendCount(),
+                detailInfoData.getWorldLevel(),
+                recordInfo.getMaxRogueChallengeScore(),
+                SRPlatform.valueOf(detailInfoData.getPlatform().toUpperCase()),
+                Collections.emptyList()
+        );
 
         user.doActionAfter(data -> {
             if (!detailInfoData.isDisplayAvatar()) {
@@ -134,13 +192,13 @@ public class SRUserInformation {
                         ));
                     }
 
-                    lightcone = SRLightcone.builder()
-                            .superImposion(equipment.getRank())
-                            .promotion(equipment.getPromotion())
-                            .level(equipment.getLevel())
-                            .stats(stats)
-                            .hash(flat.getName())
-                            .build();
+                    lightcone = new SRLightcone(
+                            equipment.getRank(),
+                            equipment.getLevel(),
+                            equipment.getPromotion(),
+                            stats,
+                            flat.getName()
+                    );
                 }
 
                 // Getting relic information
@@ -175,13 +233,12 @@ public class SRUserInformation {
                             mainStat.getValue()
                     );
 
-                    relics.add(SRRelic.builder()
-                            .level(relicLevel)
-                            .hash(flat.getSetName())
-                            .mainStat(main)
-                            .subStats(subStats)
-                            .type(SRRelicType.fromId(relicData.getType()))
-                            .build());
+                    relics.add(new SRRelic(
+                            relicLevel,
+                            SRRelicType.fromId(relicData.getType()),
+                            main,
+                            subStats,
+                            flat.getSetName()));
                 }
 
                 return SRUserCharacter.builder()

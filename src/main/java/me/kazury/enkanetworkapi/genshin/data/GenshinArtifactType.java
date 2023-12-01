@@ -9,5 +9,5 @@ public enum GenshinArtifactType {
     FEATHER,
     SANDS,
     GOBLET,
-    CIRCLET;
+    CIRCLET
 }

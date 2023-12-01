@@ -22,7 +22,7 @@ public class CachedData<T extends IExpiryTime> {
         return this.data;
     }
 
-    public boolean isExpired() {
-        return System.currentTimeMillis() >= expirationTime;
+    public boolean isValid() {
+        return System.currentTimeMillis() < expirationTime;
     }
 }

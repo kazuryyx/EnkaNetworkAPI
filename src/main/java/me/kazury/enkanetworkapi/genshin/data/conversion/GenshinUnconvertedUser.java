@@ -1,7 +1,6 @@
 package me.kazury.enkanetworkapi.genshin.data.conversion;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;
@@ -16,14 +15,12 @@ import java.util.Map;
  * <br>If you are wondering what to use in alternative, take a look at {@link GenshinUserInformation#fromEnkaUser(GenshinUnconvertedUser)}.
  * @see GenshinUserInformation
  */
-@Getter
 public class GenshinUnconvertedUser implements IExpiryTime {
     private PlayerInfo playerInfo;
     private List<AvatarInfo> avatarInfoList;
     private int ttl;
     private String uid;
 
-    @Getter
     public static class PlayerInfo {
         private String nickname;
         private int level;
@@ -36,9 +33,52 @@ public class GenshinUnconvertedUser implements IExpiryTime {
         private List<ShowAvatarInfo> showAvatarInfoList;
         private List<Integer> showNameCardIdList;
         private ProfilePicture profilePicture;
+
+        public String getNickname() {
+            return this.nickname;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public String getSignature() {
+            return this.signature;
+        }
+
+        public int getWorldLevel() {
+            return this.worldLevel;
+        }
+
+        public int getNameCardId() {
+            return this.nameCardId;
+        }
+
+        public int getFinishAchievementNum() {
+            return this.finishAchievementNum;
+        }
+
+        public int getTowerFloorIndex() {
+            return this.towerFloorIndex;
+        }
+
+        public int getTowerLevelIndex() {
+            return this.towerLevelIndex;
+        }
+
+        public List<ShowAvatarInfo> getShowAvatarInfoList() {
+            return this.showAvatarInfoList;
+        }
+
+        public List<Integer> getShowNameCardIdList() {
+            return this.showNameCardIdList;
+        }
+
+        public ProfilePicture getProfilePicture() {
+            return this.profilePicture;
+        }
     }
 
-    @Getter
     public static class AvatarInfo {
         private int avatarId;
         private Map<String, Object> propMap;
@@ -50,37 +90,112 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
         private List<EquipData> equipList;
         private FetterInfo fetterInfo;
+
+        public int getAvatarId() {
+            return this.avatarId;
+        }
+
+        public Map<String, Object> getPropMap() {
+            return this.propMap;
+        }
+
+        public List<Integer> getTalentIdList() {
+            return this.talentIdList;
+        }
+
+        public Map<String, Double> getFightPropMap() {
+            return this.fightPropMap;
+        }
+
+        public int getSkillDepotId() {
+            return this.skillDepotId;
+        }
+
+        public List<Integer> getInherentProudSkillList() {
+            return this.inherentProudSkillList;
+        }
+
+        public Map<String, Integer> getSkillLevelMap() {
+            return this.skillLevelMap;
+        }
+
+        public List<EquipData> getEquipList() {
+            return this.equipList;
+        }
+
+        public FetterInfo getFetterInfo() {
+            return this.fetterInfo;
+        }
     }
 
-    @Getter
     public static class ShowAvatarInfo {
         private int avatarId;
         private int level;
         private int costumeId;
+
+        public int getAvatarId() {
+            return this.avatarId;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getCostumeId() {
+            return this.costumeId;
+        }
     }
 
-    @Getter
     public static class FetterInfo {
         private int expLevel;
+
+        public int getExpLevel() {
+            return this.expLevel;
+        }
     }
 
-    @Getter
     public static class EquipData {
-        private long itemId; // always there
-        private ArtifactData reliquary; // artifacts, null if weapon
-        private WeaponData weapon; // weapons, null if artifacts
+        private long itemId;
+        private ArtifactData reliquary;
+        private WeaponData weapon;
 
-        private FlatData flat; // always there
+        private FlatData flat;
+
+        public long getItemId() {
+            return this.itemId;
+        }
+
+        public ArtifactData getReliquary() {
+            return this.reliquary;
+        }
+
+        public WeaponData getWeapon() {
+            return this.weapon;
+        }
+
+        public FlatData getFlat() {
+            return this.flat;
+        }
     }
 
-    @Getter
     public static class ArtifactData {
         private int level;
         private int mainPropId;
         private List<Integer> appendPropIdList;
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getMainPropId() {
+            return this.mainPropId;
+        }
+
+        public List<Integer> getAppendPropIdList() {
+            return this.appendPropIdList;
+        }
     }
 
-    @Getter
     public static class FlatData {
         private String nameTextMapHash;
         private String setNameTextMapHash;
@@ -90,44 +205,129 @@ public class GenshinUnconvertedUser implements IExpiryTime {
         private List<SubData> reliquarySubstats;
         private String icon;
         private String equipType;
+
+        public String getNameTextMapHash() {
+            return this.nameTextMapHash;
+        }
+
+        public String getSetNameTextMapHash() {
+            return this.setNameTextMapHash;
+        }
+
+        public int getRankLevel() {
+            return this.rankLevel;
+        }
+
+        public List<SubData> getWeaponStats() {
+            return this.weaponStats;
+        }
+
+        public ArtifactMainData getReliquaryMainstat() {
+            return this.reliquaryMainstat;
+        }
+
+        public List<SubData> getReliquarySubstats() {
+            return this.reliquarySubstats;
+        }
+
+        public String getIcon() {
+            return this.icon;
+        }
+
+        public String getEquipType() {
+            return this.equipType;
+        }
     }
 
-    @Getter
     public static class WeaponData {
         private int level;
         private int promoteLevel;
         private Map<String, Integer> affixMap;
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getPromoteLevel() {
+            return this.promoteLevel;
+        }
+
+        public Map<String, Integer> getAffixMap() {
+            return this.affixMap;
+        }
     }
 
-    @Getter
     public static class ArtifactMainData {
         private String mainPropId;
         private double statValue;
+
+        public String getMainPropId() {
+            return this.mainPropId;
+        }
+
+        public double getStatValue() {
+            return this.statValue;
+        }
     }
 
-    @Getter
     public static class SubData {
         private String appendPropId;
         private double statValue;
+
+        public String getAppendPropId() {
+            return this.appendPropId;
+        }
+
+        public double getStatValue() {
+            return this.statValue;
+        }
     }
 
-    @Getter
     public static class ProfilePicture {
+        private long avatarId;
+        private long id;
+        @SerializedName("costume_id")
+        private long costumeId;
+
         /**
          * As of version 4.1, HoYo is not storing an avatar ID anymore, but rather a profile picture ID.
          */
-        private long avatarId;
+        public long getAvatarId() {
+            return this.avatarId;
+        }
+
         /**
-        As of version 4.1, HoYo decided to use a different id for the profile picture.
-        <br>Both fields will continue to eixst, as some people MAY not have migrated yet (changed their avatar after 4.1).
+         As of version 4.1, HoYo decided to use a different id for the profile picture.
+         <br>Both fields will continue to eixst, as some people MAY not have migrated yet (changed their avatar after 4.1).
          */
-        private long id;
+        public long getId() {
+            return this.id;
+        }
 
         /**
          * Fallback if the above 2 fields are null.
          */
-        @SerializedName("costume_id")
-        private long costumeId;
+        public long getCostumeId() {
+            return this.costumeId;
+        }
+    }
+
+    public PlayerInfo getPlayerInfo() {
+        return this.playerInfo;
+    }
+
+    public List<AvatarInfo> getAvatarInfoList() {
+        return this.avatarInfoList;
+    }
+
+    @Override
+    public int getTtl() {
+        return this.ttl;
+    }
+
+    @NotNull
+    public String getUid() {
+        return this.uid;
     }
 
     /**

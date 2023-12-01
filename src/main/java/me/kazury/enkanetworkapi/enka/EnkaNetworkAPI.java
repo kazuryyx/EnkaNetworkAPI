@@ -139,7 +139,8 @@ public class EnkaNetworkAPI {
      */
     @Nullable
     public GenshinNamecard getGenshinNamecard(final int id) {
-        return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getGenshinIcon(EnkaCaches.getNamecardName(id))) : null;
+        return EnkaCaches.hasNamecard(id) ? new GenshinNamecard(id, this.getGenshinIcon(EnkaCaches.getNamecardName(id)))
+                : null;
     }
 
     /**

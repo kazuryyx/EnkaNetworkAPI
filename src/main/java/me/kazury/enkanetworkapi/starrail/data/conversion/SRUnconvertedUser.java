@@ -1,6 +1,5 @@
 package me.kazury.enkanetworkapi.starrail.data.conversion;
 
-import lombok.Getter;
 import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.IExpiryTime;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +13,6 @@ import java.util.List;
  * <br>If you are wondering what to use in alternative, take a look at {@link SRUserInformation#fromEnkaUser(SRUnconvertedUser)}.
  * @see SRUserInformation
  */
-@Getter
 public class SRUnconvertedUser implements IExpiryTime {
     private DetailInfo detailInfo;
     /**
@@ -23,7 +21,6 @@ public class SRUnconvertedUser implements IExpiryTime {
     private int ttl = 60;
     private String uid;
 
-    @Getter
     public static class DetailInfo {
         private int headIcon;
         private List<AvatarDetail> avatarDetailList;
@@ -36,9 +33,52 @@ public class SRUnconvertedUser implements IExpiryTime {
         private int worldLevel;
         private boolean isDisplayAvatar;
         private String platform;
+
+        public int getHeadIcon() {
+            return this.headIcon;
+        }
+
+        public List<AvatarDetail> getAvatarDetailList() {
+            return this.avatarDetailList;
+        }
+
+        public String getNickname() {
+            return this.nickname;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public String getSignature() {
+            return this.signature;
+        }
+
+        public long getUid() {
+            return this.uid;
+        }
+
+        public int getFriendCount() {
+            return this.friendCount;
+        }
+
+        public RecordInfo getRecordInfo() {
+            return this.recordInfo;
+        }
+
+        public int getWorldLevel() {
+            return this.worldLevel;
+        }
+
+        public boolean isDisplayAvatar() {
+            return this.isDisplayAvatar;
+        }
+
+        public String getPlatform() {
+            return this.platform;
+        }
     }
 
-    @Getter
     public static class AvatarDetail {
         private int avatarId;
         private int rank;
@@ -47,71 +87,219 @@ public class SRUnconvertedUser implements IExpiryTime {
         private EquipmentInfo equipment;
         private List<SkillTreeData> skillTreeList;
         private List<RelicData> relicList;
+
+        public int getAvatarId() {
+            return this.avatarId;
+        }
+
+        public int getRank() {
+            return this.rank;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getPromotion() {
+            return this.promotion;
+        }
+
+        public EquipmentInfo getEquipment() {
+            return this.equipment;
+        }
+
+        public List<SkillTreeData> getSkillTreeList() {
+            return this.skillTreeList;
+        }
+
+        public List<RelicData> getRelicList() {
+            return this.relicList;
+        }
     }
 
-    @Getter
     public static class RecordInfo {
         private ChallengeInfo challengeInfo;
         private int equipmentCount;
         private int maxRogueChallengeScore;
         private int achievementCount;
         private int avatarCount;
+
+        public ChallengeInfo getChallengeInfo() {
+            return this.challengeInfo;
+        }
+
+        public int getEquipmentCount() {
+            return this.equipmentCount;
+        }
+
+        public int getMaxRogueChallengeScore() {
+            return this.maxRogueChallengeScore;
+        }
+
+        public int getAchievementCount() {
+            return this.achievementCount;
+        }
+
+        public int getAvatarCount() {
+            return this.avatarCount;
+        }
     }
 
-    @Getter
     public static class ChallengeInfo {
         private int scheduleMaxLevel;
-        private int scheduleGroupId; // optional
-        private int noneScheduleMaxLevel; // optional
+        private int scheduleGroupId;
+        private int noneScheduleMaxLevel;
+
+        public int getScheduleMaxLevel() {
+            return this.scheduleMaxLevel;
+        }
+
+        public int getScheduleGroupId() {
+            return this.scheduleGroupId;
+        }
+
+        public int getNoneScheduleMaxLevel() {
+            return this.noneScheduleMaxLevel;
+        }
     }
 
-    @Getter
     public static class EquipmentInfo {
         private int tid;
         private int rank;
         private int level;
-        private int promotion; // Light cone ascended, in genshin terms "refinement"
+        private int promotion;
         private EquipmentFlatData _flat;
+
+        public int getTid() {
+            return this.tid;
+        }
+
+        public int getRank() {
+            return this.rank;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getPromotion() {
+            return this.promotion;
+        }
+
+        public EquipmentFlatData get_flat() {
+            return this._flat;
+        }
     }
 
-    @Getter
     public static class EquipmentFlatData {
         private List<EquipmentFlatProp> props;
         private long name;
+
+        public List<EquipmentFlatProp> getProps() {
+            return this.props;
+        }
+
+        public long getName() {
+            return this.name;
+        }
     }
 
-    @Getter
     public static class SkillTreeData {
         private int pointId;
         private int level;
+
+        public int getPointId() {
+            return this.pointId;
+        }
+
+        public int getLevel() {
+            return this.level;
+        }
     }
 
-    @Getter
     public static class EquipmentFlatProp {
         private String type;
         private double value;
+
+        public String getType() {
+            return this.type;
+        }
+
+        public double getValue() {
+            return this.value;
+        }
     }
 
-    @Getter
     public static class RelicData {
         private int level;
         private int mainAffixId;
         private int type;
         private int tid;
         private RelicFlatData _flat;
+
+        public int getLevel() {
+            return this.level;
+        }
+
+        public int getMainAffixId() {
+            return this.mainAffixId;
+        }
+
+        public int getType() {
+            return this.type;
+        }
+
+        public int getTid() {
+            return this.tid;
+        }
+
+        public RelicFlatData get_flat() {
+            return this._flat;
+        }
     }
 
-    @Getter
     public static class RelicFlatData {
         private List<RelicFlatProp> props;
         private long setName;
         private long setID;
+
+        public List<RelicFlatProp> getProps() {
+            return this.props;
+        }
+
+        public long getSetName() {
+            return this.setName;
+        }
+
+        public long getSetID() {
+            return this.setID;
+        }
     }
 
-    @Getter
     public static class RelicFlatProp {
         private String type;
         private double value;
+
+        public String getType() {
+            return this.type;
+        }
+
+        public double getValue() {
+            return this.value;
+        }
+    }
+
+    public DetailInfo getDetailInfo() {
+        return this.detailInfo;
+    }
+
+    @Override
+    public int getTtl() {
+        return this.ttl;
+    }
+
+    public String getUid() {
+        return this.uid;
     }
 
     /**

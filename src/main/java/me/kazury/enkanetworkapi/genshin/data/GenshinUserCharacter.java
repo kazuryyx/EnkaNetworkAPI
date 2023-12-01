@@ -1,13 +1,9 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.Builder;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,53 +12,114 @@ import java.util.Map;
  * <br>This class is used to get the character data from the user.
  * <br>While {@link GenshinCharacterData} is used to get the character data from the game.
  */
-@Builder
-@Getter
 public class GenshinUserCharacter {
+    private final int id;
+    private final int constellation;
+    private final int currentExperience;
+    private final int currentAscension;
+    private final int currentLevel;
+    private final int friendshipLevel;
+
+    @NotNull
+    private final Map<GenshinFightProp, Double> fightProperties;
+
+    @NotNull
+    private final GenshinCharacterTalents talentLevels;
+
+    @NotNull
+    private final List<GenshinArtifact> artifacts;
+
+    @NotNull
+    private final GenshinUserWeapon equippedWeapon;
+
+    public GenshinUserCharacter(final int id,
+                                final int constellation,
+                                final int currentExperience,
+                                final int currentAscension,
+                                final int currentLevel,
+                                final int friendshipLevel,
+                                @NotNull Map<GenshinFightProp, Double> fightProperties,
+                                @NotNull GenshinCharacterTalents talentLevels,
+                                @NotNull List<GenshinArtifact> artifacts,
+                                @NotNull GenshinUserWeapon equippedWeapon) {
+        this.id = id;
+        this.constellation = constellation;
+        this.currentExperience = currentExperience;
+        this.currentAscension = currentAscension;
+        this.currentLevel = currentLevel;
+        this.friendshipLevel = friendshipLevel;
+        this.fightProperties = fightProperties;
+        this.talentLevels = talentLevels;
+        this.artifacts = artifacts;
+        this.equippedWeapon = equippedWeapon;
+    }
+
     /**
      * The id of the character.
      */
-    private final int id;
+    public int getId() {
+        return this.id;
+    }
+
     /**
      * Represents the constellation level of the character.
      */
-    private final int constellation;
+    public int getConstellation() {
+        return this.constellation;
+    }
 
     /**
      * Represents the current experience this character has for the next level.
      * <br>If the character cannot collect experience (due to not ascending it), then this will be -1.
      */
-    private final int currentExperience;
+    public int getCurrentExperience() {
+        return this.currentExperience;
+    }
+
     /**
      * Represents the current ascension of the character.
      * <br>For example, if the character is ascended to level 90, this will be 6.
      */
-    private final int currentAscension;
+    public int getCurrentAscension() {
+        return this.currentAscension;
+    }
+
     /**
      * Represents the current level of the character.
      * <br>This is a range from 0 to 90.
      */
-    private final int currentLevel;
+    public int getCurrentLevel() {
+        return this.currentLevel;
+    }
+
     /**
      * Returns the friendship level of this character
      * <br>Friendship can be raised by completing daily quests, random events, and more.
      * <br>Friendship can be used to unlock voice lines, and a (cute) namecard.
      * <br>This is a range from 0 to 10.
      */
-    private final int friendshipLevel;
+    public int getFriendshipLevel() {
+        return this.friendshipLevel;
+    }
 
     /**
      * Represents a map of the character's properties.
      * <br>For example, the character's level, health, attack, etc.
      * @see GenshinFightProp
      */
-    private Map<GenshinFightProp, Double> fightProperties;
+    @NotNull
+    public Map<GenshinFightProp, Double> getFightProperties() {
+        return this.fightProperties;
+    }
 
     /**
      * Represents the character's skill levels (in-game called talents).
      * <br>For example, the character's normal attack, elemental skill, and elemental burst.
      */
-    private GenshinCharacterTalents talentLevels;
+    @NotNull
+    public GenshinCharacterTalents getTalentLevels() {
+        return this.talentLevels;
+    }
 
     /**
      * Represents an artifact that the character currently has equipped
@@ -70,13 +127,19 @@ public class GenshinUserCharacter {
      * @see GenshinArtifact
      * @see GenshinArtifactType
      */
-    private List<GenshinArtifact> artifacts;
+    @NotNull
+    public List<GenshinArtifact> getArtifacts() {
+        return this.artifacts;
+    }
 
     /**
      * The weapon that this character currently has equipped.
      * @see GenshinUserWeapon
      */
-    private GenshinUserWeapon equippedWeapon;
+    @NotNull
+    public GenshinUserWeapon getEquippedWeapon() {
+        return this.equippedWeapon;
+    }
 
     /**
      * @see GenshinCharacterData
@@ -88,5 +151,102 @@ public class GenshinUserCharacter {
         final GenshinCharacterData data = EnkaCaches.getGenshinCharacterData(String.valueOf(this.id));
         if (data == null) throw new UpdateLibraryException();
         return data;
+    }
+
+    /**
+     * @return A builder for this class.
+     */
+    @NotNull
+    public static GenshinUserCharacterBuilder builder() {
+        return new GenshinUserCharacterBuilder();
+    }
+
+    public static class GenshinUserCharacterBuilder {
+        private int id;
+        private int constellation;
+        private int currentExperience;
+        private int currentAscension;
+        private int currentLevel;
+        private int friendshipLevel;
+        private Map<GenshinFightProp, Double> fightProperties;
+        private GenshinCharacterTalents talentLevels;
+        private List<GenshinArtifact> artifacts;
+        private GenshinUserWeapon equippedWeapon;
+
+        @NotNull
+        public GenshinUserCharacterBuilder id(final int id) {
+            this.id = id;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder constellation(final int constellation) {
+            this.constellation = constellation;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder currentExperience(final int currentExperience) {
+            this.currentExperience = currentExperience;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder currentAscension(final int currentAscension) {
+            this.currentAscension = currentAscension;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder currentLevel(final int currentLevel) {
+            this.currentLevel = currentLevel;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder friendshipLevel(final int friendshipLevel) {
+            this.friendshipLevel = friendshipLevel;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder fightProperties(@NotNull Map<GenshinFightProp, Double> fightProperties) {
+            this.fightProperties = fightProperties;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder talentLevels(@NotNull GenshinCharacterTalents talentLevels) {
+            this.talentLevels = talentLevels;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder artifacts(@NotNull List<GenshinArtifact> artifacts) {
+            this.artifacts = artifacts;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacterBuilder equippedWeapon(@NotNull GenshinUserWeapon equippedWeapon) {
+            this.equippedWeapon = equippedWeapon;
+            return this;
+        }
+
+        @NotNull
+        public GenshinUserCharacter build() {
+            return new GenshinUserCharacter(
+                    this.id,
+                    this.constellation,
+                    this.currentExperience,
+                    this.currentAscension,
+                    this.currentLevel,
+                    this.friendshipLevel,
+                    this.fightProperties,
+                    this.talentLevels,
+                    this.artifacts,
+                    this.equippedWeapon
+            );
+        }
     }
 }

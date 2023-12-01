@@ -1,7 +1,5 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import me.kazury.enkanetworkapi.util.IValueAcceptor;
 import me.kazury.enkanetworkapi.genshin.util.NumberHelper;
 import org.jetbrains.annotations.NotNull;
@@ -12,8 +10,6 @@ import org.jetbrains.annotations.Nullable;
  * <br>Each property has a unique ID that is used to identify it.
  * <br><a href="https://api.enka.network/#/api?id=fightprop">alternate list</a>
  */
-@Getter
-@AllArgsConstructor
 public enum GenshinFightProp {
     // Base Stats
     BASE_HP("1", "Base HP", NumberHelper::format, ValueType.FLAT),
@@ -136,6 +132,36 @@ public enum GenshinFightProp {
 
     @NotNull
     private final ValueType valueType;
+
+    GenshinFightProp(@NotNull String id,
+                     @NotNull String name,
+                     @NotNull IValueAcceptor acceptor,
+                     @NotNull ValueType valueType) {
+        this.id = id;
+        this.name = name;
+        this.acceptor = acceptor;
+        this.valueType = valueType;
+    }
+
+    @NotNull
+    public String getId() {
+        return this.id;
+    }
+
+    @NotNull
+    public String getName() {
+        return this.name;
+    }
+
+    @NotNull
+    public IValueAcceptor getAcceptor() {
+        return this.acceptor;
+    }
+
+    @NotNull
+    public ValueType getValueType() {
+        return this.valueType;
+    }
 
     @Nullable
     public static GenshinFightProp fromKey(@NotNull String key) {

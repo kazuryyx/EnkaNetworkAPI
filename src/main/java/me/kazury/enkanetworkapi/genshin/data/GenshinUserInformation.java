@@ -1,9 +1,5 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.enka.EnkaParser;
@@ -21,72 +17,175 @@ import java.util.function.Consumer;
  * The basic data class for a Genshin Impact user.
  * <br>This class contains all the information that is available on a user's profile.
  */
-@Builder
-@Getter
-@Setter
 public class GenshinUserInformation {
+    private final String nickName;
+    private final String signature;
+    private final int level;
+    private final int worldLevel;
+    private final int namecardId;
+    private final int achievementCompleted;
+    private final int towerFloorIndex;
+    private final int towerLevelIndex;
+    private final Pair<Long, Long> profilePictureId;
+    private List<GenshinShowcaseCharacter> showcaseCharacters;
+    private List<GenshinNamecard> namecards;
+    private List<GenshinUserCharacter> characters;
+
+    public GenshinUserInformation(@NotNull String nickName,
+                                  @NotNull String signature,
+                                  final int level,
+                                  final int worldLevel,
+                                  final int namecardId,
+                                  final int achievementCompleted,
+                                  final int towerFloorIndex,
+                                  final int towerLevelIndex,
+                                  @NotNull List<GenshinShowcaseCharacter> showcaseCharacters,
+                                  @NotNull List<GenshinNamecard> namecards,
+                                  @NotNull Pair<Long, Long> profilePictureId,
+                                  @NotNull List<GenshinUserCharacter> characters) {
+        this.nickName = nickName;
+        this.signature = signature;
+        this.level = level;
+        this.worldLevel = worldLevel;
+        this.namecardId = namecardId;
+        this.achievementCompleted = achievementCompleted;
+        this.towerFloorIndex = towerFloorIndex;
+        this.towerLevelIndex = towerLevelIndex;
+        this.showcaseCharacters = showcaseCharacters;
+        this.namecards = namecards;
+        this.profilePictureId = profilePictureId;
+        this.characters = characters;
+    }
+
     /**
      * The nickname of the player.
      */
-    private final String nickName;
+    @NotNull
+    public String getNickName() {
+        return this.nickName;
+    }
+
     /**
      * The signature of the player.
      */
-    private final String signature;
+    @NotNull
+    public String getSignature() {
+        return this.signature;
+    }
+
     /**
      * The adventure rank of this player
      * <br>Ranges from 1 to 60.
      */
-    private final int level;
+    public int getLevel() {
+        return this.level;
+    }
+
     /**
      * The world level of the player.
      * This is a range from 0 to 8.
      */
-    private final int worldLevel;
+    public int getWorldLevel() {
+        return this.worldLevel;
+    }
+
     /**
      * The namecard ID that the player currently has on their profile for everyone to see.
      *
      * @see EnkaNetworkAPI#getGenshinNamecard(int)
      */
-    private final int namecardId;
+    public int getNamecardId() {
+        return this.namecardId;
+    }
+
     /**
      * The amount of achievements completed, range from 0 to max achievements.
      */
-    private final int achievementCompleted;
+    public int getAchievementCompleted() {
+        return this.achievementCompleted;
+    }
+
     /**
      * The highest abyss floor this user has reached.
      */
-    private final int towerFloorIndex;
+    public int getTowerFloorIndex() {
+        return this.towerFloorIndex;
+    }
+
     /**
      * The highest chamber this user has reached in the Spiral Abyss.
      */
-    private final int towerLevelIndex;
+    public int getTowerLevelIndex() {
+        return this.towerLevelIndex;
+    }
+
     /**
      * The list of characters that the player has in their showcase.
      */
-    private List<GenshinShowcaseCharacter> showcaseCharacters = new ArrayList<>();
+    @NotNull
+    public List<GenshinShowcaseCharacter> getShowcaseCharacters() {
+        return this.showcaseCharacters;
+    }
+
     /**
-     * This is similar to what showcaseCharacters is, players can put namecards up for show
-     * <br>Though nobody really cares about this feature.
+     * The list of namecards that the player has in their showcase.
      */
-    private List<GenshinNamecard> namecards = new ArrayList<>();
+    @NotNull
+    public List<GenshinNamecard> getNamecards() {
+        return this.namecards;
+    }
+
     /**
      * The ID of the character's profile picture (This will always exist).
      * <br>As of version 4.1, it is not safe anymore to use this ID to get the profile picture by character data.
      *
      * @see EnkaNetworkAPI#getGenshinProfileIdentifier(Pair)
      */
-    private final Pair<Long, Long> profilePictureId;
+    @NotNull
+    public Pair<Long, Long> getProfilePictureId() {
+        return this.profilePictureId;
+    }
 
     /**
      * This is similar to what {@link #showcaseCharacters} is.
      * <br>This is the character data of all characters located in {@link #showcaseCharacters}.
      * <br>The showcase characters only gives info about who is in the showcase, not their data.
      */
-    private List<GenshinUserCharacter> characters = new ArrayList<>();
+    @NotNull
+    public List<GenshinUserCharacter> getCharacters() {
+        return this.characters;
+    }
 
+    /**
+     * Performs an action after this object has been initialized.
+     * @param info The action to perform.
+     */
     protected void doActionAfter(@NotNull Consumer<GenshinUserInformation> info) {
         info.accept(this);
+    }
+
+    /**
+     * Sets the showcase characters of this user.
+     * @param showcaseCharacters The showcase characters to set.
+     */
+    public void setShowcaseCharacters(@NotNull List<GenshinShowcaseCharacter> showcaseCharacters) {
+        this.showcaseCharacters = showcaseCharacters;
+    }
+
+    /**
+     * Sets the namecards of this user.
+     * @param namecards The namecards to set.
+     */
+    public void setNamecards(@NotNull List<GenshinNamecard> namecards) {
+        this.namecards = namecards;
+    }
+
+    /**
+     * Sets the characters of this user.
+     * @param characters The characters to set.
+     */
+    public void setCharacters(@NotNull List<GenshinUserCharacter> characters) {
+        this.characters = characters;
     }
 
     /**
@@ -95,16 +194,6 @@ public class GenshinUserInformation {
      * <br>You should always prefer using this class over {@link GenshinUnconvertedUser} (detailed in this class)
      * <br>You may also want to cache this object, but you shouldn't care unless you really need the data now and not some point later
      * (as this might be a heavy operation, depending on how often you call this method)
-     *
-     * <br><br><b>Example</b>:
-     * <pre>{@code
-     * final EnkaNetworkAPI api = new EnkaNetworkAPI();
-     *
-     * api.fetchGenshinUser(722777337, (user) -> {
-     *      final GenshinUserInformation genshinUser = fromEnkaUser(user);
-     *      // do action here
-     * });
-     * }</pre>
      *
      * @param enkaUser The old {@link GenshinUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchGenshinUser(long, Consumer)}.
      * @return The converted {@link GenshinUserInformation} object.
@@ -119,17 +208,20 @@ public class GenshinUserInformation {
         final String signature = playerInfoData.getSignature();
         final Pair<Long, Long> profileId = filterId(profileData);
 
-        final GenshinUserInformation user = GenshinUserInformation.builder()
-                .nickName(playerInfoData.getNickname())
-                .level(playerInfoData.getLevel())
-                .signature(signature == null ? "" : signature)
-                .worldLevel(playerInfoData.getWorldLevel())
-                .namecardId(playerInfoData.getNameCardId())
-                .achievementCompleted(playerInfoData.getFinishAchievementNum())
-                .towerFloorIndex(playerInfoData.getTowerFloorIndex())
-                .towerLevelIndex(playerInfoData.getTowerLevelIndex())
-                .profilePictureId(profileId)
-                .build();
+        final GenshinUserInformation user = new GenshinUserInformation(
+                playerInfoData.getNickname(),
+                signature == null ? "" : signature,
+                playerInfoData.getLevel(),
+                playerInfoData.getWorldLevel(),
+                playerInfoData.getNameCardId(),
+                playerInfoData.getFinishAchievementNum(),
+                playerInfoData.getTowerFloorIndex(),
+                playerInfoData.getTowerLevelIndex(),
+                Collections.emptyList(),
+                Collections.emptyList(),
+                profileId,
+                Collections.emptyList()
+        );
 
         user.doActionAfter(data -> {
             final GenshinUnconvertedUser.PlayerInfo playerInfo = enkaUser.getPlayerInfo();
@@ -138,27 +230,16 @@ public class GenshinUserInformation {
                     final int avatarId = showAvatarInfo.getAvatarId();
                     final int level = showAvatarInfo.getLevel();
                     final int costumeId = showAvatarInfo.getCostumeId();
-                    return GenshinShowcaseCharacter.builder()
-                            .avatarId(avatarId)
-                            .level(level)
-                            .costumeId(costumeId)
-                            .build();
+                    return new GenshinShowcaseCharacter(avatarId, level, costumeId);
                 }).toList());
-            } else {
-                data.setShowcaseCharacters(Collections.emptyList());
             }
 
             if (playerInfo.getShowNameCardIdList() != null) {
                 data.setNamecards(playerInfo.getShowNameCardIdList().stream().map(id -> {
                     final String name = EnkaCaches.getNamecardName(id);
                     final String namecardURL = EnkaNetworkAPI.BASE_GENSHIN_UI_URL + name + ".png";
-                    return GenshinNamecard.builder()
-                            .rawId(id)
-                            .namecardUrl(namecardURL)
-                            .build();
+                    return new GenshinNamecard(id, namecardURL);
                 }).toList());
-            } else {
-                data.setNamecards(Collections.emptyList());
             }
 
             if (enkaUser.getAvatarInfoList() == null) {
@@ -275,11 +356,7 @@ public class GenshinUserInformation {
                         .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
                         .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                         .equippedWeapon(weapon)
-                        .talentLevels(GenshinCharacterTalents.builder()
-                                .normalAttackLevel(talentLevels.get(0))
-                                .elementalSkillLevel(talentLevels.get(1))
-                                .elementalBurstLevel(talentLevels.get(2))
-                                .build())
+                        .talentLevels(new GenshinCharacterTalents(talentLevels.get(0), talentLevels.get(1), talentLevels.get(2)))
                         .build();
             }).toList());
         });

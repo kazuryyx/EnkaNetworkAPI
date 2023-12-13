@@ -57,6 +57,7 @@ public class GenshinUserInformation {
         this.namecards = namecards;
         this.profilePictureId = profilePictureId;
         this.characters = characters;
+        this.uid = uid;
     }
 
     /**

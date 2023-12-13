@@ -26,6 +26,7 @@ public class GenshinUserInformation {
     private final int achievementCompleted;
     private final int towerFloorIndex;
     private final int towerLevelIndex;
+    private final long uid;
     private final Pair<Long, Long> profilePictureId;
     private List<GenshinShowcaseCharacter> showcaseCharacters;
     private List<GenshinNamecard> namecards;
@@ -42,7 +43,8 @@ public class GenshinUserInformation {
                                   @NotNull List<GenshinShowcaseCharacter> showcaseCharacters,
                                   @NotNull List<GenshinNamecard> namecards,
                                   @NotNull Pair<Long, Long> profilePictureId,
-                                  @NotNull List<GenshinUserCharacter> characters) {
+                                  @NotNull List<GenshinUserCharacter> characters,
+                                  final long uid) {
         this.nickName = nickName;
         this.signature = signature;
         this.level = level;
@@ -61,7 +63,7 @@ public class GenshinUserInformation {
      * The nickname of the player.
      */
     @NotNull
-    public String getNickName() {
+    public String getNickname() {
         return this.nickName;
     }
 
@@ -101,21 +103,21 @@ public class GenshinUserInformation {
     /**
      * The amount of achievements completed, range from 0 to max achievements.
      */
-    public int getAchievementCompleted() {
+    public int getAchievementsCompleted() {
         return this.achievementCompleted;
     }
 
     /**
-     * The highest abyss floor this user has reached.
+     * The highest abyss floor this user has reached (current rotation).
      */
-    public int getTowerFloorIndex() {
+    public int getAbyssFloor() {
         return this.towerFloorIndex;
     }
 
     /**
-     * The highest chamber this user has reached in the Spiral Abyss.
+     * The highest chamber this user has reached in the Spiral Abyss (current rotation).
      */
-    public int getTowerLevelIndex() {
+    public int getAbyssChamber() {
         return this.towerLevelIndex;
     }
 
@@ -133,6 +135,13 @@ public class GenshinUserInformation {
     @NotNull
     public List<GenshinNamecard> getNamecards() {
         return this.namecards;
+    }
+
+    /**
+     * The uid of this object.
+     */
+    public long getUid() {
+        return this.uid;
     }
 
     /**
@@ -220,7 +229,8 @@ public class GenshinUserInformation {
                 Collections.emptyList(),
                 Collections.emptyList(),
                 profileId,
-                Collections.emptyList()
+                Collections.emptyList(),
+                Long.parseLong(enkaUser.getUid())
         );
 
         user.doActionAfter(data -> {

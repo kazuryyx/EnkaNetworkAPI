@@ -44,8 +44,12 @@ public class EnkaCaches {
 
     // util
     private static final OkHttpClient client = new OkHttpClient();
+    private static boolean CACHES_LOADED = false;
 
-    static {
+    public static void loadCaches() {
+        // prevent user from loading caches twice
+        if (CACHES_LOADED) return;
+
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         System.out.println("[Cache] Loading... Some tasks may be delayed during this.");
@@ -146,6 +150,7 @@ public class EnkaCaches {
         }
 
         System.out.println("[Cache] All caches have loaded.");
+        CACHES_LOADED = true;
     }
 
     /**

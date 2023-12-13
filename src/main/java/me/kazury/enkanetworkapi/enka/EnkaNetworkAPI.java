@@ -41,6 +41,8 @@ public class EnkaNetworkAPI {
     public EnkaNetworkAPI() {
         final Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.httpClient = new EnkaHTTPClient(this, gson);
+
+        EnkaCaches.loadCaches();
     }
 
     /**

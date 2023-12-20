@@ -720,6 +720,22 @@
     "CPBELMNGNEK": 10000089
   },
   {
+    "id": 7600,
+    "iconPath": "UI_AvatarIcon_Chevreuse_Circle",
+    "priority": 7600,
+    "nameTextMapHash": 241782844,
+    "NNEFMIGLHPG": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
+    "CPBELMNGNEK": 10000090
+  },
+  {
+    "id": 7500,
+    "iconPath": "UI_AvatarIcon_Navia_Circle",
+    "priority": 7500,
+    "nameTextMapHash": 3420068796,
+    "NNEFMIGLHPG": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
+    "CPBELMNGNEK": 10000091
+  },
+  {
     "id": 99999,
     "iconPath": "UI_AvatarIcon_Ambor_Circle",
     "priority": 99999,

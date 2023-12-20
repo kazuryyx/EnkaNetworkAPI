@@ -16,6 +16,8 @@ import java.util.Map;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GenshinCharacterData implements GenshinNameable {
+    private String characterId;
+
     @JsonProperty("Element")
     private String element;
 
@@ -44,6 +46,14 @@ public class GenshinCharacterData implements GenshinNameable {
     private Map<Integer, Costume> costumes;
 
     public GenshinCharacterData() {}
+
+    /**
+     * Sets the character id for this object
+     */
+    public void setCharacterId(@NotNull String characterId) {
+        if (this.characterId != null) throw new UnsupportedOperationException("Internal method call");
+        this.characterId = characterId;
+    }
 
     @Override
     @NotNull

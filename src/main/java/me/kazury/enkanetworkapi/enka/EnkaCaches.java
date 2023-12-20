@@ -80,8 +80,10 @@ public class EnkaCaches {
                     // some characters (non-implemented travelers) have empty data
                     return;
                 }
+                final GenshinCharacterData data = mapper.convertValue(value, GenshinCharacterData.class);
+                data.setCharacterId(key);
 
-                characterCache.put(key, mapper.convertValue(value, GenshinCharacterData.class));
+                characterCache.put(key, data);
             });
         } catch (IOException exception) {
             exception.printStackTrace();

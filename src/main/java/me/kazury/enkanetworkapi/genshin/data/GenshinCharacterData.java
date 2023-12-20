@@ -62,6 +62,15 @@ public class GenshinCharacterData implements GenshinNameable {
     }
 
     /**
+     * @return The id of the character.
+     */
+    @NotNull
+    public String getCharacterId() {
+        if (this.characterId == null) throw new UnsupportedOperationException("Method called too early or not loaded");
+        return this.characterId;
+    }
+
+    /**
      * Returns the icon of the character when the character is looking at the camera.
      * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
      * @return At camera looking icon

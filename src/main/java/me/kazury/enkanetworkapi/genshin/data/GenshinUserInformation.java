@@ -340,6 +340,7 @@ public class GenshinUserInformation {
 
                     artifacts.add(GenshinArtifact.builder()
                             .level(artifactData.getLevel() - 1)
+                            .rankLevel(flatData.getRankLevel())
                             .type(type)
                             .appendPropIds(artifactData.getAppendPropIdList())
                             .mainStats(new GenshinArtifact.ArtifactStat(
@@ -350,6 +351,7 @@ public class GenshinUserInformation {
                             ))
                             .subStats(subStats)
                             .icon(flatData.getIcon())
+                            .nameTextMapHash(flatData.getNameTextMapHash())
                             .setNameTextMapHash(flatData.getSetNameTextMapHash())
                             .build());
                 }

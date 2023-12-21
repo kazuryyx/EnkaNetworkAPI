@@ -230,7 +230,7 @@ public class EnkaNetworkAPI {
     public Map<String, Integer> getGenshinArtifactTotal(@NotNull GenshinUserCharacter character) {
         final Map<String, Integer> artifacts = new HashMap<>();
         for (GenshinArtifact artifact : character.getArtifacts()) {
-            final String name = artifact.getName();
+            final String name = artifact.getSetName();
             artifacts.put(name, artifacts.getOrDefault(name, 0) + 1);
         }
         return artifacts;

@@ -1,9 +1,12 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
+import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,10 +15,11 @@ import java.util.Map;
 /**
  * An artifact that is currently equipped on a {@link GenshinUserCharacter}.
  */
-public class GenshinArtifact implements GenshinNameable {
+public class GenshinArtifact {
     @NotNull
     private final GenshinArtifactType type;
     private final int level;
+    private final int rankLevel;
 
     @NotNull
     private final ArtifactStat mainStats;
@@ -30,21 +34,28 @@ public class GenshinArtifact implements GenshinNameable {
     private final String setNameTextMapHash;
 
     @NotNull
+    private final String nameTextMapHash;
+
+    @NotNull
     private final String icon;
 
     public GenshinArtifact(@NotNull GenshinArtifactType type,
                            final int level,
+                           final int rankLevel,
                            @NotNull ArtifactStat mainStats,
                            @NotNull List<Integer> appendPropIds,
                            @NotNull List<ArtifactStat> subStats,
                            @NotNull String setNameTextMapHash,
+                           @NotNull String nameTextMapHash,
                            @NotNull String icon) {
         this.type = type;
         this.level = level;
+        this.rankLevel = rankLevel;
         this.mainStats = mainStats;
         this.appendPropIds = appendPropIds;
         this.subStats = subStats;
         this.setNameTextMapHash = setNameTextMapHash;
+        this.nameTextMapHash = nameTextMapHash;
         this.icon = icon;
     }
 
@@ -63,6 +74,28 @@ public class GenshinArtifact implements GenshinNameable {
      */
     public int getLevel() {
         return this.level;
+    }
+
+    /**
+     * Returns the rarity of this artifact, from 1 to 5.
+     */
+    public int getRankLevel() {
+        return this.rankLevel;
+    }
+
+    /**
+     * Returns the maximum level that this artifact can be levelled up to.
+     * <br>Different artifact rarities have different max levels.
+     */
+    public int getMaxLevel() {
+        return switch (this.rankLevel) {
+            case 1 -> 4;
+            case 2 -> 8;
+            case 3 -> 12;
+            case 4 -> 16;
+            case 5 -> 20;
+            default -> -1;
+        };
     }
 
     /**
@@ -91,11 +124,19 @@ public class GenshinArtifact implements GenshinNameable {
     }
 
     /**
-     * Represents a localization key for the artifact set name.
+     * Gets the name of this artifact.
      */
-    @NotNull
-    public String getSetNameTextMapHash() {
-        return this.setNameTextMapHash;
+    @Nullable
+    public String getName() {
+        return EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), this.nameTextMapHash);
+    }
+
+    /**
+     * Gets the name of the set that this artifact belongs to.
+     */
+    @Nullable
+    public String getSetName() {
+        return EnkaCaches.getGenshinLocale(EnkaGlobals.getDefaultLocalization(), this.setNameTextMapHash);
     }
 
     /**
@@ -135,16 +176,9 @@ public class GenshinArtifact implements GenshinNameable {
         return new GenshinArtifactBuilder();
     }
 
-    @Override
-    @NotNull
-    public String getNameTextMapHash() {
-        return this.setNameTextMapHash;
-    }
-
     /**
      * A stat on an artifact, this is either a main stat or a substat.
      */
-
     public static class ArtifactStat implements IFormattable {
         private final String stat;
         private final String formattedValue;
@@ -190,9 +224,11 @@ public class GenshinArtifact implements GenshinNameable {
     public static class GenshinArtifactBuilder {
         private GenshinArtifactType type;
         private int level;
+        private int rankLevel;
         private ArtifactStat mainStats;
         private List<Integer> appendPropIds;
         private List<ArtifactStat> subStats;
+        private String nameTextMapHash;
         private String setNameTextMapHash;
         private String icon;
 
@@ -205,6 +241,12 @@ public class GenshinArtifact implements GenshinNameable {
         @NotNull
         public GenshinArtifactBuilder level(final int level) {
             this.level = level;
+            return this;
+        }
+
+        @NotNull
+        public GenshinArtifactBuilder rankLevel(final int rankLevel) {
+            this.rankLevel = rankLevel;
             return this;
         }
 
@@ -227,6 +269,12 @@ public class GenshinArtifact implements GenshinNameable {
         }
 
         @NotNull
+        public GenshinArtifactBuilder nameTextMapHash(@NotNull String nameTextMapHash) {
+            this.nameTextMapHash = nameTextMapHash;
+            return this;
+        }
+
+        @NotNull
         public GenshinArtifactBuilder setNameTextMapHash(@NotNull String setNameTextMapHash) {
             this.setNameTextMapHash = setNameTextMapHash;
             return this;
@@ -243,10 +291,12 @@ public class GenshinArtifact implements GenshinNameable {
             return new GenshinArtifact(
                     this.type,
                     this.level,
+                    this.rankLevel,
                     this.mainStats,
                     this.appendPropIds,
                     this.subStats,
                     this.setNameTextMapHash,
+                    this.nameTextMapHash,
                     this.icon
             );
         }

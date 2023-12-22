@@ -162,8 +162,7 @@ public class GenshinArtifact {
                 System.out.println("Unsupported affix: " + id + ". please redirect to library owner.");
                 continue;
             }
-            final double efficiency = Math.round(affix.getEfficiency() * 100.0) / 100.0;
-            efficiencyMap.put(id, efficiencyMap.getOrDefault(id, 0.0) + efficiency);
+            efficiencyMap.put(id, efficiencyMap.getOrDefault(id, 0.0) + affix.getEfficiency());
         }
         return new GenshinRollData(efficiencyMap, this.getAppendPropIds());
     }

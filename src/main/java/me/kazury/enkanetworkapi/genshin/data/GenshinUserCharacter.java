@@ -62,6 +62,14 @@ public class GenshinUserCharacter {
     }
 
     /**
+     * Gets the max level this character can currently be leveled up to.
+     */
+    public int getMaxLevel() {
+        final int[] promotions = new int[]{20, 40, 50, 60, 70, 80, 90};
+        return promotions[this.currentAscension];
+    }
+
+    /**
      * Represents the constellation level of the character.
      */
     public int getConstellation() {

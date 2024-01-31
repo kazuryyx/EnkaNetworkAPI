@@ -2527,6 +2527,68 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_CLAYMORE"
   },
+  "10000092": {
+    "Element": "Fire",
+    "Rarity": 4,
+    "Consts": [
+      "UI_Talent_S_Gaming_01",
+      "UI_Talent_S_Gaming_02",
+      "UI_Talent_U_Gaming_01",
+      "UI_Talent_S_Gaming_03",
+      "UI_Talent_U_Gaming_02",
+      "UI_Talent_S_Gaming_04"
+    ],
+    "SkillOrder": [
+      10921,
+      10922,
+      10925
+    ],
+    "Skills": {
+      "10921": "Skill_A_04",
+      "10922": "Skill_S_Gaming_01",
+      "10925": "Skill_E_Gaming_01"
+    },
+    "ProudMap": {
+      "10921": 9231,
+      "10922": 9232,
+      "10925": 9239
+    },
+    "NameTextMapHash": 2822240322,
+    "SideIconName": "UI_AvatarIcon_Side_Gaming",
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CLAYMORE"
+  },
+  "10000093": {
+    "Element": "Wind",
+    "Rarity": 5,
+    "Consts": [
+      "UI_Talent_S_Liuyun_01",
+      "UI_Talent_S_Liuyun_02",
+      "UI_Talent_U_Liuyun_02",
+      "UI_Talent_S_Liuyun_03",
+      "UI_Talent_U_Liuyun_01",
+      "UI_Talent_S_Liuyun_04"
+    ],
+    "SkillOrder": [
+      10931,
+      10932,
+      10935
+    ],
+    "Skills": {
+      "10931": "Skill_A_Catalyst_MD",
+      "10932": "Skill_S_Liuyun_01",
+      "10935": "Skill_E_Liuyun_01"
+    },
+    "ProudMap": {
+      "10931": 9331,
+      "10932": 9332,
+      "10935": 9339
+    },
+    "NameTextMapHash": 3648220770,
+    "SideIconName": "UI_AvatarIcon_Side_Liuyun",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

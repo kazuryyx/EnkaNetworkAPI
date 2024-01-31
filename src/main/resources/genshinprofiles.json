@@ -112,6 +112,14 @@
     "CPBELMNGNEK": 10000025
   },
   {
+    "id": 801,
+    "iconPath": "UI_AvatarIcon_XingqiuCostumeBamboo_Circle",
+    "priority": 801,
+    "nameTextMapHash": 2018771404,
+    "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_COSTUME",
+    "CPBELMNGNEK": 202501
+  },
+  {
     "id": 900,
     "iconPath": "UI_AvatarIcon_Ningguang_Circle",
     "priority": 900,
@@ -488,6 +496,14 @@
     "CPBELMNGNEK": 10000063
   },
   {
+    "id": 4501,
+    "iconPath": "UI_AvatarIcon_ShenheCostumeDai_Circle",
+    "priority": 4501,
+    "nameTextMapHash": 561207228,
+    "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_COSTUME",
+    "CPBELMNGNEK": 206301
+  },
+  {
     "id": 4600,
     "iconPath": "UI_AvatarIcon_Yae_Circle",
     "priority": 4600,
@@ -734,6 +750,22 @@
     "nameTextMapHash": 3420068796,
     "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
     "CPBELMNGNEK": 10000091
+  },
+  {
+    "id": 7700,
+    "iconPath": "UI_AvatarIcon_Gaming_Circle",
+    "priority": 7700,
+    "nameTextMapHash": 4228481004,
+    "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
+    "CPBELMNGNEK": 10000092
+  },
+  {
+    "id": 7800,
+    "iconPath": "UI_AvatarIcon_Liuyun_Circle",
+    "priority": 7800,
+    "nameTextMapHash": 1294266220,
+    "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
+    "CPBELMNGNEK": 10000093
   },
   {
     "id": 99999,

@@ -23,10 +23,11 @@ public interface SRNameable {
      * @see SRRelic
      * @see SRCharacterData
      */
-    @Nullable
+    @NotNull
     default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getHonkaiLocale(locale, this.getNameHash());
+        final String name = EnkaCaches.getHonkaiLocale(locale, this.getNameHash());
+        return name == null ? "" : name;
     }
 
     /**
@@ -36,7 +37,7 @@ public interface SRNameable {
      * @see SRRelic
      * @see SRCharacterData
      */
-    @Nullable
+    @NotNull
     default String getName() {
         return this.getName(null);
     }

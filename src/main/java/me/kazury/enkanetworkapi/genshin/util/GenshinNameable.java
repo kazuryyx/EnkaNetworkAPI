@@ -24,10 +24,12 @@ public interface GenshinNameable {
      * @see GenshinUserWeapon
      * @see GenshinArtifact
      */
-    @Nullable
+    @NotNull
     default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
-        return EnkaCaches.getGenshinLocale(locale, this.getNameTextMapHash());
+
+        final String name = EnkaCaches.getGenshinLocale(locale, this.getNameTextMapHash());
+        return name == null ? "" : name;
     }
 
     /**
@@ -38,7 +40,7 @@ public interface GenshinNameable {
      * @see GenshinUserWeapon
      * @see GenshinArtifact
      */
-    @Nullable
+    @NotNull
     default String getName() {
         return this.getName(null);
     }

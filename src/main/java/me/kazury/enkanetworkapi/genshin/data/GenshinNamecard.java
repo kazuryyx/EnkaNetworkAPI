@@ -1,6 +1,6 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A namecard that is currently for show on a {@link GenshinUserInformation}.
@@ -8,11 +8,10 @@ import org.jetbrains.annotations.Nullable;
 public class GenshinNamecard {
     private final int rawId;
 
-    @Nullable
+    @NotNull
     private final String namecardUrl;
 
-    public GenshinNamecard(final int rawId,
-                           @Nullable String namecardUrl) {
+    public GenshinNamecard(final int rawId, @NotNull String namecardUrl) {
         this.rawId = rawId;
         this.namecardUrl = namecardUrl;
     }
@@ -27,7 +26,7 @@ public class GenshinNamecard {
     /**
      * A namecard URL that can be used to display the namecard.
      */
-    @Nullable
+    @NotNull
     public String getNamecardUrl() {
         return this.namecardUrl;
     }

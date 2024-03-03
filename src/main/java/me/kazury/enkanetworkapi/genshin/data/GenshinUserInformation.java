@@ -359,6 +359,7 @@ public class GenshinUserInformation {
                 final Map<String, Object> ascensionMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1002"));
                 final Map<String, Object> experienceMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1001"));
 
+                // TODO fix element-less traveler (L373)
                 return GenshinUserCharacter.builder()
                         .id(id)
                         .constellation(constellation)

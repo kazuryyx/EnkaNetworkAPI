@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.genshin.data;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
@@ -236,7 +237,7 @@ public class GenshinUserCharacter {
         }
 
         @NotNull
-        public GenshinUserCharacterBuilder equippedWeapon(@NotNull GenshinUserWeapon equippedWeapon) {
+        public GenshinUserCharacterBuilder equippedWeapon(@Nullable GenshinUserWeapon equippedWeapon) {
             this.equippedWeapon = equippedWeapon;
             return this;
         }

@@ -1,5 +1,10 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.Map;
+
 /**
  * Represents a users characters talent levels.
  * <br>Extra talent levels (from Constellation & Childe) are not included.
@@ -10,12 +15,18 @@ public class GenshinCharacterTalents {
     private final int elementalSkillLevel;
     private final int elementalBurstLevel;
 
-    public GenshinCharacterTalents(final int normalAttackLevel,
-                                   final int elementalSkillLevel,
-                                   final int elementalBurstLevel) {
-        this.normalAttackLevel = normalAttackLevel;
-        this.elementalSkillLevel = elementalSkillLevel;
-        this.elementalBurstLevel = elementalBurstLevel;
+    public GenshinCharacterTalents(@NotNull List<Integer> talents) {
+        if (talents.size() == 1) {
+            // element-less traveler
+            this.normalAttackLevel = talents.get(0);
+            this.elementalSkillLevel = 0;
+            this.elementalBurstLevel = 0;
+            return;
+        }
+
+        this.normalAttackLevel = talents.get(0);
+        this.elementalSkillLevel = talents.get(1);
+        this.elementalBurstLevel = talents.get(2);
     }
 
     /**

@@ -267,6 +267,7 @@ public class GenshinUserInformation {
                 final List<Integer> talentLevels = new ArrayList<>();
 
                 final List<GenshinArtifact> artifacts = new ArrayList<>();
+
                 GenshinUserWeapon weapon = null;
 
                 // Properties of this character
@@ -316,6 +317,7 @@ public class GenshinUserInformation {
                                 .build();
                         continue;
                     }
+
                     final GenshinUnconvertedUser.ArtifactMainData mainStat = flatData.getReliquaryMainstat();
                     final GenshinAppendProp appendProp = GenshinAppendProp.fromKey(mainStat.getMainPropId());
                     final List<GenshinArtifact.ArtifactStat> subStats = new ArrayList<>();
@@ -359,7 +361,6 @@ public class GenshinUserInformation {
                 final Map<String, Object> ascensionMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1002"));
                 final Map<String, Object> experienceMap = ((Map<String, Object>) avatarInfo.getPropMap().get("1001"));
 
-                // TODO fix element-less traveler (L373)
                 return GenshinUserCharacter.builder()
                         .id(id)
                         .constellation(constellation)
@@ -370,7 +371,7 @@ public class GenshinUserInformation {
                         .currentExperience(Integer.parseInt((String) experienceMap.getOrDefault("val", "-1")))
                         .friendshipLevel(avatarInfo.getFetterInfo().getExpLevel())
                         .equippedWeapon(weapon)
-                        .talentLevels(new GenshinCharacterTalents(talentLevels.get(0), talentLevels.get(1), talentLevels.get(2)))
+                        .talentLevels(new GenshinCharacterTalents(talentLevels))
                         .build();
             }).toList());
         });

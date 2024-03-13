@@ -2589,6 +2589,37 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_CATALYST"
   },
+  "10000094": {
+    "Element": "Rock",
+    "Rarity": 5,
+    "Consts": [
+      "UI_Talent_S_Chiori_01",
+      "UI_Talent_S_Chiori_03",
+      "UI_Talent_U_Chiori_01",
+      "UI_Talent_S_Chiori_02",
+      "UI_Talent_U_Chiori_02",
+      "UI_Talent_S_Chiori_04"
+    ],
+    "SkillOrder": [
+      10941,
+      10942,
+      10945
+    ],
+    "Skills": {
+      "10941": "Skill_A_01",
+      "10942": "Skill_S_Chiori_01",
+      "10945": "Skill_E_Chiori_01"
+    },
+    "ProudMap": {
+      "10941": 9431,
+      "10942": 9432,
+      "10945": 9439
+    },
+    "NameTextMapHash": 1944606922,
+    "SideIconName": "UI_AvatarIcon_Side_Chiori",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

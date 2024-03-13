@@ -1,5 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.util;
 
+import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
+import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;

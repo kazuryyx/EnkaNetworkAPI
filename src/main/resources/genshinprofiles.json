@@ -768,6 +768,14 @@
     "CPBELMNGNEK": 10000093
   },
   {
+    "id": 7900,
+    "iconPath": "UI_AvatarIcon_Chiori_Circle",
+    "priority": 7900,
+    "nameTextMapHash": 1057050268,
+    "KJEOGPCNAOJ": "PROFILE_PICTURE_UNLOCK_BY_AVATAR",
+    "CPBELMNGNEK": 10000094
+  },
+  {
     "id": 99999,
     "iconPath": "UI_AvatarIcon_Ambor_Circle",
     "priority": 99999,

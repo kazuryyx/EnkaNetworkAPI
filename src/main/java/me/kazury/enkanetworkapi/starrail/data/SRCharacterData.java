@@ -93,7 +93,7 @@ public class SRCharacterData {
      */
     @NotNull
     public AvatarFullName getAvatarFullNameData() {
-        return avatarFullNameData;
+        return this.avatarFullNameData;
     }
 
     /**
@@ -101,7 +101,7 @@ public class SRCharacterData {
      */
     @NotNull
     public String getElement() {
-        return element;
+        return this.element;
     }
 
     /**
@@ -110,17 +110,16 @@ public class SRCharacterData {
      */
     @NotNull
     public String getAvatarSideIcon() {
-        return avatarSideIcon;
+        return this.avatarSideIcon;
     }
 
     /**
-     * Represents the art of the character when the character was obtained
-     * <br> You may have heard the term "splash art" before, this is the same thing.
+     * Represents the splash art of the character, this is the image that is displayed when you pulled the character.
      * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getSRIcon(String)}
      */
     @NotNull
-    public String getAvatarCutinFront() {
-        return avatarCutinFront;
+    public String getSplashArt() {
+        return this.avatarCutinFront;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)

@@ -105,6 +105,15 @@ public class SRCharacterData {
     }
 
     /**
+     * The round icon of this character.
+     * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getSRIcon(String)}
+     */
+    @NotNull
+    public String getAvatarRoundIcon() {
+        return "SpriteOutput/AvatarRoundIcon/" + this.characterId + ".png";
+    }
+
+    /**
      * The icon of this character when they are looking to the left.
      * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getSRIcon(String)}
      */

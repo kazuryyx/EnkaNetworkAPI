@@ -100,8 +100,10 @@ public class EnkaCaches {
                     // looking at the json, this never seems to happen but just to be sure.
                     return;
                 }
+                final SRCharacterData data = mapper.convertValue(value, SRCharacterData.class);
+                data.setCharacterId(key);
 
-                srCharacterDataCache.put(key, mapper.convertValue(value, SRCharacterData.class));
+                srCharacterDataCache.put(key, data);
             });
         } catch (IOException exception) {
             exception.printStackTrace();

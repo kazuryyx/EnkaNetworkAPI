@@ -13,6 +13,8 @@ import org.jetbrains.annotations.NotNull;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SRCharacterData {
+    private String characterId;
+
     @JsonProperty("Rarity")
     private int star;
 
@@ -37,11 +39,28 @@ public class SRCharacterData {
     public SRCharacterData() {}
 
     /**
+     * Sets the character id for this object
+     */
+    public void setCharacterId(@NotNull String characterId) {
+        if (this.characterId != null) throw new UnsupportedOperationException("Internal method call");
+        this.characterId = characterId;
+    }
+
+    /**
      * The amount of stars this character has.
      * <br>This is either a value of 4 or 5.
      */
     public int getStar() {
         return this.star;
+    }
+
+    /**
+     * @return The id of the character.
+     */
+    @NotNull
+    public String getCharacterId() {
+        if (this.characterId == null) throw new UnsupportedOperationException("Method called too early or not loaded");
+        return this.characterId;
     }
 
     /**

@@ -110,7 +110,7 @@ public class SRCharacterData {
      */
     @NotNull
     public String getAvatarRoundIcon() {
-        return "SpriteOutput/AvatarRoundIcon/" + this.characterId + ".png";
+        return "SpriteOutput/AvatarRoundIcon/" + this.characterId;
     }
 
     /**

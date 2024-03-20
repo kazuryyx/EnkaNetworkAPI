@@ -12,7 +12,7 @@ public class EnkaVerifier {
      * @param condition the condition
      * @param exception the exception
      */
-    public static <T extends Exception> void verifyOrThrow(final boolean condition, @NotNull Class<T> exception) throws T {
+    public static <E extends Exception> void verifyOrThrow(final boolean condition, @NotNull Class<E> exception) throws E {
         if (condition) return;
 
         try {

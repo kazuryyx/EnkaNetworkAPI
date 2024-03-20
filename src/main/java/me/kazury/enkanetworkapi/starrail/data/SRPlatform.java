@@ -6,6 +6,7 @@ package me.kazury.enkanetworkapi.starrail.data;
  */
 public enum SRPlatform {
     WINDOWS,
+    PC,
     ANDROID,
     IOS,
     PS4,

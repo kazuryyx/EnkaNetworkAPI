@@ -216,22 +216,32 @@ public class SRUserInformation {
                         final SRUnconvertedUser.RelicFlatProp subData = props.get(i);
                         final SRAppendProp parsedProp = SRAppendProp.fromKey(subData.getType());
                         if (parsedProp == null) continue;
+                        double value = subData.getValue();
+
+                        if (parsedProp.getValueType() == SRAppendProp.ValueType.PERCENTAGE) {
+                            value *= 100;
+                        }
 
                         subStats.add(new SRRelic.RelicStat(
                                 parsedProp.getKey(),
-                                parsedProp.getAcceptor().accept(subData.getValue()),
-                                subData.getValue()
+                                parsedProp.getAcceptor().accept(value),
+                                value
                         ));
                     }
 
                     final SRUnconvertedUser.RelicFlatProp mainStat = props.get(0);
                     final SRAppendProp prop = SRAppendProp.fromKey(mainStat.getType());
                     if (prop == null) continue;
+                    double mainStatValue = mainStat.getValue();
 
+                    if (prop.getValueType() == SRAppendProp.ValueType.PERCENTAGE) {
+                        mainStatValue *= 100;
+                    }
+                    
                     final SRRelic.RelicStat main = new SRRelic.RelicStat(
                             prop.getKey(),
-                            prop.getAcceptor().accept(mainStat.getValue()),
-                            mainStat.getValue()
+                            prop.getAcceptor().accept(mainStatValue),
+                            mainStatValue
                     );
 
                     relics.add(new SRRelic(

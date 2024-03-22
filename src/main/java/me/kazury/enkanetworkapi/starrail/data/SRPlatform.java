@@ -10,5 +10,7 @@ public enum SRPlatform {
     ANDROID,
     IOS,
     PS4,
-    PS5
+    PS5,
+
+    UNKNOWN
 }

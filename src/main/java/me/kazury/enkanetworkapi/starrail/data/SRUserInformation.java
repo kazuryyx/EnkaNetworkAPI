@@ -146,6 +146,7 @@ public class SRUserInformation {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();
         final SRUnconvertedUser.RecordInfo recordInfo = detailInfoData.getRecordInfo();
+        final String platform = detailInfoData.getPlatform();
         final SRUserInformation user = new SRUserInformation(
                 detailInfoData.getNickname(),
                 detailInfoData.getLevel(),
@@ -153,8 +154,8 @@ public class SRUserInformation {
                 detailInfoData.getUid(),
                 detailInfoData.getFriendCount(),
                 detailInfoData.getWorldLevel(),
-                recordInfo.getMaxRogueChallengeScore(),
-                SRPlatform.valueOf(detailInfoData.getPlatform().toUpperCase()),
+                recordInfo == null ? 0: recordInfo.getMaxRogueChallengeScore(),
+                platform == null ? SRPlatform.UNKNOWN: SRPlatform.valueOf(platform.toUpperCase()),
                 Collections.emptyList()
         );
 

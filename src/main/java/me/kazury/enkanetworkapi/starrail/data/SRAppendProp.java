@@ -21,7 +21,7 @@ public enum SRAppendProp {
     HEAL_RATIO("HealRatio", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
     MAX_SP("MaxSP", NumberHelper::format, ValueType.FLAT),
     SP_RATIO("SPRatio", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
-    STATUS_PROBABILTY("StatusProbabilty", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
+    STATUS_PROBABILTY("StatusProbability", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
     STATUS_RESISTANCE("StatusResistance", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
     CRITICAL_CHANCE_BASE("CriticalChanceBase", NumberHelper::formatPercentage, ValueType.PERCENTAGE),
     CRITICAL_DAMAGE_BASE("CriticalDamageBase", NumberHelper::formatPercentage, ValueType.PERCENTAGE),

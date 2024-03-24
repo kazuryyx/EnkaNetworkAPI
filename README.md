@@ -3,7 +3,7 @@
 This is an API wrapper for https://enka.network in Java.
 <br> At the time of writing, we only had the option to use this API for JS, TS, PY hence why I made this :)
 
-## As of version 4.2, all docs have been rewritten. For Installatin and examples please refer to http://enka-docs.kazury.me.
+## As of version 4.2, all docs have been rewritten. For Installation and examples please refer to http://enka-docs.kazury.me.
 
 ### Last words
 1. I will keep this library always updated, expect an update within 1-2 days a new patch.

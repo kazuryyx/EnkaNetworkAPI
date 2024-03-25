@@ -1,7 +1,7 @@
 # What is this?
 
 This is an API wrapper for https://enka.network in Java.
-<br> At the time of writing, we only had the option to use this API for JS, TS, PY hence why I made this :)
+<br> At the time of writing, we only had the option to use a Wrapper for JS, TS, PY hence why I made this :)
 
 ## As of version 4.2, all docs have been rewritten. For Installation and examples please refer to http://enka-docs.kazury.me.
 

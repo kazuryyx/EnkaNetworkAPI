@@ -1209,38 +1209,6 @@
       130507
     ]
   },
-  "8001": {
-    "AvatarName": {
-      "Hash": -531793818
-    },
-    "AvatarFullName": {
-      "Hash": -1461075445
-    },
-    "Rarity": 5,
-    "Element": "Physical",
-    "AvatarBaseType": "Warrior",
-    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8001.png",
-    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8001B.png",
-    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8001.png",
-    "RankIDList": [
-      800101,
-      800102,
-      800103,
-      800104,
-      800105,
-      800106
-    ],
-    "SkillList": [
-      800101,
-      800102,
-      800103,
-      800104,
-      800106,
-      800107,
-      800108,
-      800109
-    ]
-  },
   "1306": {
     "AvatarName": {
       "Hash": 368883737
@@ -1301,6 +1269,40 @@
       130707
     ]
   },
+  "1308": {
+    "AvatarName": {
+      "Hash": -1150146037
+    },
+    "AvatarFullName": {
+      "Hash": 1372569644
+    },
+    "Rarity": 5,
+    "Element": "Thunder",
+    "AvatarBaseType": "Warlock",
+    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1308.png",
+    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1308B.png",
+    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1308.png",
+    "RankIDList": [
+      130801,
+      130802,
+      130803,
+      130804,
+      130805,
+      130806
+    ],
+    "SkillList": [
+      130801,
+      130802,
+      130803,
+      130804,
+      130806,
+      130807,
+      130814,
+      130815,
+      130816,
+      130817
+    ]
+  },
   "1312": {
     "AvatarName": {
       "Hash": -1956715090
@@ -1329,6 +1331,38 @@
       131204,
       131206,
       131207
+    ]
+  },
+  "8001": {
+    "AvatarName": {
+      "Hash": -531793818
+    },
+    "AvatarFullName": {
+      "Hash": -1461075445
+    },
+    "Rarity": 5,
+    "Element": "Physical",
+    "AvatarBaseType": "Warrior",
+    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/8001.png",
+    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/8001B.png",
+    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/8001.png",
+    "RankIDList": [
+      800101,
+      800102,
+      800103,
+      800104,
+      800105,
+      800106
+    ],
+    "SkillList": [
+      800101,
+      800102,
+      800103,
+      800104,
+      800106,
+      800107,
+      800108,
+      800109
     ]
   },
   "8002": {

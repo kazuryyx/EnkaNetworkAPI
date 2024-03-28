@@ -3,8 +3,8 @@
 This is an API wrapper for https://enka.network in Java.
 <br> At the time of writing, we only had the option to use a Wrapper for JS, TS, PY hence why I made this :)
 
-If you want to view the change log, please open.
 <details>
+<summary>Version Change Log</summary>
 
 > Update - 27/03/2024 - Library Version: 4.5 | Honkai: Star Rail Update
 - Added new 2.1 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/c6a6bacaddc7fcd81d46f155f44c7671e5fb59e3)

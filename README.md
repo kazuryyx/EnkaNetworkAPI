@@ -28,7 +28,7 @@ This is an API wrapper for https://enka.network in Java.
 - New Methods:
     - **getMaxLevel()** (in ``GenshinUserCharacter``)
 
-> Update - 20/12/2024 - Library Version: 4.3 | Genshin Impact Update
+> Update - 20/12/2023 - Library Version: 4.3 | Genshin Impact Update
 - Added new 4.3 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/2bc5b32acbe8a75025e46cd3654afdc70acec410)
 - New Methods:
     - **getCharacterId()** (in ``GenshinCharacterData``)

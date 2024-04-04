@@ -76,8 +76,14 @@ public class SRCharacterData {
      * </ul>
      */
     @NotNull
+    @Deprecated
     public String getPath() {
         return this.path;
+    }
+
+    @NotNull
+    public SRCharacterPath getCharacterPath() {
+        return SRCharacterPath.fromInternalData(this.path.toUpperCase());
     }
 
     /**

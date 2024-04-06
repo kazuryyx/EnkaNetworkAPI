@@ -64,7 +64,7 @@ public class SRCharacterData {
     }
 
     /**
-     * The path that this character belongs to, this is only the internal name so you will need to check from the list below.
+     * The path that this character belongs to, this is only the internal name, so you will need to check from the list below.
      * <ul>
      *     <li>Knight = Preservation</li>
      *     <li>Mage = Erudition</li>
@@ -81,6 +81,9 @@ public class SRCharacterData {
         return this.path;
     }
 
+    /**
+     * The path that this character belongs to.
+     */
     @NotNull
     public SRCharacterPath getCharacterPath() {
         return SRCharacterPath.fromInternalData(this.path.toUpperCase());

@@ -274,6 +274,22 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Blocks specific caches from loading, this is to save memory & unnecessary requests.
+     * @apiNote Caches will be reloaded after this method is called. So only call it once with blocked caches
+     */
+    public void setBlockedCaches(@NotNull EnkaCache... caches) {
+        EnkaGlobals.setBlockedCaches(List.of(caches));
+    }
+
+    /**
+     * Blocks specific caches from loading, this is to save memory & unnecessary requests.
+     * @apiNote Caches will be reloaded after this method is called. So only call it once with blocked caches
+     */
+    public void setBlockedCaches(@NotNull List<EnkaCache> caches) {
+        EnkaGlobals.setBlockedCaches(caches);
+    }
+
+    /**
      * Sets the status of Honkai: Star Rail.
      * <br>This is default false, but if you try to do anything related to Honkai: Star Rail you will receive an error.
      * <br>So if you want to use Honkai: Star Rail, you must enable it.

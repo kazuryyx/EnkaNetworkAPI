@@ -4,6 +4,9 @@ import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+import java.util.ListResourceBundle;
+
 /**
  * A builder which is used for creating an {@link EnkaNetworkAPI} instance.
  *
@@ -20,6 +23,7 @@ public class EnkaNetworkBuilder {
     private String baseUrl;
     private String userAgent;
     private boolean honkaiEnabled = false;
+    private List<EnkaCache> blockedCaches;
 
     /**
      * Sets the default localization which will be used for {@link GenshinNameable} objects.
@@ -64,6 +68,16 @@ public class EnkaNetworkBuilder {
     }
 
     /**
+     * Sets the blocked caches.
+     * @param caches The blocked caches.
+     */
+    @NotNull
+    public EnkaNetworkBuilder setBlockedCaches(@NotNull EnkaCache... caches) {
+        this.blockedCaches = List.of(caches);
+        return this;
+    }
+
+    /**
      * Builds the {@link EnkaNetworkAPI} instance.
      * @return The {@link EnkaNetworkAPI} instance.
      */
@@ -82,6 +96,7 @@ public class EnkaNetworkBuilder {
             api.setUserAgent(this.userAgent);
         }
 
+        api.setBlockedCaches(this.blockedCaches);
         api.enableHonkai(this.honkaiEnabled);
         return api;
     }

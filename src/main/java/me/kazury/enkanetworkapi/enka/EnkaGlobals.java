@@ -4,8 +4,12 @@ import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnkaGlobals {
     private static GlobalLocalization DEFAULT_LOCALIZATION = GlobalLocalization.ENGLISH;
+    private static final List<EnkaCache> BLOCKED_CACHES = new ArrayList<>();
     private static boolean HONKAI_ENABLED = false;
 
     /**
@@ -22,6 +26,22 @@ public class EnkaGlobals {
      */
     public static void setHonkaiEnabled(final boolean status) {
         HONKAI_ENABLED = status;
+    }
+
+    /**
+     * @return the blocked caches
+     */
+    public static void setBlockedCaches(@NotNull List<EnkaCache> caches) {
+        BLOCKED_CACHES.clear();
+        BLOCKED_CACHES.addAll(caches);
+        EnkaCaches.loadCaches();
+    }
+
+    /**
+     * Checks if a cache is blocked
+     */
+    public static boolean isCacheBlocked(@NotNull EnkaCache cache) {
+        return BLOCKED_CACHES.contains(cache);
     }
 
     /**

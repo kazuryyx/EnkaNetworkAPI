@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,8 @@ public class EnkaCaches {
 
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
 
+    private static final List<GenshinArtifactRequirement> artifactRequirements = new ArrayList<>();
+
     private static boolean genshinLoadedOrLoading = false;
 
     // star rail
@@ -44,50 +47,112 @@ public class EnkaCaches {
 
     // util
     private static final OkHttpClient client = new OkHttpClient();
-    private static boolean CACHES_LOADED = false;
 
     public static void loadCaches() {
-        // prevent user from loading caches twice
-        if (CACHES_LOADED) return;
+        namecardCache.clear();
+        characterCache.clear();
+        genshinProfiles.clear();
+        affixCache.clear();
+        materialCache.clear();
+        artifactRequirements.clear();
+        srCharacterDataCache.clear();
 
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         System.out.println("[Cache] Loading... Some tasks may be delayed during this.");
         System.out.println("[Cache] Expect this to take some seconds. (this will be once and same for localization assets.)");
 
-        try (InputStream stream = classLoader.getResourceAsStream("genshinnamecards.json")) {
-            if (stream == null) throw new NullPointerException("genshinnamecards.json is null");
+        loadNamecardCache(classLoader);
+        loadGenshinCharacterCache(classLoader);
+        loadHonkaiCharacterCache(classLoader);
+        loadGenshinProfileCache(classLoader);
+        loadGenshinAffixesCache(classLoader);
+        loadGenshinMaterialCache();
+        loadArtifactCostCache();
 
-            loadCache(stream, (entry, mapper) -> {
-                final int id = Integer.parseInt(entry.getKey());
-                final JsonNode value = entry.getValue();
+        System.out.println("[Cache] All caches have loaded.");
+    }
 
-                if (!value.has("icon")) return;
-                namecardCache.put(id, value.get("icon").asText());
-            });
-        } catch (IOException exception) {
-            exception.printStackTrace();
+    private static void loadArtifactCostCache() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_ARTIFACT_COSTS)) return;
+
+        final String artifactJson = fetchRawJsonData(GameType.GENSHIN, "ExcelBinOutput", "ReliquaryLevelExcelConfigData.json");
+
+        if (artifactJson == null) {
+            System.out.println("[Cache] Failed to load artifact level-up cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(artifactJson, ArrayNode.class);
+
+                for (JsonNode artifact : node) {
+                    final GenshinArtifactRequirement requirement = mapper.convertValue(artifact, GenshinArtifactRequirement.class);
+                    artifactRequirements.add(requirement);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
         }
+    }
 
-        try (InputStream stream = classLoader.getResourceAsStream("genshincharacters.json")) {
-            if (stream == null) throw new NullPointerException("genshincharacters.json is null");
+    private static void loadGenshinMaterialCache() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_MATERIALS)) return;
+
+        final String materialJson = fetchRawJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+
+        if (materialJson == null) {
+            System.out.println("[Cache] Failed to load material cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(materialJson, ArrayNode.class);
+
+                for (JsonNode mat : node) {
+                    final String key = mat.get("id").asText();
+                    materialCache.put(key, mapper.convertValue(mat, GenshinMaterial.class));
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
+    private static void loadGenshinAffixesCache(@NotNull ClassLoader classLoader) {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_AFFIXES)) return;
+
+        try (InputStream stream = classLoader.getResourceAsStream("genshinaffixes.json")) {
+            if (stream == null) throw new NullPointerException("genshinaffixes.json is null");
 
             loadCache(stream, (entry, mapper) -> {
                 final String key = entry.getKey();
                 final JsonNode value = entry.getValue();
 
-                if (value.isEmpty()) {
-                    // some characters (non-implemented travelers) have empty data
-                    return;
-                }
-                final GenshinCharacterData data = mapper.convertValue(value, GenshinCharacterData.class);
-                data.setCharacterId(key);
-
-                characterCache.put(key, data);
+                affixCache.put(key, mapper.convertValue(value, GenshinAffix.class));
             });
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+    }
+
+    private static void loadGenshinProfileCache(@NotNull ClassLoader classLoader) {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_PROFILES)) return;
+
+        try (InputStream stream = classLoader.getResourceAsStream("genshinprofiles.json")) {
+            if (stream == null) throw new NullPointerException("genshinprofiles.json is null");
+
+            final ObjectMapper mapper = new ObjectMapper();
+            final ArrayNode node = mapper.readValue(stream, ArrayNode.class);
+
+            for (JsonNode profile : node) {
+                genshinProfiles.put(profile.get("id").asLong(), new GenshinProfilePicture(profile));
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    private static void loadHonkaiCharacterCache(@NotNull ClassLoader classLoader) {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.HONKAI_CHARACTERS)) return;
 
         try (InputStream stream = classLoader.getResourceAsStream("honkercharacters.json")) {
             if (stream == null) throw new NullPointerException("honkercharacters.json is null");
@@ -108,53 +173,46 @@ public class EnkaCaches {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+    }
 
-        try (InputStream stream = classLoader.getResourceAsStream("genshinprofiles.json")) {
-            if (stream == null) throw new NullPointerException("genshinprofiles.json is null");
-
-            final ObjectMapper mapper = new ObjectMapper();
-            final ArrayNode node = mapper.readValue(stream, ArrayNode.class);
-
-            for (JsonNode profile : node) {
-                genshinProfiles.put(profile.get("id").asLong(), new GenshinProfilePicture(profile));
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        try (InputStream stream = classLoader.getResourceAsStream("genshinaffixes.json")) {
-            if (stream == null) throw new NullPointerException("genshinaffixes.json is null");
+    private static void loadGenshinCharacterCache(@NotNull ClassLoader classLoader) {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_CHARACTERS)) return;
+        try (InputStream stream = classLoader.getResourceAsStream("genshincharacters.json")) {
+            if (stream == null) throw new NullPointerException("genshincharacters.json is null");
 
             loadCache(stream, (entry, mapper) -> {
                 final String key = entry.getKey();
                 final JsonNode value = entry.getValue();
 
-                affixCache.put(key, mapper.convertValue(value, GenshinAffix.class));
+                if (value.isEmpty()) {
+                    // some characters (non-implemented travelers) have empty data
+                    return;
+                }
+                final GenshinCharacterData data = mapper.convertValue(value, GenshinCharacterData.class);
+                data.setCharacterId(key);
+
+                characterCache.put(key, data);
             });
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+    }
 
-        final String json = fetchRawJsonData(GameType.GENSHIN,"ExcelBinOutput", "MaterialExcelConfigData.json");
+    private static void loadNamecardCache(@NotNull ClassLoader loader) {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_NAMECARDS)) return;
+        try (InputStream stream = loader.getResourceAsStream("genshinnamecards.json")) {
+            if (stream == null) throw new NullPointerException("genshinnamecards.json is null");
 
-        if (json == null) {
-            System.out.println("[Cache] Failed to load material cache.");
-        } else {
-            try {
-                final ObjectMapper mapper = new ObjectMapper();
-                final ArrayNode node = mapper.readValue(json, ArrayNode.class);
+            loadCache(stream, (entry, mapper) -> {
+                final int id = Integer.parseInt(entry.getKey());
+                final JsonNode value = entry.getValue();
 
-                for (JsonNode mat : node) {
-                    final String key = mat.get("id").asText();
-                    materialCache.put(key, mapper.convertValue(mat, GenshinMaterial.class));
-                }
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
+                if (!value.has("icon")) return;
+                namecardCache.put(id, value.get("icon").asText());
+            });
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-
-        System.out.println("[Cache] All caches have loaded.");
-        CACHES_LOADED = true;
     }
 
     /**
@@ -374,6 +432,14 @@ public class EnkaCaches {
     @Nullable
     public static SRCharacterData getSRCharacterData(@NotNull String id) {
         return srCharacterDataCache.getOrDefault(id, null);
+    }
+
+    /**
+     * Gets the requirements for leveling up a specific artifact.
+     */
+    @NotNull
+    public static List<GenshinArtifactRequirement> getArtifactRequirements() {
+        return List.copyOf(artifactRequirements);
     }
 
     /**

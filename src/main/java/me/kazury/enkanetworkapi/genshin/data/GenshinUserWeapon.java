@@ -192,7 +192,7 @@ public class GenshinUserWeapon implements GenshinNameable {
         }
 
         @NotNull
-        public GenshinUserWeapon id(final long id) {
+        public GenshinUserWeaponBuilder id(final long id) {
             this.id = id;
             return this;
         }

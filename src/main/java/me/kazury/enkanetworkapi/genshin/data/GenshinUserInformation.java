@@ -314,6 +314,7 @@ public class GenshinUserInformation {
                                 .weaponIcon(flatData.getIcon())
                                 .star(flatData.getRankLevel())
                                 .stats(weaponStats)
+                                .id(equipData.getItemId())
                                 .build();
                         continue;
                     }

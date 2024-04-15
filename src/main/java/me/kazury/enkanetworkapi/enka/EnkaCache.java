@@ -3,6 +3,8 @@ package me.kazury.enkanetworkapi.enka;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.genshin.data.GenshinArtifact;
+import me.kazury.enkanetworkapi.genshin.data.GenshinUserWeapon;
+import me.kazury.enkanetworkapi.genshin.data.GenshinUserCharacter;
 
 /**
  * Represents a cache enum that can be used to block certain caches.
@@ -30,7 +32,9 @@ public enum EnkaCache {
     GENSHIN_AFFIXES,
     /**
      * Genshin Materials, this is used for getting the materials needed for ascension.
-     * <br>TODO add @see if implemented getAscensionData
+     * @see GenshinArtifact#getAscensionData(int)
+     * @see GenshinUserWeapon#getAscensionData(int)
+     * @see GenshinUserCharacter#getAscensionData(int)
      */
     GENSHIN_MATERIALS,
     /**

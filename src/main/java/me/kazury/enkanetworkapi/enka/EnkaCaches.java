@@ -37,6 +37,10 @@ public class EnkaCaches {
     private static final Map<GlobalLocalization, JsonNode> genshinLocalizationCache = new HashMap<>();
 
     private static final List<GenshinArtifactRequirement> artifactRequirements = new ArrayList<>();
+    private static final List<GenshinCharacterConfig> genshinCharacterConfigs = new ArrayList<>();
+    private static final List<GenshinCharacterAscension> genshinCharacterAscensions = new ArrayList<>();
+    private static final List<GenshinWeaponAscension> genshinWeaponAscensions = new ArrayList<>();
+    private static final List<GenshinWeaponConfig> genshinWeaponConfigs = new ArrayList<>();
 
     private static boolean genshinLoadedOrLoading = false;
 
@@ -56,6 +60,10 @@ public class EnkaCaches {
         materialCache.clear();
         artifactRequirements.clear();
         srCharacterDataCache.clear();
+        genshinCharacterConfigs.clear();
+        genshinCharacterAscensions.clear();
+        genshinWeaponAscensions.clear();
+        genshinWeaponConfigs.clear();
 
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
@@ -69,8 +77,78 @@ public class EnkaCaches {
         loadGenshinAffixesCache(classLoader);
         loadGenshinMaterialCache();
         loadArtifactCostCache();
+        loadGenshinAvatarConfigs();
+        loadGenshinCharacterAscensions();
+        loadGenshinWeaponAscensions();
+        loadGenshinWeaponConfigs();
 
         System.out.println("[Cache] All caches have loaded.");
+    }
+
+    private static void loadGenshinWeaponAscensions() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_WEAPON_ASCENSION_MATERIALS)) return;
+
+        final String artifactJson = fetchRawJsonData(GameType.GENSHIN, "ExcelBinOutput", "WeaponPromoteExcelConfigData.json");
+
+        if (artifactJson == null) {
+            System.out.println("[Cache] Failed to load genshin weapon ascension cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(artifactJson, ArrayNode.class);
+
+                for (JsonNode asc : node) {
+                    final GenshinWeaponAscension ascension = mapper.convertValue(asc, GenshinWeaponAscension.class);
+                    genshinWeaponAscensions.add(ascension);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
+    private static void loadGenshinWeaponConfigs() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_WEAPON_CONFIGS)) return;
+
+        final String materialJson = fetchRawJsonData(GameType.GENSHIN,"ExcelBinOutput", "WeaponExcelConfigData.json");
+
+        if (materialJson == null) {
+            System.out.println("[Cache] Failed to load weapon-config cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(materialJson, ArrayNode.class);
+
+                for (JsonNode weapon : node) {
+                    final GenshinWeaponConfig config = mapper.convertValue(weapon, GenshinWeaponConfig.class);
+                    genshinWeaponConfigs.add(config);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
+    private static void loadGenshinCharacterAscensions() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_CHARACTER_ASCENSION_MATERIALS)) return;
+
+        final String artifactJson = fetchRawJsonData(GameType.GENSHIN, "ExcelBinOutput", "AvatarPromoteExcelConfigData.json");
+
+        if (artifactJson == null) {
+            System.out.println("[Cache] Failed to load genshin character ascension cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(artifactJson, ArrayNode.class);
+
+                for (JsonNode asc : node) {
+                    final GenshinCharacterAscension ascension = mapper.convertValue(asc, GenshinCharacterAscension.class);
+                    genshinCharacterAscensions.add(ascension);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
     }
 
     private static void loadArtifactCostCache() {
@@ -110,6 +188,28 @@ public class EnkaCaches {
                 for (JsonNode mat : node) {
                     final String key = mat.get("id").asText();
                     materialCache.put(key, mapper.convertValue(mat, GenshinMaterial.class));
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
+    private static void loadGenshinAvatarConfigs() {
+        if (EnkaGlobals.isCacheBlocked(EnkaCache.GENSHIN_AVATAR_CONFIGS)) return;
+
+        final String materialJson = fetchRawJsonData(GameType.GENSHIN,"ExcelBinOutput", "AvatarExcelConfigData.json");
+
+        if (materialJson == null) {
+            System.out.println("[Cache] Failed to load avatar-config cache.");
+        } else {
+            try {
+                final ObjectMapper mapper = new ObjectMapper();
+                final ArrayNode node = mapper.readValue(materialJson, ArrayNode.class);
+
+                for (JsonNode avatar : node) {
+                    final GenshinCharacterConfig config = mapper.convertValue(avatar, GenshinCharacterConfig.class);
+                    genshinCharacterConfigs.add(config);
                 }
             } catch (IOException exception) {
                 exception.printStackTrace();
@@ -307,7 +407,7 @@ public class EnkaCaches {
      * @return the material
      */
     @Nullable
-    protected static GenshinMaterial getMaterial(final int id) {
+    public static GenshinMaterial getMaterial(final int id) {
         return materialCache.getOrDefault(String.valueOf(id), null);
     }
 
@@ -440,6 +540,38 @@ public class EnkaCaches {
     @NotNull
     public static List<GenshinArtifactRequirement> getArtifactRequirements() {
         return List.copyOf(artifactRequirements);
+    }
+
+    /**
+     * Gets the avatar configs for Genshin Impact. Used for converting character id -> promote id.
+     */
+    @NotNull
+    public static List<GenshinCharacterConfig> getGenshinAvatarConfigs() {
+        return List.copyOf(genshinCharacterConfigs);
+    }
+
+    /**
+     * Gets the weapon configs for Genshin Impact. Used for converting weapon id -> promote id.
+     */
+    @NotNull
+    public static List<GenshinWeaponConfig> getGenshinWeaponConfigs() {
+        return List.copyOf(genshinWeaponConfigs);
+    }
+
+    /**
+     * Gets the genshin ascensions.
+     * <br>These are used for calculating the amount of materials needed for ascension.
+     */
+    public static List<GenshinWeaponAscension> getGenshinWeaponAscensions() {
+        return List.copyOf(genshinWeaponAscensions);
+    }
+
+    /**
+     * Gets the genshin ascensions.
+     * <br>These are used for calculating the amount of materials needed for ascension.
+     */
+    public static List<GenshinCharacterAscension> getGenshinCharacterAscensions() {
+        return List.copyOf(genshinCharacterAscensions);
     }
 
     /**

@@ -34,9 +34,29 @@ public enum EnkaCache {
      */
     GENSHIN_MATERIALS,
     /**
-     * Genshin Materials, this is used for getting the experience needed to level up an artifact.
+     * Genshin Artifact costs, this is used for getting the experience needed to level up an artifact.
      */
     GENSHIN_ARTIFACT_COSTS,
+    /**
+     * Genshin Avatar Configs, this is used to parse a character id into a promote id.
+     * <br>You can block this if you do not need character ascension materials.
+     */
+    GENSHIN_AVATAR_CONFIGS,
+    /**
+     * Genshin Ascension Materials, this is used to get the materials needed for character ascension.
+     * <br>Note: If {@link #GENSHIN_MATERIALS} is blocked, this will not work.
+     */
+    GENSHIN_CHARACTER_ASCENSION_MATERIALS,
+    /**
+     * Genshin Weapon Configs, this is used to parse a weapon id into a promote id.
+     * <br>You can block this if you do not need weapon ascension materials.
+     */
+    GENSHIN_WEAPON_CONFIGS,
+    /**
+     * Genshin Weapon Ascension Materials, this is used to get the materials needed for weapon ascension.
+     * <br>Note: If {@link #GENSHIN_MATERIALS} is blocked, this will not work.
+     */
+    GENSHIN_WEAPON_ASCENSION_MATERIALS,
     /**
      * Honkai: Star Rail Characters, please read the documentation on {@link EnkaCache#GENSHIN_CHARACTERS}.
      */

@@ -28,4 +28,13 @@ public class EnkaVerifier {
     public static void verifyHonkai() {
         verifyOrThrow(EnkaGlobals.isHonkaiEnabled(), HonkaiNotEnabledException.class);
     }
+
+    /**
+     * Verifies that a number is not 0
+     */
+    public static void verifyNotZero(@NotNull Number... numbers) {
+        for (Number i : numbers) {
+            verifyOrThrow(i.intValue() != 0, IllegalArgumentException.class);
+        }
+    }
 }

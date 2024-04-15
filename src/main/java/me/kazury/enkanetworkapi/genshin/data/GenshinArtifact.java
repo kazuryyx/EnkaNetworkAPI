@@ -5,6 +5,7 @@ import me.kazury.enkanetworkapi.enka.EnkaGlobals;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
+import me.kazury.enkanetworkapi.util.calculator.GenshinCalculator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -165,6 +166,16 @@ public class GenshinArtifact {
             efficiencyMap.put(id, efficiencyMap.getOrDefault(id, 0.0) + affix.getEfficiency());
         }
         return new GenshinRollData(efficiencyMap, this.getAppendPropIds());
+    }
+
+    /**
+     * Gets level data of this artifact.
+     * @param wantedLevel The wanted artifact level.
+     * @return The ascension data of this artifact.
+     */
+    @NotNull
+    public GenshinCalculator getAscensionData(final int wantedLevel) {
+        return GenshinCalculator.createArtifact(this, wantedLevel);
     }
 
     /**

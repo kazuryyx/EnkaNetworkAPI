@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.genshin.data;
 
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
+import me.kazury.enkanetworkapi.util.calculator.GenshinCalculator;
 import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -160,6 +161,16 @@ public class GenshinUserCharacter {
         final GenshinCharacterData data = EnkaCaches.getGenshinCharacterData(String.valueOf(this.id));
         if (data == null) throw new UpdateLibraryException();
         return data;
+    }
+
+    /**
+     * Gets ascension data of this character.
+     * @param wantedAscension The wanted ascension level.
+     * @return The ascension data of this character.
+     */
+    @NotNull
+    public GenshinCalculator getAscensionData(final int wantedAscension) {
+        return GenshinCalculator.createCharacter(this, wantedAscension);
     }
 
     /**

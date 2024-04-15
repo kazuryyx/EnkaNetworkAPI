@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.genshin.data;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
+import me.kazury.enkanetworkapi.util.calculator.GenshinCalculator;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -111,6 +112,16 @@ public class GenshinUserWeapon implements GenshinNameable {
     @NotNull
     public static GenshinUserWeaponBuilder builder() {
         return new GenshinUserWeaponBuilder();
+    }
+
+    /**
+     * Gets ascension data of this weapon.
+     * @param wantedAscension The wanted ascension level.
+     * @return The ascension data of this weapon.
+     */
+    @NotNull
+    public GenshinCalculator getAscensionData(final int wantedAscension) {
+        return GenshinCalculator.createWeapon(this, wantedAscension);
     }
 
     /**

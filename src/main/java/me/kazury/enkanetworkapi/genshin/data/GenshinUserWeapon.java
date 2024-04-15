@@ -21,6 +21,7 @@ public class GenshinUserWeapon implements GenshinNameable {
     @NotNull
     private final List<WeaponStat> stats;
     private final int star;
+    private final long id;
 
     public GenshinUserWeapon(@NotNull String nameTextMapHash,
                              final int weaponLevel,
@@ -28,7 +29,8 @@ public class GenshinUserWeapon implements GenshinNameable {
                              final int weaponRefinement,
                              @NotNull String weaponIcon,
                              @NotNull List<WeaponStat> stats,
-                             final int star) {
+                             final int star,
+                             final long id) {
         this.nameTextMapHash = nameTextMapHash;
         this.weaponLevel = weaponLevel;
         this.weaponAscension = weaponAscension;
@@ -36,6 +38,7 @@ public class GenshinUserWeapon implements GenshinNameable {
         this.weaponIcon = weaponIcon;
         this.stats = stats;
         this.star = star;
+        this.id = id;
     }
 
     /**
@@ -84,6 +87,13 @@ public class GenshinUserWeapon implements GenshinNameable {
      */
     public int getStar() {
         return this.star;
+    }
+
+    /**
+     * Gets the id of this weapon
+     */
+    public long getId() {
+        return this.id;
     }
 
     /**
@@ -143,6 +153,7 @@ public class GenshinUserWeapon implements GenshinNameable {
         private String weaponIcon;
         private List<WeaponStat> stats;
         private int star;
+        private long id;
 
         @NotNull
         public GenshinUserWeaponBuilder nameTextMapHash(@NotNull String nameTextMapHash) {
@@ -181,6 +192,12 @@ public class GenshinUserWeapon implements GenshinNameable {
         }
 
         @NotNull
+        public GenshinUserWeapon id(final long id) {
+            this.id = id;
+            return this;
+        }
+
+        @NotNull
         public GenshinUserWeaponBuilder star(final int star) {
             this.star = star;
             return this;
@@ -195,7 +212,9 @@ public class GenshinUserWeapon implements GenshinNameable {
                     this.weaponRefinement,
                     this.weaponIcon,
                     this.stats,
-                    this.star);
+                    this.star,
+                    this.id
+            );
         }
     }
 }

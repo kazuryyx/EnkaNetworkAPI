@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * A game type, which is used to retrieve json data by url.
  */
 public enum GameType {
-    GENSHIN("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/main/%s/%s"),
+    GENSHIN("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/%s/%s"),
     HONKAI("https://raw.githubusercontent.com/Dimbreath/StarRailData/master/%s/%s");
 
     @NotNull

@@ -4,6 +4,7 @@ import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListResourceBundle;
 
@@ -23,7 +24,7 @@ public class EnkaNetworkBuilder {
     private String baseUrl;
     private String userAgent;
     private boolean honkaiEnabled = false;
-    private List<EnkaCache> blockedCaches;
+    private List<EnkaCache> blockedCaches = new ArrayList<>();
 
     /**
      * Sets the default localization which will be used for {@link GenshinNameable} objects.

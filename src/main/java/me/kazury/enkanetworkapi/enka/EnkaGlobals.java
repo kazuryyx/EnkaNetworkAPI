@@ -29,7 +29,8 @@ public class EnkaGlobals {
     }
 
     /**
-     * @return the blocked caches
+     * Sets the blocked caches
+     * @param caches The caches to block
      */
     public static void setBlockedCaches(@NotNull List<EnkaCache> caches) {
         BLOCKED_CACHES.clear();

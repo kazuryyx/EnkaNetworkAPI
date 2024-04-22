@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListResourceBundle;
 
 /**
  * A builder which is used for creating an {@link EnkaNetworkAPI} instance.
@@ -85,6 +84,8 @@ public class EnkaNetworkBuilder {
     @NotNull
     public EnkaNetworkAPI build() {
         final EnkaNetworkAPI api = new EnkaNetworkAPI();
+        api.enableHonkai(this.honkaiEnabled);
+
         if (this.defaultLocalization != null) {
             api.setDefaultLocalization(this.defaultLocalization);
         }
@@ -97,8 +98,9 @@ public class EnkaNetworkBuilder {
             api.setUserAgent(this.userAgent);
         }
 
-        api.setBlockedCaches(this.blockedCaches);
-        api.enableHonkai(this.honkaiEnabled);
+        if (!this.blockedCaches.isEmpty()) {
+            api.setBlockedCaches(this.blockedCaches);
+        }
         return api;
     }
 }

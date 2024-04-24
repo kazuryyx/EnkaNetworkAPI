@@ -6,6 +6,20 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 24/04/2024 - Library Version: 4.6 | Genshin Impact Update
+- Added new 4.6 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f8f0b4a574c53df32292c5aa45bb872305ef8700>)
+- Method deprecations:
+    - ``SRCharacterData#getPath``. Use ``SRCharacterData#getCharacterPath`` instead
+- New Methods & Changes:
+    - ``EnkaCaches#getProfileIcon(Pair)`` -> ``EnkaCaches#getProfileIcon(long)``
+    - ``GenshinUserWeapon#getId``
+    - ``GenshinArtifact#getAscensionData``
+    - ``GenshinUserCharacter#getAscensionData``
+    - ``GenshinUserWeapon#getAscensionData``
+- Adds support for calculating character, weapon mats & relic experience. See [the docs](<https://enka-docs.kazury.me/api/material-calculation>) for example.
+- Adds support for blocking caches. See [the docs](<https://enka-docs.kazury.me/api/getting-started#blocking-specific-caches>) for example.
+- Several bug fixes introduced in previous version & during changes
+
 > Update - 27/03/2024 - Library Version: 4.5 | Honkai: Star Rail Update
 - Added new 2.1 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/c6a6bacaddc7fcd81d46f155f44c7671e5fb59e3)
 - Fix simulated universe, platform for non-existing accounts
@@ -27,14 +41,6 @@ This is an API wrapper for https://enka.network in Java.
 - Added new 2.0 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/9ce1d36cdaf31de9522ba8d347d68c39e11b8e2c)
 - New Methods:
     - **getMaxLevel()** (in ``GenshinUserCharacter``)
-
-> Update - 20/12/2023 - Library Version: 4.3 | Genshin Impact Update
-- Added new 4.3 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/2bc5b32acbe8a75025e46cd3654afdc70acec410)
-- New Methods:
-    - **getCharacterId()** (in ``GenshinCharacterData``)
-    - **getRankLevel()** (in ``GenshinArtifact``)
-    - **getMaxLevel()** (in ``GenshinArtifact``)
-    - **getSetName()** (in ``GenshinArtifact``)
 
 **Note:** There have been other changes before 4.3, however I will not include them here. I will update this when a new version drops
 </details>

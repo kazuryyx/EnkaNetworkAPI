@@ -2620,6 +2620,37 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
+  "10000096": {
+    "Element": "Fire",
+    "Rarity": 5,
+    "Consts": [
+      "UI_Talent_S_Arlecchino_01",
+      "UI_Talent_S_Arlecchino_02",
+      "UI_Talent_U_Arlecchino_01",
+      "UI_Talent_S_Arlecchino_03",
+      "UI_Talent_U_Arlecchino_02",
+      "UI_Talent_S_Arlecchino_04"
+    ],
+    "SkillOrder": [
+      10961,
+      10962,
+      10965
+    ],
+    "Skills": {
+      "10961": "Skill_A_03",
+      "10962": "Skill_S_Arlecchino_01",
+      "10965": "Skill_E_Arlecchino_01"
+    },
+    "ProudMap": {
+      "10961": 9631,
+      "10962": 9632,
+      "10965": 9639
+    },
+    "NameTextMapHash": 167199474,
+    "SideIconName": "UI_AvatarIcon_Side_Arlecchino",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

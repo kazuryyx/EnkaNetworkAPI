@@ -27,7 +27,7 @@ public class GenshinUserInformation {
     private final int towerFloorIndex;
     private final int towerLevelIndex;
     private final long uid;
-    private final Pair<Long, Long> profilePictureId;
+    private final long profilePictureId;
     private List<GenshinShowcaseCharacter> showcaseCharacters;
     private List<GenshinNamecard> namecards;
     private List<GenshinUserCharacter> characters;
@@ -42,7 +42,7 @@ public class GenshinUserInformation {
                                   final int towerLevelIndex,
                                   @NotNull List<GenshinShowcaseCharacter> showcaseCharacters,
                                   @NotNull List<GenshinNamecard> namecards,
-                                  @NotNull Pair<Long, Long> profilePictureId,
+                                  final long profilePictureId,
                                   @NotNull List<GenshinUserCharacter> characters,
                                   final long uid) {
         this.nickName = nickName;
@@ -146,13 +146,11 @@ public class GenshinUserInformation {
     }
 
     /**
-     * The ID of the character's profile picture (This will always exist).
-     * <br>As of version 4.1, it is not safe anymore to use this ID to get the profile picture by character data.
-     *
+     * The profile picture ID of this user.
+     * <br>As of version 4.6, this is not the character id anymore, but a separate id.
      * @see EnkaNetworkAPI#getGenshinProfileIdentifier(Pair)
      */
-    @NotNull
-    public Pair<Long, Long> getProfilePictureId() {
+    public long getProfilePictureId() {
         return this.profilePictureId;
     }
 
@@ -216,7 +214,7 @@ public class GenshinUserInformation {
         final GenshinUnconvertedUser.PlayerInfo playerInfoData = enkaUser.getPlayerInfo();
         final GenshinUnconvertedUser.ProfilePicture profileData = playerInfoData.getProfilePicture();
         final String signature = playerInfoData.getSignature();
-        final Pair<Long, Long> profileId = filterId(profileData);
+        final long profileId = profileData.getId();
 
         final GenshinUserInformation user = new GenshinUserInformation(
                 playerInfoData.getNickname(),
@@ -392,22 +390,5 @@ public class GenshinUserInformation {
             return value + 1;
         }
         return -1;
-    }
-
-    /**
-     * Filters the id of a profile picture,
-     * <br>As of version 4.1, HoYo decided to change how profiles work.
-     *
-     * @param profile The profile to filter
-     * @return Pair of id and 0 or pair of avatar id and costume id
-     */
-    @NotNull
-    private static Pair<Long, Long> filterId(@NotNull GenshinUnconvertedUser.ProfilePicture profile) {
-        // either id OR avatar id AND costume id
-        final long id = profile.getId();
-        if (id != 0) return new Pair<>(id, 0L);
-        final long avatarId = profile.getAvatarId();
-        final long costumeId = profile.getCostumeId();
-        return new Pair<>(avatarId, costumeId);
     }
 }

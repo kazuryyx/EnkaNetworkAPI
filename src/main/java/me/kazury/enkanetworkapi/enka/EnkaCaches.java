@@ -5,9 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
-import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
-import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import okhttp3.*;
@@ -29,7 +27,7 @@ public class EnkaCaches {
     // genshin
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
-    private static final Map<Long, GenshinProfilePicture> genshinProfiles = new HashMap<>();
+    private static final Map<String, String> genshinProfiles = new HashMap<>();
 
     private static final Map<String, GenshinAffix> affixCache = new HashMap<>();
     private static final Map<String, GenshinMaterial> materialCache = new HashMap<>();
@@ -240,12 +238,12 @@ public class EnkaCaches {
         try (InputStream stream = classLoader.getResourceAsStream("genshinprofiles.json")) {
             if (stream == null) throw new NullPointerException("genshinprofiles.json is null");
 
-            final ObjectMapper mapper = new ObjectMapper();
-            final ArrayNode node = mapper.readValue(stream, ArrayNode.class);
+            loadCache(stream, (entry, mapper) -> {
+                final String key = entry.getKey();
+                final String icon = entry.getValue().get("iconPath").asText();
 
-            for (JsonNode profile : node) {
-                genshinProfiles.put(profile.get("id").asLong(), new GenshinProfilePicture(profile));
-            }
+                genshinProfiles.put(key, icon);
+            });
         } catch (IOException exception) {
             exception.printStackTrace();
         }
@@ -413,49 +411,12 @@ public class EnkaCaches {
 
     /**
      * Fetches a profile icon from the cache
-     * <br>You will need to parse this yourself with {@link EnkaNetworkAPI#getGenshinIcon(String)}
-     * @param pair Pair of id and 0 or Pair of avatarId and costumeId
+     * @param id the profile picture id
      * @return the profile icon name
-     * @since 4.1
      */
     @NotNull
-    protected static String getProfileIcon(@NotNull Pair<Long, Long> pair) {
-        final long l = fetchLast();
-
-        final long first = pair.getFirst();
-        final long second = pair.getSecond();
-        if (first > l && second == 0) {
-            // user did not migrate yet (did not change profile after 4.1)
-            final GenshinCharacterData data = getGenshinCharacterData(String.valueOf(first));
-            if (data == null) throw new UpdateLibraryException();
-            return data.getIconName();
-        }
-
-        if (second == 0) {
-            // user has migrated, does not have costume
-            return genshinProfiles.get(first).getIconPath();
-        }
-
-        // since we are here, we know that the user has migrated and has a costume equipped
-        // first = avatar id (character id), second = costume id
-        // therefore we need to filter by internal id to find where internal id == second
-        return genshinProfiles.values().stream().filter((picture) -> picture.getInternalId() == second)
-                .findFirst()
-                .orElseThrow(UpdateLibraryException::new) // should never happen unless json is outdated
-                .getIconPath();
-    }
-
-    /**
-     * Fetches the highest profile picture id in the json.
-     * @return the highest profile picture id
-     */
-    protected static long fetchLast() {
-        long max = 0L;
-        for (long pictureId : genshinProfiles.keySet()) {
-            if (pictureId < max) continue;
-            max = pictureId;
-        }
-        return max;
+    protected static String getProfileIcon(final long id) {
+        return genshinProfiles.getOrDefault(String.valueOf(id), "UI_AvatarIcon_0_P");
     }
 
     /**

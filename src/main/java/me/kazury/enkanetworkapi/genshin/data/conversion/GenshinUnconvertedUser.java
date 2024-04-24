@@ -284,31 +284,10 @@ public class GenshinUnconvertedUser implements IExpiryTime {
     }
 
     public static class ProfilePicture {
-        private long avatarId;
         private long id;
-        @SerializedName("costume_id")
-        private long costumeId;
 
-        /**
-         * As of version 4.1, HoYo is not storing an avatar ID anymore, but rather a profile picture ID.
-         */
-        public long getAvatarId() {
-            return this.avatarId;
-        }
-
-        /**
-         As of version 4.1, HoYo decided to use a different id for the profile picture.
-         <br>Both fields will continue to eixst, as some people MAY not have migrated yet (changed their avatar after 4.1).
-         */
         public long getId() {
             return this.id;
-        }
-
-        /**
-         * Fallback if the above 2 fields are null.
-         */
-        public long getCostumeId() {
-            return this.costumeId;
         }
     }
 

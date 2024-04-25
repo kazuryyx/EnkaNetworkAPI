@@ -27,7 +27,7 @@ public class GenshinUserInformation {
     private final int towerFloorIndex;
     private final int towerLevelIndex;
     private final long uid;
-    private final long profilePictureId;
+    private final Pair<Long, Long> profilePictureId;
     private List<GenshinShowcaseCharacter> showcaseCharacters;
     private List<GenshinNamecard> namecards;
     private List<GenshinUserCharacter> characters;
@@ -42,7 +42,7 @@ public class GenshinUserInformation {
                                   final int towerLevelIndex,
                                   @NotNull List<GenshinShowcaseCharacter> showcaseCharacters,
                                   @NotNull List<GenshinNamecard> namecards,
-                                  final long profilePictureId,
+                                  @NotNull Pair<Long, Long> profilePictureId,
                                   @NotNull List<GenshinUserCharacter> characters,
                                   final long uid) {
         this.nickName = nickName;
@@ -147,10 +147,10 @@ public class GenshinUserInformation {
 
     /**
      * The profile picture ID of this user.
-     * <br>As of version 4.6, this is not the character id anymore, but a separate id.
      * @see EnkaNetworkAPI#getGenshinProfileIdentifier(Pair)
      */
-    public long getProfilePictureId() {
+    @NotNull
+    public Pair<Long, Long> getProfilePictureId() {
         return this.profilePictureId;
     }
 
@@ -196,6 +196,14 @@ public class GenshinUserInformation {
         this.characters = characters;
     }
 
+    @NotNull
+    public static Pair<Long, Long> filterId(@NotNull GenshinUnconvertedUser.ProfilePicture profileData) {
+        if (profileData.getAvatarId() != 0) {
+            return new Pair<>(profileData.getAvatarId(), 0L);
+        }
+        return new Pair<>(0L, profileData.getId());
+    }
+
     /**
      * Converts this object to a {@link GenshinUserInformation} object.
      * <br>
@@ -214,7 +222,6 @@ public class GenshinUserInformation {
         final GenshinUnconvertedUser.PlayerInfo playerInfoData = enkaUser.getPlayerInfo();
         final GenshinUnconvertedUser.ProfilePicture profileData = playerInfoData.getProfilePicture();
         final String signature = playerInfoData.getSignature();
-        final long profileId = profileData.getId();
 
         final GenshinUserInformation user = new GenshinUserInformation(
                 playerInfoData.getNickname(),
@@ -227,7 +234,7 @@ public class GenshinUserInformation {
                 playerInfoData.getTowerLevelIndex(),
                 Collections.emptyList(),
                 Collections.emptyList(),
-                profileId,
+                filterId(profileData),
                 Collections.emptyList(),
                 Long.parseLong(enkaUser.getUid())
         );

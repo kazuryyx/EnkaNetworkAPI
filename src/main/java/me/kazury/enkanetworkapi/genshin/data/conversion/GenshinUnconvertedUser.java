@@ -284,7 +284,12 @@ public class GenshinUnconvertedUser implements IExpiryTime {
     }
 
     public static class ProfilePicture {
+        private long avatarId;
         private long id;
+
+        public long getAvatarId() {
+            return this.avatarId;
+        }
 
         public long getId() {
             return this.id;

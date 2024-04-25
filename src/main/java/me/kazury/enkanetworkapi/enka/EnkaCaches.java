@@ -5,9 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
 import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +29,7 @@ public class EnkaCaches {
     // genshin
     private static final Map<Integer, String> namecardCache = new HashMap<>();
     private static final Map<String, GenshinCharacterData> characterCache = new HashMap<>();
-    private static final Map<String, String> genshinProfiles = new HashMap<>();
+    private static final Map<String, GenshinAvatarProfile> genshinProfiles = new HashMap<>();
 
     private static final Map<String, GenshinAffix> affixCache = new HashMap<>();
     private static final Map<String, GenshinMaterial> materialCache = new HashMap<>();
@@ -240,9 +242,9 @@ public class EnkaCaches {
 
             loadCache(stream, (entry, mapper) -> {
                 final String key = entry.getKey();
-                final String icon = entry.getValue().get("iconPath").asText();
+                final JsonNode value = entry.getValue();
 
-                genshinProfiles.put(key, icon);
+                genshinProfiles.put(key, mapper.convertValue(value, GenshinAvatarProfile.class));
             });
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -411,12 +413,29 @@ public class EnkaCaches {
 
     /**
      * Fetches a profile icon from the cache
-     * @param id the profile picture id
+     * @param pair the profile picture pair
      * @return the profile icon name
      */
     @NotNull
-    protected static String getProfileIcon(final long id) {
-        return genshinProfiles.getOrDefault(String.valueOf(id), "UI_AvatarIcon_0_P");
+    protected static String getProfileIcon(@NotNull Pair<Long, Long> pair) {
+        // check if the player still has avatarId field
+        final long first = pair.getFirst();
+        final long second = pair.getSecond();
+
+        if (first != 0) {
+            // filter the json by "id" field and return the key
+            return genshinProfiles.values()
+                    .stream()
+                    .filter(profile -> profile.getId() == first)
+                    .findFirst()
+                    .orElseThrow(UpdateLibraryException::new)
+                    .getImage();
+        }
+
+        // filter the list by key and return the value
+        final GenshinAvatarProfile profile = genshinProfiles.get(String.valueOf(second));
+        if (profile == null) throw new UpdateLibraryException();
+        return profile.getImage();
     }
 
     /**

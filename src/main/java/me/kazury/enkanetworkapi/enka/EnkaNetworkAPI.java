@@ -172,7 +172,7 @@ public class EnkaNetworkAPI {
      * @return The icon identifier, this will always fall back to old 4.0 data, if not changed > 4.1
      */
     @NotNull
-    public String getGenshinProfileIdentifier(final long profileId) {
+    public String getGenshinProfileIdentifier(@NotNull Pair<Long, Long> profileId) {
         return EnkaCaches.getProfileIcon(profileId);
     }
 

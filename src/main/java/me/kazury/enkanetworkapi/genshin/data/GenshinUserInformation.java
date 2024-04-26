@@ -198,8 +198,9 @@ public class GenshinUserInformation {
 
     @NotNull
     public static Pair<Long, Long> filterId(@NotNull GenshinUnconvertedUser.ProfilePicture profileData) {
+        // Pair<AvatarIdentifier, CustomeIdentifier> or Pair<0, Identifier>
         if (profileData.getAvatarId() != 0) {
-            return new Pair<>(profileData.getAvatarId(), 0L);
+            return new Pair<>(profileData.getAvatarId(), profileData.getCostumeId());
         }
         return new Pair<>(0L, profileData.getId());
     }

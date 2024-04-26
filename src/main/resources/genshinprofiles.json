@@ -12,7 +12,7 @@
     "iconPath": "UI_AvatarIcon_Ambor_Circle"
   },
   "101": {
-    "id": 0,
+    "id": 202101,
     "iconPath": "UI_AvatarIcon_AmborCostumeWic_Circle"
   },
   "200": {
@@ -20,7 +20,7 @@
     "iconPath": "UI_AvatarIcon_Kaeya_Circle"
   },
   "201": {
-    "id": 0,
+    "id": 201501,
     "iconPath": "UI_AvatarIcon_KaeyaCostumeDancer_Circle"
   },
   "300": {
@@ -28,7 +28,7 @@
     "iconPath": "UI_AvatarIcon_Lisa_Circle"
   },
   "301": {
-    "id": 0,
+    "id": 200601,
     "iconPath": "UI_AvatarIcon_LisaCostumeStudentin_Circle"
   },
   "400": {
@@ -36,7 +36,7 @@
     "iconPath": "UI_AvatarIcon_Barbara_Circle"
   },
   "401": {
-    "id": 0,
+    "id": 201401,
     "iconPath": "UI_AvatarIcon_BarbaraCostumeSummertime_Circle"
   },
   "500": {
@@ -56,7 +56,7 @@
     "iconPath": "UI_AvatarIcon_Xingqiu_Circle"
   },
   "801": {
-    "id": 0,
+    "id": 202501,
     "iconPath": "UI_AvatarIcon_XingqiuCostumeBamboo_Circle"
   },
   "900": {
@@ -64,7 +64,7 @@
     "iconPath": "UI_AvatarIcon_Ningguang_Circle"
   },
   "901": {
-    "id": 0,
+    "id": 202701,
     "iconPath": "UI_AvatarIcon_NingguangCostumeFloral_Circle"
   },
   "1000": {
@@ -72,7 +72,7 @@
     "iconPath": "UI_AvatarIcon_Fischl_Circle"
   },
   "1001": {
-    "id": 0,
+    "id": 203101,
     "iconPath": "UI_AvatarIcon_FischlCostumeHighness_Circle"
   },
   "1100": {
@@ -96,11 +96,11 @@
     "iconPath": "UI_AvatarIcon_Qin_Circle"
   },
   "1501": {
-    "id": 0,
+    "id": 200302,
     "iconPath": "UI_AvatarIcon_QinCostumeWic_Circle"
   },
   "1502": {
-    "id": 0,
+    "id": 200301,
     "iconPath": "UI_AvatarIcon_QinCostumeSea_Circle"
   },
   "1600": {
@@ -108,7 +108,7 @@
     "iconPath": "UI_AvatarIcon_Diluc_Circle"
   },
   "1601": {
-    "id": 0,
+    "id": 201601,
     "iconPath": "UI_AvatarIcon_DilucCostumeFlamme_Circle"
   },
   "1700": {
@@ -120,7 +120,7 @@
     "iconPath": "UI_AvatarIcon_Mona_Circle"
   },
   "1801": {
-    "id": 0,
+    "id": 204101,
     "iconPath": "UI_AvatarIcon_MonaCostumeWic_Circle"
   },
   "1900": {
@@ -128,7 +128,7 @@
     "iconPath": "UI_AvatarIcon_Keqing_Circle"
   },
   "1901": {
-    "id": 0,
+    "id": 204201,
     "iconPath": "UI_AvatarIcon_KeqingCostumeFeather_Circle"
   },
   "2000": {
@@ -140,7 +140,7 @@
     "iconPath": "UI_AvatarIcon_Klee_Circle"
   },
   "2101": {
-    "id": 0,
+    "id": 202901,
     "iconPath": "UI_AvatarIcon_KleeCostumeWitch_Circle"
   },
   "2200": {
@@ -168,7 +168,7 @@
     "iconPath": "UI_AvatarIcon_Ganyu_Circle"
   },
   "2701": {
-    "id": 0,
+    "id": 203701,
     "iconPath": "UI_AvatarIcon_GanyuCostumeYu_Circle"
   },
   "2800": {
@@ -184,7 +184,7 @@
     "iconPath": "UI_AvatarIcon_Rosaria_Circle"
   },
   "3001": {
-    "id": 0,
+    "id": 204501,
     "iconPath": "UI_AvatarIcon_RosariaCostumeWic_Circle"
   },
   "3100": {
@@ -204,7 +204,7 @@
     "iconPath": "UI_AvatarIcon_Ayaka_Circle"
   },
   "3401": {
-    "id": 0,
+    "id": 200201,
     "iconPath": "UI_AvatarIcon_AyakaCostumeFruhling_Circle"
   },
   "3500": {
@@ -252,7 +252,7 @@
     "iconPath": "UI_AvatarIcon_Shenhe_Circle"
   },
   "4501": {
-    "id": 0,
+    "id": 206301,
     "iconPath": "UI_AvatarIcon_ShenheCostumeDai_Circle"
   },
   "4600": {
@@ -400,71 +400,71 @@
     "iconPath": "UI_AvatarIcon_Ambor_Circle"
   },
   "100010": {
-    "id": 0,
+    "id": 72105,
     "iconPath": "UI_AvatarIcon_72105_Circle"
   },
   "100020": {
-    "id": 0,
+    "id": 72158,
     "iconPath": "UI_AvatarIcon_72158_Circle"
   },
   "100030": {
-    "id": 0,
+    "id": 72173,
     "iconPath": "UI_AvatarIcon_72173_Circle"
   },
   "100040": {
-    "id": 0,
+    "id": 72177,
     "iconPath": "UI_AvatarIcon_72177_Circle"
   },
   "100050": {
-    "id": 0,
+    "id": 71045,
     "iconPath": "UI_AvatarIcon_71045_Circle"
   },
   "100060": {
-    "id": 0,
+    "id": 73038,
     "iconPath": "UI_AvatarIcon_73038_Circle"
   },
   "100070": {
-    "id": 0,
+    "id": 73055,
     "iconPath": "UI_AvatarIcon_73055_Circle"
   },
   "100080": {
-    "id": 0,
+    "id": 73220,
     "iconPath": "UI_AvatarIcon_73220_Circle"
   },
   "100090": {
-    "id": 0,
+    "id": 73232,
     "iconPath": "UI_AvatarIcon_73232_Circle"
   },
   "100100": {
-    "id": 0,
+    "id": 74007,
     "iconPath": "UI_AvatarIcon_74007_Circle"
   },
   "100110": {
-    "id": 0,
+    "id": 74004,
     "iconPath": "UI_AvatarIcon_74004_Circle"
   },
   "100120": {
-    "id": 0,
+    "id": 74028,
     "iconPath": "UI_AvatarIcon_74028_Circle"
   },
   "100130": {
-    "id": 0,
+    "id": 74053,
     "iconPath": "UI_AvatarIcon_74053_Circle"
   },
   "100140": {
-    "id": 0,
+    "id": 74078,
     "iconPath": "UI_AvatarIcon_74078_Circle"
   },
   "100150": {
-    "id": 0,
+    "id": 74085,
     "iconPath": "UI_AvatarIcon_74085_Circle"
   },
   "100160": {
-    "id": 0,
+    "id": 71100,
     "iconPath": "UI_AvatarIcon_71100_Circle"
   },
   "100170": {
-    "id": 0,
+    "id": 74196,
     "iconPath": "UI_AvatarIcon_74196_Circle"
   }
 }

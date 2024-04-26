@@ -419,10 +419,22 @@ public class EnkaCaches {
     @NotNull
     protected static String getProfileIcon(@NotNull Pair<Long, Long> pair) {
         // check if the player still has avatarId field
+        // this method is a mess
         final long first = pair.getFirst();
         final long second = pair.getSecond();
 
-        if (first != 0) {
+        if (first != 0L) {
+            if (second != 0L) {
+                // costume
+                return genshinProfiles.values()
+                        .stream()
+                        .filter(profile -> profile.getId() == second)
+                        .findFirst()
+                        .orElseThrow(UpdateLibraryException::new)
+                        .getImage();
+            }
+
+            // no costume
             // filter the json by "id" field and return the key
             return genshinProfiles.values()
                     .stream()

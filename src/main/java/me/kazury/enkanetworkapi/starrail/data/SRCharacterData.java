@@ -99,7 +99,11 @@ public class SRCharacterData {
 
     /**
      * The full name of this character
+     * @deprecated This was deprecated in 2.1 (29th April 2024) since nobody uses this for their name.
+     *             <br>Maybe in the future this will not be deprecated anymore.
+     * @see #getAvatarNameData()
      */
+    @Deprecated
     @NotNull
     public AvatarFullName getAvatarFullNameData() {
         return this.avatarFullNameData;

@@ -295,9 +295,7 @@ public class SRPropLayer {
 
         final JsonNode topNode = EnkaCaches.getHonkaiMetaCharacterProperties(String.valueOf(id), String.valueOf(ascension));
         final SRPropLayer layer = new SRPropLayer("character");
-        if (topNode == null) {
-            throw new UpdateLibraryException();
-        }
+        if (topNode == null) return layer;
 
         final double hpBase = topNode.get("HPBase").asDouble();
         final double hpAdd = topNode.get("HPAdd").asDouble();
@@ -332,9 +330,7 @@ public class SRPropLayer {
 
         final JsonNode topNode = EnkaCaches.getHonkaiMetaWeaponProperties(String.valueOf(tid), String.valueOf(rank));
         final SRPropLayer layer = new SRPropLayer("weapon");
-        if (topNode == null) {
-            throw new UpdateLibraryException();
-        }
+        if (topNode == null) return layer;
 
         final double baseHP = topNode.get("BaseHP").doubleValue();
         final double hpAdd = topNode.get("HPAdd").doubleValue();
@@ -357,9 +353,7 @@ public class SRPropLayer {
 
         final JsonNode topNode = EnkaCaches.getHonkaiMetaWeaponAffixProperties(String.valueOf(tid), String.valueOf(imposion));
         final SRPropLayer layer = new SRPropLayer("weaponAffix");
-        if (topNode == null) {
-            throw new UpdateLibraryException();
-        }
+        if (topNode == null) return layer;
 
         addFields(topNode, layer.getClass(), layer);
         return layer;

@@ -17,17 +17,20 @@ public class SRRelic implements SRNameable {
     private final RelicStat mainStat;
     private final List<RelicStat> subStats;
     private final long hash;
+    private final long setId;
 
     public SRRelic(final int level,
                    @Nullable SRRelicType type,
                    @NotNull RelicStat mainStat,
                    @NotNull List<RelicStat> subStats,
-                   final long hash) {
+                   final long hash,
+                   final long setId) {
         this.level = level;
         this.type = type;
         this.mainStat = mainStat;
         this.subStats = subStats;
         this.hash = hash;
+        this.setId = setId;
     }
 
     /**
@@ -45,6 +48,14 @@ public class SRRelic implements SRNameable {
      */
     public SRRelicType getType() {
         return this.type;
+    }
+
+    /**
+     * Gets the set id of this relic.
+     * @return The set id of this relic.
+     */
+    public long getSetId() {
+        return setId;
     }
 
     /**

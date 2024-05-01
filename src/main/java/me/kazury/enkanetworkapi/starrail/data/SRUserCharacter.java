@@ -5,7 +5,10 @@ import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This class is different from {@link SRCharacterData}
@@ -24,18 +27,23 @@ public class SRUserCharacter {
     @NotNull
     private final List<SRRelic> relics;
 
+    @NotNull
+    private final List<SRSkillTreeElement> treeElements;
+
     public SRUserCharacter(final int avatarId,
                            final int eidolon,
                            final int level,
                            final int ascension,
                            @Nullable SRLightcone lightcone,
-                           @NotNull List<SRRelic> relics) {
+                           @NotNull List<SRRelic> relics,
+                           @NotNull List<SRSkillTreeElement> treeElements) {
         this.avatarId = avatarId;
         this.eidolon = eidolon;
         this.level = level;
         this.ascension = ascension;
         this.lightcone = lightcone;
         this.relics = relics;
+        this.treeElements = treeElements;
     }
 
     /**
@@ -79,6 +87,14 @@ public class SRUserCharacter {
     }
 
     /**
+     * Gets the skill tree elements of the character.
+     */
+    @NotNull
+    public List<SRSkillTreeElement> getTreeElements() {
+        return treeElements;
+    }
+
+    /**
      * Represents a relic that the character currently has equipped
      * <br>A character can have up to 6 relics equipped, including 4 sub stats on each.
      * @see SRRelic
@@ -102,6 +118,49 @@ public class SRUserCharacter {
     }
 
     /**
+     * Gets props from this character.
+     */
+    @NotNull
+    public Map<SRAppendProp, SRAppendPropData> getProps() {
+        final SRLightcone srLightcone = this.getLightcone();
+        final SRPropLayer.PropState state = new SRPropLayer.PropState();
+
+        state.addLayer(SRPropLayer.character(this));
+
+        if (srLightcone != null) {
+            state.addLayer(SRPropLayer.weapon(srLightcone));
+        }
+
+        if (srLightcone != null && srLightcone.getGameData().getPath() == this.getGameData().getCharacterPath()) {
+            // Players can equip lightcones from other paths but the boost only applies for same path
+            state.addLayer(SRPropLayer.weaponAffix(srLightcone));
+        }
+
+        state.addLayer(SRPropLayer.relic(this.getRelics()));
+        state.addLayer(SRPropLayer.relicSet(this.getRelics()));
+        state.addLayer(SRPropLayer.skillTree(this.getTreeElements()));
+
+        final Map<SRAppendProp, SRAppendPropData> props = new HashMap<>();
+        final SRPropLayer sum = state.sum("weapon", "character", "relics", "relicSet", "weaponAffix", "skillTree");
+
+        for (SRPropLayer.PropProperty prop : sum.getProps()) {
+            final SRAppendProp appendProp = SRAppendProp.fromKey(prop.getType());
+            if (appendProp == null) {
+                System.out.println("No prop for " + prop.getType());
+                continue;
+            }
+
+            double value = prop.getValue();
+            if (appendProp.getValueType() == SRAppendProp.ValueType.PERCENTAGE) {
+                value *= 100;
+            }
+
+            props.put(appendProp, new SRAppendPropData(appendProp, appendProp.getAcceptor().accept(value), value));
+        }
+        return props;
+    }
+
+    /**
      * @return Builder for {@link SRUserCharacter}
      */
     @NotNull
@@ -116,6 +175,7 @@ public class SRUserCharacter {
         private int ascension;
         private SRLightcone lightcone;
         private List<SRRelic> relics;
+        private List<SRSkillTreeElement> treeElements;
 
         @NotNull
         public SRUserCharacterBuilder avatarId(final int avatarId) {
@@ -154,13 +214,21 @@ public class SRUserCharacter {
         }
 
         @NotNull
+        public SRUserCharacterBuilder treeElements(@NotNull List<SRSkillTreeElement> treeElements) {
+            this.treeElements = treeElements;
+            return this;
+        }
+
+        @NotNull
         public SRUserCharacter build() {
             return new SRUserCharacter(this.avatarId,
                     this.eidolon,
                     this.level,
                     this.ascension,
                     this.lightcone,
-                    this.relics);
+                    this.relics,
+                    this.treeElements
+            );
         }
     }
 }

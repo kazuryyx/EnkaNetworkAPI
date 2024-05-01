@@ -98,7 +98,7 @@ public enum SRAppendProp {
     @Nullable
     public static SRAppendProp fromKey(@NotNull String key) {
         for (SRAppendProp prop : values()) {
-            if (prop.getKey().equals(key)) {
+            if (prop.getKey().equalsIgnoreCase(key)) {
                 return prop;
             }
         }

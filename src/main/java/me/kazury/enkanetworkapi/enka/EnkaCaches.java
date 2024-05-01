@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.starrail.data.SRLightconeData;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
 import me.kazury.enkanetworkapi.util.GameType;
@@ -49,6 +50,15 @@ public class EnkaCaches {
     // star rail
     private static final Map<String, SRCharacterData> srCharacterDataCache = new HashMap<>();
     private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
+
+    private static final Map<String, SRLightconeData> honkaiLightConeCache = new HashMap<>();
+
+    private static final Map<String, JsonNode> metaCharacterCache = new HashMap<>();
+    private static final Map<String, JsonNode> metaWeaponCache = new HashMap<>();
+    private static final Map<String, JsonNode> metaRelicSetCache = new HashMap<>();
+    private static final Map<String, JsonNode> metaWeaponAffixCache = new HashMap<>();
+    private static final Map<String, JsonNode> metaSkillTreeCache = new HashMap<>();
+
     private static boolean honkaiLoadedOrLoading = false;
 
     // util
@@ -66,6 +76,12 @@ public class EnkaCaches {
         genshinCharacterAscensions.clear();
         genshinWeaponAscensions.clear();
         genshinWeaponConfigs.clear();
+        metaCharacterCache.clear();
+        metaWeaponCache.clear();
+        metaRelicSetCache.clear();
+        metaWeaponAffixCache.clear();
+        metaSkillTreeCache.clear();
+        honkaiLightConeCache.clear();
 
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
@@ -77,6 +93,12 @@ public class EnkaCaches {
         loadHonkaiCharacterCache(classLoader);
         loadGenshinProfileCache(classLoader);
         loadGenshinAffixesCache(classLoader);
+        loadHonkaiMetaCharacters(classLoader);
+        loadHonkaiMetaWeapons(classLoader);
+        loadHonkaiMetaWeaponAffixes(classLoader);
+        loadHonkaiMetaRelicSets(classLoader);
+        loadHonkaiMetaSkillTree(classLoader);
+        loadHonkaiLightconeCache(classLoader);
         loadGenshinMaterialCache();
         loadArtifactCostCache();
         loadGenshinAvatarConfigs();
@@ -177,6 +199,51 @@ public class EnkaCaches {
         }, EnkaCache.GENSHIN_AVATAR_CONFIGS);
     }
 
+    private static void loadHonkaiMetaSkillTree(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkermeta_skilltree.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode node = entry.getValue();
+
+            metaSkillTreeCache.put(key, node);
+        }), EnkaCache.HONKAI_META);
+    }
+
+    private static void loadHonkaiMetaWeaponAffixes(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkermeta_weapons_affix.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode node = entry.getValue();
+
+            metaWeaponAffixCache.put(key, node);
+        }), EnkaCache.HONKAI_META);
+    }
+
+    private static void loadHonkaiMetaRelicSets(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkermeta_weapons.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode node = entry.getValue();
+
+            metaWeaponCache.put(key, node);
+        }), EnkaCache.HONKAI_META);
+    }
+
+    private static void loadHonkaiMetaWeapons(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkermeta_relic_sets.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode node = entry.getValue();
+
+            metaRelicSetCache.put(key, node);
+        }), EnkaCache.HONKAI_META);
+    }
+
+    private static void loadHonkaiMetaCharacters(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkermeta_characters.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode node = entry.getValue();
+
+            metaCharacterCache.put(key, node);
+        }), EnkaCache.HONKAI_META);
+    }
+
     private static void loadGenshinAffixesCache(@NotNull ClassLoader classLoader) {
         baseResourceLoad(classLoader, "genshinaffixes.json", (stream) -> loadCache(stream, (entry, mapper) -> {
             final String key = entry.getKey();
@@ -193,6 +260,15 @@ public class EnkaCaches {
 
             genshinProfiles.put(key, mapper.convertValue(value, GenshinAvatarProfile.class));
         }), EnkaCache.GENSHIN_PROFILES);
+    }
+
+    private static void loadHonkaiLightconeCache(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "honker/honkerlightcones.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final SRLightconeData data = mapper.convertValue(entry.getValue(), SRLightconeData.class);
+
+            honkaiLightConeCache.put(key, data);
+        }), EnkaCache.HONKAI_LIGHTCONES);
     }
 
     private static void loadHonkaiCharacterCache(@NotNull ClassLoader classLoader) {
@@ -283,8 +359,9 @@ public class EnkaCaches {
 
     /**
      * Fetches json data from gitlab.
-     * @param game the game
-     * @param subPath the sub path
+     *
+     * @param game     the game
+     * @param subPath  the sub path
      * @param fileName the file name
      * @return the json
      */
@@ -342,6 +419,7 @@ public class EnkaCaches {
 
     /**
      * Fetches a profile icon from the cache
+     *
      * @param pair the profile picture pair
      * @return the profile icon name
      */
@@ -381,6 +459,7 @@ public class EnkaCaches {
 
     /**
      * Loads the localization from the json files
+     *
      * @param localization the localization to load
      */
     protected static void loadLocalizations(@NotNull GlobalLocalization localization) {
@@ -456,6 +535,17 @@ public class EnkaCaches {
     }
 
     /**
+     * Gets lightcone data from cache
+     * @param lightconeId The lightcone id
+     * @return The lightcone data
+     */
+    @Nullable
+    public static SRLightconeData getLightconeData(final long lightconeId) {
+        System.out.println(honkaiLightConeCache);
+        return honkaiLightConeCache.getOrDefault(String.valueOf(lightconeId), null);
+    }
+
+    /**
      * Gets the requirements for leveling up a specific artifact.
      */
     @NotNull
@@ -521,9 +611,10 @@ public class EnkaCaches {
 
     /**
      * Gets a localization from the cache.
-     * @param map the map
+     *
+     * @param map    the map
      * @param locale the locale
-     * @param id the id
+     * @param id     the id
      * @return The key from the locale or null if not found.
      */
     @Nullable
@@ -544,8 +635,9 @@ public class EnkaCaches {
 
     /**
      * Gets a genshin localization from the cache.
+     *
      * @param locale the locale
-     * @param id the id
+     * @param id     the id
      * @return The key from the locale or null if not found.
      */
     @Nullable
@@ -555,8 +647,9 @@ public class EnkaCaches {
 
     /**
      * Gets a honkai localization from the cache.
+     *
      * @param locale the locale
-     * @param id the id
+     * @param id     the id
      * @return The key from the locale or null if not found.
      */
     @Nullable
@@ -565,7 +658,79 @@ public class EnkaCaches {
     }
 
     /**
+     * Gets properties from a meta character
+     * @param characterId The character id
+     * @param currentAscension The character ascension
+     * @return The properties.
+     */
+    @Nullable
+    public static JsonNode getHonkaiMetaCharacterProperties(@NotNull String characterId, @NotNull String currentAscension) {
+        final JsonNode baseNode = metaCharacterCache.get(characterId);
+        if (baseNode == null) return null;
+        return baseNode.get(currentAscension);
+    }
+
+    /**
+     * Gets properties from a meta weapon
+     * @param weaponId The weapon id
+     * @param currentRank The weapon rank
+     * @return The properties.
+     */
+    @Nullable
+    public static JsonNode getHonkaiMetaWeaponProperties(@NotNull String weaponId, @NotNull String currentRank) {
+        final JsonNode baseNode = metaWeaponCache.get(weaponId);
+        if (baseNode == null) return null;
+        return baseNode.get(currentRank);
+    }
+
+    /**
+     * Gets properties from a meta relic set
+     * @param relicSet The relic set id
+     * @param count The count of relics, either 2 or 4
+     * @return The properties.
+     */
+    @Nullable
+    public static JsonNode getHonkaiMetaRelicSetProperties(final long relicSet, final int count) {
+        final JsonNode baseNode = metaRelicSetCache.get(String.valueOf(relicSet));
+        if (baseNode == null) return null;
+        final JsonNode setNode = baseNode.get(String.valueOf(count));
+        if (setNode == null) return null;
+        return setNode.get("props");
+    }
+
+    /**
+     * Gets properties from a meta weapon affix
+     * @param weaponId The weapon id
+     * @param superImposion The super imposion
+     * @return The properties.
+     */
+    @Nullable
+    public static JsonNode getHonkaiMetaWeaponAffixProperties(@NotNull String weaponId, @NotNull String superImposion) {
+        final JsonNode baseNode = metaWeaponAffixCache.get(weaponId);
+        if (baseNode == null) return null;
+        final JsonNode weaponNode = baseNode.get(superImposion);
+        if (weaponNode == null) return null;
+        return weaponNode.get("props");
+    }
+
+    /**
+     * Gets properties from a meta skill tree
+     * @param traceId The trace id
+     * @param level The level
+     * @return The properties.
+     */
+    @Nullable
+    public static JsonNode getHonkaiMetaSkillTreeProperties(@NotNull String traceId, @NotNull String level) {
+        final JsonNode baseNode = metaSkillTreeCache.get(traceId);
+        if (baseNode == null) return null;
+        final JsonNode skillNode = baseNode.get(level);
+        if (skillNode == null) return null;
+        return skillNode.get("props");
+    }
+
+    /**
      * Gets a genshin affix from the cache.
+     *
      * @param id the affix id
      * @return the affix
      */

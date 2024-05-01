@@ -197,6 +197,7 @@ public class SRUserInformation {
                             equipment.getRank(),
                             equipment.getLevel(),
                             equipment.getPromotion(),
+                            equipment.getTid(),
                             stats,
                             flat.getName()
                     );
@@ -249,7 +250,19 @@ public class SRUserInformation {
                             SRRelicType.fromId(relicData.getType()),
                             main,
                             subStats,
-                            flat.getSetName()));
+                            flat.getSetName(),
+                            flat.getSetID()
+                    ));
+                }
+
+                // Tree elements
+                final List<SRSkillTreeElement> elements = new ArrayList<>();
+
+                for (SRUnconvertedUser.SkillTreeData treeData : avatar.getSkillTreeList()) {
+                    elements.add(new SRSkillTreeElement(
+                            treeData.getPointId(),
+                            treeData.getLevel()
+                    ));
                 }
 
                 return SRUserCharacter.builder()
@@ -259,6 +272,7 @@ public class SRUserInformation {
                         .level(level)
                         .avatarId(avatarId)
                         .lightcone(lightcone)
+                        .treeElements(elements)
                         .build();
             }).toList());
         });

@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
+import me.kazury.enkanetworkapi.starrail.data.SRUserCharacter;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.genshin.data.GenshinArtifact;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserWeapon;
@@ -61,6 +62,15 @@ public enum EnkaCache {
      * <br>Note: If {@link #GENSHIN_MATERIALS} is blocked, this will not work.
      */
     GENSHIN_WEAPON_ASCENSION_MATERIALS,
+    /**
+     * The metadata for some characters, this is for example used if you want to fetch the properties of a character.
+     * <br>Unlike genshin, we need to calculate the stats ourselves and not exposed via the json.
+     */
+    HONKAI_META,
+    /**
+     * Lightcone data for Honkai: Star Rail.
+     */
+    HONKAI_LIGHTCONES,
     /**
      * Honkai: Star Rail Characters, please read the documentation on {@link EnkaCache#GENSHIN_CHARACTERS}.
      */

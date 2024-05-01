@@ -1,7 +1,9 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.genshin.util.IFormattable;
 import me.kazury.enkanetworkapi.starrail.util.SRNameable;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -13,17 +15,20 @@ public class SRLightcone implements SRNameable {
     private final int superImposion;
     private final int level;
     private final int promotion;
+    private final int tid;
     private final List<LightconeStat> stats;
     private final long hash;
 
     public SRLightcone(final int superImposion,
                        final int level,
                        final int promotion,
+                       final int tid,
                        @NotNull List<LightconeStat> stats,
                        final long hash) {
         this.superImposion = superImposion;
         this.level = level;
         this.promotion = promotion;
+        this.tid = tid;
         this.stats = stats;
         this.hash = hash;
     }
@@ -45,6 +50,13 @@ public class SRLightcone implements SRNameable {
     }
 
     /**
+     * @return The id of this lightcone.
+     */
+    public int getId() {
+        return this.tid;
+    }
+
+    /**
      * The promotion of this lightcone, this is also called the ascension.
      */
     public int getPromotion() {
@@ -58,17 +70,21 @@ public class SRLightcone implements SRNameable {
         return this.stats;
     }
 
-    /**
-     * Represents a localization key for the weapon name.
-     */
-    public long getHash() {
-        return this.hash;
-    }
-
     @Override
     @NotNull
     public String getNameHash() {
         return String.valueOf(this.hash);
+    }
+
+    /**
+     * Gets game data for this lightcone.
+     */
+    @NotNull
+    public SRLightconeData getGameData() {
+        System.out.println(this.getId());
+        final SRLightconeData data = EnkaCaches.getLightconeData(this.getId());
+        if (data == null) throw new UpdateLibraryException();
+        return data;
     }
 
     /**

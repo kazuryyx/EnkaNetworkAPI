@@ -1,0 +1,316 @@
+{
+  "101": {
+    "2": {
+      "props": {
+        "HealRatioBase": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "102": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+        "SpeedAddedRatio": 0.06
+      }
+    }
+  },
+  "103": {
+    "2": {
+      "props": {
+        "DefenceAddedRatio": 0.15
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "104": {
+    "2": {
+      "props": {
+        "IceAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "105": {
+    "2": {
+      "props": {
+        "PhysicalAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "106": {
+    "2": {
+      "props": {
+
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "107": {
+    "2": {
+      "props": {
+        "FireAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "108": {
+    "2": {
+      "props": {
+        "QuantumAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "109": {
+    "2": {
+      "props": {
+        "ThunderAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "110": {
+    "2": {
+      "props": {
+        "WindAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "111": {
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.16
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.16
+      }
+    }
+  },
+  "112": {
+    "2": {
+      "props": {
+        "ImaginaryAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "113": {
+    "2": {
+      "props": {
+        "HPAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "114": {
+    "2": {
+      "props": {
+        "SpeedAddedRatio": 0.06
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "115": {
+    "2": {
+      "props": {
+
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "116": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "117": {
+    "2": {
+      "props": {
+
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "118": {
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.16
+      }
+    },
+    "4": {
+      "props": {
+
+      }
+    }
+  },
+  "301": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    }
+  },
+  "302": {
+    "2": {
+      "props": {
+        "HPAddedRatio": 0.12
+      }
+    }
+  },
+  "303": {
+    "2": {
+      "props": {
+        "StatusProbabilityBase": 0.1
+      }
+    }
+  },
+  "304": {
+    "2": {
+      "props": {
+        "DefenceAddedRatio": 0.15
+      }
+    }
+  },
+  "305": {
+    "2": {
+      "props": {
+        "CriticalDamageBase": 0.16
+      }
+    }
+  },
+  "306": {
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.08
+      }
+    }
+  },
+  "307": {
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.16
+      }
+    }
+  },
+  "308": {
+    "2": {
+      "props": {
+        "SPRatioBase": 0.05
+      }
+    }
+  },
+  "309": {
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.08
+      }
+    }
+  },
+  "310": {
+    "2": {
+      "props": {
+        "StatusResistanceBase": 0.1
+      }
+    }
+  },
+  "311": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    }
+  },
+  "312": {
+    "2": {
+      "props": {
+        "SPRatioBase": 0.05
+      }
+    }
+  },
+  "313": {
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "314": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    }
+  }
+}

@@ -1,0 +1,3502 @@
+{
+  "1001201": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1001202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1001203": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1001204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1001205": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1001206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1001207": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1001208": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1001209": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1001210": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1002201": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.032
+      }
+    }
+  },
+  "1002202": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1002203": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.032
+      }
+    }
+  },
+  "1002204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1002205": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.048
+      }
+    }
+  },
+  "1002206": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1002207": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.048
+      }
+    }
+  },
+  "1002208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1002209": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1002210": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.064
+      }
+    }
+  },
+  "1003201": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1003202": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1003203": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1003204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1003205": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1003206": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1003207": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1003208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1003209": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1003210": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.064
+      }
+    }
+  },
+  "1004201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1004202": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1004203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1004204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1004205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1004206": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1004207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1004208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1004209": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.064
+      }
+    }
+  },
+  "1004210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1005201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1005202": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1005203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1005204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1005205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1005206": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1005207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1005208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1005209": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.08
+      }
+    }
+  },
+  "1005210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1006201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1006202": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1006203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1006204": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.032
+      }
+    }
+  },
+  "1006205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1006206": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1006207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1006208": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.048
+      }
+    }
+  },
+  "1006209": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.08
+      }
+    }
+  },
+  "1006210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1008201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1008202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1008203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1008204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1008205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1008206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1008207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1008208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1008209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1008210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1009201": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1009202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1009203": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1009204": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1009205": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1009206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1009207": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1009208": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1009209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1009210": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.064
+      }
+    }
+  },
+  "1013201": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1013202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1013203": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1013204": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1013205": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1013206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1013207": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1013208": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1013209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1013210": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1101201": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.032
+      }
+    }
+  },
+  "1101202": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1101203": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.032
+      }
+    }
+  },
+  "1101204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1101205": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.048
+      }
+    }
+  },
+  "1101206": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1101207": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.048
+      }
+    }
+  },
+  "1101208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1101209": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
+      }
+    }
+  },
+  "1101210": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.064
+      }
+    }
+  },
+  "1102201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1102202": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1102203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1102204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1102205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1102206": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1102207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1102208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1102209": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
+      }
+    }
+  },
+  "1102210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1103201": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1103202": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1103203": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1103204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1103205": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1103206": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1103207": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1103208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1103209": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.08
+      }
+    }
+  },
+  "1103210": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1104201": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1104202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1104203": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1104204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1104205": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1104206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1104207": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1104208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1104209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1104210": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1105201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1105202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1105203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1105204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1105205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1105206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1105207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1105208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1105209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1105210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1106201": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1106202": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1106203": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1106204": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1106205": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1106206": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1106207": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1106208": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1106209": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1106210": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1107201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1107202": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.032
+      }
+    }
+  },
+  "1107203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1107204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1107205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1107206": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.048
+      }
+    }
+  },
+  "1107207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1107208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1107209": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.064
+      }
+    }
+  },
+  "1107210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1108201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1108202": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1108203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1108204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1108205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1108206": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1108207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1108208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1108209": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.08
+      }
+    }
+  },
+  "1108210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1109201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1109202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1109203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1109204": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1109205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1109206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1109207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1109208": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1109209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1109210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1110201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1110202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1110203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1110204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1110205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1110206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1110207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1110208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1110209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1110210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1111201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1111202": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1111203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1111204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1111205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1111206": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1111207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1111208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1111209": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.08
+      }
+    }
+  },
+  "1111210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1112201": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1112202": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1112203": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1112204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1112205": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1112206": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1112207": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1112208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1112209": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1112210": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.064
+      }
+    }
+  },
+  "1201201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1201202": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.032
+      }
+    }
+  },
+  "1201203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1201204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1201205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1201206": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.048
+      }
+    }
+  },
+  "1201207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1201208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1201209": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.064
+      }
+    }
+  },
+  "1201210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1202201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1202202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1202203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1202204": {
+    "1": {
+      "props": {
+        "ThunderAddedRatio": 0.032
+      }
+    }
+  },
+  "1202205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1202206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1202207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1202208": {
+    "1": {
+      "props": {
+        "ThunderAddedRatio": 0.048
+      }
+    }
+  },
+  "1202209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1202210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1203201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1203202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1203203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1203204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1203205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1203206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1203207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1203208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1203209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1203210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1204201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1204202": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1204203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1204204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1204205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1204206": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1204207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1204208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1204209": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1204210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1205201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1205202": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1205203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1205204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1205205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1205206": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1205207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1205208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1205209": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1205210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1206201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1206202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1206203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1206204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1206205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1206206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1206207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1206208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1206209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1206210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1207201": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1207202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1207203": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1207204": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1207205": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1207206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1207207": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1207208": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1207209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1207210": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.064
+      }
+    }
+  },
+  "1208201": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1208202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1208203": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1208204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1208205": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1208206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1208207": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1208208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1208209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1208210": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1209201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1209202": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1209203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1209204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1209205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1209206": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1209207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1209208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1209209": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1209210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1210201": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1210202": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1210203": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.032
+      }
+    }
+  },
+  "1210204": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1210205": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1210206": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1210207": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.048
+      }
+    }
+  },
+  "1210208": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1210209": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.107
+      }
+    }
+  },
+  "1210210": {
+    "1": {
+      "props": {
+        "FireAddedRatio": 0.064
+      }
+    }
+  },
+  "1211201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1211202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1211203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1211204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1211205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1211206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1211207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1211208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1211209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1211210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1212201": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1212202": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1212203": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1212204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1212205": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1212206": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1212207": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1212208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1212209": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
+      }
+    }
+  },
+  "1212210": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
+      }
+    }
+  },
+  "1213201": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1213202": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1213203": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1213204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1213205": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1213206": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1213207": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1213208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1213209": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1213210": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.064
+      }
+    }
+  },
+  "1214201": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1214202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1214203": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1214204": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.032
+      }
+    }
+  },
+  "1214205": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1214206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1214207": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1214208": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.048
+      }
+    }
+  },
+  "1214209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1214210": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.107
+      }
+    }
+  },
+  "1215201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1215202": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1215203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1215204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1215205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1215206": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1215207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1215208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1215209": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
+      }
+    }
+  },
+  "1215210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1217201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1217202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1217203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1217204": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1217205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1217206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1217207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1217208": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1217209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1217210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1301201": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1301202": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1301203": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1301204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1301205": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1301206": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1301207": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1301208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1301209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1301210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1302201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1302202": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.032
+      }
+    }
+  },
+  "1302203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1302204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1302205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1302206": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.048
+      }
+    }
+  },
+  "1302207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1302208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1302209": {
+    "1": {
+      "props": {
+        "PhysicalAddedRatio": 0.064
+      }
+    }
+  },
+  "1302210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1303201": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1303202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1303203": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1303204": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1303205": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1303206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1303207": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1303208": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1303209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1303210": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.107
+      }
+    }
+  },
+  "1304201": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1304202": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.032
+      }
+    }
+  },
+  "1304203": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1304204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1304205": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1304206": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.048
+      }
+    }
+  },
+  "1304207": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1304208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1304209": {
+    "1": {
+      "props": {
+        "ImaginaryAddedRatio": 0.064
+      }
+    }
+  },
+  "1304210": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1305201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1305202": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1305203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1305204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1305205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1305206": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1305207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1305208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1305209": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1305210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1306201": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1306202": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1306203": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1306204": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1306205": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1306206": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1306207": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1306208": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1306209": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
+      }
+    }
+  },
+  "1306210": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "1307201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1307202": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.032
+      }
+    }
+  },
+  "1307203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1307204": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1307205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1307206": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.048
+      }
+    }
+  },
+  "1307207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1307208": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1307209": {
+    "1": {
+      "props": {
+        "WindAddedRatio": 0.064
+      }
+    }
+  },
+  "1307210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1308201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1308202": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1308203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1308204": {
+    "1": {
+      "props": {
+        "ThunderAddedRatio": 0.032
+      }
+    }
+  },
+  "1308205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1308206": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1308207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1308208": {
+    "1": {
+      "props": {
+        "ThunderAddedRatio": 0.048
+      }
+    }
+  },
+  "1308209": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
+      }
+    }
+  },
+  "1308210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "1312201": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1312202": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1312203": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.032
+      }
+    }
+  },
+  "1312204": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.027
+      }
+    }
+  },
+  "1312205": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1312206": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1312207": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.048
+      }
+    }
+  },
+  "1312208": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.04
+      }
+    }
+  },
+  "1312209": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "1312210": {
+    "1": {
+      "props": {
+        "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "8001201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8001202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "8001203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8001204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8001205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8001206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "8001207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8001208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8001209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "8001210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "8002201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8002202": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "8002203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8002204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8002205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8002206": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "8002207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8002208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8002209": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.08
+      }
+    }
+  },
+  "8002210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "8003201": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8003202": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8003203": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8003204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "8003205": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8003206": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8003207": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8003208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "8003209": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "8003210": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  },
+  "8004201": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8004202": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "8004203": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "8004204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "8004205": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8004206": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "8004207": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "8004208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "8004209": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
+  "8004210": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.1
+      }
+    }
+  }
+}

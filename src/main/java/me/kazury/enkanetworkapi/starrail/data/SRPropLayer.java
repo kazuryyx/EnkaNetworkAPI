@@ -37,8 +37,10 @@ public class SRPropLayer {
     private double criticalDamage;
     private double criticalDamageBase;
     private double spRatio;
+    private double spRatioBase;
     private double spRatioConvert;
     private double statusProbability;
+    private double statusProbabilityBase;
     private double statusProbabilityConvert;
     private double statusResistance;
     private double statusResistanceConvert;
@@ -268,8 +270,8 @@ public class SRPropLayer {
                 toProp("CriticalDamage", this.criticalDamage + this.criticalDamageBase, this.criticalDamage + this.criticalDamageBase, 0D, 0D, 0D),
                 toProp("BreakDamageAddedRatio", this.getBreakDamage(), this.breakDamageAddedRatioBase, this.breakDamageAddedRatio, 0D, 0D),
                 toProp("HealRatio", this.healRatioBase, this.healRatioBase, 0D, 0D, this.healRatioConvert),
-                toProp("SPRatio", this.spRatio, this.spRatio, 0D, 0D, this.spRatioConvert),
-                toProp("StatusProbability", this.statusProbability, this.statusProbability, 0, 0, this.statusProbabilityConvert),
+                toProp("SPRatio", this.spRatio + this.spRatioBase, this.spRatio + this.spRatioBase, 0D, 0D, this.spRatioConvert),
+                toProp("StatusProbability", this.statusProbability + this.statusProbabilityBase, this.statusProbability + this.statusProbabilityBase, 0, 0, this.statusProbabilityConvert),
                 toProp("StatusResistance", this.statusResistance, this.statusResistance, 0, 0, this.statusResistanceConvert),
                 toProp("PhysicalAddedRatio", this.physicalAddedRatio + this.allDamageTypeAddedRatio, this.physicalAddedRatio, 0D, 0D, 0D),
                 toProp("FireAddedRatio", this.fireAddedRatio + this.allDamageTypeAddedRatio, this.fireAddedRatio, 0D, 0D, 0D),

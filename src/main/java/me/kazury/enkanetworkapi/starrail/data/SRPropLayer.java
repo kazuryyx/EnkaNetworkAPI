@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.util.Pair;
-import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -460,11 +459,12 @@ public class SRPropLayer {
     private static void addFields(@NotNull JsonNode properties,
                                   @NotNull Class<? extends SRPropLayer> layerClazz,
                                   @NotNull SRPropLayer layer) {
-        final Map<String, Double> propertiesConverted = new ObjectMapper().convertValue(properties, Map.class);
+        final Map<String, Number> propertiesConverted = new ObjectMapper().convertValue(properties, Map.class);
 
-        for (Map.Entry<String, Double> entry : propertiesConverted.entrySet()) {
+        for (Map.Entry<String, Number> entry : propertiesConverted.entrySet()) {
             final String key = entry.getKey();
-            final double value = entry.getValue();
+
+            final double value = entry.getValue().doubleValue();
             final Field field = getField(layerClazz, key);
             if (field == null) {
                 System.out.println("No field - " + key);

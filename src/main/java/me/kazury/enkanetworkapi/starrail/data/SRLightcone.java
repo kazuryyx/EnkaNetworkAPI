@@ -81,7 +81,6 @@ public class SRLightcone implements SRNameable {
      */
     @NotNull
     public SRLightconeData getGameData() {
-        System.out.println(this.getId());
         final SRLightconeData data = EnkaCaches.getLightconeData(this.getId());
         if (data == null) throw new UpdateLibraryException();
         return data;

@@ -541,7 +541,6 @@ public class EnkaCaches {
      */
     @Nullable
     public static SRLightconeData getLightconeData(final long lightconeId) {
-        System.out.println(honkaiLightConeCache);
         return honkaiLightConeCache.getOrDefault(String.valueOf(lightconeId), null);
     }
 

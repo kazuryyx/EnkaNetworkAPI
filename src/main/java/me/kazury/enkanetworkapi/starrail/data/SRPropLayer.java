@@ -400,8 +400,6 @@ public class SRPropLayer {
                 exception.printStackTrace();
             }
         }
-
-        System.out.println(valueMap);
         return layer;
     }
 

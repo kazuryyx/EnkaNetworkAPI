@@ -7,7 +7,7 @@ This is an API wrapper for https://enka.network in Java.
 <summary>Version Change Log</summary>
 
 > Update - 08/05/2024 - Library Version: 4.6 | Honkai: Star Rail Update
-> - Added new 2.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/e97b3a2b14bfa68df50472121c0920a7554dc69c>)
+- Added new 2.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/e97b3a2b14bfa68df50472121c0920a7554dc69c>)
 - New Methods:
   - ``SRUserCharacter#getTreeElements``
   - ``SRUserCharacter#getProps``

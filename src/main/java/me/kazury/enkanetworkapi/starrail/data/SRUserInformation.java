@@ -21,6 +21,13 @@ public class SRUserInformation {
     private final int fwiends;
     private final int equilibriumLevel;
     private final int simulatedUniverse;
+
+    private final int bookCount;
+    private final int relicCount;
+    private final int abyssLevel;
+    private final int abyssStarCount;
+    private final int musicCount;
+
     private final SRPlatform platform;
     private List<SRUserCharacter> detailCharacters;
 
@@ -32,7 +39,12 @@ public class SRUserInformation {
                              final int equilibriumLevel,
                              final int simulatedUniverse,
                              @NotNull SRPlatform platform,
-                             @NotNull List<SRUserCharacter> detailCharacters) {
+                             @NotNull List<SRUserCharacter> detailCharacters,
+                             final int bookCount,
+                             final int relicCount,
+                             final int musicCount,
+                             final int abyssLevel,
+                             final int abyssStarCount) {
         this.nickname = nickname;
         this.level = level;
         this.signature = signature;
@@ -42,6 +54,13 @@ public class SRUserInformation {
         this.simulatedUniverse = simulatedUniverse;
         this.platform = platform;
         this.detailCharacters = detailCharacters;
+
+        this.abyssLevel = abyssLevel;
+        this.abyssStarCount = abyssStarCount;
+
+        this.bookCount = bookCount;
+        this.relicCount = relicCount;
+        this.musicCount = musicCount;
     }
 
     /**
@@ -116,6 +135,46 @@ public class SRUserInformation {
     }
 
     /**
+     * The amount of music this user has unlocked.
+     * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
+     */
+    public int getMusicCount() {
+        return this.musicCount;
+    }
+
+    /**
+     * The amount of relics the user currently has in their inventory
+     * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
+     */
+    public int getRelicCount() {
+        return this.relicCount;
+    }
+
+    /**
+     * The amount of stages this user beat in the "Pure Fiction" mode
+     * <br>Note: This does not have any limitation such as "need to log in after 2.2"
+     */
+    public int getPureFictionLevel() {
+        return this.abyssLevel;
+    }
+
+    /**
+     * The amount of stars this user has achieved in the "Pure Fiction" mode
+     * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
+     */
+    public int getPureFictionStars() {
+        return this.abyssStarCount;
+    }
+
+    /**
+     * The amount of books the user has unlocked.
+     * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
+     */
+    public int getBookCount() {
+        return this.bookCount;
+    }
+
+    /**
      * Performs an action after this object has been initialized.
      * @param info The action to perform.
      */
@@ -146,7 +205,10 @@ public class SRUserInformation {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();
         final SRUnconvertedUser.RecordInfo recordInfo = detailInfoData.getRecordInfo();
+        final SRUnconvertedUser.ChallengeInfo challengeInfo = recordInfo == null ? null: recordInfo.getChallengeInfo();
+
         final String platform = detailInfoData.getPlatform();
+
         final SRUserInformation user = new SRUserInformation(
                 detailInfoData.getNickname(),
                 detailInfoData.getLevel(),
@@ -156,7 +218,12 @@ public class SRUserInformation {
                 detailInfoData.getWorldLevel(),
                 recordInfo == null ? 0: recordInfo.getMaxRogueChallengeScore(),
                 platform == null ? SRPlatform.UNKNOWN: SRPlatform.valueOf(platform.toUpperCase()),
-                Collections.emptyList()
+                Collections.emptyList(),
+                recordInfo == null ? 0: recordInfo.getBookCount(),
+                recordInfo == null ? 0: recordInfo.getRelicCount(),
+                recordInfo == null ? 0: recordInfo.getMusicCount(),
+                challengeInfo == null ? 0: challengeInfo.getAbyssLevel(),
+                challengeInfo == null ? 0: challengeInfo.getAbyssStarCount()
         );
 
         user.doActionAfter(data -> {
@@ -238,7 +305,7 @@ public class SRUserInformation {
                     if (prop.getValueType() == SRAppendProp.ValueType.PERCENTAGE) {
                         mainStatValue *= 100;
                     }
-                    
+
                     final SRRelic.RelicStat main = new SRRelic.RelicStat(
                             prop.getKey(),
                             prop.getAcceptor().accept(mainStatValue),

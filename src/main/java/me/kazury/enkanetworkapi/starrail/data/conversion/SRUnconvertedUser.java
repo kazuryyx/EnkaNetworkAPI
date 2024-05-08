@@ -124,6 +124,22 @@ public class SRUnconvertedUser implements IExpiryTime {
         private int achievementCount;
         private int avatarCount;
 
+        private int bookCount;
+        private int relicCount;
+        private int musicCount;
+
+        public int getBookCount() {
+            return this.bookCount;
+        }
+
+        public int getRelicCount() {
+            return this.relicCount;
+        }
+
+        public int getMusicCount() {
+            return this.musicCount;
+        }
+
         public ChallengeInfo getChallengeInfo() {
             return this.challengeInfo;
         }
@@ -149,6 +165,16 @@ public class SRUnconvertedUser implements IExpiryTime {
         private int scheduleMaxLevel;
         private int scheduleGroupId;
         private int noneScheduleMaxLevel;
+        private int abyssLevel;
+        private int abyssStarCount;
+
+        public int getAbyssLevel() {
+            return this.abyssLevel;
+        }
+
+        public int getAbyssStarCount() {
+            return this.abyssStarCount;
+        }
 
         public int getScheduleMaxLevel() {
             return this.scheduleMaxLevel;

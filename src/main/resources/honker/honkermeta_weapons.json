@@ -3769,6 +3769,64 @@
       "DefenceAdd": 3.15
     }
   },
+  "21044": {
+    "0": {
+      "BaseHP": 43.2,
+      "HPAdd": 6.48,
+      "BaseAttack": 21.6,
+      "AttackAdd": 3.24,
+      "BaseDefence": 15,
+      "DefenceAdd": 2.25
+    },
+    "1": {
+      "BaseHP": 95.04,
+      "HPAdd": 6.48,
+      "BaseAttack": 47.52,
+      "AttackAdd": 3.24,
+      "BaseDefence": 33,
+      "DefenceAdd": 2.25
+    },
+    "2": {
+      "BaseHP": 164.16,
+      "HPAdd": 6.48,
+      "BaseAttack": 82.08,
+      "AttackAdd": 3.24,
+      "BaseDefence": 57,
+      "DefenceAdd": 2.25
+    },
+    "3": {
+      "BaseHP": 233.28,
+      "HPAdd": 6.48,
+      "BaseAttack": 116.64,
+      "AttackAdd": 3.24,
+      "BaseDefence": 81,
+      "DefenceAdd": 2.25
+    },
+    "4": {
+      "BaseHP": 302.4,
+      "HPAdd": 6.48,
+      "BaseAttack": 151.2,
+      "AttackAdd": 3.24,
+      "BaseDefence": 105,
+      "DefenceAdd": 2.25
+    },
+    "5": {
+      "BaseHP": 371.52,
+      "HPAdd": 6.48,
+      "BaseAttack": 185.76,
+      "AttackAdd": 3.24,
+      "BaseDefence": 129,
+      "DefenceAdd": 2.25
+    },
+    "6": {
+      "BaseHP": 440.64,
+      "HPAdd": 6.48,
+      "BaseAttack": 220.32,
+      "AttackAdd": 3.24,
+      "BaseDefence": 153,
+      "DefenceAdd": 2.25
+    }
+  },
   "22000": {
     "0": {
       "BaseHP": 43.2,
@@ -3883,6 +3941,64 @@
       "AttackAdd": 2.88,
       "BaseDefence": 183.6,
       "DefenceAdd": 2.7
+    }
+  },
+  "22002": {
+    "0": {
+      "BaseHP": 43.2,
+      "HPAdd": 6.48,
+      "BaseAttack": 21.6,
+      "AttackAdd": 3.24,
+      "BaseDefence": 15,
+      "DefenceAdd": 2.25
+    },
+    "1": {
+      "BaseHP": 95.04,
+      "HPAdd": 6.48,
+      "BaseAttack": 47.52,
+      "AttackAdd": 3.24,
+      "BaseDefence": 33,
+      "DefenceAdd": 2.25
+    },
+    "2": {
+      "BaseHP": 164.16,
+      "HPAdd": 6.48,
+      "BaseAttack": 82.08,
+      "AttackAdd": 3.24,
+      "BaseDefence": 57,
+      "DefenceAdd": 2.25
+    },
+    "3": {
+      "BaseHP": 233.28,
+      "HPAdd": 6.48,
+      "BaseAttack": 116.64,
+      "AttackAdd": 3.24,
+      "BaseDefence": 81,
+      "DefenceAdd": 2.25
+    },
+    "4": {
+      "BaseHP": 302.4,
+      "HPAdd": 6.48,
+      "BaseAttack": 151.2,
+      "AttackAdd": 3.24,
+      "BaseDefence": 105,
+      "DefenceAdd": 2.25
+    },
+    "5": {
+      "BaseHP": 371.52,
+      "HPAdd": 6.48,
+      "BaseAttack": 185.76,
+      "AttackAdd": 3.24,
+      "BaseDefence": 129,
+      "DefenceAdd": 2.25
+    },
+    "6": {
+      "BaseHP": 440.64,
+      "HPAdd": 6.48,
+      "BaseAttack": 220.32,
+      "AttackAdd": 3.24,
+      "BaseDefence": 153,
+      "DefenceAdd": 2.25
     }
   },
   "23000": {
@@ -5333,6 +5449,122 @@
       "AttackAdd": 4.32,
       "BaseDefence": 183.6,
       "DefenceAdd": 2.7
+    }
+  },
+  "23026": {
+    "0": {
+      "BaseHP": 43.2,
+      "HPAdd": 6.48,
+      "BaseAttack": 28.8,
+      "AttackAdd": 4.32,
+      "BaseDefence": 21,
+      "DefenceAdd": 3.15
+    },
+    "1": {
+      "BaseHP": 95.04,
+      "HPAdd": 6.48,
+      "BaseAttack": 63.36,
+      "AttackAdd": 4.32,
+      "BaseDefence": 46.2,
+      "DefenceAdd": 3.15
+    },
+    "2": {
+      "BaseHP": 164.16,
+      "HPAdd": 6.48,
+      "BaseAttack": 109.44,
+      "AttackAdd": 4.32,
+      "BaseDefence": 79.8,
+      "DefenceAdd": 3.15
+    },
+    "3": {
+      "BaseHP": 233.28,
+      "HPAdd": 6.48,
+      "BaseAttack": 155.52,
+      "AttackAdd": 4.32,
+      "BaseDefence": 113.4,
+      "DefenceAdd": 3.15
+    },
+    "4": {
+      "BaseHP": 302.4,
+      "HPAdd": 6.48,
+      "BaseAttack": 201.6,
+      "AttackAdd": 4.32,
+      "BaseDefence": 147,
+      "DefenceAdd": 3.15
+    },
+    "5": {
+      "BaseHP": 371.52,
+      "HPAdd": 6.48,
+      "BaseAttack": 247.68,
+      "AttackAdd": 4.32,
+      "BaseDefence": 180.6,
+      "DefenceAdd": 3.15
+    },
+    "6": {
+      "BaseHP": 440.64,
+      "HPAdd": 6.48,
+      "BaseAttack": 293.76,
+      "AttackAdd": 4.32,
+      "BaseDefence": 214.2,
+      "DefenceAdd": 3.15
+    }
+  },
+  "23027": {
+    "0": {
+      "BaseHP": 48,
+      "HPAdd": 7.2,
+      "BaseAttack": 26.4,
+      "AttackAdd": 3.96,
+      "BaseDefence": 21,
+      "DefenceAdd": 3.15
+    },
+    "1": {
+      "BaseHP": 105.6,
+      "HPAdd": 7.2,
+      "BaseAttack": 58.08,
+      "AttackAdd": 3.96,
+      "BaseDefence": 46.2,
+      "DefenceAdd": 3.15
+    },
+    "2": {
+      "BaseHP": 182.4,
+      "HPAdd": 7.2,
+      "BaseAttack": 100.32,
+      "AttackAdd": 3.96,
+      "BaseDefence": 79.8,
+      "DefenceAdd": 3.15
+    },
+    "3": {
+      "BaseHP": 259.2,
+      "HPAdd": 7.2,
+      "BaseAttack": 142.56,
+      "AttackAdd": 3.96,
+      "BaseDefence": 113.4,
+      "DefenceAdd": 3.15
+    },
+    "4": {
+      "BaseHP": 336,
+      "HPAdd": 7.2,
+      "BaseAttack": 184.8,
+      "AttackAdd": 3.96,
+      "BaseDefence": 147,
+      "DefenceAdd": 3.15
+    },
+    "5": {
+      "BaseHP": 412.8,
+      "HPAdd": 7.2,
+      "BaseAttack": 227.04,
+      "AttackAdd": 3.96,
+      "BaseDefence": 180.6,
+      "DefenceAdd": 3.15
+    },
+    "6": {
+      "BaseHP": 489.6,
+      "HPAdd": 7.2,
+      "BaseAttack": 269.28,
+      "AttackAdd": 3.96,
+      "BaseDefence": 214.2,
+      "DefenceAdd": 3.15
     }
   },
   "24000": {

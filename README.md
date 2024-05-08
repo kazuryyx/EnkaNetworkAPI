@@ -6,6 +6,21 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 08/05/2024 - Library Version: 4.6 | Honkai: Star Rail Update
+> - Added new 2.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/e97b3a2b14bfa68df50472121c0920a7554dc69c>)
+- New Methods:
+  - ``SRUserCharacter#getTreeElements``
+  - ``SRUserCharacter#getProps``
+  - ``SRUserInformation#getMusicCount``
+  - ``SRUserInformation#getRelicCount``
+  - ``SRUserInformation#getBookCount``
+  - ``SRUserInformation#getPureFictionLevel``
+  - ``SRUserInformation#getPureFictionStars``
+  - ``SRRelic#getSetId``
+  - ``SRLightcone#getId``
+  - ``SRLightcone#getGameData``
+- New Caches: ``HONKAI_META``, ``HONKAI_LIGHTCONES``
+
 > Update - 24/04/2024 - Library Version: 4.6 | Genshin Impact Update
 - Added new 4.6 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f8f0b4a574c53df32292c5aa45bb872305ef8700>)
 - Method deprecations:
@@ -35,13 +50,7 @@ This is an API wrapper for https://enka.network in Java.
 - Method changes:
     - ``getNamecardUrl`` in ``GenshinNamecard`` is not ``Nullable`` anymore
     - ``getName`` in ``SRNameable``, ``GenshinNameable`` is not ``Nullable`` anymore. Not existing keys will return ``""``
-
-> Update - 31/01/2024 - Library Version: 4.4 | Genshin Impact, Honkai: Star Rail Update
-- Added new 4.4 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/e088e086634b432877935f7c94d9e8f1e26ec1e9)
-- Added new 2.0 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/9ce1d36cdaf31de9522ba8d347d68c39e11b8e2c)
-- New Methods:
-    - **getMaxLevel()** (in ``GenshinUserCharacter``)
-
+  
 **Note:** There have been other changes before 4.3, however I will not include them here. I will update this when a new version drops
 </details>
 

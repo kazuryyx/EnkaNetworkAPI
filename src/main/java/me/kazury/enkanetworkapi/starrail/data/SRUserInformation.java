@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -271,7 +272,8 @@ public class SRUserInformation {
                 }
 
                 // Getting relic information
-                for (SRUnconvertedUser.RelicData relicData : avatar.getRelicList()) {
+                final List<SRUnconvertedUser.RelicData> relicDataList = Objects.requireNonNullElse(avatar.getRelicList(), new ArrayList<>());
+                for (SRUnconvertedUser.RelicData relicData : relicDataList) {
                     final int relicLevel = relicData.getLevel();
                     final SRUnconvertedUser.RelicFlatData flat = relicData.get_flat();
                     final List<SRRelic.RelicStat> subStats = new ArrayList<>();

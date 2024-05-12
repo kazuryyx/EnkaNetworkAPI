@@ -1179,6 +1179,36 @@
       130307
     ]
   },
+  "1304": {
+    "AvatarName": {
+      "Hash": 1531683151
+    },
+    "AvatarFullName": {
+      "Hash": -107934339
+    },
+    "Rarity": 5,
+    "Element": "Imaginary",
+    "AvatarBaseType": "Knight",
+    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1304.png",
+    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1304B.png",
+    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1304.png",
+    "RankIDList": [
+      130401,
+      130402,
+      130403,
+      130404,
+      130405,
+      130406
+    ],
+    "SkillList": [
+      130401,
+      130402,
+      130403,
+      130404,
+      130406,
+      130407
+    ]
+  },
   "1305": {
     "AvatarName": {
       "Hash": -34400790

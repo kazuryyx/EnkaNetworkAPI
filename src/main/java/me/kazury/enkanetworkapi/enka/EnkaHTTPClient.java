@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
 import com.google.gson.Gson;
+import me.kazury.enkanetworkapi.enka.page.EnkaProfileData;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.util.exceptions.NiceJobException;
 import me.kazury.enkanetworkapi.util.exceptions.PlayerDoesNotExistException;
@@ -38,7 +39,7 @@ public class EnkaHTTPClient {
     private final Map<Long, CachedData<GenshinUnconvertedUser>> genshinCache = new ConcurrentHashMap<>();
     private final Map<Long, CachedData<SRUnconvertedUser>> honkaiCache = new ConcurrentHashMap<>();
 
-    private void fetchGenshinUserFailure(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success,
+    protected void fetchGenshinUserFailure(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success,
                                         @Nullable Consumer<Throwable> failure) {
         this.getBase("uid/" + uid + "/", GenshinUnconvertedUser.class).thenAccept((userData) -> {
             if (userData == null) return;
@@ -72,7 +73,7 @@ public class EnkaHTTPClient {
         this.fetchGenshinUserFailure(uid, success, failure);
     }
 
-    private void fetchHonkaiUserFailure(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
+    protected void fetchHonkaiUserFailure(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
                                  @Nullable Consumer<Throwable> failure) {
         EnkaVerifier.verifyHonkai();
 
@@ -106,6 +107,16 @@ public class EnkaHTTPClient {
         }
 
         this.fetchHonkaiUserFailure(uid, success, failure);
+    }
+
+    protected void fetchProfileData(@NotNull String profileName, @NotNull Consumer<EnkaProfileData> success) {
+        this.getBase("profile/" + profileName + "/?format=json", EnkaProfileData.class).thenAccept((userData) -> {
+            if (userData == null) return;
+            success.accept(userData);
+        }).exceptionally((exception) -> {
+            exception.printStackTrace();
+            return null;
+        });
     }
 
     @NotNull

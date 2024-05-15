@@ -2,6 +2,7 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import me.kazury.enkanetworkapi.enka.page.EnkaProfileData;
 import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
@@ -131,6 +132,15 @@ public class EnkaNetworkAPI {
     public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer,
                           @NotNull Consumer<Throwable> failure) {
         this.fetchHonkaiUser(Long.parseLong(uid), consumer, failure);
+    }
+
+    /**
+     * Fetches a profile data from the Enka Network API.
+     * @param profileName The profile name of the user, for example "kazury" or "Algoinde". Capitalization does not matter.
+     * @param success The action that you want to do on the user once the data has been acquired.
+     */
+    public void fetchProfileData(@NotNull String profileName, @NotNull Consumer<EnkaProfileData> success) {
+        this.httpClient.fetchProfileData(profileName, success);
     }
 
     /**

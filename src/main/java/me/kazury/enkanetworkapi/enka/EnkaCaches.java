@@ -52,6 +52,7 @@ public class EnkaCaches {
     private static final Map<GlobalLocalization, JsonNode> honkaiLocalizationCache = new HashMap<>();
 
     private static final Map<String, SRLightconeData> honkaiLightConeCache = new HashMap<>();
+    private static final Map<String, String> honkaiProfileCache = new HashMap<>();
 
     private static final Map<String, JsonNode> metaCharacterCache = new HashMap<>();
     private static final Map<String, JsonNode> metaWeaponCache = new HashMap<>();
@@ -82,6 +83,7 @@ public class EnkaCaches {
         metaWeaponAffixCache.clear();
         metaSkillTreeCache.clear();
         honkaiLightConeCache.clear();
+        honkaiProfileCache.clear();
 
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
@@ -99,6 +101,7 @@ public class EnkaCaches {
         loadHonkaiMetaRelicSets(classLoader);
         loadHonkaiMetaSkillTree(classLoader);
         loadHonkaiLightconeCache(classLoader);
+        loadHonkaiProfileCache(classLoader);
         loadGenshinMaterialCache();
         loadArtifactCostCache();
         loadGenshinAvatarConfigs();
@@ -285,6 +288,15 @@ public class EnkaCaches {
 
             srCharacterDataCache.put(key, data);
         }), EnkaCache.HONKAI_CHARACTERS);
+    }
+
+    private static void loadHonkaiProfileCache(@NotNull ClassLoader loader) {
+        baseResourceLoad(loader, "honker/honkeravatars.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode value = entry.getValue();
+
+            honkaiProfileCache.put(key, value.asText());
+        }), EnkaCache.HONKAI_PROFILES);
     }
 
     private static void loadGenshinCharacterCache(@NotNull ClassLoader classLoader) {
@@ -642,6 +654,16 @@ public class EnkaCaches {
     @Nullable
     public static String getGenshinLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
         return getLocale(genshinLocalizationCache, locale, id);
+    }
+
+    /**
+     * Gets the profile cache from this cache.
+     * <br>This will be empty if <code>EnkaGlobals.isHonkaiEnabled()</code> is false or {@link EnkaCache#HONKAI_PROFILES} is blocked.
+     * @return the profile cache
+     */
+    @NotNull
+    public static Map<String, String> getHonkaiProfileCache() {
+        return Map.copyOf(honkaiProfileCache);
     }
 
     /**

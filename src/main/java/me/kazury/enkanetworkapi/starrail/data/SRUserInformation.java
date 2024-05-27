@@ -1,13 +1,12 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
+import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
+import me.kazury.enkanetworkapi.util.exceptions.UpdateLibraryException;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -28,6 +27,7 @@ public class SRUserInformation {
     private final int abyssLevel;
     private final int abyssStarCount;
     private final int musicCount;
+    private final int headIcon;
 
     private final SRPlatform platform;
     private List<SRUserCharacter> detailCharacters;
@@ -45,7 +45,8 @@ public class SRUserInformation {
                              final int relicCount,
                              final int musicCount,
                              final int abyssLevel,
-                             final int abyssStarCount) {
+                             final int abyssStarCount,
+                             final int headIcon) {
         this.nickname = nickname;
         this.level = level;
         this.signature = signature;
@@ -62,6 +63,8 @@ public class SRUserInformation {
         this.bookCount = bookCount;
         this.relicCount = relicCount;
         this.musicCount = musicCount;
+
+        this.headIcon = headIcon;
     }
 
     /**
@@ -176,6 +179,21 @@ public class SRUserInformation {
     }
 
     /**
+     * Gets the profile picture of this user
+     * <br>You will have to parse this yourself with {@link EnkaNetworkAPI#getSRIcon(String)}
+     */
+    @NotNull
+    public String getProfilePictureIdentifier() {
+        return EnkaCaches.getHonkaiProfileCache()
+                .entrySet()
+                .stream()
+                .filter(p -> p.getKey().equals(String.valueOf(this.headIcon)))
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElseThrow(UpdateLibraryException::new);
+    }
+
+    /**
      * Performs an action after this object has been initialized.
      * @param info The action to perform.
      */
@@ -224,7 +242,8 @@ public class SRUserInformation {
                 recordInfo == null ? 0: recordInfo.getRelicCount(),
                 recordInfo == null ? 0: recordInfo.getMusicCount(),
                 challengeInfo == null ? 0: challengeInfo.getAbyssLevel(),
-                challengeInfo == null ? 0: challengeInfo.getAbyssStarCount()
+                challengeInfo == null ? 0: challengeInfo.getAbyssStarCount(),
+                detailInfoData.getHeadIcon()
         );
 
         user.doActionAfter(data -> {

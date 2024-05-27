@@ -2,6 +2,7 @@ package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.starrail.data.SRUserCharacter;
+import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.genshin.data.GenshinArtifact;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserWeapon;
@@ -74,5 +75,9 @@ public enum EnkaCache {
     /**
      * Honkai: Star Rail Characters, please read the documentation on {@link EnkaCache#GENSHIN_CHARACTERS}.
      */
-    HONKAI_CHARACTERS
+    HONKAI_CHARACTERS,
+    /**
+     * Honkai: Star Rail profile pictures, this enables support for {@link SRUserInformation#getProfilePictureIdentifier()}
+     */
+    HONKAI_PROFILES
 }

@@ -359,6 +359,6 @@ public class EnkaNetworkAPI {
     @NotNull
     public String getSRIcon(@NotNull String key) {
         EnkaVerifier.verifyHonkai();
-        return BASE_SR_UI_URL + key + ".png";
+        return BASE_SR_UI_URL + key;
     }
 }

@@ -395,6 +395,18 @@
     "id": 10000096,
     "iconPath": "UI_AvatarIcon_Arlecchino_Circle"
   },
+  "8100": {
+    "id": 10000098,
+    "iconPath": "UI_AvatarIcon_Clorinde_Circle"
+  },
+  "8200": {
+    "id": 10000097,
+    "iconPath": "UI_AvatarIcon_Sethos_Circle"
+  },
+  "8300": {
+    "id": 10000095,
+    "iconPath": "UI_AvatarIcon_Sigewinne_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"

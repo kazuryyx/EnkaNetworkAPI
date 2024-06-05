@@ -6,6 +6,14 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 05/06/2024 - Library Version: 4.7 | Genshin Impact Update, Honkai: Star Rail Improvements
+- Added new 4.7 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f30b722bb6567d9101390f8bdd3bf8a66ccb5556>)
+- New Methods:
+  - ``SRUserInformation#getProfilePictureIdentifier``
+  - ``EnkaNetworkAPI#fetchProfileData``
+- Fixes a bug if relics were empty
+- Adds missing Aventurine, Gallagher
+
 > Update - 08/05/2024 - Library Version: 4.6 | Honkai: Star Rail Update
 - Added new 2.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/e97b3a2b14bfa68df50472121c0920a7554dc69c>)
 - New Methods:
@@ -35,22 +43,6 @@ This is an API wrapper for https://enka.network in Java.
 - Adds support for blocking caches. See [the docs](<https://enka-docs.kazury.me/api/getting-started#blocking-specific-caches>) for example.
 - Several bug fixes introduced in previous version & during changes
 
-> Update - 27/03/2024 - Library Version: 4.5 | Honkai: Star Rail Update
-- Added new 2.1 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/c6a6bacaddc7fcd81d46f155f44c7671e5fb59e3)
-- Fix simulated universe, platform for non-existing accounts
-- New Methods & Changes:
-    - **getValueType()** (in ``SRAppendProp``)
-    - **getAvatarCutinFront()** -> **getSplashArt()** (in ``SRCharacterData``)
-    - **getAvatarRoundIcon()** (in ``SRCharacterData``)
-    - **getCharacterId()** (in ``SRCharacterData``)
-
-> Update - 13/03/2024 - Library Version: 4.5 | Genshin Impact Update
-- Added new 4.5 [version data](https://github.com/kazuryyx/EnkaNetworkAPI/commit/140f868f003e8588f1403098242e2db336547010)
-- Fixed element-less traveler
-- Method changes:
-    - ``getNamecardUrl`` in ``GenshinNamecard`` is not ``Nullable`` anymore
-    - ``getName`` in ``SRNameable``, ``GenshinNameable`` is not ``Nullable`` anymore. Not existing keys will return ``""``
-  
 **Note:** There have been other changes before 4.3, however I will not include them here. I will update this when a new version drops
 </details>
 

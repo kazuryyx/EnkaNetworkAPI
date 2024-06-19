@@ -537,13 +537,23 @@ public class EnkaCaches {
     }
 
     /**
-     * Gets HSR character data from the cache.
+     * Gets Honkai: Star Rail character data from the cache.
      * @param id the character id
      * @return the character data
      */
     @Nullable
     public static SRCharacterData getSRCharacterData(@NotNull String id) {
         return srCharacterDataCache.getOrDefault(id, null);
+    }
+
+    /**
+     * Gets Honkai: Star Rail lightcone data from the cache.
+     * @param id The lightcone id
+     * @return The lightcone data
+     */
+    @Nullable
+    public static SRLightconeData getSRLightconeData(@NotNull String id) {
+        return honkaiLightConeCache.getOrDefault(id, null);
     }
 
     /**
@@ -618,6 +628,14 @@ public class EnkaCaches {
      */
     public static Map<String, SRCharacterData> getSRCharacterMap() {
         return Map.copyOf(srCharacterDataCache);
+    }
+
+    /**
+     * A copy of the Honkai: Star Rail lightcone cache.
+     */
+    @NotNull
+    public static Map<String, SRLightconeData> getSRLightconeMap() {
+        return Map.copyOf(honkaiLightConeCache);
     }
 
     /**

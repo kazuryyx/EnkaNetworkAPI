@@ -7,6 +7,8 @@ import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.starrail.data.SRLightcone;
+import me.kazury.enkanetworkapi.starrail.data.SRLightconeData;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.util.Pair;
@@ -208,6 +210,17 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Fetches the lightcone data from an id.
+     * @param id The ID of the lightcone. This is not the lightcone's name.
+     * @return The lightcone data, or null if the lightcone does not exist (or I forgot to update my library)
+     */
+    @Nullable
+    public SRLightconeData getSRLightconeData(@NotNull String id) {
+        EnkaVerifier.verifyHonkai();
+        return EnkaCaches.getSRLightconeData(id);
+    }
+
+    /**
      * Gets all the characters that are currently in Honkai: Star Rail.
      * <br>This list will not contain characters that are not in the library yet.
      * <br>In that case, you must update
@@ -217,6 +230,18 @@ public class EnkaNetworkAPI {
     public List<SRCharacterData> getAllSRCharacters() {
         EnkaVerifier.verifyHonkai();
         return EnkaCaches.getSRCharacterMap().values().stream().toList();
+    }
+
+    /**
+     * Gets all the lightcones that are currently in Honkai: Star Rail
+     * <br>This list will not contain lightcones that are not in the library yet.
+     * <br>In that case, you must update
+     * @return All Star Rail lightcones
+     */
+    @NotNull
+    public List<SRLightconeData> getAllSRLightcones() {
+        EnkaVerifier.verifyHonkai();
+        return EnkaCaches.getSRLightconeMap().values().stream().toList();
     }
 
     /**

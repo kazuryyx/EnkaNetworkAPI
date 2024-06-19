@@ -1,9 +1,11 @@
 package me.kazury.enkanetworkapi.starrail.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import me.kazury.enkanetworkapi.enka.EnkaCache;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import me.kazury.enkanetworkapi.enka.EnkaNetworkAPI;
+import me.kazury.enkanetworkapi.starrail.util.SRNameable;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -11,12 +13,15 @@ import org.jetbrains.annotations.NotNull;
  * <br>If {@link EnkaCache#HONKAI_LIGHTCONES} is disabled, this will not load.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SRLightconeData {
+public class SRLightconeData implements SRNameable {
     @JsonProperty("Rarity")
     private int stars;
 
     @JsonProperty("AvatarBaseType")
     private String path;
+
+    @SerializedName("EquipmentName")
+    private long id;
 
     @JsonProperty("ImagePath")
     private String imagePath;
@@ -26,6 +31,12 @@ public class SRLightconeData {
      */
     public int getStars() {
         return this.stars;
+    }
+
+    @Override
+    @NotNull
+    public String getNameHash() {
+        return String.valueOf(this.id);
     }
 
     /**

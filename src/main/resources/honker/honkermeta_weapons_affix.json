@@ -701,6 +701,33 @@
       }
     }
   },
+  "21045": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.28
+      }
+    },
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.35
+      }
+    },
+    "3": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.42
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.49
+      }
+    },
+    "5": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.56
+      }
+    }
+  },
   "22000": {
     "1": {
       "props": {
@@ -1423,6 +1450,33 @@
       }
     }
   },
+  "23025": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.6
+      }
+    },
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.7
+      }
+    },
+    "3": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.8
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.9
+      }
+    },
+    "5": {
+      "props": {
+        "BreakDamageAddedRatioBase": 1
+      }
+    }
+  },
   "23027": {
     "1": {
       "props": {
@@ -1447,6 +1501,33 @@
     "5": {
       "props": {
         "BreakDamageAddedRatioBase": 1
+      }
+    }
+  },
+  "23028": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.16
+      }
+    },
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.19
+      }
+    },
+    "3": {
+      "props": {
+        "CriticalChanceBase": 0.22
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.25
+      }
+    },
+    "5": {
+      "props": {
+        "CriticalChanceBase": 0.28
       }
     }
   },
@@ -1528,6 +1609,33 @@
     "5": {
       "props": {
         "BreakDamageAddedRatioBase": 0.4
+      }
+    }
+  },
+  "24004": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    },
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.09
+      }
+    },
+    "3": {
+      "props": {
+        "AttackAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+        "AttackAddedRatio": 0.11
+      }
+    },
+    "5": {
+      "props": {
+        "AttackAddedRatio": 0.12
       }
     }
   }

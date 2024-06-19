@@ -30,7 +30,6 @@
     },
     "4": {
       "props": {
-
       }
     }
   },
@@ -198,6 +197,29 @@
       }
     }
   },
+  "119": {
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.16
+      }
+    },
+    "4": {
+      "props": {
+      }
+    }
+  },
+  "120": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.06
+      }
+    }
+  },
   "301": {
     "2": {
       "props": {
@@ -293,6 +315,19 @@
     "2": {
       "props": {
         "AttackAddedRatio": 0.12
+      }
+    }
+  },
+  "315": {
+    "2": {
+      "props": {
+      }
+    }
+  },
+  "316": {
+    "2": {
+      "props": {
+        "SpeedAddedRatio": 0.06
       }
     }
   }

@@ -24,8 +24,6 @@ public class SRUserInformation {
 
     private final int bookCount;
     private final int relicCount;
-    private final int abyssLevel;
-    private final int abyssStarCount;
     private final int musicCount;
     private final int headIcon;
 
@@ -44,8 +42,6 @@ public class SRUserInformation {
                              final int bookCount,
                              final int relicCount,
                              final int musicCount,
-                             final int abyssLevel,
-                             final int abyssStarCount,
                              final int headIcon) {
         this.nickname = nickname;
         this.level = level;
@@ -56,9 +52,6 @@ public class SRUserInformation {
         this.simulatedUniverse = simulatedUniverse;
         this.platform = platform;
         this.detailCharacters = detailCharacters;
-
-        this.abyssLevel = abyssLevel;
-        this.abyssStarCount = abyssStarCount;
 
         this.bookCount = bookCount;
         this.relicCount = relicCount;
@@ -155,22 +148,6 @@ public class SRUserInformation {
     }
 
     /**
-     * The amount of stages this user beat in the "Pure Fiction" mode
-     * <br>Note: This does not have any limitation such as "need to log in after 2.2"
-     */
-    public int getPureFictionLevel() {
-        return this.abyssLevel;
-    }
-
-    /**
-     * The amount of stars this user has achieved in the "Pure Fiction" mode
-     * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
-     */
-    public int getPureFictionStars() {
-        return this.abyssStarCount;
-    }
-
-    /**
      * The amount of books the user has unlocked.
      * <br>Note: This will be 0 if the user did not log in after the version 2.2 update
      */
@@ -224,7 +201,6 @@ public class SRUserInformation {
         // You're always free to do a PR and clean this mess up. :)
         final SRUnconvertedUser.DetailInfo detailInfoData = enkaUser.getDetailInfo();
         final SRUnconvertedUser.RecordInfo recordInfo = detailInfoData.getRecordInfo();
-        final SRUnconvertedUser.ChallengeInfo challengeInfo = recordInfo == null ? null: recordInfo.getChallengeInfo();
 
         final String platform = detailInfoData.getPlatform();
 
@@ -241,8 +217,6 @@ public class SRUserInformation {
                 recordInfo == null ? 0: recordInfo.getBookCount(),
                 recordInfo == null ? 0: recordInfo.getRelicCount(),
                 recordInfo == null ? 0: recordInfo.getMusicCount(),
-                challengeInfo == null ? 0: challengeInfo.getAbyssLevel(),
-                challengeInfo == null ? 0: challengeInfo.getAbyssStarCount(),
                 detailInfoData.getHeadIcon()
         );
 

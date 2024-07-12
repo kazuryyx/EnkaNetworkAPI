@@ -118,7 +118,6 @@ public class SRUnconvertedUser implements IExpiryTime {
     }
 
     public static class RecordInfo {
-        private ChallengeInfo challengeInfo;
         private int equipmentCount;
         private int maxRogueChallengeScore;
         private int achievementCount;
@@ -138,10 +137,6 @@ public class SRUnconvertedUser implements IExpiryTime {
 
         public int getMusicCount() {
             return this.musicCount;
-        }
-
-        public ChallengeInfo getChallengeInfo() {
-            return this.challengeInfo;
         }
 
         public int getEquipmentCount() {

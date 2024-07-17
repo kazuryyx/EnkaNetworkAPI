@@ -6,6 +6,9 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 17/07/2024 - Library Version: 4.8 | Genshin Impact Update
+- Added new 4.8 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/4d3b47cf81b8a4c140f967472db9e3668e67aee7>)
+
 > Update - 19/06/2024 - Library Version: 4.7 | Honkai: Star Rail Update
 - Added new 2.3 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/ebb72fdf8b6dc762c7be512054a4a85e62fb00c8>)
 - New Methods:
@@ -21,22 +24,7 @@ This is an API wrapper for https://enka.network in Java.
 - Fixes a bug if relics were empty
 - Adds missing Aventurine, Gallagher
 
-> Update - 08/05/2024 - Library Version: 4.6 | Honkai: Star Rail Update
-- Added new 2.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/e97b3a2b14bfa68df50472121c0920a7554dc69c>)
-- New Methods:
-  - ``SRUserCharacter#getTreeElements``
-  - ``SRUserCharacter#getProps``
-  - ``SRUserInformation#getMusicCount``
-  - ``SRUserInformation#getRelicCount``
-  - ``SRUserInformation#getBookCount``
-  - ``SRUserInformation#getPureFictionLevel``
-  - ``SRUserInformation#getPureFictionStars``
-  - ``SRRelic#getSetId``
-  - ``SRLightcone#getId``
-  - ``SRLightcone#getGameData``
-- New Caches: ``HONKAI_META``, ``HONKAI_LIGHTCONES``
-
-**Note:** There have been other changes before 4.3, however I will not include them here. I will update this when a new version drops
+**Note:** There have been other changes before these, only the latest 3 will show.
 </details>
 
 ## As of version 4.2, all docs have been rewritten. For Installation and examples please refer to http://enka-docs.kazury.me.

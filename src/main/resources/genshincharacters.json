@@ -2744,6 +2744,36 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
+  "10000099": {
+    "Element": "Grass",
+    "Consts": [
+      "UI_Talent_S_Emilie_01",
+      "UI_Talent_S_Emilie_02",
+      "UI_Talent_U_Emilie_01",
+      "UI_Talent_S_Emilie_03",
+      "UI_Talent_U_Emilie_02",
+      "UI_Talent_S_Emilie_04"
+    ],
+    "SkillOrder": [
+      10991,
+      10992,
+      10995
+    ],
+    "Skills": {
+      "10991": "Skill_A_03",
+      "10992": "Skill_S_Emilie_01",
+      "10995": "Skill_E_Emilie_01"
+    },
+    "ProudMap": {
+      "10991": 9931,
+      "10992": 9932,
+      "10995": 9939
+    },
+    "NameTextMapHash": 1705786122,
+    "SideIconName": "UI_AvatarIcon_Side_Emilie",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_POLE"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

@@ -46,7 +46,6 @@ public class EnkaHTTPClient {
             this.genshinCache.put(uid, new CachedData<>(userData));
             success.accept(userData);
         }).exceptionally((exception) -> {
-            exception.printStackTrace();
             if (failure != null) failure.accept(exception);
             return null;
         });
@@ -82,7 +81,6 @@ public class EnkaHTTPClient {
             this.honkaiCache.put(uid, new CachedData<>(userData));
             success.accept(userData);
         }).exceptionally((exception) -> {
-            exception.printStackTrace();
             if (failure != null) failure.accept(exception);
             return null;
         });
@@ -113,10 +111,7 @@ public class EnkaHTTPClient {
         this.getBase("profile/" + profileName + "/?format=json", EnkaProfileData.class).thenAccept((userData) -> {
             if (userData == null) return;
             success.accept(userData);
-        }).exceptionally((exception) -> {
-            exception.printStackTrace();
-            return null;
-        });
+        }).exceptionally((exception) -> null);
     }
 
     @NotNull

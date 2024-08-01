@@ -465,7 +465,9 @@ public class EnkaCaches {
 
         // filter the list by key and return the value
         final GenshinAvatarProfile profile = genshinProfiles.get(String.valueOf(second));
-        if (profile == null) throw new UpdateLibraryException();
+        if (profile == null) {
+            return "UI_AvatarIcon_PlayerBoy_Circle";
+        }
         return profile.getImage();
     }
 

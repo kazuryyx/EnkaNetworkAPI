@@ -265,7 +265,10 @@ public class SRUserInformation {
                 }
 
                 // Getting relic information
-                final List<SRUnconvertedUser.RelicData> relicDataList = Objects.requireNonNullElse(avatar.getRelicList(), new ArrayList<>());
+                final List<SRUnconvertedUser.RelicData> relicDataList = Objects.requireNonNullElse(
+                        avatar.getRelicList(),
+                        Collections.emptyList()
+                );
                 for (SRUnconvertedUser.RelicData relicData : relicDataList) {
                     final int relicLevel = relicData.getLevel();
                     final SRUnconvertedUser.RelicFlatData flat = relicData.get_flat();

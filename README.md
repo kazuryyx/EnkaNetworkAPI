@@ -6,6 +6,12 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 17/07/2024 - Library Version: 4.8 | Honkai: Star Rail, Bug Fix Update
+- Added new 2.4 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/88897951bef3dc1d126798b5bd0b213f3fdb4e5d>)
+- Exceptions from ``fetch(X)User`` methods are no longer printed instantly, use the failure consumer instead
+- Fixes a bug for Genshin Impact when players had empty substats
+- Fixes a bug for Genshin Impact when players didn't previously set their profile picture
+
 > Update - 17/07/2024 - Library Version: 4.8 | Genshin Impact Update
 - Added new 4.8 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/4d3b47cf81b8a4c140f967472db9e3668e67aee7>)
 
@@ -15,14 +21,6 @@ This is an API wrapper for https://enka.network in Java.
   - ``EnkaNetworkAPI#getSRLightconeData``
   - ``EnkaNetworkAPI#getAllSRLightcones``
   - ``SRLightconeData#getName``
-
-> Update - 05/06/2024 - Library Version: 4.7 | Genshin Impact Update, Honkai: Star Rail Improvements
-- Added new 4.7 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f30b722bb6567d9101390f8bdd3bf8a66ccb5556>)
-- New Methods:
-  - ``SRUserInformation#getProfilePictureIdentifier``
-  - ``EnkaNetworkAPI#fetchProfileData``
-- Fixes a bug if relics were empty
-- Adds missing Aventurine, Gallagher
 
 **Note:** There have been other changes before these, only the latest 3 will show.
 </details>

@@ -331,7 +331,11 @@ public class GenshinUserInformation {
                     if (appendProp == null) continue;
 
                     // Retrieve substats of artifact
-                    for (GenshinUnconvertedUser.SubData substat : flatData.getReliquarySubstats()) {
+                    final List<GenshinUnconvertedUser.SubData> substats = Objects.requireNonNullElse(
+                            flatData.getReliquarySubstats(),
+                            Collections.emptyList()
+                    );
+                    for (GenshinUnconvertedUser.SubData substat : substats) {
                         final GenshinAppendProp subProp = GenshinAppendProp.fromKey(substat.getAppendPropId());
                         if (subProp == null) continue;
                         final double rawValue = substat.getStatValue();

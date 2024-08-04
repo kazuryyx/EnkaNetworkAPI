@@ -125,7 +125,7 @@ public class EnkaCaches {
         }
     }
 
-    private static void baseFetchLoad(@NotNull GameType type, @NotNull String subPath, @NotNull String fileName,
+    public static void baseFetchLoad(@NotNull GameType type, @NotNull String subPath, @NotNull String fileName,
                                       @NotNull BiConsumer<ObjectMapper, ArrayNode> jsonConsumer, @NotNull EnkaCache blockedCache) {
         if (EnkaGlobals.isCacheBlocked(blockedCache)) return;
 

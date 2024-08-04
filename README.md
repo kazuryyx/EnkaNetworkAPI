@@ -6,7 +6,7 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
-> Update - 17/07/2024 - Library Version: 4.8 | Honkai: Star Rail, Bug Fix Update
+> Update - 01/08/2024 - Library Version: 4.8 | Honkai: Star Rail, Bug Fix Update
 - Added new 2.4 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/88897951bef3dc1d126798b5bd0b213f3fdb4e5d>)
 - Exceptions from ``fetch(X)User`` methods are no longer printed instantly, use the failure consumer instead
 - Fixes a bug for Genshin Impact when players had empty substats

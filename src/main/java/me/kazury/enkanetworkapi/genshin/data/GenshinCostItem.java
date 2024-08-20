@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A cost item for ascension.
- * <br>Used by {@link GenshinCharacterAscension} & {@link GenshinWeaponAscension}
+ * <br>Used by {@link GenshinCharacterAscension} & {@link GenshinWeaponAscension} & {@link GenshinProudSkillData}
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GenshinCostItem {

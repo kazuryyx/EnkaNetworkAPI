@@ -3,11 +3,11 @@ package me.kazury.enkanetworkapi.genshin.data;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * An object that represents an ascension material for a character or weapon.
+ * An object that represents an ascension material for a character, weapon, artifact xp or talent.
  */
 public class GenshinAscensionMaterial {
     private final GenshinMaterial item;
-    private final int amount;
+    private int amount;
 
     public GenshinAscensionMaterial(@Nullable GenshinMaterial item, final int amount) {
         this.item = item;
@@ -21,7 +21,7 @@ public class GenshinAscensionMaterial {
      */
     @Nullable
     public GenshinMaterial getItem() {
-        return item;
+        return this.item;
     }
 
     /**
@@ -30,5 +30,12 @@ public class GenshinAscensionMaterial {
      */
     public int getAmount() {
         return this.amount;
+    }
+
+    /**
+     * Sets the amount for this item, this is only used for talent calculation and should not be used otherwise.
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

@@ -3,18 +3,17 @@ package me.kazury.enkanetworkapi.util.calculator;
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaVerifier;
 import me.kazury.enkanetworkapi.genshin.data.*;
+import me.kazury.enkanetworkapi.util.calculator.genshin.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * A calculator object that calculates the amount of materials needed for ascension x-y.
+ * A calculator object that calculates the amount of materials needed for ascension/level x-y.
  */
 public class GenshinCalculator {
     public static final int MAX_ASCENSION = 6;
-    public static final int MAX_ARTIFACT_LEVEL = 20;
 
     private final CalculatorType type;
 
@@ -27,6 +26,9 @@ public class GenshinCalculator {
     private int currentArtifactLevel;
     private int currentArtifactRarity;
     private int targetArtifactLevel;
+
+    private GenshinCharacterTalents currentTalents;
+    private GenshinTalentDesire talentDesire;
 
     protected GenshinCalculator(@NotNull CalculatorType type) {
         this.type = type;
@@ -89,129 +91,35 @@ public class GenshinCalculator {
     }
 
     /**
+     * Sets the current talents of this character
+     */
+    public GenshinCalculator setCurrentTalents(@NotNull GenshinCharacterTalents talents) {
+        this.currentTalents = talents;
+        return this;
+    }
+
+    /**
+     * Sets the wanted talent levels.
+     */
+    public GenshinCalculator setTargetTalentDesire(@NotNull GenshinTalentDesire talentDesire) {
+        this.talentDesire = talentDesire;
+        return this;
+    }
+
+    /**
      * Calculates the amount of materials needed for ascension.
      */
     @NotNull
     public List<GenshinAscensionMaterial> calculate() {
-        if (this.currentAscensionLevel == MAX_ASCENSION || this.currentArtifactLevel == MAX_ARTIFACT_LEVEL) {
+        if (this.type.isCharacterRelated() && this.currentAscensionLevel == MAX_ASCENSION) {
             return Collections.emptyList();
         }
 
         return switch (this.type) {
-            case CHARACTER -> {
-                EnkaVerifier.verifyNotZero(this.targetAscensionLevel, this.characterId);
-
-                final int promoteId = EnkaCaches.getGenshinAvatarConfigs()
-                        .stream()
-                        .filter(c -> c.getCharacterId() == this.characterId)
-                        .findFirst()
-                        .orElseThrow(IllegalArgumentException::new)
-
-                        .getAvatarPromoteId();
-
-                final List<GenshinCharacterAscension> ascensionData = EnkaCaches.getGenshinCharacterAscensions()
-                        .stream()
-                        .filter(a -> a.getPromoteId() == promoteId)
-                        .toList();
-
-                int moraSum = 0;
-                final List<GenshinAscensionMaterial> items = new ArrayList<>();
-
-                for (int i = this.currentAscensionLevel; i < this.targetAscensionLevel + 1; i++) {
-                    final int finalI = i;
-
-                    final GenshinCharacterAscension ascension = ascensionData
-                            .stream()
-                            .filter(a -> a.getPromoteLevel() == finalI)
-                            .findFirst()
-                            .orElseThrow(IllegalArgumentException::new);
-
-                    moraSum += ascension.getMoraCost();
-
-                    for (GenshinCostItem item : ascension.getCostItems()) {
-                        final int id = item.getMaterialId();
-                        if (id == 0) {
-                            // hoyo why would you put objects in there with no data
-                            continue;
-                        }
-
-                        final GenshinMaterial material = EnkaCaches.getMaterial(id);
-
-                        items.add(new GenshinAscensionMaterial(material, item.getCount()));
-                    }
-                }
-
-                final GenshinAscensionMaterial mora = new GenshinAscensionMaterial(EnkaCaches.getMaterial(202), moraSum);
-                items.add(mora);
-
-                yield items;
-            }
-            case ARTIFACT -> {
-                EnkaVerifier.verifyNotZero(this.currentArtifactLevel, this.targetArtifactLevel);
-
-                int sum = 0;
-
-                // Internally, there is 21 levels for an artifact
-                for (int i = this.currentArtifactLevel; i < this.targetArtifactLevel + 1; i++) {
-                    final int finalI = i;
-
-                    final GenshinArtifactRequirement requirement = EnkaCaches.getArtifactRequirements()
-                            .stream()
-                            .filter(r -> r.getRank() == this.currentArtifactRarity && r.getLevel() == finalI)
-                            .findFirst()
-                            .orElseThrow(IllegalArgumentException::new);
-
-                    sum += requirement.getExp();
-                }
-                yield List.of(new GenshinAscensionMaterial(null, sum));
-            }
-            case WEAPON -> {
-                EnkaVerifier.verifyNotZero(this.weaponId, this.targetAscensionLevel);
-
-                final int promoteId = EnkaCaches.getGenshinWeaponConfigs()
-                        .stream()
-                        .filter(c -> c.getWeaponId() == this.weaponId)
-                        .findFirst()
-                        .orElseThrow(IllegalArgumentException::new)
-
-                        .getWeaponPromoteId();
-
-                final List<GenshinWeaponAscension> ascensionData = EnkaCaches.getGenshinWeaponAscensions()
-                        .stream()
-                        .filter(a -> a.getPromoteId() == promoteId)
-                        .toList();
-
-                int moraSum = 0;
-                final List<GenshinAscensionMaterial> items = new ArrayList<>();
-
-                for (int i = this.currentAscensionLevel; i < this.targetAscensionLevel + 1; i++) {
-                    final int finalI = i;
-
-                    final GenshinWeaponAscension ascension = ascensionData
-                            .stream()
-                            .filter(a -> a.getPromoteLevel() == finalI)
-                            .findFirst()
-                            .orElseThrow(IllegalArgumentException::new);
-
-                    moraSum += ascension.getMoraCost();
-
-                    for (GenshinCostItem item : ascension.getCostItems()) {
-                        final int id = item.getMaterialId();
-                        if (id == 0) {
-                            // hoyo why would you put objects in there with no data
-                            continue;
-                        }
-
-                        final GenshinMaterial material = EnkaCaches.getMaterial(id);
-
-                        items.add(new GenshinAscensionMaterial(material, item.getCount()));
-                    }
-                }
-
-                final GenshinAscensionMaterial mora = new GenshinAscensionMaterial(EnkaCaches.getMaterial(202), moraSum);
-                items.add(mora);
-                yield items;
-            }
+            case CHARACTER -> new GenshinCharacterCalculator(this.characterId, this.currentAscensionLevel, this.targetAscensionLevel).calculate();
+            case ARTIFACT -> new GenshinArtifactCalculator(this.currentArtifactLevel, this.targetArtifactLevel, this.currentArtifactRarity).calculate();
+            case WEAPON -> new GenshinWeaponCalculator(this.weaponId, this.currentAscensionLevel, this.targetAscensionLevel).calculate();
+            case CHARACTER_TALENTS -> new GenshinTalentCalculator(this.characterId, this.talentDesire, this.currentTalents).calculate();
         };
     }
 
@@ -226,13 +134,14 @@ public class GenshinCalculator {
 
     /**
      * Creates a new character calculator object with the character and wanted ascension level.
-     * @param character  The character to calculate the ascension materials for.
+     *
+     * @param character       The character to calculate the ascension materials for.
      * @param wantedAscension The wanted ascension level.
      * @return A new calculator object.
      */
     @NotNull
     public static GenshinCalculator createCharacter(@NotNull GenshinUserCharacter character,
-                                           final int wantedAscension) {
+                                                    final int wantedAscension) {
         return new GenshinCalculator(CalculatorType.CHARACTER)
                 .setCharacterId(character.getId())
                 .setCurrentAscensionLevel(character.getCurrentAscension())
@@ -241,7 +150,8 @@ public class GenshinCalculator {
 
     /**
      * Creates a new artifact calculator object with the artifact and wanted level.
-     * @param artifact The artifact to calculate the ascension materials for.
+     *
+     * @param artifact    The artifact to calculate the ascension materials for.
      * @param wantedLevel The wanted artifact level.
      * @return A new calculator object.
      */
@@ -254,18 +164,56 @@ public class GenshinCalculator {
                 .setTargetArtifactLevel(wantedLevel);
     }
 
+    /**
+     * Creates a new weapon calculator object with the weapon
+     *
+     * @param weapon          The weapon to calculate the ascension materials for
+     * @param wantedAscension The wanted ascension on this weapon
+     * @return A new calculator object
+     */
     @NotNull
     public static GenshinCalculator createWeapon(@NotNull GenshinUserWeapon weapon,
-                                                         final int wantedAscension) {
+                                                 final int wantedAscension) {
         return new GenshinCalculator(CalculatorType.WEAPON)
                 .setWeaponId(weapon.getId())
                 .setCurrentAscensionLevel(weapon.getWeaponAscension())
                 .setTargetAscensionLevel(wantedAscension);
     }
 
+    /**
+     * Creates a new talent calculator object with the character & your desired levels
+     *
+     * @param character    The character you want to calculate the materials for
+     * @param talentDisire The class with desired talents levels for each type
+     * @return A new calculator object
+     */
+    @NotNull
+    public static GenshinCalculator createTalent(@NotNull GenshinUserCharacter character,
+                                                 @NotNull GenshinTalentDesire talentDisire) {
+        return new GenshinCalculator(CalculatorType.CHARACTER_TALENTS)
+                .setCharacterId(character.getId())
+                .setCurrentTalents(character.getTalentLevels())
+                .setTargetTalentDesire(talentDisire);
+    }
+
     public enum CalculatorType {
-        CHARACTER,
-        ARTIFACT,
-        WEAPON
+        CHARACTER(true),
+        ARTIFACT(false),
+        WEAPON(true),
+        CHARACTER_TALENTS(false); // theoretically yes but in this context not
+
+        private final boolean characterRelated;
+
+        CalculatorType(final boolean characterRelated) {
+            this.characterRelated = characterRelated;
+        }
+
+        /**
+         * Returns if this character is related to a character action
+         * <br>Mainly used for a check that checks if the current ascension level is the max, which applies for Characters and Weapons
+         */
+        public boolean isCharacterRelated() {
+            return this.characterRelated;
+        }
     }
 }

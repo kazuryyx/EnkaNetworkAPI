@@ -1,12 +1,13 @@
 package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
-import me.kazury.enkanetworkapi.starrail.data.SRUserCharacter;
+import me.kazury.enkanetworkapi.util.calculator.GenshinCalculator;
 import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.genshin.data.GenshinArtifact;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserWeapon;
 import me.kazury.enkanetworkapi.genshin.data.GenshinUserCharacter;
+import me.kazury.enkanetworkapi.util.calculator.genshin.GenshinTalentDesire;
 
 /**
  * Represents a cache enum that can be used to block certain caches.
@@ -63,6 +64,14 @@ public enum EnkaCache {
      * <br>Note: If {@link #GENSHIN_MATERIALS} is blocked, this will not work.
      */
     GENSHIN_WEAPON_ASCENSION_MATERIALS,
+    /**
+     * Genshin Proud Skills, mainly used for calculating talent material requirement {@link GenshinCalculator#createTalent(GenshinUserCharacter, GenshinTalentDesire)}
+     */
+    GENSHIN_PROUD_SKILLS,
+    /**
+     * Genshin Skill Configs, same purpose as above
+     */
+    GENSHIN_SKILL_CONFIGS,
     /**
      * The metadata for some characters, this is for example used if you want to fetch the properties of a character.
      * <br>Unlike genshin, we need to calculate the stats ourselves and not exposed via the json.

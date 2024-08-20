@@ -44,6 +44,8 @@ public class EnkaCaches {
     private static final List<GenshinCharacterAscension> genshinCharacterAscensions = new ArrayList<>();
     private static final List<GenshinWeaponAscension> genshinWeaponAscensions = new ArrayList<>();
     private static final List<GenshinWeaponConfig> genshinWeaponConfigs = new ArrayList<>();
+    private static final List<GenshinProudSkillData> proudSkillData = new ArrayList<>();
+    private static final List<GenshinAvatarSkillConfig> avatarSkillConfig = new ArrayList<>();
 
     private static boolean genshinLoadedOrLoading = false;
 
@@ -77,6 +79,8 @@ public class EnkaCaches {
         genshinCharacterAscensions.clear();
         genshinWeaponAscensions.clear();
         genshinWeaponConfigs.clear();
+        proudSkillData.clear();
+        avatarSkillConfig.clear();
         metaCharacterCache.clear();
         metaWeaponCache.clear();
         metaRelicSetCache.clear();
@@ -108,6 +112,8 @@ public class EnkaCaches {
         loadGenshinCharacterAscensions();
         loadGenshinWeaponAscensions();
         loadGenshinWeaponConfigs();
+        loadGenshinProudSkillData();
+        loadGenshinSkillConfigs();
 
         System.out.println("[Cache] All caches have loaded.");
     }
@@ -164,6 +170,24 @@ public class EnkaCaches {
                 genshinWeaponConfigs.add(config);
             }
         }, EnkaCache.GENSHIN_WEAPON_CONFIGS);
+    }
+
+    private static void loadGenshinProudSkillData() {
+        baseFetchLoad(GameType.GENSHIN, "ExcelBinOutput", "ProudSkillExcelConfigData.json", (mapper, node) -> {
+            for (JsonNode weapon : node) {
+                final GenshinProudSkillData skillData = mapper.convertValue(weapon, GenshinProudSkillData.class);
+                proudSkillData.add(skillData);
+            }
+        }, EnkaCache.GENSHIN_PROUD_SKILLS);
+    }
+
+    private static void loadGenshinSkillConfigs() {
+        baseFetchLoad(GameType.GENSHIN, "ExcelBinOutput", "AvatarSkillExcelConfigData.json", (mapper, node) -> {
+            for (JsonNode weapon : node) {
+                final GenshinAvatarSkillConfig skillData = mapper.convertValue(weapon, GenshinAvatarSkillConfig.class);
+                avatarSkillConfig.add(skillData);
+            }
+        }, EnkaCache.GENSHIN_AVATAR_CONFIGS);
     }
 
     private static void loadGenshinCharacterAscensions() {
@@ -638,6 +662,22 @@ public class EnkaCaches {
     @NotNull
     public static Map<String, SRLightconeData> getSRLightconeMap() {
         return Map.copyOf(honkaiLightConeCache);
+    }
+
+    /**
+     * A copy of skill configs for Genshin Impact
+     */
+    @NotNull
+    public static List<GenshinAvatarSkillConfig> getAvatarSkillConfig() {
+        return List.copyOf(avatarSkillConfig);
+    }
+
+    /**
+     * A copy of proud skill data for Genshin Impact
+     */
+    @NotNull
+    public static List<GenshinProudSkillData> getProudSkillData() {
+        return List.copyOf(proudSkillData);
     }
 
     /**

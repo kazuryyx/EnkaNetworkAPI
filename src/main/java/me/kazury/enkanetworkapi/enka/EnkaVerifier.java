@@ -2,6 +2,7 @@ package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A verifier class which is used to verify conditions before executing code.
@@ -35,6 +36,15 @@ public class EnkaVerifier {
     public static void verifyNotZero(@NotNull Number... numbers) {
         for (Number i : numbers) {
             verifyOrThrow(i.intValue() != 0, IllegalArgumentException.class);
+        }
+    }
+
+    /**
+     * Verifies that an object is not null
+     */
+    public static void verifyNotNull(Object... objects) {
+        for (Object o : objects) {
+            verifyOrThrow(o != null, IllegalArgumentException.class);
         }
     }
 }

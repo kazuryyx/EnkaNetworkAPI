@@ -17,7 +17,6 @@ public class EnkaProfileData {
 
     /**
      * The username of this profile, this is also the name you provided in
-     * @return
      */
     @NotNull
     public String getUsername() {

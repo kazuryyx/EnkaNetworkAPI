@@ -26,7 +26,7 @@ import java.util.function.Consumer;
  * <br>
  * <br>Example
  * <pre>{@code
- * final EnkaNetworkAPI api = new EnkaNetworkAPI();
+ * final EnkaNetworkAPI api = new EnkaNetworkAPI().build();
  *
  * api.fetchGenshinUser(722777337, (user) -> {
  *      final GenshinUserInformation genshinUser = user.toGenshinUser();
@@ -43,8 +43,6 @@ public class EnkaNetworkAPI {
     public EnkaNetworkAPI() {
         final Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
         this.httpClient = new EnkaHTTPClient(this, gson);
-
-        EnkaCaches.loadCaches();
     }
 
     /**
@@ -373,12 +371,23 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Builds this instance of EnkaNetworkAPI allowing you to use it.
+     * <br>If this is not called then caches will not load resulting in exceptions on various assets.
+     * <br>This should be called after every property has been set on your call.
+     */
+    @NotNull
+    public EnkaNetworkAPI build() {
+        EnkaCaches.loadCaches();
+        return this;
+    }
+
+    /**
      * Gets an icon by the icon id (Honkai: Star Rail)
      * @param key The icon id, it is usually an uppercase char sequence
      * @return The icon url
      * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
      *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
-     *         <br>With a custom CDN.
+     *          with a custom CDN.
      */
     @NotNull
     public String getSRIcon(@NotNull String key) {

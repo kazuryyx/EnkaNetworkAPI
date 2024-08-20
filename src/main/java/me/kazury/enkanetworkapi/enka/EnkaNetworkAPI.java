@@ -7,7 +7,6 @@ import me.kazury.enkanetworkapi.genshin.data.*;
 import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
 import me.kazury.enkanetworkapi.starrail.data.SRCharacterData;
-import me.kazury.enkanetworkapi.starrail.data.SRLightcone;
 import me.kazury.enkanetworkapi.starrail.data.SRLightconeData;
 import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;

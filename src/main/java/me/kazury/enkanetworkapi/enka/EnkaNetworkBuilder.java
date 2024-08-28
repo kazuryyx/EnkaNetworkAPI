@@ -101,6 +101,6 @@ public class EnkaNetworkBuilder {
         if (!this.blockedCaches.isEmpty()) {
             api.setBlockedCaches(this.blockedCaches);
         }
-        return api;
+        return api.build();
     }
 }

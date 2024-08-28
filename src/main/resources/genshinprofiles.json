@@ -419,6 +419,18 @@
     "id": 10000099,
     "iconPath": "UI_AvatarIcon_Emilie_Circle"
   },
+  "8500": {
+    "id": 10000100,
+    "iconPath": "UI_AvatarIcon_Kachina_Circle"
+  },
+  "8600": {
+    "id": 10000102,
+    "iconPath": "UI_AvatarIcon_Mualani_Circle"
+  },
+  "8700": {
+    "id": 10000101,
+    "iconPath": "UI_AvatarIcon_Kinich_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"
@@ -490,5 +502,9 @@
   "100170": {
     "id": 74196,
     "iconPath": "UI_AvatarIcon_74196_Circle"
+  },
+  "100180": {
+    "id": 75002,
+    "iconPath": "UI_AvatarIcon_75002_Circle"
   }
 }

@@ -34,6 +34,14 @@ public class GenshinUnconvertedUser implements IExpiryTime {
         private List<Integer> showNameCardIdList;
         private ProfilePicture profilePicture;
 
+        // new 5.0 fields
+        private int theaterActIndex;
+        private int theaterModeIndex;
+        private int theaterStarIndex;
+        private boolean isShowAvatarTalent;
+        private int fetterCount;
+        private int towerStarIndex;
+
         public String getNickname() {
             return this.nickname;
         }
@@ -68,6 +76,30 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
         public List<ShowAvatarInfo> getShowAvatarInfoList() {
             return this.showAvatarInfoList;
+        }
+
+        public int getTheaterActIndex() {
+            return theaterActIndex;
+        }
+
+        public int getTheaterModeIndex() {
+            return theaterModeIndex;
+        }
+
+        public int getTheaterStarIndex() {
+            return theaterStarIndex;
+        }
+
+        public boolean isShowAvatarTalent() {
+            return isShowAvatarTalent;
+        }
+
+        public int getFetterCount() {
+            return fetterCount;
+        }
+
+        public int getTowerStarIndex() {
+            return towerStarIndex;
         }
 
         public List<Integer> getShowNameCardIdList() {

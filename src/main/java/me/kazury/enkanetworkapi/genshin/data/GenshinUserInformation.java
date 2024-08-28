@@ -28,6 +28,15 @@ public class GenshinUserInformation {
     private final int towerLevelIndex;
     private final long uid;
     private final Pair<Long, Long> profilePictureId;
+
+    // 5.0 fields
+    private final int theaterActs;
+    private final int theaterMode;
+    private final int theaterStars;
+    private final boolean isShowAvatarTalent;
+    private final int maxFriendshipNum;
+    private final int abyssStars;
+
     private List<GenshinShowcaseCharacter> showcaseCharacters;
     private List<GenshinNamecard> namecards;
     private List<GenshinUserCharacter> characters;
@@ -40,6 +49,12 @@ public class GenshinUserInformation {
                                   final int achievementCompleted,
                                   final int towerFloorIndex,
                                   final int towerLevelIndex,
+                                  final int theaterActs,
+                                  final int theaterMode,
+                                  final int theaterStars,
+                                  final boolean isShowAvatarTalent,
+                                  final int maxFriendshipNum,
+                                  final int abyssStars,
                                   @NotNull List<GenshinShowcaseCharacter> showcaseCharacters,
                                   @NotNull List<GenshinNamecard> namecards,
                                   @NotNull Pair<Long, Long> profilePictureId,
@@ -55,6 +70,15 @@ public class GenshinUserInformation {
         this.towerLevelIndex = towerLevelIndex;
         this.showcaseCharacters = showcaseCharacters;
         this.namecards = namecards;
+
+        // 5.0 fields
+        this.theaterActs = theaterActs;
+        this.theaterMode = theaterMode;
+        this.theaterStars = theaterStars;
+        this.isShowAvatarTalent = isShowAvatarTalent;
+        this.maxFriendshipNum = maxFriendshipNum;
+        this.abyssStars = abyssStars;
+
         this.profilePictureId = profilePictureId;
         this.characters = characters;
         this.uid = uid;
@@ -86,7 +110,7 @@ public class GenshinUserInformation {
 
     /**
      * The world level of the player.
-     * This is a range from 0 to 8.
+     * This is a range from 0 to 9.
      */
     public int getWorldLevel() {
         return this.worldLevel;
@@ -136,6 +160,55 @@ public class GenshinUserInformation {
     @NotNull
     public List<GenshinNamecard> getNamecards() {
         return this.namecards;
+    }
+
+    /**
+     * How many acts this player has completed in the endgame mode Imaginarium Theater.
+     * <br>Ranges from 1 to 8
+     * <br>Will be 0 if the user did not log in after 5.0.
+     */
+    public int getTheaterActs() {
+        return this.theaterActs;
+    }
+
+    /**
+     * The theater mode this player has completed the theater at.
+     * <br>5 = Normal, 6 = Medium, 7 = Hard
+     * <br>Will be 0 if the user did not log in after 5.0.
+     */
+    public int getTheaterMode() {
+        return this.theaterMode;
+    }
+
+    /**
+     * The amount of stars this player has in the theater.
+     * <br>Will be 0 if the user did not log in after 5.0.
+     */
+    public int getTheaterStars() {
+        return this.theaterStars;
+    }
+
+    /**
+     * Whether constellation levels are shown on the player's overall card
+     */
+    public boolean isShowAvatarTalent() {
+        return this.isShowAvatarTalent;
+    }
+
+    /**
+     * How many characters this user has at Friendship Level 10.
+     * <br>Will be 0 if the user did not log in after 5.0.
+     */
+    public int getFriendshipCharacters() {
+        return this.maxFriendshipNum;
+    }
+
+    /**
+     * How many stars this player has reached in the Abyss. From 0 to 36
+     * <br>Will be 0 if the user did not log in after 5.0.
+     */
+    public int getAbyssStars() {
+        return this.abyssStars;
     }
 
     /**
@@ -233,6 +306,14 @@ public class GenshinUserInformation {
                 playerInfoData.getFinishAchievementNum(),
                 playerInfoData.getTowerFloorIndex(),
                 playerInfoData.getTowerLevelIndex(),
+
+                playerInfoData.getTheaterActIndex(),
+                playerInfoData.getTheaterModeIndex(),
+                playerInfoData.getTheaterStarIndex(),
+                playerInfoData.isShowAvatarTalent(),
+                playerInfoData.getFetterCount(),
+                playerInfoData.getTowerStarIndex(),
+
                 Collections.emptyList(),
                 Collections.emptyList(),
                 filterId(profileData),

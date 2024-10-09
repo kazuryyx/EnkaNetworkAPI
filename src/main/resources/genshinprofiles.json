@@ -431,6 +431,10 @@
     "id": 10000101,
     "iconPath": "UI_AvatarIcon_Kinich_Circle"
   },
+  "8800": {
+    "id": 10000103,
+    "iconPath": "UI_AvatarIcon_Xilonen_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"

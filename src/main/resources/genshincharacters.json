@@ -2864,6 +2864,36 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_CATALYST"
   },
+  "10000103": {
+    "Element": "Rock",
+    "Consts": [
+      "UI_Talent_S_Xilonen_01",
+      "UI_Talent_S_Xilonen_02",
+      "UI_Talent_U_Xilonen_01",
+      "UI_Talent_S_Xilonen_03",
+      "UI_Talent_U_Xilonen_02",
+      "UI_Talent_S_Xilonen_04"
+    ],
+    "SkillOrder": [
+      11031,
+      11032,
+      11035
+    ],
+    "Skills": {
+      "11031": "Skill_A_01",
+      "11032": "Skill_S_Xilonen_01",
+      "11035": "Skill_E_Xilonen_01"
+    },
+    "ProudMap": {
+      "11031": 10331,
+      "11032": 10332,
+      "11035": 10339
+    },
+    "NameTextMapHash": 2515292882,
+    "SideIconName": "UI_AvatarIcon_Side_Xilonen",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

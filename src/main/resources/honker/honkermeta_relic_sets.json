@@ -330,5 +330,19 @@
         "SpeedAddedRatio": 0.06
       }
     }
+  },
+  "317": {
+    "2": {
+      "props": {
+        "SPRatioBase": 0.05
+      }
+    }
+  },
+  "318": {
+    "2": {
+      "props": {
+        "CriticalDamageBase": 0.16
+      }
+    }
   }
 }

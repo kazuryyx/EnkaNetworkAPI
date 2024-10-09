@@ -755,6 +755,33 @@
       }
     }
   },
+  "21047": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.28
+      }
+    },
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.35
+      }
+    },
+    "3": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.42
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.49
+      }
+    },
+    "5": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.56
+      }
+    }
+  },
   "22000": {
     "1": {
       "props": {
@@ -1609,6 +1636,60 @@
     "5": {
       "props": {
         "CriticalDamageBase": 0.6
+      }
+    }
+  },
+  "23031": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.15
+      }
+    },
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.175
+      }
+    },
+    "3": {
+      "props": {
+        "CriticalChanceBase": 0.2
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.225
+      }
+    },
+    "5": {
+      "props": {
+        "CriticalChanceBase": 0.25
+      }
+    }
+  },
+  "23032": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.6
+      }
+    },
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.7
+      }
+    },
+    "3": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.8
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.9
+      }
+    },
+    "5": {
+      "props": {
+        "BreakDamageAddedRatioBase": 1
       }
     }
   },

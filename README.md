@@ -6,6 +6,10 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 10/10/2024 - Library Version: 5.1 | Honkai: Star Rail, Genshin Impact Update
+- Added new 5.1 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/99751230d8d400706053d9c70a2d65d3e8fe2762>)
+- Added new 2.5 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/c8c43bcad4d493b4dc94eb44f84b01b0a3e55254>) (I forgor last month)
+
 > Update - 28/08/2024 - Library Version: 5.0 | Genshin Impact Update
 - Added new 5.0 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/fa903eed179cd204db51a7cad7b0983a54219373>)
 - Adds the Option to calculate Talent materials for a given character, this is on the ``GenshinCalculator`` object.
@@ -23,9 +27,6 @@ This is an API wrapper for https://enka.network in Java.
 - Exceptions from ``fetch(X)User`` methods are no longer printed instantly, use the failure consumer instead
 - Fixes a bug for Genshin Impact when players had empty substats
 - Fixes a bug for Genshin Impact when players didn't previously set their profile picture
-
-> Update - 17/07/2024 - Library Version: 4.8 | Genshin Impact Update
-- Added new 4.8 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/4d3b47cf81b8a4c140f967472db9e3668e67aee7>)
 
 **Note:** There have been other changes before these, only the latest 3 will show.
 </details>

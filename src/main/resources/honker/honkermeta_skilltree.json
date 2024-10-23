@@ -3919,6 +3919,76 @@
       }
     }
   },
+  "1317201": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1317202": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1317203": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.04
+      }
+    }
+  },
+  "1317204": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1317205": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1317206": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1317207": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.06
+      }
+    }
+  },
+  "1317208": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1317209": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
+      }
+    }
+  },
+  "1317210": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    }
+  },
   "8001201": {
     "1": {
       "props": {

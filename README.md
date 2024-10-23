@@ -6,6 +6,10 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 10/10/2024 - Library Version: 5.1 | Honkai: Star Rail Update
+- Added new 2.6 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f1bdbcfc76623b0a4369f5366d39c6e26c5acb38>)
+- Fixed GitLab Link for HSR
+
 > Update - 10/10/2024 - Library Version: 5.1 | Honkai: Star Rail, Genshin Impact Update
 - Added new 5.1 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/99751230d8d400706053d9c70a2d65d3e8fe2762>)
 - Added new 2.5 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/c8c43bcad4d493b4dc94eb44f84b01b0a3e55254>) (I forgor last month)
@@ -15,18 +19,12 @@ This is an API wrapper for https://enka.network in Java.
 - Adds the Option to calculate Talent materials for a given character, this is on the ``GenshinCalculator`` object.
 - **BREAKING CHANGE**: Every ``new EnkaNetworkAPI()`` call now requires ``build`` at the end (see docs for example). This will load caches once instead of previously loading them twice (not needed on EnkaNetworkBuilder class)
 - New Methods:
- - ``GenshinUserInformation#getTheaterActs``
- - ``GenshinUserInformation#getTheaterMode``
- - ``GenshinUserInformation#getTheaterStars``
- - ``GenshinUserInformation#isShowAvatarTalent``
- - ``GenshinUserInformation#getFriendshipCharacters``
- - ``GenshinUserInformation#getAbyssStars``
-
-> Update - 01/08/2024 - Library Version: 4.8 | Honkai: Star Rail, Bug Fix Update
-- Added new 2.4 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/88897951bef3dc1d126798b5bd0b213f3fdb4e5d>)
-- Exceptions from ``fetch(X)User`` methods are no longer printed instantly, use the failure consumer instead
-- Fixes a bug for Genshin Impact when players had empty substats
-- Fixes a bug for Genshin Impact when players didn't previously set their profile picture
+  - ``GenshinUserInformation#getTheaterActs``
+  - ``GenshinUserInformation#getTheaterMode``
+  - ``GenshinUserInformation#getTheaterStars``
+  - ``GenshinUserInformation#isShowAvatarTalent``
+  - ``GenshinUserInformation#getFriendshipCharacters``
+  - ``GenshinUserInformation#getAbyssStars``
 
 **Note:** There have been other changes before these, only the latest 3 will show.
 </details>

@@ -2894,6 +2894,66 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
+  "10000104": {
+    "Element": "Wind",
+    "Consts": [
+      "UI_Talent_S_Chasca_01",
+      "UI_Talent_S_Chasca_02",
+      "UI_Talent_U_Chasca_01",
+      "UI_Talent_S_Chasca_03",
+      "UI_Talent_U_Chasca_02",
+      "UI_Talent_S_Chasca_04"
+    ],
+    "SkillOrder": [
+      11041,
+      11042,
+      11045
+    ],
+    "Skills": {
+      "11041": "Skill_A_02",
+      "11042": "Skill_S_Chasca_01",
+      "11045": "Skill_E_Chasca_01"
+    },
+    "ProudMap": {
+      "11041": 10431,
+      "11042": 10432,
+      "11045": 10439
+    },
+    "NameTextMapHash": 3746229466,
+    "SideIconName": "UI_AvatarIcon_Side_Chasca",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_BOW"
+  },
+  "10000105": {
+    "Element": "Electric",
+    "Consts": [
+      "UI_Talent_S_Olorun_01",
+      "UI_Talent_S_Olorun_02",
+      "UI_Talent_U_Olorun_01",
+      "UI_Talent_S_Olorun_03",
+      "UI_Talent_U_Olorun_02",
+      "UI_Talent_S_Olorun_04"
+    ],
+    "SkillOrder": [
+      30501,
+      30502,
+      30505
+    ],
+    "Skills": {
+      "30501": "Skill_A_02",
+      "30502": "Skill_S_Olorun_01",
+      "30505": "Skill_E_Olorun_01"
+    },
+    "ProudMap": {
+      "30501": 10531,
+      "30502": 10532,
+      "30505": 10539
+    },
+    "NameTextMapHash": 1198350762,
+    "SideIconName": "UI_AvatarIcon_Side_Olorun",
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_BOW"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

@@ -6,16 +6,15 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 05/12/2024 - Library Version: 5.2 | Honkai: Star Rail Update
+- Added new 2.7 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/0a3049cebee7c7e3e7d91ae53b4226555472895d>)
+
 > Update - 20/11/2024 - Library Version: 5.2 | Genshin Impact Update
 - Added new 5.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f56e580af17bdca921e17e6a2463f1e4888c1e20>)
 
 > Update - 23/10/2024 - Library Version: 5.1 | Honkai: Star Rail Update
 - Added new 2.6 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/f1bdbcfc76623b0a4369f5366d39c6e26c5acb38>)
 - Fixed GitLab Link for HSR
-
-> Update - 10/10/2024 - Library Version: 5.1 | Honkai: Star Rail, Genshin Impact Update
-- Added new 5.1 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/99751230d8d400706053d9c70a2d65d3e8fe2762>)
-- Added new 2.5 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/c8c43bcad4d493b4dc94eb44f84b01b0a3e55254>) (I forgor last month)
 
 **Note:** There have been other changes before these, only the latest 3 will show.
 </details>

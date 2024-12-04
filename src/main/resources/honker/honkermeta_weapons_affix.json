@@ -1774,6 +1774,33 @@
       }
     }
   },
+  "23035": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.6
+      }
+    },
+    "2": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.7
+      }
+    },
+    "3": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.8
+      }
+    },
+    "4": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.9
+      }
+    },
+    "5": {
+      "props": {
+        "BreakDamageAddedRatioBase": 1
+      }
+    }
+  },
   "24001": {
     "1": {
       "props": {

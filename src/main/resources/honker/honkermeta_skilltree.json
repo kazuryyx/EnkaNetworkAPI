@@ -3009,6 +3009,76 @@
       }
     }
   },
+  "1225201": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1225202": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.053
+      }
+    }
+  },
+  "1225203": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1225204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1225205": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1225206": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.08
+      }
+    }
+  },
+  "1225207": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1225208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1225209": {
+    "1": {
+      "props": {
+        "BreakDamageAddedRatioBase": 0.107
+      }
+    }
+  },
+  "1225210": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
+      }
+    }
+  },
   "1301201": {
     "1": {
       "props": {
@@ -3776,6 +3846,76 @@
     "1": {
       "props": {
         "IceAddedRatio": 0.064
+      }
+    }
+  },
+  "1313201": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1313202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1313203": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.053
+      }
+    }
+  },
+  "1313204": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.05
+      }
+    }
+  },
+  "1313205": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1313206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1313207": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.08
+      }
+    }
+  },
+  "1313208": {
+    "1": {
+      "props": {
+        "DefenceAddedRatio": 0.075
+      }
+    }
+  },
+  "1313209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1313210": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.107
       }
     }
   },

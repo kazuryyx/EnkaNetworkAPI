@@ -431,7 +431,15 @@
     "NameTextMapHash": 1130996346,
     "SideIconName": "UI_AvatarIcon_Side_Xiangling",
     "QualityType": "QUALITY_PURPLE",
-    "WeaponType": "WEAPON_POLE"
+    "WeaponType": "WEAPON_POLE",
+    "Costumes": {
+      "202301": {
+        "sideIconName": "UI_AvatarIcon_Side_XianglingCostumeWinter",
+        "icon": "UI_AvatarIcon_XianglingCostumeWinter",
+        "art": "UI_Costume_XianglingCostumeWinter",
+        "avatarId": 10000023
+      }
+    }
   },
   "10000024": {
     "Element": "Electric",
@@ -1130,7 +1138,15 @@
     "NameTextMapHash": 1940919994,
     "SideIconName": "UI_AvatarIcon_Side_Hutao",
     "QualityType": "QUALITY_ORANGE",
-    "WeaponType": "WEAPON_POLE"
+    "WeaponType": "WEAPON_POLE",
+    "Costumes": {
+      "204601": {
+        "sideIconName": "UI_AvatarIcon_Side_HutaoCostumeWinter",
+        "icon": "UI_AvatarIcon_HutaoCostumeWinter",
+        "art": "UI_Costume_HutaoCostumeWinter",
+        "avatarId": 10000046
+      }
+    }
   },
   "10000047": {
     "Element": "Wind",
@@ -1874,7 +1890,15 @@
     "NameTextMapHash": 3850149970,
     "SideIconName": "UI_AvatarIcon_Side_Nilou",
     "QualityType": "QUALITY_ORANGE",
-    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+    "WeaponType": "WEAPON_SWORD_ONE_HAND",
+    "Costumes": {
+      "207001": {
+        "sideIconName": "UI_AvatarIcon_Side_NilouCostumeFairy",
+        "icon": "UI_AvatarIcon_NilouCostumeFairy",
+        "art": "UI_Costume_NilouCostumeFairy",
+        "avatarId": 10000070
+      }
+    }
   },
   "10000071": {
     "Element": "Electric",
@@ -2953,6 +2977,96 @@
     "SideIconName": "UI_AvatarIcon_Side_Olorun",
     "QualityType": "QUALITY_PURPLE",
     "WeaponType": "WEAPON_BOW"
+  },
+  "10000106": {
+    "Element": "Fire",
+    "Consts": [
+      "UI_Talent_S_Mavuika_01",
+      "UI_Talent_S_Mavuika_02",
+      "UI_Talent_U_Mavuika_01",
+      "UI_Talent_S_Mavuika_03",
+      "UI_Talent_U_Mavuika_02",
+      "UI_Talent_S_Mavuika_04"
+    ],
+    "SkillOrder": [
+      11061,
+      11062,
+      11065
+    ],
+    "Skills": {
+      "11061": "Skill_A_04",
+      "11062": "Skill_S_Mavuika_01",
+      "11065": "Skill_E_Mavuika_01"
+    },
+    "ProudMap": {
+      "11061": 10631,
+      "11062": 10632,
+      "11065": 10639
+    },
+    "NameTextMapHash": 113398050,
+    "SideIconName": "UI_AvatarIcon_Side_Mavuika",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CLAYMORE"
+  },
+  "10000107": {
+    "Element": "Ice",
+    "Consts": [
+      "UI_Talent_S_Citlali_01",
+      "UI_Talent_S_Citlali_02",
+      "UI_Talent_U_Citlali_01",
+      "UI_Talent_S_Citlali_03",
+      "UI_Talent_U_Citlali_02",
+      "UI_Talent_S_Citlali_04"
+    ],
+    "SkillOrder": [
+      11071,
+      11072,
+      11075
+    ],
+    "Skills": {
+      "11071": "Skill_A_Catalyst_MD",
+      "11072": "Skill_S_Citlali_01",
+      "11075": "Skill_E_Citlali_01"
+    },
+    "ProudMap": {
+      "11071": 10731,
+      "11072": 10732,
+      "11075": 10739
+    },
+    "NameTextMapHash": 1197975042,
+    "SideIconName": "UI_AvatarIcon_Side_Citlali",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
+  },
+  "10000108": {
+    "Element": "Wind",
+    "Consts": [
+      "UI_Talent_S_Lanyan_01",
+      "UI_Talent_S_Lanyan_02",
+      "UI_Talent_U_Lanyan_01",
+      "UI_Talent_S_Lanyan_03",
+      "UI_Talent_U_Lanyan_02",
+      "UI_Talent_S_Lanyan_04"
+    ],
+    "SkillOrder": [
+      11081,
+      11082,
+      11085
+    ],
+    "Skills": {
+      "11081": "Skill_A_Catalyst_MD",
+      "11082": "Skill_S_Lanyan_01",
+      "11085": "Skill_E_Lanyan_01"
+    },
+    "ProudMap": {
+      "11081": 10831,
+      "11082": 10832,
+      "11085": 10839
+    },
+    "NameTextMapHash": 1888132250,
+    "SideIconName": "UI_AvatarIcon_Side_Lanyan",
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000005-501": {
     "Element": "None",

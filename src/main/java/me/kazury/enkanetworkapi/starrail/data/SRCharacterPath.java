@@ -10,7 +10,8 @@ public enum SRCharacterPath {
     THE_HUNT("ROGUE"),
     HARMONY("SHAMAN"),
     NIHILITY("WARLOCK"),
-    DESTRUCTION("WARRIOR");
+    DESTRUCTION("WARRIOR"),
+    REMEMBRANCE("MEMORY");
 
     private final String internalId;
 

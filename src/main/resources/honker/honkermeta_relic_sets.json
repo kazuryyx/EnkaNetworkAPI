@@ -242,6 +242,29 @@
       }
     }
   },
+  "123": {
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+      }
+    }
+  },
+  "124": {
+    "2": {
+      "props": {
+        "QuantumAddedRatio": 0.1
+      }
+    },
+    "4": {
+      "props": {
+        "SpeedAddedRatio": -0.08
+      }
+    }
+  },
   "301": {
     "2": {
       "props": {

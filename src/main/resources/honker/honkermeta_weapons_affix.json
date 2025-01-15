@@ -809,6 +809,87 @@
       }
     }
   },
+  "21050": {
+    "1": {
+      "props": {
+        "CriticalDamageBase": 0.12
+      }
+    },
+    "2": {
+      "props": {
+        "CriticalDamageBase": 0.15
+      }
+    },
+    "3": {
+      "props": {
+        "CriticalDamageBase": 0.18
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalDamageBase": 0.21
+      }
+    },
+    "5": {
+      "props": {
+        "CriticalDamageBase": 0.24
+      }
+    }
+  },
+  "21051": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.16
+      }
+    },
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.2
+      }
+    },
+    "3": {
+      "props": {
+        "AttackAddedRatio": 0.24
+      }
+    },
+    "4": {
+      "props": {
+        "AttackAddedRatio": 0.28
+      }
+    },
+    "5": {
+      "props": {
+        "AttackAddedRatio": 0.32
+      }
+    }
+  },
+  "21052": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.12
+      }
+    },
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.14
+      }
+    },
+    "3": {
+      "props": {
+        "CriticalChanceBase": 0.16
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.18
+      }
+    },
+    "5": {
+      "props": {
+        "CriticalChanceBase": 0.2
+      }
+    }
+  },
   "22000": {
     "1": {
       "props": {
@@ -1798,6 +1879,60 @@
     "5": {
       "props": {
         "BreakDamageAddedRatioBase": 1
+      }
+    }
+  },
+  "23036": {
+    "1": {
+      "props": {
+        "BaseSpeed": 12
+      }
+    },
+    "2": {
+      "props": {
+        "BaseSpeed": 14
+      }
+    },
+    "3": {
+      "props": {
+        "BaseSpeed": 16
+      }
+    },
+    "4": {
+      "props": {
+        "BaseSpeed": 18
+      }
+    },
+    "5": {
+      "props": {
+        "BaseSpeed": 20
+      }
+    }
+  },
+  "23037": {
+    "1": {
+      "props": {
+        "CriticalChanceBase": 0.12
+      }
+    },
+    "2": {
+      "props": {
+        "CriticalChanceBase": 0.14
+      }
+    },
+    "3": {
+      "props": {
+        "CriticalChanceBase": 0.16
+      }
+    },
+    "4": {
+      "props": {
+        "CriticalChanceBase": 0.18
+      }
+    },
+    "5": {
+      "props": {
+        "CriticalChanceBase": 0.2
       }
     }
   },

@@ -73,6 +73,7 @@ public class SRCharacterData {
      *     <li>Shaman = Harmony</li>
      *     <li>Warlock = Nihility</li>
      *     <li>Warrior = Destruction</li>
+     *     <li>Memory = Remembrance</li>
      * </ul>
      */
     @NotNull

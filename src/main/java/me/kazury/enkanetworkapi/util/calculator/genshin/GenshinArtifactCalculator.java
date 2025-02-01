@@ -2,7 +2,8 @@ package me.kazury.enkanetworkapi.util.calculator.genshin;
 
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaVerifier;
-import me.kazury.enkanetworkapi.genshin.data.*;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinArtifactRequirement;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinAscensionMaterial;
 import me.kazury.enkanetworkapi.util.calculator.BaseCalculator;
 import org.jetbrains.annotations.NotNull;
 

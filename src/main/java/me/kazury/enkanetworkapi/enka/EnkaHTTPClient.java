@@ -2,14 +2,14 @@ package me.kazury.enkanetworkapi.enka;
 
 import com.google.gson.Gson;
 import me.kazury.enkanetworkapi.enka.page.EnkaProfileData;
-import me.kazury.enkanetworkapi.genshin.data.conversion.GenshinUnconvertedUser;
+import me.kazury.enkanetworkapi.games.genshin.data.conversion.GenshinUnconvertedUser;
 import me.kazury.enkanetworkapi.util.exceptions.NiceJobException;
 import me.kazury.enkanetworkapi.util.exceptions.PlayerDoesNotExistException;
 import me.kazury.enkanetworkapi.util.exceptions.RateLimitedException;
 import me.kazury.enkanetworkapi.util.exceptions.WrongUIDFormatException;
 import me.kazury.enkanetworkapi.util.CachedData;
 import me.kazury.enkanetworkapi.util.FunctionalCallback;
-import me.kazury.enkanetworkapi.starrail.data.conversion.SRUnconvertedUser;
+import me.kazury.enkanetworkapi.games.starrail.data.conversion.SRUnconvertedUser;
 import okhttp3.Request;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

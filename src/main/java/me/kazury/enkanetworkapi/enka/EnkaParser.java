@@ -1,6 +1,6 @@
 package me.kazury.enkanetworkapi.enka;
 
-import me.kazury.enkanetworkapi.genshin.data.GenshinArtifactType;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinArtifactType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,12 +1,12 @@
 package me.kazury.enkanetworkapi.enka;
 
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserInformation;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinUserInformation;
 import me.kazury.enkanetworkapi.util.calculator.GenshinCalculator;
-import me.kazury.enkanetworkapi.starrail.data.SRUserInformation;
+import me.kazury.enkanetworkapi.games.starrail.data.SRUserInformation;
 import me.kazury.enkanetworkapi.util.Pair;
-import me.kazury.enkanetworkapi.genshin.data.GenshinArtifact;
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserWeapon;
-import me.kazury.enkanetworkapi.genshin.data.GenshinUserCharacter;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinArtifact;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinUserWeapon;
+import me.kazury.enkanetworkapi.games.genshin.data.GenshinUserCharacter;
 import me.kazury.enkanetworkapi.util.calculator.genshin.GenshinTalentDesire;
 
 /**

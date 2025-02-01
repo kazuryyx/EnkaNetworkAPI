@@ -1,8 +1,6 @@
 package me.kazury.enkanetworkapi.util.calculator;
 
-import me.kazury.enkanetworkapi.enka.EnkaCaches;
-import me.kazury.enkanetworkapi.enka.EnkaVerifier;
-import me.kazury.enkanetworkapi.genshin.data.*;
+import me.kazury.enkanetworkapi.games.genshin.data.*;
 import me.kazury.enkanetworkapi.util.calculator.genshin.*;
 import org.jetbrains.annotations.NotNull;
 

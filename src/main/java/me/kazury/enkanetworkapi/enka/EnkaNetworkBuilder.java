@@ -1,7 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
-import me.kazury.enkanetworkapi.genshin.util.GenshinNameable;
+import me.kazury.enkanetworkapi.games.genshin.util.GenshinNameable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

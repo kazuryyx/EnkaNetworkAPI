@@ -357,14 +357,6 @@ public class EnkaCaches {
         }), EnkaCache.GENSHIN_NAMECARDS);
     }
 
-    public static void main(String[] args) {
-        final EnkaNetworkAPI api = new EnkaNetworkBuilder().build();
-        api.enableZenless(true);
-        EnkaGlobals.parseLocalization(null);
-
-        System.out.println(EnkaCaches.getZenlessLocale(GlobalLocalization.ENGLISH, "Item_Weapon_B_Common_01_Name"));
-    }
-
     private static void loadZZZWeaponCache(@NotNull ClassLoader classLoader) {
         baseResourceLoad(classLoader, "zenless/weapons.json", (stream) -> loadCache(stream, (entry, mapper) -> {
             final String key = entry.getKey();

@@ -7,6 +7,7 @@ This is an API wrapper for https://enka.network in Java.
 <summary>Version Change Log</summary>
 
 > Update - 14/02/2025 - Library Version: 5.4 | Genshin Impact Update
+- **BREAKING CHANGE**: Some packages regarding games have been moved, please check your imports.
 - Added new 5.4 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/4ecd3a4fb0c527d84d6cc2b7f0b83f582802a9dc>)
 - Partly adds new classes for ZZZ, however it is half finished as I expected ZZZ API to come out before 5.4. 
 

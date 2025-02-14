@@ -23,6 +23,7 @@ public class EnkaNetworkBuilder {
     private String baseUrl;
     private String userAgent;
     private boolean honkaiEnabled = false;
+    private boolean zenlessEnabled = false;
     private List<EnkaCache> blockedCaches = new ArrayList<>();
 
     /**
@@ -68,6 +69,17 @@ public class EnkaNetworkBuilder {
     }
 
     /**
+     * Sets the status of Zenless Zero Zero
+     * <br>This is default false, but if you try to do anything related to Zenless Zero Zero you will receive an error.
+     * <br>So if you want to use Zenless Zero Zero, you must enable it.
+     */
+    @NotNull
+    public EnkaNetworkBuilder setZenlessEnabled(final boolean status) {
+        this.zenlessEnabled = status;
+        return this;
+    }
+
+    /**
      * Sets the blocked caches.
      * @param caches The blocked caches.
      */
@@ -85,6 +97,7 @@ public class EnkaNetworkBuilder {
     public EnkaNetworkAPI build() {
         final EnkaNetworkAPI api = new EnkaNetworkAPI();
         api.enableHonkai(this.honkaiEnabled);
+        api.enableZenless(this.zenlessEnabled);
 
         if (this.defaultLocalization != null) {
             api.setDefaultLocalization(this.defaultLocalization);

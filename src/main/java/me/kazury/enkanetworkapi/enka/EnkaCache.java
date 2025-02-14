@@ -88,5 +88,12 @@ public enum EnkaCache {
     /**
      * Honkai: Star Rail profile pictures, this enables support for {@link SRUserInformation#getProfilePictureIdentifier()}
      */
-    HONKAI_PROFILES
+    HONKAI_PROFILES,
+
+
+    /**
+     * Zenless Zone Zero Weapons aka. W-Engines.
+     * <br>TODO
+     */
+    ZZZ_WEAPONS
 }

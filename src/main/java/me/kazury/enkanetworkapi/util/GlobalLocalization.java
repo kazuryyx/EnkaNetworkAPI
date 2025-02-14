@@ -14,7 +14,7 @@ public enum GlobalLocalization {
     FRANCAIS("FR"),
     INDONESIAN("ID"),
     /**
-     * Do not use for Honkai: Star Rail
+     * Do not use for Honkai: Star Rail, Zenless Zone Zero
      */
     ITALIAN("IT"),
     JAPANESE("JP"),
@@ -23,7 +23,7 @@ public enum GlobalLocalization {
     RUSSIAN("RU"),
     THAI("TH"),
     /**
-     * Do not use for Honkai: Star Rail
+     * Do not use for Honkai: Star Rail, Zenless Zone Zero
      */
     TURKISH("TR"),
     VIETNAMESE("VI");

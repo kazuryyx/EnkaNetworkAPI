@@ -7,7 +7,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public enum GameType {
     GENSHIN("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/%s/%s"),
-    HONKAI("https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/main/%s/%s");
+    HONKAI("https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/main/%s/%s"),
+    ZENLESS("https://git.mero.moe/dimbreath/ZenlessData/raw/branch/master/%s/%s");
 
     @NotNull
     private final String url;

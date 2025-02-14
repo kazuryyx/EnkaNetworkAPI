@@ -37,6 +37,7 @@ import java.util.function.Consumer;
 public class EnkaNetworkAPI {
     public static String BASE_GENSHIN_UI_URL = "https://enka.network/ui/";
     public static String BASE_SR_UI_URL = "https://enka.network/ui/hsr/";
+    public static String BASE_ZZZ_UI_URL = "https://enka.network";
 
     private final EnkaHTTPClient httpClient;
 
@@ -331,6 +332,15 @@ public class EnkaNetworkAPI {
     }
 
     /**
+     * Sets the status of Zenless Zone Zero
+     * <br>This is default false, but if you try to do anything related to Zenless Zone Zero you will receive an error.
+     * <br>So if you want to use Zenless Zone Zero, you must enable it.
+     */
+    public void enableZenless(final boolean status) {
+        EnkaGlobals.setZenlessEnabled(status);
+    }
+
+    /**
      * Fetches the character data of a user.
      * @param id The ID of the character. This is not the character's name.
      * @return The character data, or null if the character does not exist (or I forgot to update my library)
@@ -393,5 +403,19 @@ public class EnkaNetworkAPI {
     public String getSRIcon(@NotNull String key) {
         EnkaVerifier.verifyHonkai();
         return BASE_SR_UI_URL + key;
+    }
+
+    /**
+     * Gets an icon by the icon id (Zenless Zone Zero)
+     * @param key The icon id
+     * @return The icon url
+     * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
+     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
+     *          with a custom CDN.
+     */
+    @NotNull
+    public String getZenlessIcon(@NotNull String key) {
+        EnkaVerifier.verifyZenless();
+        return BASE_ZZZ_UI_URL + key;
     }
 }

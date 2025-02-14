@@ -1,6 +1,8 @@
 package me.kazury.enkanetworkapi.enka;
 
+import me.kazury.enkanetworkapi.games.zzz.data.ZZZWeapon;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
+import me.kazury.enkanetworkapi.util.exceptions.ZenlessNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -10,7 +12,9 @@ import java.util.List;
 public class EnkaGlobals {
     private static GlobalLocalization DEFAULT_LOCALIZATION = GlobalLocalization.ENGLISH;
     private static final List<EnkaCache> BLOCKED_CACHES = new ArrayList<>();
+
     private static boolean HONKAI_ENABLED = false;
+    private static boolean ZZZ_ENABLED = false;
 
     /**
      * Sets the default localization
@@ -26,6 +30,14 @@ public class EnkaGlobals {
      */
     public static void setHonkaiEnabled(final boolean status) {
         HONKAI_ENABLED = status;
+    }
+
+    /**
+     * Sets the status of Zenless Zone Zero.
+     * @param status the new status
+     */
+    public static void setZenlessEnabled(final boolean status) {
+        ZZZ_ENABLED = status;
     }
 
     /**
@@ -59,6 +71,13 @@ public class EnkaGlobals {
      */
     public static boolean isHonkaiEnabled() {
         return HONKAI_ENABLED;
+    }
+
+    /**
+     * @return if Zenless Zone Zero is enabled
+     */
+    public static boolean isZenlessEnabled() {
+        return ZZZ_ENABLED;
     }
 
     /**

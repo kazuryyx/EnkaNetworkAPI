@@ -1,36 +1,28 @@
-package me.kazury.enkanetworkapi.games.genshin.util;
+package me.kazury.enkanetworkapi.games.zzz.util;
 
 import me.kazury.enkanetworkapi.enka.EnkaCaches;
 import me.kazury.enkanetworkapi.enka.EnkaGlobals;
-import me.kazury.enkanetworkapi.games.genshin.data.GenshinArtifact;
-import me.kazury.enkanetworkapi.games.genshin.data.GenshinCharacterData;
-import me.kazury.enkanetworkapi.games.genshin.data.GenshinUserWeapon;
+import me.kazury.enkanetworkapi.games.starrail.data.SRCharacterData;
+import me.kazury.enkanetworkapi.games.starrail.data.SRRelic;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * A functional interface which is used for getting names of objects
- * @see GenshinArtifact
- * @see GenshinCharacterData
- * @see GenshinUserWeapon
  */
-public interface GenshinNameable {
+public interface ZZZNameable {
     /**
      * Gets the name of this object given by a locale.
      * <br>There are some keys, which do not exist so this will return {@code null} if the key does not exist.
      * <br>If the locale is {@code null}, then the default locale will be used.
      * @param locale The locale.
      * @return The name of this object.
-     * @see GenshinCharacterData
-     * @see GenshinUserWeapon
-     * @see GenshinArtifact
      */
     @NotNull
     default String getName(@Nullable GlobalLocalization locale) {
         locale = EnkaGlobals.parseLocalization(locale);
-
-        final String name = EnkaCaches.getGenshinLocale(locale, this.getNameTextMapHash());
+        final String name = EnkaCaches.getZenlessLocale(locale, this.getNameHash());
         return name == null ? "" : name;
     }
 
@@ -38,9 +30,6 @@ public interface GenshinNameable {
      * Gets the name of this object given by the default locale.
      * <br>There are some keys, which do not exist so this will return {@code null} if the key does not exist.
      * @return The name of this object.
-     * @see GenshinCharacterData
-     * @see GenshinUserWeapon
-     * @see GenshinArtifact
      */
     @NotNull
     default String getName() {
@@ -48,5 +37,5 @@ public interface GenshinNameable {
     }
 
     @NotNull
-    String getNameTextMapHash();
+    String getNameHash();
 }

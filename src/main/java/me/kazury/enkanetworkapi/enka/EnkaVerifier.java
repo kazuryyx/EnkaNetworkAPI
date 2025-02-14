@@ -1,6 +1,7 @@
 package me.kazury.enkanetworkapi.enka;
 
 import me.kazury.enkanetworkapi.util.exceptions.HonkaiNotEnabledException;
+import me.kazury.enkanetworkapi.util.exceptions.ZenlessNotEnabledException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,6 +29,13 @@ public class EnkaVerifier {
      */
     public static void verifyHonkai() {
         verifyOrThrow(EnkaGlobals.isHonkaiEnabled(), HonkaiNotEnabledException.class);
+    }
+
+    /**
+     * Verifies if zenless is enabled, this is run before all Honkai: Star Rail operations.
+     */
+    public static void verifyZenless() {
+        verifyOrThrow(EnkaGlobals.isZenlessEnabled(), ZenlessNotEnabledException.class);
     }
 
     /**

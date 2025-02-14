@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import me.kazury.enkanetworkapi.games.genshin.data.*;
 import me.kazury.enkanetworkapi.games.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.games.starrail.data.SRLightconeData;
+import me.kazury.enkanetworkapi.games.zzz.data.ZZZWeapon;
 import me.kazury.enkanetworkapi.util.Pair;
 import me.kazury.enkanetworkapi.util.exceptions.NoLocalizationFound;
 import me.kazury.enkanetworkapi.util.GameType;
@@ -64,6 +65,11 @@ public class EnkaCaches {
 
     private static boolean honkaiLoadedOrLoading = false;
 
+    // zenless zone zero
+    private static final Map<GlobalLocalization, JsonNode> zzzLocalizationCache = new HashMap<>();
+    private static final Map<String, ZZZWeapon> zzzWeaponCache = new HashMap<>();
+    private static boolean zzzLoadedOrLoading = false;
+
     // util
     private static final OkHttpClient client = new OkHttpClient();
 
@@ -88,6 +94,7 @@ public class EnkaCaches {
         metaSkillTreeCache.clear();
         honkaiLightConeCache.clear();
         honkaiProfileCache.clear();
+        zzzWeaponCache.clear();
 
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
@@ -106,6 +113,7 @@ public class EnkaCaches {
         loadHonkaiMetaSkillTree(classLoader);
         loadHonkaiLightconeCache(classLoader);
         loadHonkaiProfileCache(classLoader);
+        loadZZZWeaponCache(classLoader);
         loadGenshinMaterialCache();
         loadArtifactCostCache();
         loadGenshinAvatarConfigs();
@@ -119,8 +127,8 @@ public class EnkaCaches {
     }
 
     private static void baseResourceLoad(@NotNull ClassLoader classLoader, @NotNull String path,
-                                         @NotNull Consumer<InputStream> after, @NotNull EnkaCache blockedCache) {
-        if (EnkaGlobals.isCacheBlocked(blockedCache)) return;
+                                         @NotNull Consumer<InputStream> after, @Nullable EnkaCache blockedCache) {
+        if (blockedCache != null && EnkaGlobals.isCacheBlocked(blockedCache)) return;
 
         try (InputStream stream = classLoader.getResourceAsStream(path)) {
             if (stream == null) throw new NullPointerException(path + " is null.");
@@ -327,11 +335,11 @@ public class EnkaCaches {
         baseResourceLoad(classLoader, "genshincharacters.json", (stream) -> loadCache(stream, (entry, mapper) -> {
             final String key = entry.getKey();
             final JsonNode value = entry.getValue();
-
             if (value.isEmpty()) {
                 // some characters (non-implemented travelers) have empty data
                 return;
             }
+
             final GenshinCharacterData data = mapper.convertValue(value, GenshinCharacterData.class);
             data.setCharacterId(key);
 
@@ -347,6 +355,24 @@ public class EnkaCaches {
             if (!value.has("icon")) return;
             namecardCache.put(id, value.get("icon").asText());
         }), EnkaCache.GENSHIN_NAMECARDS);
+    }
+
+    public static void main(String[] args) {
+        final EnkaNetworkAPI api = new EnkaNetworkBuilder().build();
+        api.enableZenless(true);
+        EnkaGlobals.parseLocalization(null);
+
+        System.out.println(EnkaCaches.getZenlessLocale(GlobalLocalization.ENGLISH, "Item_Weapon_B_Common_01_Name"));
+    }
+
+    private static void loadZZZWeaponCache(@NotNull ClassLoader classLoader) {
+        baseResourceLoad(classLoader, "zenless/weapons.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode value = entry.getValue();
+
+            final ZZZWeapon weapon = mapper.convertValue(value, ZZZWeapon.class);
+            zzzWeaponCache.put(key, weapon);
+        }), EnkaCache.ZZZ_WEAPONS);
     }
 
     /**
@@ -503,6 +529,7 @@ public class EnkaCaches {
     protected static void loadLocalizations(@NotNull GlobalLocalization localization) {
         loadGenshinLocalizations(localization);
         loadHonkaiLocalization(localization);
+        loadZenlessLocalization(localization);
     }
 
     /**
@@ -539,6 +566,30 @@ public class EnkaCaches {
         final JsonNode langNode = fetchJsonData(GameType.HONKAI, "TextMap", "TextMap" + localization.getCode());
         honkaiLocalizationCache.put(localization, langNode);
         System.out.println("[Localization::Honkai] Localization has been loaded!");
+    }
+
+    /**
+     * Loads Zenless localizations from the json files.
+     */
+    protected static void loadZenlessLocalization(@NotNull GlobalLocalization localization) {
+        if (!EnkaGlobals.isZenlessEnabled() && !zzzLoadedOrLoading) {
+            System.out.println("[Localization::Zenless] Currently disabled, skipping loading.");
+            zzzLoadedOrLoading = true;
+            return;
+        }
+        if (zzzLoadedOrLoading) return;
+
+        zzzLoadedOrLoading = true;
+        System.out.println("[Localization::Zenless] New localization (" + localization.name() + ") has been detected, loading...");
+
+        final ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        baseResourceLoad(loader, "zenless/loc.json", (stream) -> loadCache(stream, (entry, mapper) -> {
+            final String key = entry.getKey();
+            final JsonNode value = entry.getValue();
+
+            zzzLocalizationCache.put(GlobalLocalization.valueOf(key), value);
+        }), null);
+        System.out.println("[Localization::Zenless] Localization has been loaded!");
     }
 
     /**
@@ -693,7 +744,6 @@ public class EnkaCaches {
                                     @NotNull GlobalLocalization locale,
                                     @NotNull String id) {
         final JsonNode node = map.get(locale);
-
         if (node == null) {
             // IntelliJ complains that the #get call below this might throw
             throw new NoLocalizationFound();
@@ -736,6 +786,18 @@ public class EnkaCaches {
     @Nullable
     public static String getHonkaiLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
         return getLocale(honkaiLocalizationCache, locale, id);
+    }
+
+    /**
+     * Gets a zenless localization from the cache.
+     *
+     * @param locale the locale
+     * @param id     the id
+     * @return The key from the locale or null if not found.
+     */
+    @Nullable
+    public static String getZenlessLocale(@NotNull GlobalLocalization locale, @NotNull String id) {
+        return getLocale(zzzLocalizationCache, locale, id);
     }
 
     /**
@@ -807,6 +869,16 @@ public class EnkaCaches {
         final JsonNode skillNode = baseNode.get(level);
         if (skillNode == null) return null;
         return skillNode.get("props");
+    }
+
+    /**
+     * Gets a weapon from the cache.
+     * @param id The weapon id
+     * @return The weapon, or null if cache is blocked
+     */
+    @Nullable
+    public static ZZZWeapon getZenlessWeaponById(@NotNull String id) {
+        return zzzWeaponCache.getOrDefault(id, null);
     }
 
     /**

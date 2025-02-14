@@ -463,6 +463,10 @@
     "id": 10000108,
     "iconPath": "UI_AvatarIcon_Lanyan_Circle"
   },
+  "9400": {
+    "id": 10000109,
+    "iconPath": "UI_AvatarIcon_Mizuki_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"

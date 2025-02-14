@@ -3068,6 +3068,36 @@
     "QualityType": "QUALITY_PURPLE",
     "WeaponType": "WEAPON_CATALYST"
   },
+  "10000109": {
+    "Element": "Wind",
+    "Consts": [
+      "UI_Talent_S_Mizuki_01",
+      "UI_Talent_S_Mizuki_02",
+      "UI_Talent_U_Mizuki_01",
+      "UI_Talent_S_Mizuki_03",
+      "UI_Talent_U_Mizuki_02",
+      "UI_Talent_S_Mizuki_04"
+    ],
+    "SkillOrder": [
+      11091,
+      11092,
+      11095
+    ],
+    "Skills": {
+      "11091": "Skill_A_Catalyst_MD",
+      "11092": "Skill_S_Mizuki_01",
+      "11095": "Skill_E_Mizuki_01"
+    },
+    "ProudMap": {
+      "11091": 10931,
+      "11092": 10932,
+      "11095": 10939
+    },
+    "NameTextMapHash": 3784387538,
+    "SideIconName": "UI_AvatarIcon_Side_Mizuki",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,

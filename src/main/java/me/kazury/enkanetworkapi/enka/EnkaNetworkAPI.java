@@ -9,6 +9,7 @@ import me.kazury.enkanetworkapi.games.genshin.util.GenshinNameable;
 import me.kazury.enkanetworkapi.games.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.games.starrail.data.SRLightconeData;
 import me.kazury.enkanetworkapi.games.starrail.data.conversion.SRUnconvertedUser;
+import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.util.Pair;
 import org.jetbrains.annotations.NotNull;
@@ -108,7 +109,7 @@ public class EnkaNetworkAPI {
      * @param failure The action that you want to do when the request fails (exception status).
      */
     public void fetchHonkaiUser(final long uid, @NotNull Consumer<SRUnconvertedUser> success,
-                          @NotNull Consumer<Throwable> failure) {
+                                @NotNull Consumer<Throwable> failure) {
         this.httpClient.fetchHonkaiUser(uid, success, failure);
     }
 
@@ -283,7 +284,7 @@ public class EnkaNetworkAPI {
 
     /**
      * Sets the user agent for the HTTP requests when fetching {@link GenshinUnconvertedUser}.
-     * <br><b>Quote: </b><i>Please set a custom User-Agent header with your requests so I can track them better and help you if needed.</i>
+     * <br><b>Quote from Algoinde (Owner of enka.network): </b><i>Please set a custom User-Agent header with your requests so I can track them better and help you if needed.</i>
      * @param userAgent The user agent.
      */
     public void setUserAgent(@NotNull String userAgent) {
@@ -295,15 +296,19 @@ public class EnkaNetworkAPI {
 
     /**
      * Sets the default UI path.
-     * <br>By default, this is set to <a href="https://enka.network/ui/">The default Enka URL</a>
-     * <br>However, if you want to use something like ambr to get the icons, you can set this to your own path.
+     * <br>If you want to use something like ambr.top to get the icons, you can set this to your own path.
      * @param path The default UI path.
      */
-    public void setDefaultUIPath(@NotNull String path) {
+    public void setDefaultUIPath(@NotNull GameType gameType, @NotNull String path) {
         if (path.isBlank() || !path.endsWith("/")) {
            throw new IllegalArgumentException("Path cannot be empty and must end with a slash. f.e. https://custom.domain/cdnpath/");
         }
-        BASE_GENSHIN_UI_URL = path;
+        
+        switch (gameType) {
+            case GENSHIN -> BASE_GENSHIN_UI_URL = path;
+            case HONKAI -> BASE_SR_UI_URL = path;
+            case ZENLESS -> BASE_ZZZ_UI_URL = path;
+        }
     }
 
     /**
@@ -396,7 +401,7 @@ public class EnkaNetworkAPI {
      * @param key The icon id, it is usually an uppercase char sequence
      * @return The icon url
      * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
-     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
+     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(GameType, String)} to set your own path
      *          with a custom CDN.
      */
     @NotNull
@@ -410,7 +415,7 @@ public class EnkaNetworkAPI {
      * @param key The icon id
      * @return The icon url
      * @apiNote Only images that are available on enka.network are imported, so something like a banner will not work.
-     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(String)} to set your own path
+     *         <br>However, if you need those images, you can use {@link #setDefaultUIPath(GameType, String)} to set your own path
      *          with a custom CDN.
      */
     @NotNull

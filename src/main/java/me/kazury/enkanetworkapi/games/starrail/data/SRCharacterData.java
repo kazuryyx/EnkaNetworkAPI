@@ -151,14 +151,14 @@ public class SRCharacterData {
          * Represents a hash which is used for locale.
          */
         @JsonProperty("Hash")
-        private long hash;
+        private String hash;
 
         public AvatarName() {}
 
         @Override
         @NotNull
         public String getNameHash() {
-            return String.valueOf(this.hash);
+            return this.hash;
         }
     }
 
@@ -168,14 +168,14 @@ public class SRCharacterData {
          * Represents a hash which is used for locale.
          */
         @JsonProperty("Hash")
-        private long hash;
+        private String hash;
 
         public AvatarFullName() {}
 
         @Override
         @NotNull
         public String getNameHash() {
-            return String.valueOf(this.hash);
+            return this.hash;
         }
     }
 }

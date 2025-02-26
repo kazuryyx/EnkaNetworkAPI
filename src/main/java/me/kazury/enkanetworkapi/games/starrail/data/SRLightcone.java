@@ -17,14 +17,14 @@ public class SRLightcone implements SRNameable {
     private final int promotion;
     private final int tid;
     private final List<LightconeStat> stats;
-    private final long hash;
+    private final String hash;
 
     public SRLightcone(final int superImposion,
                        final int level,
                        final int promotion,
                        final int tid,
                        @NotNull List<LightconeStat> stats,
-                       final long hash) {
+                       final String hash) {
         this.superImposion = superImposion;
         this.level = level;
         this.promotion = promotion;

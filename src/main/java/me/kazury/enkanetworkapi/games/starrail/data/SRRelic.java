@@ -16,14 +16,14 @@ public class SRRelic implements SRNameable {
     private final SRRelicType type;
     private final RelicStat mainStat;
     private final List<RelicStat> subStats;
-    private final long hash;
+    private final String hash;
     private final long setId;
 
     public SRRelic(final int level,
                    @Nullable SRRelicType type,
                    @NotNull RelicStat mainStat,
                    @NotNull List<RelicStat> subStats,
-                   final long hash,
+                   final String hash,
                    final long setId) {
         this.level = level;
         this.type = type;

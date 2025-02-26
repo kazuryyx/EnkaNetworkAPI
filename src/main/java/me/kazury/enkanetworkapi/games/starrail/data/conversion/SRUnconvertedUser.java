@@ -214,13 +214,13 @@ public class SRUnconvertedUser implements IExpiryTime {
 
     public static class EquipmentFlatData {
         private List<EquipmentFlatProp> props;
-        private long name;
+        private String name;
 
         public List<EquipmentFlatProp> getProps() {
             return this.props;
         }
 
-        public long getName() {
+        public String getName() {
             return this.name;
         }
     }
@@ -281,14 +281,14 @@ public class SRUnconvertedUser implements IExpiryTime {
 
     public static class RelicFlatData {
         private List<RelicFlatProp> props;
-        private long setName;
+        private String setName;
         private long setID;
 
         public List<RelicFlatProp> getProps() {
             return this.props;
         }
 
-        public long getSetName() {
+        public String getSetName() {
             return this.setName;
         }
 

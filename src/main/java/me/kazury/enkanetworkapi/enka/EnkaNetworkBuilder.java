@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class EnkaNetworkBuilder {
     private GlobalLocalization defaultLocalization;
-    private String baseUrl;
     private String userAgent;
     private boolean honkaiEnabled = false;
     private boolean zenlessEnabled = false;
@@ -33,17 +32,6 @@ public class EnkaNetworkBuilder {
     @NotNull
     public EnkaNetworkBuilder setDefaultLocalization(@NotNull GlobalLocalization localization) {
         this.defaultLocalization = localization;
-        return this;
-    }
-
-    /**
-     * Sets the base URl for the API.
-     * <br>This must have the full path, with https.
-     * @param baseUrl The new base URL (which is used to grab images).
-     */
-    @NotNull
-    public EnkaNetworkBuilder setBaseUrl(@NotNull String baseUrl) {
-        this.baseUrl = baseUrl;
         return this;
     }
 
@@ -101,10 +89,6 @@ public class EnkaNetworkBuilder {
 
         if (this.defaultLocalization != null) {
             api.setDefaultLocalization(this.defaultLocalization);
-        }
-
-        if (this.baseUrl != null) {
-            api.setDefaultUIPath(this.baseUrl);
         }
 
         if (this.userAgent != null) {

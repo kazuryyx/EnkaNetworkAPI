@@ -20,8 +20,8 @@ public class SRLightconeData implements SRNameable {
     @JsonProperty("AvatarBaseType")
     private String path;
 
-    @SerializedName("EquipmentName")
-    private long id;
+    @JsonProperty("EquipmentName")
+    private String id;
 
     @JsonProperty("ImagePath")
     private String imagePath;
@@ -36,7 +36,7 @@ public class SRLightconeData implements SRNameable {
     @Override
     @NotNull
     public String getNameHash() {
-        return String.valueOf(this.id);
+        return this.id;
     }
 
     /**

@@ -389,5 +389,19 @@
         "CriticalDamageBase": 0.16
       }
     }
+  },
+  "319": {
+    "2": {
+      "props": {
+        "HPAddedRatio": 0.12
+      }
+    }
+  },
+  "320": {
+    "2": {
+      "props": {
+        "SpeedAddedRatio": 0.06
+      }
+    }
   }
 }

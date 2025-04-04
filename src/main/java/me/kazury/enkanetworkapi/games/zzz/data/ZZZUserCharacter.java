@@ -6,7 +6,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * TODO DOCS
+ * This class is different from {@link ZZZCharacterData}
+ * <br>This class is used to get the character data from the user.
+ * <br>While {@link ZZZCharacterData} is used to get character data from the game.
  */
 public class ZZZUserCharacter {
     private final int characterId;

@@ -81,22 +81,23 @@ public class ZZZUserInformation {
     }
 
     /**
-     * Converts this object to a {@link SRUserInformation} object.
+     * Converts this object to a {@link ZZZUserInformation} object.
      * <br>
-     * <br>You should always prefer using this class over {@link SRUnconvertedUser} (detailed in this class)
+     * <br>You should always prefer using this class over {@link ZZZUnconvertedUser} (detailed in this class)
      * <br>You may also want to cache this object, but you shouldn't care unless you really need the data now and not some point later
      * (as this might be a heavy operation, depending on how often you call this method)
      *
-     * @param enkaUser The old {@link SRUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchHonkaiUser(long, Consumer)}.
-     * @return The converted {@link SRUserInformation} object.
+     * @param enkaUser The old {@link ZZZUnconvertedUser} object which was received using {@link EnkaNetworkAPI#fetchZenlessUser(long, Consumer)}.
+     * @return The converted {@link ZZZUserInformation} object.
      */
     @NotNull
     public static ZZZUserInformation fromEnkaUser(@NotNull ZZZUnconvertedUser enkaUser) {
         final ZZZUnconvertedUser.PlayerInfo info = enkaUser.getPlayerInfo();
+        final ZZZUnconvertedUser.ShowcaseDetail showcaseDetail = info.getShowcaseDetail();
         final ZZZUnconvertedUser.SocialDetail socialDetail = info.getSocialDetail();
         final ZZZUnconvertedUser.ProfileDetail profileDetail = socialDetail.getProfileDetail();
 
-        final List<ZZZUnconvertedUser.ShowcaseAvatar> avatarList = info.getAvatarList();
+        final List<ZZZUnconvertedUser.ShowcaseAvatar> avatarList = showcaseDetail.getAvatarList();
 
         final ZZZUserInformation information = new ZZZUserInformation(
                 profileDetail.getNickname(),

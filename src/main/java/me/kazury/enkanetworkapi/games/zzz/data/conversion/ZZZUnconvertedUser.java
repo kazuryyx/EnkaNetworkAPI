@@ -25,12 +25,21 @@ public class ZZZUnconvertedUser implements IExpiryTime {
         @JsonProperty("SocialDetail")
         private SocialDetail socialDetail;
 
-        @JsonProperty("AvatarList")
-        private List<ShowcaseAvatar> avatarList;
+        @JsonProperty("ShowcaseDetail")
+        private ShowcaseDetail showcaseDetail;
 
         public SocialDetail getSocialDetail() {
             return this.socialDetail;
         }
+
+        public ShowcaseDetail getShowcaseDetail() {
+            return showcaseDetail;
+        }
+    }
+
+    public static class ShowcaseDetail {
+        @JsonProperty("AvatarList")
+        private List<ShowcaseAvatar> avatarList;
 
         public List<ShowcaseAvatar> getAvatarList() {
             return this.avatarList;

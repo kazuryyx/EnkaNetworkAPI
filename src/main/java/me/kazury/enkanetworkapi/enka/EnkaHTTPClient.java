@@ -3,6 +3,7 @@ package me.kazury.enkanetworkapi.enka;
 import com.google.gson.Gson;
 import me.kazury.enkanetworkapi.enka.page.EnkaProfileData;
 import me.kazury.enkanetworkapi.games.genshin.data.conversion.GenshinUnconvertedUser;
+import me.kazury.enkanetworkapi.games.zzz.data.conversion.ZZZUnconvertedUser;
 import me.kazury.enkanetworkapi.util.exceptions.NiceJobException;
 import me.kazury.enkanetworkapi.util.exceptions.PlayerDoesNotExistException;
 import me.kazury.enkanetworkapi.util.exceptions.RateLimitedException;
@@ -38,6 +39,7 @@ public class EnkaHTTPClient {
 
     private final Map<Long, CachedData<GenshinUnconvertedUser>> genshinCache = new ConcurrentHashMap<>();
     private final Map<Long, CachedData<SRUnconvertedUser>> honkaiCache = new ConcurrentHashMap<>();
+    private final Map<Long, CachedData<ZZZUnconvertedUser>> zenlessCache = new ConcurrentHashMap<>();
 
     protected void fetchGenshinUserFailure(final long uid, @NotNull Consumer<GenshinUnconvertedUser> success,
                                         @Nullable Consumer<Throwable> failure) {
@@ -105,6 +107,41 @@ public class EnkaHTTPClient {
         }
 
         this.fetchHonkaiUserFailure(uid, success, failure);
+    }
+
+    protected void fetchZenlessUserFailure(final long uid, @NotNull Consumer<ZZZUnconvertedUser> success,
+                                           @Nullable Consumer<Throwable> failure) {
+        EnkaVerifier.verifyZenless();
+
+        this.getBase("zzz/uid/" + uid + "/", ZZZUnconvertedUser.class).thenAccept((userData) -> {
+            if (userData == null) return;
+            this.zenlessCache.put(uid, new CachedData<>(userData));
+            success.accept(userData);
+        }).exceptionally((exception) -> {
+           if (failure != null) failure.accept(exception);
+           return null;
+        });
+    }
+
+    public void fetchZenlessUser(final long uid, @NotNull Consumer<ZZZUnconvertedUser> success) {
+        final CachedData<ZZZUnconvertedUser> cachedData = this.zenlessCache.get(uid);
+        if (cachedData != null && cachedData.isValid()) {
+            success.accept(cachedData.getData());
+            return;
+        }
+
+        this.fetchZenlessUserFailure(uid, success, null);
+    }
+
+    public void fetchZenlessUser(final long uid, @NotNull Consumer<ZZZUnconvertedUser> success,
+                                @NotNull Consumer<Throwable> failure) {
+        final CachedData<ZZZUnconvertedUser> cachedData = this.zenlessCache.get(uid);
+        if (cachedData != null && cachedData.isValid()) {
+            success.accept(cachedData.getData());
+            return;
+        }
+
+        this.fetchZenlessUserFailure(uid, success, failure);
     }
 
     protected void fetchProfileData(@NotNull String profileName, @NotNull Consumer<EnkaProfileData> success) {

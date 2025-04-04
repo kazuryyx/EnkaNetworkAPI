@@ -9,6 +9,7 @@ import me.kazury.enkanetworkapi.games.genshin.util.GenshinNameable;
 import me.kazury.enkanetworkapi.games.starrail.data.SRCharacterData;
 import me.kazury.enkanetworkapi.games.starrail.data.SRLightconeData;
 import me.kazury.enkanetworkapi.games.starrail.data.conversion.SRUnconvertedUser;
+import me.kazury.enkanetworkapi.games.zzz.data.conversion.ZZZUnconvertedUser;
 import me.kazury.enkanetworkapi.util.GameType;
 import me.kazury.enkanetworkapi.util.GlobalLocalization;
 import me.kazury.enkanetworkapi.util.Pair;
@@ -133,6 +134,50 @@ public class EnkaNetworkAPI {
     public void fetchHonkaiUser(@NotNull String uid, @NotNull Consumer<SRUnconvertedUser> consumer,
                           @NotNull Consumer<Throwable> failure) {
         this.fetchHonkaiUser(Long.parseLong(uid), consumer, failure);
+    }
+
+    /**
+     * Loads a zenless user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     */
+    public void fetchZenlessUser(final long uid, @NotNull Consumer<ZZZUnconvertedUser> consumer) {
+        this.httpClient.fetchZenlessUser(uid, consumer);
+    }
+
+    /**
+     * Loads a zenless user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param success The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     * @param failure The action that you want to do when the request fails (exception status).
+     */
+    public void fetchZenlessUser(final long uid, @NotNull Consumer<ZZZUnconvertedUser> success,
+                                @NotNull Consumer<Throwable> failure) {
+        this.httpClient.fetchZenlessUser(uid, success, failure);
+    }
+
+    /**
+     * Loads a zenless user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     */
+    public void fetchZenlessUser(@NotNull String uid, @NotNull Consumer<ZZZUnconvertedUser> consumer) {
+        this.fetchZenlessUser(Long.parseLong(uid), consumer);
+    }
+
+    /**
+     * Loads a zenless user from the Enka Network API and passes on the action that you want to do on the user.
+     * @param uid The UID of the user.
+     * @param consumer The action that you want to do on the user once the data has been acquired.
+     *                 This method is async and the request will be queued to avoid spamming the API.
+     * @param failure The action that you want to do when the request fails (exception status).
+     */
+    public void fetchZenlessUser(@NotNull String uid, @NotNull Consumer<ZZZUnconvertedUser> consumer,
+                                @NotNull Consumer<Throwable> failure) {
+        this.fetchZenlessUser(Long.parseLong(uid), consumer, failure);
     }
 
     /**

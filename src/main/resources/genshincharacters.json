@@ -3098,6 +3098,36 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_CATALYST"
   },
+  "10000110": {
+    "Element": "Electric",
+    "Consts": [
+      "UI_Talent_S_Iansan_01",
+      "UI_Talent_S_Iansan_02",
+      "UI_Talent_U_Iansan_01",
+      "UI_Talent_S_Iansan_03",
+      "UI_Talent_U_Iansan_02",
+      "UI_Talent_S_Iansan_04"
+    ],
+    "SkillOrder": [
+      11101,
+      11102,
+      11105
+    ],
+    "Skills": {
+      "11101": "Skill_A_03",
+      "11102": "Skill_S_Iansan_01",
+      "11105": "Skill_E_Iansan_01"
+    },
+    "ProudMap": {
+      "11101": 11031,
+      "11102": 11032,
+      "11105": 11039
+    },
+    "NameTextMapHash": 3120492514,
+    "SideIconName": "UI_AvatarIcon_Side_Iansan",
+    "QualityType": "QUALITY_PURPLE",
+    "WeaponType": "WEAPON_POLE"
+  },
   "10000005-501": {
     "Element": "None",
     "Rarity": 5,
@@ -3128,7 +3158,36 @@
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
     "QualityType": "QUALITY_ORANGE"
   },
-  "10000005-502": {},
+  "10000005-502": {
+    "Element": "Fire",
+    "Consts": [
+      "UI_Talent_S_PlayerFire_01",
+      "UI_Talent_S_PlayerFire_02",
+      "UI_Talent_U_PlayerFire_01",
+      "UI_Talent_S_PlayerFire_03",
+      "UI_Talent_U_PlayerFire_02",
+      "UI_Talent_S_PlayerFire_04"
+    ],
+    "SkillOrder": [
+      100541,
+      10097,
+      10098
+    ],
+    "Skills": {
+      "10097": "Skill_S_PlayerFire_01",
+      "10098": "Skill_E_PlayerFire_01",
+      "100541": "Skill_A_01"
+    },
+    "NameTextMapHash": 1533656818,
+    "ProudMap": {
+      "10097": 532,
+      "10098": 539,
+      "100541": 530
+    },
+    "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
   "10000005-503": {
     "Element": "Water",
     "Rarity": 5,
@@ -3159,6 +3218,37 @@
     "SideIconName": "UI_AvatarIcon_Side_PlayerBoy",
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
+
+  "10000111": {
+    "Element": "Electric",
+    "Consts": [
+      "UI_Talent_S_Varesa_01",
+      "UI_Talent_S_Varesa_02",
+      "UI_Talent_U_Varesa_01",
+      "UI_Talent_S_Varesa_03",
+      "UI_Talent_U_Varesa_02",
+      "UI_Talent_S_Varesa_04"
+    ],
+    "SkillOrder": [
+      11111,
+      11112,
+      11115
+    ],
+    "Skills": {
+      "11111": "Skill_A_Catalyst_MD",
+      "11112": "Skill_S_Varesa_01",
+      "11115": "Skill_E_Varesa_01"
+    },
+    "ProudMap": {
+      "11111": 11131,
+      "11112": 11132,
+      "11115": 11139
+    },
+    "NameTextMapHash": 283438874,
+    "SideIconName": "UI_AvatarIcon_Side_Varesa",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_CATALYST"
   },
   "10000005-504": {
     "Element": "Wind",
@@ -3191,7 +3281,6 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
-  "10000005-505": {},
   "10000005-506": {
     "Element": "Rock",
     "Rarity": 5,
@@ -3315,7 +3404,36 @@
     "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
     "QualityType": "QUALITY_ORANGE"
   },
-  "10000007-702": {},
+  "10000007-702": {
+    "Element": "Fire",
+    "Consts": [
+      "UI_Talent_S_PlayerFire_01",
+      "UI_Talent_S_PlayerFire_02",
+      "UI_Talent_U_PlayerFire_01",
+      "UI_Talent_S_PlayerFire_03",
+      "UI_Talent_U_PlayerFire_02",
+      "UI_Talent_S_PlayerFire_04"
+    ],
+    "SkillOrder": [
+      100551,
+      10097,
+      10098
+    ],
+    "Skills": {
+      "10097": "Skill_S_PlayerFire_01",
+      "10098": "Skill_E_PlayerFire_01",
+      "100551": "Skill_A_01"
+    },
+    "NameTextMapHash": 3816664530,
+    "ProudMap": {
+      "10097": 532,
+      "10098": 539,
+      "100551": 531
+    },
+    "SideIconName": "UI_AvatarIcon_Side_PlayerGirl",
+    "QualityType": "QUALITY_ORANGE",
+    "WeaponType": "WEAPON_SWORD_ONE_HAND"
+  },
   "10000007-703": {
     "Element": "Water",
     "Rarity": 5,
@@ -3378,7 +3496,6 @@
     "QualityType": "QUALITY_ORANGE",
     "WeaponType": "WEAPON_SWORD_ONE_HAND"
   },
-  "10000007-705": {},
   "10000007-706": {
     "Element": "Rock",
     "Rarity": 5,

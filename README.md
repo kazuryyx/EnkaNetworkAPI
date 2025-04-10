@@ -6,6 +6,9 @@ This is an API wrapper for https://enka.network in Java.
 <details>
 <summary>Version Change Log</summary>
 
+> Update - 11/04/2025 - Library Version: 5.5 | Honkai: Star Rail Update
+- Added new 3.2 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/d66af137c6e660610d6b635a26d33681964f49f2>)
+
 > Update - 04/04/2025 - Library Version: 5.5 | Genshin Impact Update
 - Added new 5.5 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/16f880e39066837b244b51d61b94190cb6eb7452>)
 
@@ -13,11 +16,6 @@ This is an API wrapper for https://enka.network in Java.
 - Added new 3.1 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/973da8abe5a16e25101925f858ca504a3eaeea74>)
 - ``EnkaNetworkAPI#setDefaultUIPath`` now requires you to supply a ``GameType`` and then the URL.
 - ``EnkaNetworkBuilder#setBaseUrl`` has been removed because of top changes, use that instead.
-
-> Update - 14/02/2025 - Library Version: 5.4 | Genshin Impact Update
-- **BREAKING CHANGE**: Some packages regarding games have been moved, please check your imports.
-- Added new 5.4 [version data](<https://github.com/kazuryyx/EnkaNetworkAPI/commit/4ecd3a4fb0c527d84d6cc2b7f0b83f582802a9dc>)
-- Partly adds new classes for ZZZ, however it is half finished as I expected ZZZ API to come out before 5.4. 
 
 **Note:** There have been other changes before these, only the latest 3 will show.
 </details>

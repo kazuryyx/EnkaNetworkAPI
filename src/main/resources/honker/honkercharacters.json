@@ -1921,6 +1921,67 @@
       140411
     ]
   },
+  "1405" : {
+    "AvatarName": {
+      "Hash": "14399225845844956184"
+    },
+    "AvatarFullName": {
+      "Hash": "5840934936952395343"
+    },
+    "Rarity": 5,
+    "Element": "Wind",
+    "AvatarBaseType": "Mage",
+    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1405.png",
+    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1405B.png",
+    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1405.png",
+    "RankIDList": [
+      140501,
+      140502,
+      140503,
+      140504,
+      140505,
+      140506
+    ],
+    "SkillList": [
+      140501,
+      140502,
+      140503,
+      140504,
+      140506,
+      140507
+    ]
+  },
+  "1407": {
+    "AvatarName": {
+      "Hash": "6284038990417808171"
+    },
+    "AvatarFullName": {
+      "Hash": "8148736795739493904"
+    },
+    "Rarity": 5,
+    "Element": "Quantum",
+    "AvatarBaseType": "Memory",
+    "AvatarSideIconPath": "SpriteOutput/AvatarRoundIcon/1407.png",
+    "ActionAvatarHeadIconPath": "SpriteOutput/AvatarIconTeam/1407B.png",
+    "AvatarCutinFrontImgPath": "SpriteOutput/AvatarDrawCard/1407.png",
+    "RankIDList": [
+      140701,
+      140702,
+      140703,
+      140704,
+      140705,
+      140706
+    ],
+    "SkillList": [
+      140701,
+      140702,
+      140703,
+      140704,
+      140706,
+      140707,
+      140709
+    ]
+  },
   "8001": {
     "AvatarName": {
       "Hash": "15351791685587679468"

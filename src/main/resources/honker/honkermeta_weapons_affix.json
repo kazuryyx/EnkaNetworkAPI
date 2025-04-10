@@ -998,6 +998,33 @@
       }
     }
   },
+  "22004": {
+    "1": {
+      "props": {
+        "AttackAddedRatio": 0.08
+      }
+    },
+    "2": {
+      "props": {
+        "AttackAddedRatio": 0.1
+      }
+    },
+    "3": {
+      "props": {
+        "AttackAddedRatio": 0.12
+      }
+    },
+    "4": {
+      "props": {
+        "AttackAddedRatio": 0.14
+      }
+    },
+    "5": {
+      "props": {
+        "AttackAddedRatio": 0.16
+      }
+    }
+  },
   "23001": {
     "1": {
       "props": {
@@ -1313,32 +1340,32 @@
   "23013": {
     "1": {
       "props": {
-        "HPAddedRatio": 0.18,
-        "HealRatioBase": 0.12
+        "HealRatioBase": 0.12,
+        "HPAddedRatio": 0.18
       }
     },
     "2": {
       "props": {
-        "HPAddedRatio": 0.21,
-        "HealRatioBase": 0.14
+        "HealRatioBase": 0.14,
+        "HPAddedRatio": 0.21
       }
     },
     "3": {
       "props": {
-        "HPAddedRatio": 0.24,
-        "HealRatioBase": 0.16
+        "HealRatioBase": 0.16,
+        "HPAddedRatio": 0.24
       }
     },
     "4": {
       "props": {
-        "HPAddedRatio": 0.27,
-        "HealRatioBase": 0.18
+        "HealRatioBase": 0.18,
+        "HPAddedRatio": 0.27
       }
     },
     "5": {
       "props": {
-        "HPAddedRatio": 0.3,
-        "HealRatioBase": 0.2
+        "HealRatioBase": 0.2,
+        "HPAddedRatio": 0.3
       }
     }
   },
@@ -1966,32 +1993,59 @@
   "23039": {
     "1": {
       "props": {
-        "HPAddedRatio": 0.18,
-        "HealTakenRatio": 0.2
+        "HealTakenRatio": 0.2,
+        "HPAddedRatio": 0.18
       }
     },
     "2": {
       "props": {
-        "HPAddedRatio": 0.21,
-        "HealTakenRatio": 0.25
+        "HealTakenRatio": 0.25,
+        "HPAddedRatio": 0.21
       }
     },
     "3": {
       "props": {
-        "HPAddedRatio": 0.24,
-        "HealTakenRatio": 0.3
+        "HealTakenRatio": 0.3,
+        "HPAddedRatio": 0.24
       }
     },
     "4": {
       "props": {
-        "HPAddedRatio": 0.27,
-        "HealTakenRatio": 0.35
+        "HealTakenRatio": 0.35,
+        "HPAddedRatio": 0.27
       }
     },
     "5": {
       "props": {
-        "HPAddedRatio": 0.3,
-        "HealTakenRatio": 0.4
+        "HealTakenRatio": 0.4,
+        "HPAddedRatio": 0.3
+      }
+    }
+  },
+  "23040": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.3
+      }
+    },
+    "2": {
+      "props": {
+        "HPAddedRatio": 0.375
+      }
+    },
+    "3": {
+      "props": {
+        "HPAddedRatio": 0.45
+      }
+    },
+    "4": {
+      "props": {
+        "HPAddedRatio": 0.525
+      }
+    },
+    "5": {
+      "props": {
+        "HPAddedRatio": 0.6
       }
     }
   },

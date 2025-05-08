@@ -475,6 +475,14 @@
     "id": 10000111,
     "iconPath": "UI_AvatarIcon_Varesa_Circle"
   },
+  "9700": {
+    "id": 10000113,
+    "iconPath": "UI_AvatarIcon_Ifa_Circle"
+  },
+  "9800": {
+    "id": 10000112,
+    "iconPath": "UI_AvatarIcon_Escoffier_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"

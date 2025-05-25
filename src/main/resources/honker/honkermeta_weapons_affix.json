@@ -2049,6 +2049,60 @@
       }
     }
   },
+  "23042": {
+    "1": {
+      "props": {
+        "SpeedAddedRatio": 0.18
+      }
+    },
+    "2": {
+      "props": {
+        "SpeedAddedRatio": 0.21
+      }
+    },
+    "3": {
+      "props": {
+        "SpeedAddedRatio": 0.24
+      }
+    },
+    "4": {
+      "props": {
+        "SpeedAddedRatio": 0.27
+      }
+    },
+    "5": {
+      "props": {
+        "SpeedAddedRatio": 0.3
+      }
+    }
+  },
+  "23043": {
+    "1": {
+      "props": {
+        "SpeedAddedRatio": 0.18
+      }
+    },
+    "2": {
+      "props": {
+        "SpeedAddedRatio": 0.21
+      }
+    },
+    "3": {
+      "props": {
+        "SpeedAddedRatio": 0.24
+      }
+    },
+    "4": {
+      "props": {
+        "SpeedAddedRatio": 0.27
+      }
+    },
+    "5": {
+      "props": {
+        "SpeedAddedRatio": 0.3
+      }
+    }
+  },
   "24001": {
     "1": {
       "props": {

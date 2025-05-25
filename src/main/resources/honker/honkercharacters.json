@@ -1951,6 +1951,36 @@
       140507
     ]
   },
+  "1406" : {
+    "AvatarName": {
+      "Hash": "1283986297634256167"
+    },
+    "AvatarFullName": {
+      "Hash": "368420602193832713"
+    },
+    "Rarity": 5,
+    "Element": "Quantum",
+    "AvatarBaseType": "Warlock",
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1406.png",
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1406B.png",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1406.png",
+    "RankIDList" : [
+      140601,
+      140602,
+      140603,
+      140604,
+      140605,
+      140606
+    ],
+    "SkillList" : [
+      140601,
+      140602,
+      140603,
+      140604,
+      140606,
+      140607
+    ]
+  },
   "1407": {
     "AvatarName": {
       "Hash": "6284038990417808171"
@@ -1980,6 +2010,36 @@
       140706,
       140707,
       140709
+    ]
+  },
+  "1409" : {
+    "AvatarName": {
+      "Hash": "14193361837482662840"
+    },
+    "AvatarFullName": {
+      "Hash": "16820855178760207056"
+    },
+    "Rarity" : 5,
+    "Element" : "Wind",
+    "AvatarBaseType" : "Memory",
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1409.png",
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1409B.png",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1409.png",
+    "RankIDList" : [
+      140901,
+      140902,
+      140903,
+      140904,
+      140905,
+      140906
+    ],
+    "SkillList" : [
+      140901,
+      140902,
+      140903,
+      140904,
+      140906,
+      140907
     ]
   },
   "8001": {

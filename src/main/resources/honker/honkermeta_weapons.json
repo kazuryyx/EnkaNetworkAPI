@@ -7075,6 +7075,122 @@
       "HPAdd": 6.48
     }
   },
+  "23042": {
+    "0": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 21.6,
+      "BaseDefence": 24,
+      "BaseHP": 52.8,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "1": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 47.52,
+      "BaseDefence": 52.8,
+      "BaseHP": 116.16,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "2": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 82.08,
+      "BaseDefence": 91.2,
+      "BaseHP": 200.64,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "3": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 116.64,
+      "BaseDefence": 129.6,
+      "BaseHP": 285.12,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "4": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 151.2,
+      "BaseDefence": 168,
+      "BaseHP": 369.6,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "5": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 185.76,
+      "BaseDefence": 206.4,
+      "BaseHP": 454.08,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    },
+    "6": {
+      "AttackAdd": 3.24,
+      "BaseAttack": 220.32,
+      "BaseDefence": 244.8,
+      "BaseHP": 538.56,
+      "DefenceAdd": 3.6,
+      "HPAdd": 7.92
+    }
+  },
+  "23043": {
+    "0": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 26.4,
+      "BaseDefence": 24,
+      "BaseHP": 43.2,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "1": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 58.08,
+      "BaseDefence": 52.8,
+      "BaseHP": 95.04,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "2": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 100.32,
+      "BaseDefence": 91.2,
+      "BaseHP": 164.16,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "3": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 142.56,
+      "BaseDefence": 129.6,
+      "BaseHP": 233.28,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "4": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 184.8,
+      "BaseDefence": 168,
+      "BaseHP": 302.4,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "5": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 227.04,
+      "BaseDefence": 206.4,
+      "BaseHP": 371.52,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    },
+    "6": {
+      "AttackAdd": 3.96,
+      "BaseAttack": 269.28,
+      "BaseDefence": 244.8,
+      "BaseHP": 440.64,
+      "DefenceAdd": 3.6,
+      "HPAdd": 6.48
+    }
+  },
   "24000": {
     "0": {
       "AttackAdd": 3.6,

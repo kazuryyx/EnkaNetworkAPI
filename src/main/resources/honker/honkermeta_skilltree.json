@@ -4479,6 +4479,76 @@
       }
     }
   },
+  "1406201": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1406202": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.032
+      }
+    }
+  },
+  "1406203": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1406204": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.04
+      }
+    }
+  },
+  "1406205": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1406206": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.048
+      }
+    }
+  },
+  "1406207": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1406208": {
+    "1": {
+      "props": {
+        "StatusProbabilityBase": 0.06
+      }
+    }
+  },
+  "1406209": {
+    "1": {
+      "props": {
+        "QuantumAddedRatio": 0.064
+      }
+    }
+  },
+  "1406210": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
+      }
+    }
+  },
   "1407201": {
     "1": {
       "props": {
@@ -4546,6 +4616,76 @@
     "1": {
       "props": {
         "CriticalChanceBase": 0.053
+      }
+    }
+  },
+  "1409201": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1409202": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.04
+      }
+    }
+  },
+  "1409203": {
+    "1": {
+      "props": {
+        "SpeedDelta": 2
+      }
+    }
+  },
+  "1409204": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.04
+      }
+    }
+  },
+  "1409205": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1409206": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.06
+      }
+    }
+  },
+  "1409207": {
+    "1": {
+      "props": {
+        "SpeedDelta": 3
+      }
+    }
+  },
+  "1409208": {
+    "1": {
+      "props": {
+        "HPAddedRatio": 0.06
+      }
+    }
+  },
+  "1409209": {
+    "1": {
+      "props": {
+        "StatusResistanceBase": 0.08
+      }
+    }
+  },
+  "1409210": {
+    "1": {
+      "props": {
+        "SpeedDelta": 4
       }
     }
   },

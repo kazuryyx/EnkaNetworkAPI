@@ -483,6 +483,14 @@
     "id": 10000112,
     "iconPath": "UI_AvatarIcon_Escoffier_Circle"
   },
+  "9900": {
+    "id": 10000115,
+    "iconPath": "UI_AvatarIcon_Dahlia_Circle"
+  },
+  "10000": {
+    "id": 10000114,
+    "iconPath": "UI_AvatarIcon_SkirkNew_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"

@@ -31,7 +31,6 @@ public class GenshinUserInformation {
 
     // 5.0 fields
     private final int theaterActs;
-    private final int theaterMode;
     private final int theaterStars;
 
     // stygian fields
@@ -55,7 +54,6 @@ public class GenshinUserInformation {
                                   final int towerFloorIndex,
                                   final int towerLevelIndex,
                                   final int theaterActs,
-                                  final int theaterMode,
                                   final int theaterStars,
                                   final int stygianIndex,
                                   final int stygianSeconds,
@@ -80,7 +78,6 @@ public class GenshinUserInformation {
 
         // 5.0 fields
         this.theaterActs = theaterActs;
-        this.theaterMode = theaterMode;
         this.theaterStars = theaterStars;
 
         // stygian fields
@@ -176,20 +173,11 @@ public class GenshinUserInformation {
 
     /**
      * How many acts this player has completed in the endgame mode Imaginarium Theater.
-     * <br>Ranges from 1 to 8
+     * <br>Ranges from 1 to 10
      * <br>Will be 0 if the user did not log in after 5.0.
      */
     public int getTheaterActs() {
         return this.theaterActs;
-    }
-
-    /**
-     * The theater mode this player has completed the theater at.
-     * <br>5 = Normal, 6 = Medium, 7 = Hard
-     * <br>Will be 0 if the user did not log in after 5.0.
-     */
-    public int getTheaterMode() {
-        return this.theaterMode;
     }
 
     /**
@@ -335,7 +323,6 @@ public class GenshinUserInformation {
                 playerInfoData.getTowerLevelIndex(),
 
                 playerInfoData.getTheaterActIndex(),
-                playerInfoData.getTheaterModeIndex(),
                 playerInfoData.getTheaterStarIndex(),
 
                 playerInfoData.getStygianIndex(),

@@ -35,8 +35,8 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
         // new 5.0 fields
         private int theaterActIndex;
-        private int theaterModeIndex;
         private int theaterStarIndex;
+
         private boolean isShowAvatarTalent;
         private int fetterCount;
         private int towerStarIndex;
@@ -83,10 +83,6 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
         public int getTheaterActIndex() {
             return theaterActIndex;
-        }
-
-        public int getTheaterModeIndex() {
-            return theaterModeIndex;
         }
 
         public int getTheaterStarIndex() {

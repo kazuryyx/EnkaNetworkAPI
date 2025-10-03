@@ -83,6 +83,10 @@
     "id": 10000032,
     "iconPath": "UI_AvatarIcon_Bennett_Circle"
   },
+  "1101": {
+    "id": 203201,
+    "iconPath": "UI_AvatarIcon_BennettCostumeSummer_Circle"
+  },
   "1200": {
     "id": 10000034,
     "iconPath": "UI_AvatarIcon_Noel_Circle"
@@ -274,6 +278,10 @@
   "4800": {
     "id": 10000060,
     "iconPath": "UI_AvatarIcon_Yelan_Circle"
+  },
+  "4801": {
+    "id": 206001,
+    "iconPath": "UI_AvatarIcon_YelanCostumeSummer_Circle"
   },
   "4900": {
     "id": 10000065,
@@ -491,6 +499,10 @@
     "id": 10000114,
     "iconPath": "UI_AvatarIcon_SkirkNew_Circle"
   },
+  "10100": {
+    "id": 10000116,
+    "iconPath": "UI_AvatarIcon_Ineffa_Circle"
+  },
   "99999": {
     "id": 10000021,
     "iconPath": "UI_AvatarIcon_Ambor_Circle"
@@ -578,5 +590,9 @@
   "100210": {
     "id": 75177,
     "iconPath": "UI_AvatarIcon_75177_Circle"
+  },
+  "100220": {
+    "id": 75230,
+    "iconPath": "UI_AvatarIcon_75230_Circle"
   }
 }

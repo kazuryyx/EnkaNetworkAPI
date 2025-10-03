@@ -65,10 +65,20 @@ public class GenshinUserCharacter {
 
     /**
      * Gets the max level this character can currently be leveled up to.
+     * <br>After 6.0 it is now possible to level up characters to level 95 and 100, this method takes that into account.
      */
     public int getMaxLevel() {
         final int[] promotions = new int[]{20, 40, 50, 60, 70, 80, 90};
-        return promotions[this.currentAscension];
+        final int currentLevel = this.getCurrentLevel();
+
+        int maxLevel = promotions[this.getCurrentAscension()];
+        if (currentLevel > 90) {
+            maxLevel += 5;
+        }
+        if (currentLevel > 95) {
+            maxLevel += 5;
+        }
+        return maxLevel;
     }
 
     /**
@@ -89,6 +99,7 @@ public class GenshinUserCharacter {
     /**
      * Represents the current ascension of the character.
      * <br>For example, if the character is ascended to level 90, this will be 6.
+     * <br>If a character is level 95 or level 100, this will still be 6.
      */
     public int getCurrentAscension() {
         return this.currentAscension;
@@ -96,7 +107,7 @@ public class GenshinUserCharacter {
 
     /**
      * Represents the current level of the character.
-     * <br>This is a range from 0 to 90.
+     * <br>This is a range from 0 to 100 (91-94 and 96-99 are excluded).
      */
     public int getCurrentLevel() {
         return this.currentLevel;

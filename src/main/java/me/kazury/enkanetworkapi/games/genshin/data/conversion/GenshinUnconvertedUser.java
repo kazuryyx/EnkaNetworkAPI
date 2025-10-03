@@ -41,6 +41,10 @@ public class GenshinUnconvertedUser implements IExpiryTime {
         private int fetterCount;
         private int towerStarIndex;
 
+        // stygian things
+        private int stygianIndex;
+        private int stygianSeconds;
+
         public String getNickname() {
             return this.nickname;
         }
@@ -107,6 +111,14 @@ public class GenshinUnconvertedUser implements IExpiryTime {
 
         public ProfilePicture getProfilePicture() {
             return this.profilePicture;
+        }
+
+        public int getStygianIndex() {
+            return this.stygianIndex;
+        }
+
+        public int getStygianSeconds() {
+            return this.stygianSeconds;
         }
     }
 

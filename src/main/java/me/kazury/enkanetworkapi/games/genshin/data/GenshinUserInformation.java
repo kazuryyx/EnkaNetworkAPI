@@ -33,6 +33,11 @@ public class GenshinUserInformation {
     private final int theaterActs;
     private final int theaterMode;
     private final int theaterStars;
+
+    // stygian fields
+    private final int stygianIndex;
+    private final int stygianSeconds;
+
     private final boolean isShowAvatarTalent;
     private final int maxFriendshipNum;
     private final int abyssStars;
@@ -52,6 +57,8 @@ public class GenshinUserInformation {
                                   final int theaterActs,
                                   final int theaterMode,
                                   final int theaterStars,
+                                  final int stygianIndex,
+                                  final int stygianSeconds,
                                   final boolean isShowAvatarTalent,
                                   final int maxFriendshipNum,
                                   final int abyssStars,
@@ -75,6 +82,11 @@ public class GenshinUserInformation {
         this.theaterActs = theaterActs;
         this.theaterMode = theaterMode;
         this.theaterStars = theaterStars;
+
+        // stygian fields
+        this.stygianIndex = stygianIndex;
+        this.stygianSeconds = stygianSeconds;
+
         this.isShowAvatarTalent = isShowAvatarTalent;
         this.maxFriendshipNum = maxFriendshipNum;
         this.abyssStars = abyssStars;
@@ -186,6 +198,21 @@ public class GenshinUserInformation {
      */
     public int getTheaterStars() {
         return this.theaterStars;
+    }
+
+    /**
+     * The index this user is at in the Stygian Onslaught Endgame mode.
+     * <br>1 = Normal, 2 = Advancing, 3 = Hard, 4 = Menacing, 5 = Fearless, 6 = Dire
+     */
+    public int getStygianIndex() {
+        return this.stygianIndex;
+    }
+
+    /**
+     * How many seconds the user took to clear all 3 bosses in the Stygian Onslaught.
+     */
+    public int getStygianSeconds() {
+        return this.stygianSeconds;
     }
 
     /**
@@ -310,6 +337,10 @@ public class GenshinUserInformation {
                 playerInfoData.getTheaterActIndex(),
                 playerInfoData.getTheaterModeIndex(),
                 playerInfoData.getTheaterStarIndex(),
+
+                playerInfoData.getStygianIndex(),
+                playerInfoData.getStygianSeconds(),
+
                 playerInfoData.isShowAvatarTalent(),
                 playerInfoData.getFetterCount(),
                 playerInfoData.getTowerStarIndex(),
